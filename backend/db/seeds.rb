@@ -8,6 +8,4 @@
 
 u1 = User.create!(username: "poop", password_digest: "poop")
 l1 = Location.create!(country: "poopville", flag: "neato", ISO: "TSM", confirmed: 1, deaths: 10, active: 12, recovered: 0, lat: 1.999, lon: 29.3999, date: "Today")
-
-
 s1 = Story.create!(title: 'trump out', description: 'holy shit', author: 'noam chomsly', url: 'random string', urlToImage: 'amnother random string', publishedAt: 'yesterday')
