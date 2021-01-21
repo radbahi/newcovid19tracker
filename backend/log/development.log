@@ -518,3 +518,93 @@ Processing by StoriesController#index as HTML
 Completed 200 OK in 34ms (Views: 20.3ms | ActiveRecord: 10.9ms | Allocations: 8236)
 
 
+Started GET "/users" for ::1 at 2021-01-21 14:54:04 -0500
+  [1m[35m (2.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (3.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:4:in `index'
+No serializer found for resource: #<User id: 1, username: "poop", password_digest: [FILTERED], locations_id: nil, created_at: "2021-01-19 20:48:35", updated_at: "2021-01-19 20:48:35">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with User::ActiveRecord_Relation (1.73ms)
+Completed 200 OK in 83ms (Views: 32.5ms | ActiveRecord: 13.3ms | Allocations: 7827)
+
+
+Started GET "/users/1/" for ::1 at 2021-01-21 14:55:05 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (10.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (1) LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `show'
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 12.3ms | Allocations: 2163)
+
+
+  
+ActiveRecord::StatementInvalid (PG::DatatypeMismatch: ERROR:  argument of WHERE must be type boolean, not type integer
+LINE 1: SELECT "users".* FROM "users" WHERE (1) LIMIT $1
+                                             ^
+):
+  
+app/controllers/users_controller.rb:8:in `show'
+Started GET "/users/1/" for ::1 at 2021-01-21 14:56:26 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (1) LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `show'
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 4.4ms | Allocations: 2169)
+
+
+  
+ActiveRecord::StatementInvalid (PG::DatatypeMismatch: ERROR:  argument of WHERE must be type boolean, not type integer
+LINE 1: SELECT "users".* FROM "users" WHERE (1) LIMIT $1
+                                             ^
+):
+  
+app/controllers/users_controller.rb:8:in `show'
+Started GET "/users/1/" for ::1 at 2021-01-21 14:56:45 -0500
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (1) LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `show'
+Completed 500 Internal Server Error in 54ms (ActiveRecord: 5.4ms | Allocations: 2609)
+
+
+  
+ActiveRecord::StatementInvalid (PG::DatatypeMismatch: ERROR:  argument of WHERE must be type boolean, not type integer
+LINE 1: SELECT "users".* FROM "users" WHERE (1) LIMIT $1
+                                             ^
+):
+  
+app/controllers/users_controller.rb:8:in `show'
+Started GET "/users/1/" for ::1 at 2021-01-21 14:58:26 -0500
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (1) LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `show'
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 4.6ms | Allocations: 2607)
+
+
+  
+ActiveRecord::StatementInvalid (PG::DatatypeMismatch: ERROR:  argument of WHERE must be type boolean, not type integer
+LINE 1: SELECT "users".* FROM "users" WHERE (1) LIMIT $1
+                                             ^
+):
+  
+app/controllers/users_controller.rb:8:in `show'
+Started GET "/users" for ::1 at 2021-01-21 15:00:39 -0500
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (5.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:4:in `index'
+No serializer found for resource: #<User id: 1, username: "poop", password_digest: [FILTERED], locations_id: nil, created_at: "2021-01-19 20:48:35", updated_at: "2021-01-19 20:48:35">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with User::ActiveRecord_Relation (1.03ms)
+Completed 200 OK in 54ms (Views: 28.0ms | ActiveRecord: 20.5ms | Allocations: 7191)
+
+
+Started GET "/users/1" for ::1 at 2021-01-21 15:00:45 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with User (1.41ms)
+Completed 200 OK in 27ms (Views: 12.1ms | ActiveRecord: 2.9ms | Allocations: 1560)
+
+
