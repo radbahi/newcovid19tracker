@@ -14,11 +14,10 @@ class UsersController < ApplicationController
 
     def login 
         @user = User.find_by(params[:id])
-        if @user.authenticate(params[:password])
+        if @user && @user.authenticate(params[:password])
             # has_secure_password contains authenticate method
             wristband = encode_token({user_id: @user_id})
-            render json: @user
-            # { user: UsersSerializer.new(@user), token: wristband }
+            render json: { user: UserSerializer.new(@user), token: wristband }
         else
             render json: {error: "oh fuck"}
         end
@@ -28,9 +27,7 @@ class UsersController < ApplicationController
         user = User.create(user_params)
         if user.valid?
             wristband = encode_token({user_id: @user_id})
-            # user = user
-            # token = JWT.encode({user_id: user.id}, ENV["JWT_KEY"], 'HS256') # MUST HIDE SECRET
-            render json: {user: user}
+            render json:  { user: UserSerializer.new(@user), token: wristband }
         else
             render json: {error: 'BIG PROBLEM'}
         end

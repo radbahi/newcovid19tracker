@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 2021_01_19_195702) do
     t.float "lat"
     t.float "lon"
     t.string "date"
+    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

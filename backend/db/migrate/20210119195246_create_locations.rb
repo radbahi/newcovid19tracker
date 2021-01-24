@@ -11,6 +11,7 @@ class CreateLocations < ActiveRecord::Migration[6.0]
       t.float :lat
       t.float :lon
       t.string :date
+      t.integer :user_id
 
       t.timestamps
     end
