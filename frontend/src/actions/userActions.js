@@ -8,7 +8,11 @@ export const login = (email, password) => async (dispatch) => {
 
     const config = { headers: { 'Content-Type': 'application/json' } } //we want to send this as a header.
 
-    const { data } = await axios.post('/login', { email, password }, config) //pass all these arguments in and then extract data from the response
+    const { data } = await axios.post(
+      'http://localhost:3000/login',
+      { email, password },
+      config
+    ) //pass all these arguments in and then extract data from the response
 
     dispatch({ type: 'USER_LOGIN_SUCCESS', payload: data })
 
