@@ -1,18 +1,24 @@
 import axios from 'axios'
 
-export const login = (email, password) => async (dispatch) => {
+export const login = (username, password) => async (dispatch) => {
   try {
     dispatch({
       type: 'USER_LOGIN_REQUEST',
     })
 
-    const config = { headers: { 'Content-Type': 'application/json' } } //we want to send this as a header.
+    const config = { headers: { 
+      'Content-Type': 'application/json',
+      Authorization: `Bearer <token>`
+    } } //we want to send this as a header.
 
-    const { data } = await axios.post(
+    const data  = await axios.post(
       'http://localhost:3000/login',
-      { email, password },
+      { username, password },
       config
-    ) //pass all these arguments in and then extract data from the response
+    )
+    localStorage.setItem('userInfo', JSON.stringify(data), data.token = localStorage.token)
+
+    console.log(data) //pass all these arguments in and then extract data from the response
 
     dispatch({ type: 'USER_LOGIN_SUCCESS', payload: data })
 
