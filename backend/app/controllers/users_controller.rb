@@ -18,6 +18,7 @@ class UsersController < ApplicationController
             # has_secure_password contains authenticate method
             wristband = encode_token({user_id: @user_id})
             render json: @user
+            # { user: UsersSerializer.new(@user), token: wristband }
         else
             render json: {error: "oh fuck"}
         end

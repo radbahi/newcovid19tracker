@@ -4,6 +4,6 @@ Rails.application.routes.draw do
   resources :stories, only: [:index, :show]
   resources :users, only: [:index, :show, :create]
   
-  post "/login", to: "user#login"
+  post "/login", to: "users#login"
 
 end
