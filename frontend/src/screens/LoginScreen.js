@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { login, logout } from '../actions/userActions.js'
+import { login, logout, register } from '../actions/userActions.js'
 
 const LoginScreen = () => {
   const dispatch = useDispatch()
@@ -21,7 +21,7 @@ const LoginScreen = () => {
 
   const submitRegisterHandler = (e) => {
     e.preventDefault()
-    dispatch(login(username, password))
+    dispatch(register(username, password))
     console.log(userInfo)
   }
 
@@ -38,7 +38,7 @@ const LoginScreen = () => {
     <div>
       {userInfo ? (
         <div>
-          {/* <h3>Welcome, {userInfo.data.user.username}</h3> */}
+          <h3>Welcome, {userInfo.data.user.username}</h3>
           <button onClick={logoutHandler}>LOGOUT</button>
         </div>
       ) : (
@@ -62,8 +62,8 @@ const LoginScreen = () => {
             />
             <input type='submit' value='Submit' />
           </form>
+          <h1>New user? Register</h1>
           <form onSubmit={submitRegisterHandler}>
-            <h1>New user? Register</h1>
             <label htmlFor='usernameRegister'>Username:</label>
             <input
               type='text'
