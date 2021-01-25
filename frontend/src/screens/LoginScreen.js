@@ -62,8 +62,8 @@ const LoginScreen = () => {
             />
             <input type='submit' value='Submit' />
           </form>
+          <h1>New user? Register</h1>
           <form onSubmit={submitRegisterHandler}>
-            <h1>New user? Register</h1>
             <label htmlFor='usernameRegister'>Username:</label>
             <input
               type='text'
