@@ -14,6 +14,10 @@ const LoginScreen = () => {
     dispatch(login(username, password))
   }
 
+  const userLogin = useSelector((state) => state.userLogin)
+
+  const { userInfo } = userLogin
+
   return (
     <div>
       <form onSubmit={submitHandler}>
@@ -34,6 +38,11 @@ const LoginScreen = () => {
         />
         <input type='submit' value='Submit' />
       </form>
+      {userInfo ? (
+        <h3>Welcome, ${userInfo.username}</h3>
+      ) : (
+        <h3>You are not logged in</h3>
+      )}
     </div>
   )
 }

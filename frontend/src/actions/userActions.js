@@ -6,17 +6,23 @@ export const login = (username, password) => async (dispatch) => {
       type: 'USER_LOGIN_REQUEST',
     })
 
-    const config = { headers: { 
-      'Content-Type': 'application/json',
-      Authorization: `Bearer <token>`
-    } } //we want to send this as a header.
+    const config = {
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer <token>`,
+      },
+    } //we want to send this as a header.
 
-    const data  = await axios.post(
+    const data = await axios.post(
       'http://localhost:3000/login',
       { username, password },
       config
     )
-    localStorage.setItem('userInfo', JSON.stringify(data), data.token = localStorage.token)
+    localStorage.setItem(
+      'userInfo',
+      JSON.stringify(data),
+      (data.token = localStorage.token)
+    )
 
     console.log(data) //pass all these arguments in and then extract data from the response
 
@@ -33,4 +39,9 @@ export const login = (username, password) => async (dispatch) => {
           : error.message,
     }) //the payload here checks for our custom message. if it exists, send the custom message, if not, send generic message}
   }
+}
+
+export const logout = () => (dispatch) => {
+  localStorage.removeItem('userInfo')
+  dispatch({ type: 'USER_LOGOUT' })
 }
