@@ -1525,6 +1525,7 @@ Processing by UsersController#login as */*
 Completed 200 OK in 317ms (Views: 2.8ms | ActiveRecord: 0.9ms | Allocations: 2385)
 
 
+<<<<<<< HEAD
 Started POST "/login" for ::1 at 2021-01-25 15:09:28 -0500
   [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
 Processing by UsersController#login as HTML
@@ -1587,12 +1588,69 @@ Processing by UsersController#create as */*
   ↳ app/controllers/users_controller.rb:27:in `create'
 [active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (46.32ms)
 Completed 500 Internal Server Error in 763ms (ActiveRecord: 15.0ms | Allocations: 9147)
+=======
+Started POST "/login" for ::1 at 2021-01-25 15:13:04 -0500
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#login as HTML
+  Parameters: {"username"=>"batman", "password"=>"[FILTERED]", "user"=>{"username"=>"batman"}}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `login'
+[active_model_serializers]   [1m[36mLocation Load (3.6ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:20:in `login'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (35.45ms)
+Completed 200 OK in 335ms (Views: 33.7ms | ActiveRecord: 11.8ms | Allocations: 12064)
+
+
+Started POST "/login" for ::1 at 2021-01-25 15:13:20 -0500
+Processing by UsersController#login as HTML
+  Parameters: {"username"=>"batman", "password"=>"[FILTERED]", "user"=>{"username"=>"batman"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `login'
+[active_model_serializers]   [1m[36mLocation Load (0.4ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:20:in `login'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (3.41ms)
+Completed 200 OK in 268ms (Views: 3.3ms | ActiveRecord: 0.7ms | Allocations: 2390)
+
+
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" LIMIT $1[0m  [["LIMIT", 11]]
+Started POST "/users?username=bigguy&password=[FILTERED]" for ::1 at 2021-01-25 15:17:57 -0500
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"bigguy", "password"=>"[FILTERED]"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:27:in `create'
+  [1m[36mUser Create (0.9ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "bigguy"], ["password_digest", "$2a$12$mcAACVoMOT3HzXRWjt94T.DfRFaKScErS5bl1Ci9O6zmA7kLupPiG"], ["created_at", "2021-01-25 20:17:57.824299"], ["updated_at", "2021-01-25 20:17:57.824299"]]
+  ↳ app/controllers/users_controller.rb:27:in `create'
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:27:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (7.79ms)
+Completed 500 Internal Server Error in 330ms (ActiveRecord: 8.5ms | Allocations: 11363)
 
 
   
 NoMethodError (undefined method `read_attribute_for_serialization' for nil:NilClass):
   
 app/controllers/users_controller.rb:30:in `create'
+Started POST "/users?username=bigguy&password=[FILTERED]" for ::1 at 2021-01-25 15:25:38 -0500
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"bigguy", "password"=>"[FILTERED]"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:27:in `create'
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "bigguy"], ["password_digest", "$2a$12$nVoL57.pbR9drK1OnpBl..wAVbOlrE8gYUuK7T0lZlTCqNDI7TZ9S"], ["created_at", "2021-01-25 20:25:38.442722"], ["updated_at", "2021-01-25 20:25:38.442722"]]
+  ↳ app/controllers/users_controller.rb:27:in `create'
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:27:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (6.56ms)
+Completed 500 Internal Server Error in 319ms (ActiveRecord: 5.4ms | Allocations: 11413)
+>>>>>>> 09ef8885637c1aca481f86162f93a92aea15e6b9
+
+
+  
+NoMethodError (undefined method `read_attribute_for_serialization' for nil:NilClass):
+  
+app/controllers/users_controller.rb:30:in `create'
+<<<<<<< HEAD
 Started POST "/login" for ::1 at 2021-01-25 15:26:59 -0500
 Processing by UsersController#login as HTML
   Parameters: {"username"=>"poop", "password"=>"[FILTERED]", "user"=>{"username"=>"poop"}}
@@ -1917,3 +1975,466 @@ Processing by UsersController#login as HTML
 Completed 200 OK in 339ms (Views: 8.0ms | ActiveRecord: 13.0ms | Allocations: 2497)
 
 
+=======
+Started POST "/login/?username=batman&password=[FILTERED]" for ::1 at 2021-01-25 15:27:01 -0500
+Processing by UsersController#login as */*
+  Parameters: {"username"=>"batman", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `login'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Completed 200 OK in 281ms (Views: 0.8ms | ActiveRecord: 3.8ms | Allocations: 6049)
+
+
+Started POST "/login/?username=batman&password=[FILTERED]" for ::1 at 2021-01-25 15:28:29 -0500
+Processing by UsersController#login as */*
+  Parameters: {"username"=>"batman", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `login'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.05ms)
+Completed 200 OK in 285ms (Views: 0.6ms | ActiveRecord: 0.5ms | Allocations: 900)
+
+
+Started POST "/login/?username=batman&password=[FILTERED]" for ::1 at 2021-01-25 15:28:30 -0500
+Processing by UsersController#login as */*
+  Parameters: {"username"=>"batman", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `login'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.13ms)
+Completed 200 OK in 268ms (Views: 0.7ms | ActiveRecord: 0.7ms | Allocations: 881)
+
+
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" LIMIT $1[0m  [["LIMIT", 11]]
+Started POST "/users?username=home&password=[FILTERED]" for ::1 at 2021-01-25 15:30:19 -0500
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"home", "password"=>"[FILTERED]"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:27:in `create'
+  [1m[36mUser Create (0.9ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "home"], ["password_digest", "$2a$12$Vg0uPdp4558/TJ6RWw4Vnufy0VIDnNetf2t0Vhc7eYGhtfrFjoiHW"], ["created_at", "2021-01-25 20:30:20.258004"], ["updated_at", "2021-01-25 20:30:20.258004"]]
+  ↳ app/controllers/users_controller.rb:27:in `create'
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:27:in `create'
+[active_model_serializers]   [1m[36mLocation Load (0.5ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."user_id" = $1[0m  [["user_id", 4]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:30:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (19.18ms)
+Completed 200 OK in 316ms (Views: 18.4ms | ActiveRecord: 9.1ms | Allocations: 15786)
+
+
+Started POST "/users?username=home&password=[FILTERED]" for ::1 at 2021-01-25 16:15:16 -0500
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"home", "password"=>"[FILTERED]"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:27:in `create'
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "home"], ["password_digest", "$2a$12$5Wiy/1L0BblJYFpMAnbsR.Cf6Lye334E/bh.uSYNMJYmOJolWMrSe"], ["created_at", "2021-01-25 21:15:17.130362"], ["updated_at", "2021-01-25 21:15:17.130362"]]
+  ↳ app/controllers/users_controller.rb:27:in `create'
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:27:in `create'
+[active_model_serializers]   [1m[36mLocation Load (0.5ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."user_id" = $1[0m  [["user_id", 5]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:30:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (6.85ms)
+Completed 200 OK in 288ms (Views: 6.7ms | ActiveRecord: 2.2ms | Allocations: 10249)
+
+
+Started POST "/login?username=home&password=[FILTERED]" for ::1 at 2021-01-25 16:19:30 -0500
+Processing by UsersController#login as */*
+  Parameters: {"username"=>"home", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `login'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.07ms)
+Completed 200 OK in 291ms (Views: 0.6ms | ActiveRecord: 0.4ms | Allocations: 922)
+
+
+Started POST "/login?username=home&password=[FILTERED]" for ::1 at 2021-01-25 16:25:48 -0500
+Processing by UsersController#login as */*
+  Parameters: {"username"=>"home", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `login'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.07ms)
+Completed 200 OK in 270ms (Views: 0.7ms | ActiveRecord: 0.8ms | Allocations: 997)
+
+
+Started POST "/login?username=batman&password=[FILTERED]" for ::1 at 2021-01-25 16:26:04 -0500
+Processing by UsersController#login as */*
+  Parameters: {"username"=>"batman", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `login'
+[active_model_serializers]   [1m[36mLocation Load (0.4ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:20:in `login'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (2.82ms)
+Completed 200 OK in 270ms (Views: 2.7ms | ActiveRecord: 0.7ms | Allocations: 2413)
+
+
+Started POST "/users?username=joker&password=[FILTERED]" for ::1 at 2021-01-25 16:26:26 -0500
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"joker", "password"=>"[FILTERED]"}
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:27:in `create'
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "joker"], ["password_digest", "$2a$12$k1TCzjGJgNBSNTPe9vEMJ.nxZsjPyH1woxbjR4R.iFwWqkF8o68ii"], ["created_at", "2021-01-25 21:26:26.813493"], ["updated_at", "2021-01-25 21:26:26.813493"]]
+  ↳ app/controllers/users_controller.rb:27:in `create'
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:27:in `create'
+[active_model_serializers]   [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."user_id" = $1[0m  [["user_id", 6]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:30:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (1.9ms)
+Completed 200 OK in 276ms (Views: 2.0ms | ActiveRecord: 2.1ms | Allocations: 4126)
+
+
+Started POST "/login" for ::1 at 2021-01-25 16:26:58 -0500
+Processing by UsersController#login as HTML
+  Parameters: {"username"=>"", "password"=>"[FILTERED]", "user"=>{"username"=>""}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `login'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Completed 200 OK in 265ms (Views: 0.4ms | ActiveRecord: 0.3ms | Allocations: 885)
+
+
+Started POST "/login" for ::1 at 2021-01-25 16:31:18 -0500
+Processing by UsersController#login as HTML
+  Parameters: {"username"=>"", "password"=>"[FILTERED]", "user"=>{"username"=>""}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `login'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.08ms)
+Completed 200 OK in 269ms (Views: 0.5ms | ActiveRecord: 0.6ms | Allocations: 885)
+
+
+Started POST "/login" for ::1 at 2021-01-25 16:31:57 -0500
+Processing by UsersController#login as HTML
+  Parameters: {"username"=>"batman", "password"=>"[FILTERED]", "user"=>{"username"=>"batman"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `login'
+[active_model_serializers]   [1m[36mLocation Load (0.6ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:20:in `login'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (2.36ms)
+Completed 200 OK in 268ms (Views: 2.1ms | ActiveRecord: 1.0ms | Allocations: 2390)
+
+
+Started POST "/login" for ::1 at 2021-01-25 16:32:54 -0500
+Processing by UsersController#login as HTML
+  Parameters: {"username"=>"batman", "password"=>"[FILTERED]", "user"=>{"username"=>"batman"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `login'
+[active_model_serializers]   [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:20:in `login'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (2.46ms)
+Completed 200 OK in 286ms (Views: 2.6ms | ActiveRecord: 0.6ms | Allocations: 2382)
+
+
+Started POST "/login" for ::1 at 2021-01-25 16:33:15 -0500
+Processing by UsersController#login as HTML
+  Parameters: {"username"=>"batman", "password"=>"[FILTERED]", "user"=>{"username"=>"batman"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `login'
+[active_model_serializers]   [1m[36mLocation Load (0.4ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:20:in `login'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (2.53ms)
+Completed 200 OK in 270ms (Views: 2.6ms | ActiveRecord: 0.6ms | Allocations: 2369)
+
+
+Started POST "/login" for ::1 at 2021-01-25 16:37:24 -0500
+Processing by UsersController#login as HTML
+  Parameters: {"username"=>"batman", "password"=>"[FILTERED]", "user"=>{"username"=>"batman"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `login'
+[active_model_serializers]   [1m[36mLocation Load (0.5ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:20:in `login'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (2.54ms)
+Completed 200 OK in 269ms (Views: 2.6ms | ActiveRecord: 0.9ms | Allocations: 2372)
+
+
+Started POST "/users" for ::1 at 2021-01-25 16:41:58 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"username"=>"batman", "password"=>"[FILTERED]", "user"=>{"username"=>"batman"}}
+[31mUnpermitted parameter: :user[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:27:in `create'
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "batman"], ["password_digest", "$2a$12$ykypfVDlCjRvdFyW5RBxSuu6Ob6cvdOauutyUkRTGMbQALm1SCIdW"], ["created_at", "2021-01-25 21:41:59.120825"], ["updated_at", "2021-01-25 21:41:59.120825"]]
+  ↳ app/controllers/users_controller.rb:27:in `create'
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:27:in `create'
+[active_model_serializers]   [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."user_id" = $1[0m  [["user_id", 7]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:30:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (2.0ms)
+Completed 200 OK in 272ms (Views: 2.0ms | ActiveRecord: 1.9ms | Allocations: 4166)
+
+
+Started POST "/login" for ::1 at 2021-01-25 16:43:03 -0500
+Processing by UsersController#login as HTML
+  Parameters: {"username"=>"batman", "password"=>"[FILTERED]", "user"=>{"username"=>"batman"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `login'
+[active_model_serializers]   [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:20:in `login'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (2.14ms)
+Completed 200 OK in 272ms (Views: 2.5ms | ActiveRecord: 0.6ms | Allocations: 2369)
+
+
+Started POST "/users" for ::1 at 2021-01-25 16:43:20 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"username"=>"batman", "password"=>"[FILTERED]", "user"=>{"username"=>"batman"}}
+[31mUnpermitted parameter: :user[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:27:in `create'
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "batman"], ["password_digest", "$2a$12$nfmWDO4Pc99d9A0dT8UVuuKmqZ3ZZQRGVLfhrxQEr7EsDIH0goGKq"], ["created_at", "2021-01-25 21:43:20.287534"], ["updated_at", "2021-01-25 21:43:20.287534"]]
+  ↳ app/controllers/users_controller.rb:27:in `create'
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:27:in `create'
+[active_model_serializers]   [1m[36mLocation Load (0.1ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."user_id" = $1[0m  [["user_id", 8]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:30:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (1.7ms)
+Completed 200 OK in 275ms (Views: 1.8ms | ActiveRecord: 1.7ms | Allocations: 4161)
+
+
+Started POST "/users" for ::1 at 2021-01-25 16:46:58 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"username"=>"", "password"=>"[FILTERED]", "user"=>{"username"=>""}}
+[31mUnpermitted parameter: :user[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.05ms)
+Completed 200 OK in 9ms (Views: 0.5ms | ActiveRecord: 0.0ms | Allocations: 2217)
+
+
+Started POST "/users" for ::1 at 2021-01-25 16:50:57 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"username"=>"", "password"=>"[FILTERED]", "user"=>{"username"=>""}}
+[31mUnpermitted parameter: :user[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.07ms)
+Completed 200 OK in 3ms (Views: 0.5ms | ActiveRecord: 0.0ms | Allocations: 1086)
+
+
+Started POST "/users" for ::1 at 2021-01-25 16:51:13 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"username"=>"", "password"=>"[FILTERED]", "user"=>{"username"=>""}}
+[31mUnpermitted parameter: :user[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.07ms)
+Completed 200 OK in 3ms (Views: 0.6ms | ActiveRecord: 0.0ms | Allocations: 1084)
+
+
+Started POST "/users" for ::1 at 2021-01-25 16:52:25 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"username"=>"", "password"=>"[FILTERED]", "user"=>{"username"=>""}}
+[31mUnpermitted parameter: :user[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Completed 200 OK in 2ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 1084)
+
+
+Started POST "/users" for ::1 at 2021-01-25 16:53:07 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"username"=>"", "password"=>"[FILTERED]", "user"=>{"username"=>""}}
+[31mUnpermitted parameter: :user[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.07ms)
+Completed 200 OK in 10ms (Views: 0.6ms | ActiveRecord: 9.6ms | Allocations: 4905)
+
+
+Started POST "/users" for ::1 at 2021-01-25 16:53:27 -0500
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as HTML
+  Parameters: {"username"=>"", "password"=>"[FILTERED]", "user"=>{"username"=>""}}
+[31mUnpermitted parameter: :user[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.11ms)
+Completed 200 OK in 16ms (Views: 2.4ms | ActiveRecord: 5.1ms | Allocations: 6638)
+
+
+Started POST "/users" for ::1 at 2021-01-25 16:54:27 -0500
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+SyntaxError (/Users/kevingleeson/Development/newcovid19tracker/backend/app/controllers/users_controller.rb:39: syntax error, unexpected ',', expecting =>
+...arams.permit( user: {:username, :password}, :location_id)
+...                              ^):
+  
+app/controllers/users_controller.rb:39: syntax error, unexpected ',', expecting =>
+app/controllers/users_controller.rb:39: syntax error, unexpected ',', expecting =>
+Started POST "/users" for ::1 at 2021-01-25 16:54:33 -0500
+  
+SyntaxError (/Users/kevingleeson/Development/newcovid19tracker/backend/app/controllers/users_controller.rb:39: syntax error, unexpected ',', expecting =>
+...arams.permit( user: {:username, :password}, :location_id)
+...                              ^):
+  
+app/controllers/users_controller.rb:39: syntax error, unexpected ',', expecting =>
+app/controllers/users_controller.rb:39: syntax error, unexpected ',', expecting =>
+Started POST "/users" for ::1 at 2021-01-25 16:56:29 -0500
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+SyntaxError (/Users/kevingleeson/Development/newcovid19tracker/backend/app/controllers/users_controller.rb:39: syntax error, unexpected ':', expecting ')'
+        params.permit((:user) :username, :password, :locatio...
+                              ^
+/Users/kevingleeson/Development/newcovid19tracker/backend/app/controllers/users_controller.rb:39: syntax error, unexpected ',', expecting '.' or &. or :: or '['
+...t((:user) :username, :password, :location_id)
+...                              ^):
+  
+app/controllers/users_controller.rb:39: syntax error, unexpected ':', expecting ')'
+app/controllers/users_controller.rb:39: syntax error, unexpected ',', expecting '.' or &. or :: or '['
+app/controllers/users_controller.rb:39: syntax error, unexpected ':', expecting ')'
+app/controllers/users_controller.rb:39: syntax error, unexpected ',', expecting '.' or &. or :: or '['
+Started POST "/users" for ::1 at 2021-01-25 16:56:30 -0500
+  
+SyntaxError (/Users/kevingleeson/Development/newcovid19tracker/backend/app/controllers/users_controller.rb:39: syntax error, unexpected ':', expecting ')'
+        params.permit((:user) :username, :password, :locatio...
+                              ^
+/Users/kevingleeson/Development/newcovid19tracker/backend/app/controllers/users_controller.rb:39: syntax error, unexpected ',', expecting '.' or &. or :: or '['
+...t((:user) :username, :password, :location_id)
+...                              ^):
+  
+app/controllers/users_controller.rb:39: syntax error, unexpected ':', expecting ')'
+app/controllers/users_controller.rb:39: syntax error, unexpected ',', expecting '.' or &. or :: or '['
+app/controllers/users_controller.rb:39: syntax error, unexpected ':', expecting ')'
+app/controllers/users_controller.rb:39: syntax error, unexpected ',', expecting '.' or &. or :: or '['
+Started POST "/users" for ::1 at 2021-01-25 16:56:30 -0500
+  
+SyntaxError (/Users/kevingleeson/Development/newcovid19tracker/backend/app/controllers/users_controller.rb:39: syntax error, unexpected ':', expecting ')'
+        params.permit((:user) :username, :password, :locatio...
+                              ^
+/Users/kevingleeson/Development/newcovid19tracker/backend/app/controllers/users_controller.rb:39: syntax error, unexpected ',', expecting '.' or &. or :: or '['
+...t((:user) :username, :password, :location_id)
+...                              ^):
+  
+app/controllers/users_controller.rb:39: syntax error, unexpected ':', expecting ')'
+app/controllers/users_controller.rb:39: syntax error, unexpected ',', expecting '.' or &. or :: or '['
+app/controllers/users_controller.rb:39: syntax error, unexpected ':', expecting ')'
+app/controllers/users_controller.rb:39: syntax error, unexpected ',', expecting '.' or &. or :: or '['
+Started POST "/users" for ::1 at 2021-01-25 16:56:54 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"username"=>"", "password"=>"[FILTERED]", "user"=>{"username"=>""}}
+[31mUnpermitted parameter: :user[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.13ms)
+Completed 200 OK in 15ms (Views: 1.6ms | ActiveRecord: 7.9ms | Allocations: 6638)
+
+
+Started POST "/users" for ::1 at 2021-01-25 16:57:45 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"username"=>"", "password"=>"[FILTERED]", "user"=>{"username"=>""}}
+[31mUnpermitted parameter: :user[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Completed 200 OK in 8ms (Views: 0.5ms | ActiveRecord: 4.4ms | Allocations: 4858)
+
+
+Started POST "/users" for ::1 at 2021-01-25 16:58:20 -0500
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as HTML
+  Parameters: {"username"=>"", "password"=>"[FILTERED]", "user"=>{"username"=>""}}
+[31mUnpermitted parameter: :user[0m
+[31mUnpermitted parameter: :user[0m
+Completed 500 Internal Server Error in 75743ms (ActiveRecord: 7.2ms | Allocations: 54966)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `create'
+app/controllers/users_controller.rb:29:in `create'
+Started POST "/login" for ::1 at 2021-01-25 16:59:50 -0500
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#login as HTML
+  Parameters: {"username"=>"batman", "password"=>"[FILTERED]", "user"=>{"username"=>"batman"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `login'
+Completed 500 Internal Server Error in 187393ms (ActiveRecord: 5.7ms | Allocations: 169098)
+
+
+Started POST "/users" for ::1 at 2021-01-25 17:02:57 -0500
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `login'
+app/controllers/users_controller.rb:18:in `login'
+Started POST "/users" for ::1 at 2021-01-25 17:02:57 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"username"=>"batman", "password"=>"[FILTERED]", "user"=>{"username"=>"batman"}}
+[31mUnpermitted parameter: :user[0m
+  [1m[35m (4.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:28:in `create'
+Processing by UsersController#create as HTML
+  Parameters: {"username"=>"batman", "password"=>"[FILTERED]", "user"=>{"username"=>"batman"}}
+  [1m[36mUser Create (20.7ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "batman"], ["password_digest", "$2a$12$28lFZneI.prw6/mbFDWD/.gwrevshGw/1qLh72.bO5QPaT1r8/1HC"], ["created_at", "2021-01-25 22:02:58.229518"], ["updated_at", "2021-01-25 22:02:58.229518"]]
+[31mUnpermitted parameter: :user[0m
+  ↳ app/controllers/users_controller.rb:28:in `create'
+  [1m[35m (9.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:28:in `create'
+  [1m[35m (21.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:28:in `create'
+  [1m[36mUser Create (10.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "batman"], ["password_digest", "$2a$12$JYeXp46Ujk39gzMyLHDQiupY3LcXpHnt8VhJmLkxXZLR2lcYuyXIi"], ["created_at", "2021-01-25 22:02:58.582196"], ["updated_at", "2021-01-25 22:02:58.582196"]]
+  ↳ app/controllers/users_controller.rb:28:in `create'
+  [1m[35m (3.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:28:in `create'
+[active_model_serializers]   [1m[36mLocation Load (104.5ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."user_id" = $1[0m  [["user_id", 9]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:31:in `create'
+[active_model_serializers]   [1m[36mLocation Load (106.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."user_id" = $1[0m  [["user_id", 10]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (1127.88ms)
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:31:in `create'
+Completed 200 OK in 2759ms (Views: 1356.4ms | ActiveRecord: 552.8ms | Allocations: 19572380)
+
+
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (2210.3ms)
+Completed 200 OK in 3274ms (Views: 2422.2ms | ActiveRecord: 235.1ms | Allocations: 26749311)
+
+
+Started GET "/" for ::1 at 2021-01-25 17:04:38 -0500
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/kevingleeson/.rvm/gems/ruby-2.6.1/gems/railties-6.0.3.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/kevingleeson/.rvm/gems/ruby-2.6.1/gems/railties-6.0.3.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 8.7ms | Allocations: 315)
+Completed 200 OK in 19ms (Views: 13.8ms | ActiveRecord: 0.0ms | Allocations: 1808)
+
+
+Started POST "/users" for ::1 at 2021-01-25 17:05:57 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"username"=>"", "password"=>"[FILTERED]", "user"=>{"username"=>""}}
+[31mUnpermitted parameter: :user[0m
+Completed 500 Internal Server Error in 13336ms (ActiveRecord: 5.5ms | Allocations: 54674)
+
+
+Started POST "/users" for ::1 at 2021-01-25 17:06:11 -0500
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `create'
+app/controllers/users_controller.rb:30:in `create'
+Processing by UsersController#create as HTML
+  Parameters: {"username"=>"", "password"=>"[FILTERED]", "user"=>{"username"=>""}}
+[31mUnpermitted parameter: :user[0m
+Completed 500 Internal Server Error in 13672ms (ActiveRecord: 0.0ms | Allocations: 229001)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `create'
+app/controllers/users_controller.rb:30:in `create'
+Started POST "/users" for ::1 at 2021-01-25 17:06:51 -0500
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as HTML
+  Parameters: {"username"=>"", "password"=>"[FILTERED]", "user"=>{"username"=>""}}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 3.6ms | Allocations: 1644)
+
+
+  
+NameError (uninitialized constant UsersController::Users):
+  
+app/controllers/users_controller.rb:28:in `create'
+Started POST "/users" for ::1 at 2021-01-25 17:07:11 -0500
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as HTML
+  Parameters: {"username"=>"", "password"=>"[FILTERED]", "user"=>{"username"=>""}}
+[31mUnpermitted parameter: :user[0m
+Completed 500 Internal Server Error in 21029ms (ActiveRecord: 7.1ms | Allocations: 49177)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `create'
+app/controllers/users_controller.rb:30:in `create'
+Started POST "/login" for ::1 at 2021-01-25 17:07:33 -0500
+Processing by UsersController#login as HTML
+  Parameters: {"username"=>"batman", "password"=>"[FILTERED]", "user"=>{"username"=>"batman"}}
+Completed 500 Internal Server Error in 170ms (ActiveRecord: 0.0ms | Allocations: 1469375)
+
+
+  
+NameError (uninitialized constant UsersController::Users):
+  
+app/controllers/users_controller.rb:16:in `login'
+>>>>>>> 09ef8885637c1aca481f86162f93a92aea15e6b9

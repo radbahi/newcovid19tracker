@@ -13,7 +13,7 @@ class UsersController < ApplicationController
     end
 
     def login 
-        @user = User.find_by(params[:id])
+        @user = Users.find_by(params[:id])
         if @user && @user.authenticate(params[:password])
             # has_secure_password contains authenticate method
             wristband = encode_token({user_id: @user_id})
@@ -32,6 +32,8 @@ class UsersController < ApplicationController
             render json: {error: 'BIG PROBLEM'}
         end
     end
+
+    # user create is getting an invalid param of user, won't create new users. 
 
     private 
 
