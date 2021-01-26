@@ -18,7 +18,7 @@ const RegisterScreen = ({ history }) => {
     if (userInfo) {
       history.push('/login')
     }
-  }, [userInfo])
+  }, [userInfo, history])
 
   const submitRegisterHandler = (e) => {
     e.preventDefault()
