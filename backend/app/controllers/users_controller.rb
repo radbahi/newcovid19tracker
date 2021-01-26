@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+    # before_action :authorized, only: [:persist]
+
     def index 
         users = User.all 
         render json: users
@@ -13,7 +15,8 @@ class UsersController < ApplicationController
     end
 
     def login 
-        @user = Users.find_by(params[:id])
+        @user = User.find_by(username: params[:username])
+        
         if @user && @user.authenticate(params[:password])
             # has_secure_password contains authenticate method
             wristband = encode_token({user_id: @user_id})
@@ -32,6 +35,11 @@ class UsersController < ApplicationController
             render json: {error: 'BIG PROBLEM'}
         end
     end
+
+    # def persist 
+    #     wristband = encode_token({user_id: @user.id})
+    #     render json: { user: UserSerializer.new(@user), token: wristband }
+    # end 
 
     # user create is getting an invalid param of user, won't create new users. 
 
