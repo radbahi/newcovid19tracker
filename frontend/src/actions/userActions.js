@@ -66,7 +66,7 @@ export const register = (username, password) => async (dispatch) => {
       { username, password },
       config
     ) //pass all these arguments in and then extract data from the response
-
+  
     dispatch({ type: 'USER_REGISTER_SUCCESS', payload: data })
 
     dispatch({ type: 'USER_LOGIN_SUCCESS', payload: data }) //we want the user to be immediately logged in if registration is successful
