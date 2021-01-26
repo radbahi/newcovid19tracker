@@ -20,6 +20,7 @@ const LoginScreen = () => {
     console.log(userInfo)
   }
 
+  //PULL FROM LOCALSTORAGE INSTEAD
   const userLogin = useSelector((state) => state.userLogin)
 
   const { userInfo } = userLogin
@@ -28,7 +29,7 @@ const LoginScreen = () => {
     <div>
       {userInfo ? (
         <div>
-          {/* <h3>Welcome, {userInfo.data.user.username}</h3> */}
+          <h3>Welcome, {userInfo.user.username}</h3>
           <button onClick={logoutHandler}>LOGOUT</button>
         </div>
       ) : (

@@ -1,17 +1,24 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { register } from '../actions/userActions.js'
 
-const LoginScreen = () => {
+const RegisterScreen = ({ history }) => {
   const dispatch = useDispatch()
 
   const [usernameRegister, setUsernameRegister] = useState('')
 
   const [passwordRegister, setPasswordRegister] = useState('')
 
+  //PULL FROM LOCALSTORAGE INSTEAD
   const userLogin = useSelector((state) => state.userLogin)
 
   const { userInfo } = userLogin
+
+  useEffect(() => {
+    if (userInfo) {
+      history.push('/login')
+    }
+  }, [userInfo])
 
   const submitRegisterHandler = (e) => {
     e.preventDefault()
@@ -43,4 +50,4 @@ const LoginScreen = () => {
   )
 }
 
-export default LoginScreen
+export default RegisterScreen

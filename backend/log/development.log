@@ -3583,3 +3583,23 @@ Processing by UsersController#create as HTML
 Completed 200 OK in 381ms (Views: 24.4ms | ActiveRecord: 11.5ms | Allocations: 16891)
 
 
+Started POST "/users" for ::1 at 2021-01-26 15:42:25 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"username"=>"kevin", "password"=>"[FILTERED]", "user"=>{"username"=>"kevin"}}
+[31mUnpermitted parameter: :user[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:30:in `create'
+  [1m[36mUser Exists? (17.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "kevin"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:30:in `create'
+  [1m[36mUser Create (1.1ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "kevin"], ["password_digest", "$2a$12$MHFjV8lag.LAUwuRqIsRLuhc1BfCFdtlMuNOrSo431bA2CJX0wphe"], ["created_at", "2021-01-26 20:42:26.103177"], ["updated_at", "2021-01-26 20:42:26.103177"]]
+  ↳ app/controllers/users_controller.rb:30:in `create'
+  [1m[35m (4.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:30:in `create'
+  [1m[36mUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "kevin"], ["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `create'
+[active_model_serializers]   [1m[36mLocation Load (0.7ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."user_id" = $1[0m  [["user_id", 4]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:33:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (9.81ms)
+Completed 200 OK in 403ms (Views: 8.8ms | ActiveRecord: 26.5ms | Allocations: 6318)
+
+
