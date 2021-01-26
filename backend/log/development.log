@@ -3514,3 +3514,72 @@ Processing by UsersController#login as HTML
 Completed 200 OK in 270ms (Views: 2.3ms | ActiveRecord: 0.7ms | Allocations: 2283)
 
 
+Started POST "/users" for ::1 at 2021-01-26 15:00:30 -0500
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as HTML
+  Parameters: {"username"=>"", "password"=>"[FILTERED]", "user"=>{"username"=>""}}
+[31mUnpermitted parameter: :user[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:30:in `create'
+  [1m[36mUser Exists? (1.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:30:in `create'
+  [1m[35m (16.9ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:30:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.75ms)
+Completed 200 OK in 52ms (Views: 3.0ms | ActiveRecord: 36.4ms | Allocations: 10386)
+
+
+Started POST "/login" for ::1 at 2021-01-26 15:29:18 -0500
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#login as HTML
+  Parameters: {"username"=>"mark", "password"=>"[FILTERED]", "user"=>{"username"=>"mark"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "mark"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `login'
+Completed 500 Internal Server Error in 264ms (ActiveRecord: 3.3ms | Allocations: 71879)
+
+
+  
+NameError (undefined local variable or method `flash' for #<UsersController:0x00007f9919ae1938>):
+  
+app/controllers/users_controller.rb:25:in `login'
+Started POST "/login" for ::1 at 2021-01-26 15:30:40 -0500
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#login as HTML
+  Parameters: {"username"=>"mark", "password"=>"[FILTERED]", "user"=>{"username"=>"mark"}}
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "mark"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `login'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.3ms)
+Completed 200 OK in 9ms (Views: 2.4ms | ActiveRecord: 4.0ms | Allocations: 1717)
+
+
+Started POST "/login" for ::1 at 2021-01-26 15:31:14 -0500
+Processing by UsersController#login as HTML
+  Parameters: {"username"=>"mark", "password"=>"[FILTERED]", "user"=>{"username"=>"mark"}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "mark"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `login'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.08ms)
+Completed 200 OK in 4ms (Views: 0.7ms | ActiveRecord: 0.8ms | Allocations: 752)
+
+
+Started POST "/users" for ::1 at 2021-01-26 15:31:35 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"username"=>"funky", "password"=>"[FILTERED]", "user"=>{"username"=>"funky"}}
+[31mUnpermitted parameter: :user[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:30:in `create'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "funky"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:30:in `create'
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "funky"], ["password_digest", "$2a$12$EgqaE.Ew9uZnxAapbpI83.od0TZ1yjXwnoNahWkXTfogqMk9Z3HjW"], ["created_at", "2021-01-26 20:31:36.242983"], ["updated_at", "2021-01-26 20:31:36.242983"]]
+  ↳ app/controllers/users_controller.rb:30:in `create'
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:30:in `create'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "funky"], ["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `create'
+[active_model_serializers]   [1m[36mLocation Load (0.5ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."user_id" = $1[0m  [["user_id", 3]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:33:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (26.37ms)
+Completed 200 OK in 381ms (Views: 24.4ms | ActiveRecord: 11.5ms | Allocations: 16891)
+
+
