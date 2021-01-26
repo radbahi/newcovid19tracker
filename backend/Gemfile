@@ -25,6 +25,12 @@ gem 'bootsnap', '>= 1.4.2', require: false
 # JSON Web Tokens
 gem 'jwt'
 
+# stories seed gems
+gem 'unirest'
+gem 'rest-client'
+gem 'database_cleaner'
+gem 'pry'
+
 # Serializers
 gem 'active_model_serializers'
 

@@ -5,7 +5,24 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'unirest'
+require 'rest-client'
+
+# def api_secret_news
+#     ENV["NEWS_API_KEY"]
+# end
+
+# def news_dataset
+#     api_data = {key: api_secret_news}
+#     data = JSON.parse(RestClient.get("http://newsapi.org/v2/top-headlines?q=coronavirus&from=#{Date.yesterday.to_s}&sortBy=publishedAt&apiKey=#{api_data[:key]}"))
+#     data['articles'].each do |s|
+#         Story.create(title: s["title"], author: s["author"], description: s["description"], url: s["url"], urlToImage: s["urlToImage"], publishedAt: s["publishedAt"], content: s["content"]) 
+#     end
+# end
+
+# news_dataset()
 
 u1 = User.create!(username: "poop", password_digest: "poop")
 l1 = Location.create!(country: "poopville", flag: "neato", ISO: "TSM", confirmed: 1, deaths: 10, active: 12, recovered: 0, lat: 1.999, lon: 29.3999, date: "Today")
 s1 = Story.create!(title: 'trump out', description: 'holy shit', author: 'noam chomsly', url: 'random string', urlToImage: 'amnother random string', publishedAt: 'yesterday')
+
