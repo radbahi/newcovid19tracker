@@ -69,7 +69,7 @@ export const register = (username, password) => async (dispatch) => {
   
     dispatch({ type: 'USER_REGISTER_SUCCESS', payload: data })
 
-    dispatch({ type: 'USER_LOGIN_SUCCESS', payload: data }) //we want the user to be immediately logged in if registration is successful
+    // dispatch({ type: 'USER_LOGIN_SUCCESS', payload: data }) //we want the user to be immediately logged in if registration is successful
 
     localStorage.setItem(
       'userInfo',
