@@ -18,9 +18,22 @@ def news_dataset
     end
 end
 
+def covid19_dataset
+    data = JSON.parse(RestClient.get("https://disease.sh/v3/covid-19/countries?yesterday=true"))
+    data.each do |response|
+        puts response
+        if Location.find_by(ISO: response["iso3"])
+            location = Location.find_by(country: response["country"])
+            location.update(confirmed: response['cases'], recovered: response['recovered'], active: response['active'],
+            deaths: response['deaths'], date: response['updated'], flag: response['countryInfo']['flag'], ISO: response['countryInfo']['iso3'])
+            elsif response['countryInfo']["iso3"]
+            Location.create(country: response['country'], confirmed: response['cases'], recovered: response['recovered'],
+                active: response['active'], deaths: response['deaths'], lat: response['countryInfo']['lat'], lon: response['countryInfo']['long'],  date: response['updated'], flag: response['countryInfo']['flag'], ISO: response['countryInfo']['iso3'])
+        end
+    end
+end
+
+covid19_dataset()
 news_dataset()
 
-u1 = User.create!(username: "poop", password_digest: "poop")
-l1 = Location.create!(country: "poopville", flag: "neato", ISO: "TSM", confirmed: 1, deaths: 10, active: 12, recovered: 0, lat: 1.999, lon: 29.3999, date: "Today")
-s1 = Story.create!(title: 'trump out', description: 'holy shit', author: 'noam chomsly', url: 'random string', urlToImage: 'amnother random string', publishedAt: 'yesterday')
 
