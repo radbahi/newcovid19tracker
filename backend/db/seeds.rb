@@ -2,7 +2,6 @@
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 
 
-require 'unirest'
 require 'rest-client'
 
 def api_secret_news
@@ -11,10 +10,10 @@ end
 
 def news_dataset
     api_data = { key: api_secret_news }
-    news = RestClient.get('http://newsapi.org/v2/top-headlines?q=coronavirus&from=#{DateTime.yesterday.to_s}&sortBy=publishedAt&apiKey=#{api_data[:key]}')
+    news = RestClient.get("https://newsapi.org/v2/top-headlines?q=coronavirus&from=#{Date.yesterday.to_s}&sortBy=publishedAt&apiKey=#{api_data[:key]}")
     news_array = JSON.parse(news)["articles"]
-    news_array["articles"].each do |s|
-        Story.create(title: s["title"], author: s["author"], description: s["description"], url: s["url"], urlToImage: s["urlToImage"], publishedAt: s["publishedAt"], content: s["content"]) 
+    news_array['articles'].each do |s|
+        Story.create!(title: s["title"], author: s["author"], description: s["description"], url: s["url"], urlToImage: s["urlToImage"], publishedAt: s["publishedAt"], content: s["content"]) 
     end
 end
 
