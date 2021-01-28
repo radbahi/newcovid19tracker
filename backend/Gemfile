@@ -27,7 +27,6 @@ gem 'jwt'
 
 # stories seed gems
 gem 'dotenv-rails'
-gem 'unirest'
 gem 'rest-client'
 gem 'database_cleaner'
 gem 'pry'
