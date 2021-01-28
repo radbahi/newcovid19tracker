@@ -26,6 +26,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'jwt'
 
 # stories seed gems
+gem 'dotenv-rails'
 gem 'unirest'
 gem 'rest-client'
 gem 'database_cleaner'

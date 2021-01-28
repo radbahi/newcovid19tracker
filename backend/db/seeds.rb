@@ -1,26 +1,24 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+
+
 require 'unirest'
 require 'rest-client'
 
-# def api_secret_news
-#     ENV["NEWS_API_KEY"]
-# end
+def api_secret_news
+    ENV["NEWS_API_KEY"]
+end
 
-# def news_dataset
-#     api_data = {key: api_secret_news}
-#     data = JSON.parse(RestClient.get("http://newsapi.org/v2/top-headlines?q=coronavirus&from=#{Date.yesterday.to_s}&sortBy=publishedAt&apiKey=#{api_data[:key]}"))
-#     data['articles'].each do |s|
-#         Story.create(title: s["title"], author: s["author"], description: s["description"], url: s["url"], urlToImage: s["urlToImage"], publishedAt: s["publishedAt"], content: s["content"]) 
-#     end
-# end
+def news_dataset
+    api_data = { key: api_secret_news }
+    news = RestClient.get('http://newsapi.org/v2/top-headlines?q=coronavirus&from=#{DateTime.yesterday.to_s}&sortBy=publishedAt&apiKey=#{api_data[:key]}')
+    news_array = JSON.parse(news)["articles"]
+    news_array["articles"].each do |s|
+        Story.create(title: s["title"], author: s["author"], description: s["description"], url: s["url"], urlToImage: s["urlToImage"], publishedAt: s["publishedAt"], content: s["content"]) 
+    end
+end
 
-# news_dataset()
+news_dataset()
 
 u1 = User.create!(username: "poop", password_digest: "poop")
 l1 = Location.create!(country: "poopville", flag: "neato", ISO: "TSM", confirmed: 1, deaths: 10, active: 12, recovered: 0, lat: 1.999, lon: 29.3999, date: "Today")
