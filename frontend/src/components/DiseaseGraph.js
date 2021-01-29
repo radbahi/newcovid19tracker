@@ -10,7 +10,10 @@ import {
 } from 'recharts'
 
 const DiseaseGraph = () => {
-  const data = [{ name: 'Page A', uv: 400, pv: 2400, amt: 2400 }]
+  const [data, setData] = useState([])
+
+  //   const data = [{ name: 'Page A', uv: 400, pv: 2400, amt: 2400 }]
+
   return (
     <div>
       <BarChart width={600} height={300} data={data}>
