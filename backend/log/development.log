@@ -5556,3 +5556,28 @@ Completed 200 OK in 403ms (Views: 8.8ms | ActiveRecord: 26.5ms | Allocations: 63
   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" LIMIT $1[0m  [["LIMIT", 11]]
   [1m[36mStory Load (0.6ms)[0m  [1m[34mSELECT "stories".* FROM "stories" LIMIT $1[0m  [["LIMIT", 11]]
   [1m[36mLocation Load (0.8ms)[0m  [1m[34mSELECT "locations".* FROM "locations" LIMIT $1[0m  [["LIMIT", 11]]
+Started GET "/" for ::1 at 2021-01-29 15:11:02 -0500
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/kevingleeson/.rvm/gems/ruby-2.6.1/gems/railties-6.0.3.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/kevingleeson/.rvm/gems/ruby-2.6.1/gems/railties-6.0.3.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 6.9ms | Allocations: 317)
+Completed 200 OK in 24ms (Views: 10.9ms | ActiveRecord: 0.0ms | Allocations: 1600)
+
+
+Started GET "/locations" for ::1 at 2021-01-29 15:11:05 -0500
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (8.4ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (26.64ms)
+Completed 200 OK in 115ms (Views: 86.2ms | ActiveRecord: 19.8ms | Allocations: 48874)
+
+
+Started GET "/locations" for ::1 at 2021-01-29 15:14:34 -0500
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (1.1ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (65.22ms)
+Completed 200 OK in 124ms (Views: 113.1ms | ActiveRecord: 5.8ms | Allocations: 100929)
+
+
