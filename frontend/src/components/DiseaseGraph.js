@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import axios from 'axios'
 import {
   BarChart,
   Bar,
@@ -9,14 +10,24 @@ import {
   CartesianGrid,
 } from 'recharts'
 
-const DiseaseGraph = () => {
+const DiseaseGraph = ({ diseaseData }) => {
   const [data, setData] = useState([])
+  const [selectedLocation, setSelectedLocation] = useState({})
+  console.log(diseaseData)
+
+  //   useEffect(() => {
+  //     const addData = async () => {
+  //       const { data } = await axios.get('http://localhost:3000/locations')
+  //       setData(data)
+  //     }
+  //     addData()
+  //   })
 
   //   const data = [{ name: 'Page A', uv: 400, pv: 2400, amt: 2400 }]
 
   return (
     <div>
-      <BarChart width={600} height={300} data={data}>
+      <BarChart width={600} height={300} data={diseaseData}>
         <XAxis dataKey='name' stroke='#8884d8' />
         <YAxis />
         <Tooltip wrapperStyle={{ width: 100, backgroundColor: '#ccc' }} />
