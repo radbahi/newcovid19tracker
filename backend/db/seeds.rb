@@ -35,5 +35,3 @@ end
 
 covid19_dataset()
 news_dataset()
-
-

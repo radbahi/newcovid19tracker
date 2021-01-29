@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { register } from '../actions/userActions.js'
+import DiseaseGraph from '../components/DiseaseGraph'
 
 const RegisterScreen = ({ history }) => {
   const dispatch = useDispatch()
@@ -46,6 +47,7 @@ const RegisterScreen = ({ history }) => {
         />
         <input type='submit' value='Submit' />
       </form>
+      <DiseaseGraph />
     </div>
   )
 }
