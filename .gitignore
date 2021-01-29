@@ -4,6 +4,7 @@
 # or operating system, you probably want to add a global ignore instead:
 #   git config --global core.excludesfile '~/.gitignore_global'
 
+
 # Ignore bundler config.
 /.bundle
 
@@ -14,6 +15,8 @@
 !/tmp/.keep
 
 # Ignore uploaded files in development.
+.env 
+
 /storage/*
 !/storage/.keep
 .byebug_history
