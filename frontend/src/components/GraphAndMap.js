@@ -8,6 +8,7 @@ const GraphAndMap = () => {
   const [diseaseData, setDiseaseData] = useState([])
 
   const [selectedLocation, setSelectedLocation] = useState({})
+  //MAYBE JUST DISPATCH TO USER'S LOCATION BACKEND?
 
   useEffect(() => {
     const addDiseaseData = async () => {
@@ -17,8 +18,9 @@ const GraphAndMap = () => {
     addDiseaseData()
   }, [])
 
-  const selectLocationHandler = (e) => {
-    console.log(e)
+  const selectLocationHandler = (location) => {
+    setSelectedLocation(location)
+    console.log(selectedLocation) //NOT BEING POPULATED TO STATE??
   }
 
   // PASS SELECTED LOCATION AS PROP INTO DISEASEGRAPH AND JUST PASS ALL DATA INTO WORLD MAP
