@@ -20,7 +20,7 @@ const GraphAndMap = () => {
   return (
     <div>
       <Dropdown
-        menuAlign='right'
+        menualign='right'
         title='Select a location'
         id='dropdown-menu-align-right'
       >
@@ -30,7 +30,7 @@ const GraphAndMap = () => {
         <Dropdown.Menu>
           {diseaseData.map((location) => {
             return (
-              <Dropdown.Item href='#/action-1'>
+              <Dropdown.Item key={location.country}>
                 {location.country}
               </Dropdown.Item>
             )
