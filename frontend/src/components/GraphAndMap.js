@@ -7,6 +7,8 @@ import DiseaseGraph from './DiseaseGraph'
 const GraphAndMap = () => {
   const [diseaseData, setDiseaseData] = useState([])
 
+  const [selectedLocation, setSelectedLocation] = useState({})
+
   useEffect(() => {
     const addDiseaseData = async () => {
       const { data } = await axios.get('http://localhost:3000/locations')
@@ -14,6 +16,10 @@ const GraphAndMap = () => {
     }
     addDiseaseData()
   }, [])
+
+  const selectLocationHandler = (e) => {
+    console.log(e)
+  }
 
   // PASS SELECTED LOCATION AS PROP INTO DISEASEGRAPH AND JUST PASS ALL DATA INTO WORLD MAP
   //CREATE FUNCTION TO MAKE A SELECTED LOCATION ONCLICK TO THE DROPDOWN ITEMS
@@ -30,7 +36,10 @@ const GraphAndMap = () => {
         <Dropdown.Menu>
           {diseaseData.map((location) => {
             return (
-              <Dropdown.Item key={location.country}>
+              <Dropdown.Item
+                onClick={(e) => selectLocationHandler(location)}
+                key={location.country}
+              >
                 {location.country}
               </Dropdown.Item>
             )
