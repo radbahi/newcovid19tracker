@@ -1,5 +1,3 @@
-import { useEffect, useState } from 'react'
-import axios from 'axios'
 import {
   BarChart,
   Bar,
@@ -10,24 +8,39 @@ import {
   CartesianGrid,
 } from 'recharts'
 
-const DiseaseGraph = ({ diseaseData }) => {
-  const [data, setData] = useState([])
-  const [selectedLocation, setSelectedLocation] = useState({})
-  console.log(diseaseData)
-
-  //   useEffect(() => {
-  //     const addData = async () => {
-  //       const { data } = await axios.get('http://localhost:3000/locations')
-  //       setData(data)
-  //     }
-  //     addData()
-  //   })
-
-  //   const data = [{ name: 'Page A', uv: 400, pv: 2400, amt: 2400 }]
+const DiseaseGraph = ({ selectedLocation }) => {
+  console.log(selectedLocation)
+  const data = [
+    {
+      name: 'Active',
+      uv: Math.round(selectedLocation.active / 6),
+      pv: selectedLocation.active,
+      amt: selectedLocation.active,
+    },
+    {
+      name: 'Confirmed',
+      uv: Math.round(selectedLocation.confirmed / 6),
+      pv: selectedLocation.confirmed,
+      amt: selectedLocation.confirmed,
+    },
+    {
+      name: 'Deaths',
+      uv: Math.round(selectedLocation.deaths / 6),
+      pv: selectedLocation.deaths,
+      amt: selectedLocation.deaths,
+    },
+    {
+      name: 'Recovered',
+      uv: Math.round(selectedLocation.recovered / 6),
+      pv: selectedLocation.recovered,
+      amt: selectedLocation.recovered,
+    },
+  ]
 
   return (
     <div>
-      <BarChart width={600} height={300} data={diseaseData}>
+      {selectedLocation.country}
+      <BarChart width={600} height={300} data={data}>
         <XAxis dataKey='name' stroke='#8884d8' />
         <YAxis />
         <Tooltip wrapperStyle={{ width: 100, backgroundColor: '#ccc' }} />

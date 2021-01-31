@@ -20,7 +20,6 @@ const GraphAndMap = () => {
 
   const selectLocationHandler = (location) => {
     setSelectedLocation(location)
-    console.log(selectedLocation) //NOT BEING POPULATED TO STATE??
   }
 
   // PASS SELECTED LOCATION AS PROP INTO DISEASEGRAPH AND JUST PASS ALL DATA INTO WORLD MAP
@@ -39,7 +38,7 @@ const GraphAndMap = () => {
           {diseaseData.map((location) => {
             return (
               <Dropdown.Item
-                onClick={(e) => selectLocationHandler(location)}
+                onClick={() => selectLocationHandler(location)}
                 key={location.country}
               >
                 {location.country}
@@ -48,7 +47,7 @@ const GraphAndMap = () => {
           })}
         </Dropdown.Menu>
       </Dropdown>
-      <DiseaseGraph diseaseData={diseaseData} />
+      <DiseaseGraph selectedLocation={selectedLocation} />
     </div>
   )
 }
