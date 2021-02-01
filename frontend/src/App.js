@@ -12,11 +12,18 @@ function App() {
   console.log(userInfo)
   return (
     <Router>
-      <Route path='/' exact>
+      <Route exact path='/'>
         {!userInfo ? <Redirect to='/login' /> : <HomeScreen />}
       </Route>
-      <Route path='/login' component={LoginScreen} />
-      <Route path='/register' component={RegisterScreen} />
+      {/* {!userInfo || error === 'oh fuck' ? (
+          <Redirect to='/login' />
+        ) : (
+          <HomeScreen />
+        )} */}
+      <Route exact path='/login'>
+        {userInfo ? <Redirect to='/' /> : <LoginScreen />}
+      </Route>
+      <Route exact path='/register' component={RegisterScreen} />
     </Router>
   )
 }

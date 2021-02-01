@@ -11,7 +11,7 @@ const StoryBox = () => {
       setStories(data)
     }
     addStories()
-  })
+  }, [])
 
   return (
     <div>
