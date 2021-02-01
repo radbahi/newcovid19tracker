@@ -38,7 +38,7 @@ const GraphAndMap = () => {
           {diseaseData.map((location) => {
             return (
               <Dropdown.Item
-                onClick={() => selectLocationHandler(location)}
+                onClick={() => selectLocationHandler(location)}  
                 key={location.country}
               >
                 {location.country}
