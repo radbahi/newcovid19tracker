@@ -8,6 +8,7 @@ const GraphAndMap = () => {
   const [diseaseData, setDiseaseData] = useState([])
 
   const [selectedLocation, setSelectedLocation] = useState({})
+  // HIGHLIGHT SELECTEDLOCATION ON MAP
   //MAYBE JUST DISPATCH TO USER'S LOCATION BACKEND?
 
   useEffect(() => {
