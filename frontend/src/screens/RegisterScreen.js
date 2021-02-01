@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { register } from '../actions/userActions.js'
-import GraphAndMap from '../components/GraphAndMap'
 
 const RegisterScreen = ({ history }) => {
   const dispatch = useDispatch()
@@ -47,7 +46,6 @@ const RegisterScreen = ({ history }) => {
         />
         <input type='submit' value='Submit' />
       </form>
-      <GraphAndMap />
     </div>
   )
 }

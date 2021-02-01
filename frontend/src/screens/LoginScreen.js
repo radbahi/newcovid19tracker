@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { login, logout } from '../actions/userActions.js'
-import StoryBox from '../components/StoryBox'
 
 const LoginScreen = () => {
   const dispatch = useDispatch()
@@ -56,7 +55,6 @@ const LoginScreen = () => {
           </form>
         </div>
       )}
-      <StoryBox />
     </div>
   )
 }

@@ -37,6 +37,9 @@ const DiseaseGraph = ({ selectedLocation }) => {
     },
   ]
 
+  //CHART SCALES WITH EACH COUNTRY DUE TO LARGE DIFFERENCES BETWEEN COUNTRY DATA
+  // MAKE USER KNOWN TO THIS FACT
+
   return (
     <div>
       {selectedLocation.country}
