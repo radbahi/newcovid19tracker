@@ -22,7 +22,7 @@ class UsersController < ApplicationController
             wristband = encode_token({user_id: @user_id})
             render json: { user: UserSerializer.new(@user), token: wristband }
         else
-            render json: {error: "oh fuck"}
+            render json: {error: "oh fuck"}, status: 500
         end
     end
 
@@ -32,7 +32,7 @@ class UsersController < ApplicationController
             wristband = encode_token({user_id: @user_id})
             render json:  { user: UserSerializer.new(@user), token: wristband }
         else
-            render json: {error: 'BIG PROBLEM'}
+            render json: {error: 'BIG PROBLEM'}, status: 500
         end
     end
 
