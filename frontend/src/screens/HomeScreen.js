@@ -17,7 +17,7 @@ const HomeScreen = () => {
   }
   return (
     <div>
-      <button onClick={logoutHandler}>LOGOUT</button>
+      <Button onClick={logoutHandler}>LOGOUT</Button>
       <GraphAndMap />
       <StoryBox />
     </div>
