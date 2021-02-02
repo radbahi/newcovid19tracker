@@ -26,10 +26,11 @@ const GraphAndMap = () => {
     }
     addDiseaseData()
     setSelectedLocation(userInfo.data.user.locations)
-  }, [])
+  }, [userInfo.data.user.locations])
 
   const selectLocationHandler = (location) => {
-    dispatch(updateUser({ id: userInfo, location }))
+    console.log(location)
+    dispatch(updateUser(userInfo.data.user.id, { location }))
     setSelectedLocation(location)
     //USEDISPATCH HOOK TO UPDATE USER LOCATION HERE
   }
@@ -50,7 +51,7 @@ const GraphAndMap = () => {
           {diseaseData.map((location) => {
             return (
               <Dropdown.Item
-                onClick={() => selectLocationHandler(location)}  
+                onClick={() => selectLocationHandler(location)}
                 key={location.country}
               >
                 {location.country}

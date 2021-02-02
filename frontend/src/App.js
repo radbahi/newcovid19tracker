@@ -9,7 +9,6 @@ import './App.css'
 function App() {
   const userLogin = useSelector((state) => state.userLogin)
   const { userInfo } = userLogin
-  console.log(userInfo)
   return (
     <Router>
       <Route exact path='/'>

@@ -101,7 +101,11 @@ export const updateUser = (userId, location) => async (dispatch) => {
       },
     } //we want to send this as a header
 
-    const { data } = await axios.put(`/api/users/${userId}`, config) //pass the id into this route as well as the config and extract data
+    const { data } = await axios.put(
+      `http://localhost:3000/users/${userId}`,
+      location,
+      config
+    ) //pass the id into this route as well as the config and extract data
 
     dispatch({ type: 'USER_UPDATE_SUCCESS', payload: data })
   } catch (error) {
@@ -115,18 +119,18 @@ export const updateUser = (userId, location) => async (dispatch) => {
   }
 }
 
-const updateUserFromDB = (userId, provinceObj) => (dispatch) => {
-  const config = {
-    method: 'PATCH',
-    headers: {
-      'Content-Type': 'application/json',
-      Accept: 'application/json',
-    },
-    body: JSON.stringify({ locations_id: provinceObj }),
-  }
-  fetch(SPECIFIC_USER_URL(userId), config)
-    .then((r) => r.json())
-    .then((data) => {
-      dispatch(setUserAction(data))
-    })
-}
+// const updateUserFromDB = (userId, provinceObj) => (dispatch) => {
+//   const config = {
+//     method: 'PATCH',
+//     headers: {
+//       'Content-Type': 'application/json',
+//       Accept: 'application/json',
+//     },
+//     body: JSON.stringify({ locations_id: provinceObj }),
+//   }
+//   fetch(SPECIFIC_USER_URL(userId), config)
+//     .then((r) => r.json())
+//     .then((data) => {
+//       dispatch(setUserAction(data))
+//     })
+// }

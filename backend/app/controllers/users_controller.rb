@@ -36,6 +36,17 @@ class UsersController < ApplicationController
         end
     end
 
+    def update
+        @user = User.find(params[:id])
+        @user.update(user_params)
+        render json: @user
+    end
+
+    def destroy
+        user = User.find(params[:id])
+        user.destroy
+    end
+
     # def persist 
     #     wristband = encode_token({user_id: @user.id})
     #     render json: { user: UserSerializer.new(@user), token: wristband }
@@ -46,7 +57,7 @@ class UsersController < ApplicationController
     private 
 
     def user_params 
-        params.permit(:username, :password, :location_id)
+        params.permit(:username, :password, :location_id, :id)
     end
 
 end
