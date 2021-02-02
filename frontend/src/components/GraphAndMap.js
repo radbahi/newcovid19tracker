@@ -1,15 +1,23 @@
 import { useEffect, useState } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
 import { Dropdown } from 'react-bootstrap'
+import { updateUser } from '../actions/userActions.js'
+
 import axios from 'axios'
 
 import DiseaseGraph from './DiseaseGraph'
 
 const GraphAndMap = () => {
+  const dispatch = useDispatch()
   const [diseaseData, setDiseaseData] = useState([])
 
   const [selectedLocation, setSelectedLocation] = useState({})
   // HIGHLIGHT SELECTEDLOCATION ON MAP
   //MAYBE JUST DISPATCH TO USER'S LOCATION BACKEND?
+
+  const userLogin = useSelector((state) => state.userLogin)
+
+  const { userInfo } = userLogin
 
   useEffect(() => {
     const addDiseaseData = async () => {
@@ -17,10 +25,14 @@ const GraphAndMap = () => {
       setDiseaseData(data)
     }
     addDiseaseData()
-  }, [])
+    setSelectedLocation(userInfo.data.user.locations)
+  }, [userInfo.data.user.locations])
 
   const selectLocationHandler = (location) => {
+    console.log(location)
+    dispatch(updateUser(userInfo.data.user.id, { location }))
     setSelectedLocation(location)
+    //USEDISPATCH HOOK TO UPDATE USER LOCATION HERE
   }
 
   // PASS SELECTED LOCATION AS PROP INTO DISEASEGRAPH AND JUST PASS ALL DATA INTO WORLD MAP
@@ -39,7 +51,7 @@ const GraphAndMap = () => {
           {diseaseData.map((location) => {
             return (
               <Dropdown.Item
-                onClick={() => selectLocationHandler(location)}  
+                onClick={() => selectLocationHandler(location)}
                 key={location.country}
               >
                 {location.country}

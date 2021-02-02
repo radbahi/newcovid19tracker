@@ -36,3 +36,21 @@ export const userRegisterReducer = (state = {}, action) => {
       return state
   }
 }
+
+export const userUpdateReducer = (state = { user: {} }, action) => {
+  switch (
+    action.type // this is where the reducer does things according to each type.
+  ) {
+    case 'USER_UPDATE_REQUEST':
+      return { ...state, loading: true } //we send loading: true to let the component know it's fetching the data. not sure why passing in whole state here is necessary
+    case 'USER_UPDATE_SUCCESS':
+      return { loading: false, user: action.payload } //we send this once the data is fetched. remember that payload = data.
+    case 'USER_UPDATE_FAIL':
+      return { loading: false, error: action.payload }
+    case 'USER_UPDATE_RESET':
+      return { user: {} }
+    default:
+      //always have a default
+      return state
+  }
+}
