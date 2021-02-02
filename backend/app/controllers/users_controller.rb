@@ -6,6 +6,7 @@ class UsersController < ApplicationController
         render json: users
     end
 
+
     def show
         if (user = User.find_by(id: params[:id]))
             render json: user
@@ -13,6 +14,7 @@ class UsersController < ApplicationController
             render json: {message: "User not found"}
         end
     end
+
 
     def login 
         @user = User.find_by(username: params[:username])
@@ -25,7 +27,7 @@ class UsersController < ApplicationController
             render json: {error: "oh fuck"}, status: 500
         end
     end
-
+    
     def create
         @user = User.create(user_params)
         if @user.valid?
@@ -35,6 +37,12 @@ class UsersController < ApplicationController
             render json: {error: 'BIG PROBLEM'}, status: 500
         end
     end
+
+    def update
+        user = User.find(params[:id])
+        user.update(user_params)
+        render json: user 
+    end 
 
     # def persist 
     #     wristband = encode_token({user_id: @user.id})
