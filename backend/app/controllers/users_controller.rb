@@ -57,7 +57,9 @@ class UsersController < ApplicationController
     private 
 
     def user_params 
-        params.permit(:username, :password, :location_id, :id)
+        params.permit(:username, :password, :id, location_attributes: [:flag,  
+            :ISO, :confirmed, :deaths, :active, 
+            :recovered, :lat, :lon, :country])
     end
 
 end
