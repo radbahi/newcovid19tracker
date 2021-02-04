@@ -38,6 +38,15 @@ class UsersController < ApplicationController
         end
     end
 
+    def update_location
+        @user = User.find(params[:id])
+        @location = Location.find_by(country: params[:country])
+        if @user && @location 
+            @user.update(locations: [@location])
+        end
+        render json: @user
+    end
+
     def update
         @user = User.find(params[:id])
         @user.update(user_params)

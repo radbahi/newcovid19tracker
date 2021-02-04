@@ -12,5 +12,5 @@ class LocationsController < ApplicationController
             render json: {message: "Location not found"}
         end
     end
-    
+
 end
