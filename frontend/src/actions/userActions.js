@@ -88,7 +88,7 @@ export const register = (username, password) => async (dispatch) => {
   }
 }
 
-export const updateUser = (userId, location) => async (dispatch) => {
+export const updateUser = (user) => async (dispatch) => {
   try {
     dispatch({
       type: 'USER_UPDATE_REQUEST',
@@ -99,11 +99,11 @@ export const updateUser = (userId, location) => async (dispatch) => {
         'Content-Type': 'application/json',
         Authorization: `Bearer <token>`,
       },
-    } //we want to send this as a header
+    } //we want to send this as a header. POSSIBLY NOT HOW TOKEN GETS SENT.
 
     const { data } = await axios.put(
-      `http://localhost:3000/users/${userId}`,
-      location,
+      `http://localhost:3000/users/${user.id}`,
+      user,
       config
     ) //pass the id into this route as well as the config and extract data
 

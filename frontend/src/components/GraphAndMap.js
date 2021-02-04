@@ -30,7 +30,7 @@ const GraphAndMap = () => {
 
   const selectLocationHandler = (location) => {
     console.log(location)
-    dispatch(updateUser(userInfo.data.user.id, { location }))
+    dispatch(updateUser({ id: userInfo.data.user.id, locations: location }))
     setSelectedLocation(location)
     //USEDISPATCH HOOK TO UPDATE USER LOCATION HERE
   }

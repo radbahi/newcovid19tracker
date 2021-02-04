@@ -6,7 +6,6 @@ class UsersController < ApplicationController
         render json: users
     end
 
-
     def show
         if (user = User.find_by(id: params[:id]))
             render json: user
@@ -14,7 +13,6 @@ class UsersController < ApplicationController
             render json: {message: "User not found"}
         end
     end
-
 
     def login 
         @user = User.find_by(username: params[:username])
@@ -27,7 +25,7 @@ class UsersController < ApplicationController
             render json: {error: "oh fuck"}, status: 500
         end
     end
-    
+
     def create
         @user = User.create(user_params)
         if @user.valid?
@@ -68,9 +66,7 @@ class UsersController < ApplicationController
     private 
 
     def user_params 
-        params.permit(:username, :password, :id, location_attributes: [:flag,  
-            :ISO, :confirmed, :deaths, :active, 
-            :recovered, :lat, :lon, :country])
+        params.permit(:username, :password, :id, :locations)
     end
 
 end
