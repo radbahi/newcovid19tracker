@@ -1,5 +1,5 @@
 class UserSerializer < ActiveModel::Serializer
-attributes :username, :password, :id, :saved_location
+attributes :username, :password, :id
 
-# has_many :locations
+has_many :locations
 end
