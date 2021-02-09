@@ -7,13 +7,11 @@ import { logout } from '../actions/userActions.js'
 const HomeScreen = () => {
   const dispatch = useDispatch()
 
-  const userLogin = useSelector((state) => state.userLogin)
-
-  const { userInfo } = userLogin
+  const loggedInUser = useSelector((state) => state.loggedInUser)
 
   const logoutHandler = () => {
     dispatch(logout())
-    console.log(userInfo)
+    console.log(loggedInUser)
   }
   return (
     <div>

@@ -7,12 +7,11 @@ import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
 import './App.css'
 
 function App() {
-  const userLogin = useSelector((state) => state.userLogin)
-  const { userInfo } = userLogin
+  const loggedInUser = useSelector((state) => state.loggedInUser)
   return (
     <Router>
       <Route exact path='/'>
-        {!userInfo ? <Redirect to='/login' /> : <HomeScreen />}
+        {!loggedInUser.userInfo ? <Redirect to='/login' /> : <HomeScreen />}
       </Route>
       {/* {!userInfo || error === 'oh fuck' ? (
           <Redirect to='/login' />
@@ -20,7 +19,7 @@ function App() {
           <HomeScreen />
         )} */}
       <Route exact path='/login'>
-        {userInfo ? <Redirect to='/' /> : <LoginScreen />}
+        {loggedInUser.userInfo ? <Redirect to='/' /> : <LoginScreen />}
       </Route>
       <Route exact path='/register' component={RegisterScreen} />
     </Router>

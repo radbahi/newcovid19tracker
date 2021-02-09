@@ -28,7 +28,7 @@ export const userRegisterReducer = (state = {}, action) => {
     case 'USER_REGISTER_REQUEST':
       return { loading: true } //we send loading: true to let the component know it's fetching the data
     case 'USER_REGISTER_SUCCESS':
-      return { loading: false, userInfo: action.payload } //we send this once the data is fetched. remember that payload = data.
+      return { loading: false } //we send this once the data is fetched. remember that payload = data.
     case 'USER_REGISTER_FAIL':
       return { loading: false, error: action.payload }
     default:
@@ -44,11 +44,11 @@ export const userUpdateReducer = (state = { user: {} }, action) => {
     case 'USER_UPDATE_REQUEST':
       return { ...state, loading: true } //we send loading: true to let the component know it's fetching the data. not sure why passing in whole state here is necessary
     case 'USER_UPDATE_SUCCESS':
-      return { loading: false, user: action.payload } //we send this once the data is fetched. remember that payload = data.
+      return { loading: false, userInfo: action.payload } //we send this once the data is fetched. remember that payload = data.
     case 'USER_UPDATE_FAIL':
       return { loading: false, error: action.payload }
     case 'USER_UPDATE_RESET':
-      return { user: {} }
+      return { userInfo: {} }
     default:
       //always have a default
       return state

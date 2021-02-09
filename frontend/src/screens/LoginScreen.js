@@ -10,17 +10,15 @@ const LoginScreen = () => {
 
   const [password, setPassword] = useState('')
 
+  //PULL FROM LOCALSTORAGE INSTEAD for persistence?
+  const loggedInUser = useSelector((state) => state.loggedInUser)
+
   // LOGS IN BUT DOES NOT REDIRECT TO ROOT URL. STAYS /login
   const submitLoginHandler = (e) => {
     e.preventDefault()
     dispatch(login(username, password))
-    console.log(userInfo)
+    console.log(loggedInUser)
   }
-
-  //PULL FROM LOCALSTORAGE INSTEAD for persistence?
-  const userLogin = useSelector((state) => state.userLogin)
-
-  const { userInfo } = userLogin
 
   return (
     <div>

@@ -15,9 +15,7 @@ const GraphAndMap = () => {
   // HIGHLIGHT SELECTEDLOCATION ON MAP
   //MAYBE JUST DISPATCH TO USER'S LOCATION BACKEND?
 
-  const userLogin = useSelector((state) => state.userLogin)
-
-  const { userInfo } = userLogin
+  const loggedInUser = useSelector((state) => state.loggedInUser)
 
   useEffect(() => {
     const addDiseaseData = async () => {
@@ -25,12 +23,12 @@ const GraphAndMap = () => {
       setDiseaseData(data)
     }
     addDiseaseData()
-    setSelectedLocation(userInfo.data.user.locations)
-  }, [userInfo.data.user.locations])
+    // setSelectedLocation(loggedInUser.data.user.locations)
+  }, [])
 
   const selectLocationHandler = (location) => {
     console.log(location)
-    dispatch(updateUser({ id: userInfo.data.user.id, locations: location }))
+    // dispatch(updateUser({ id: loggedInUser.data.user.id, locations: location }))
     setSelectedLocation(location)
     //USEDISPATCH HOOK TO UPDATE USER LOCATION HERE
   }

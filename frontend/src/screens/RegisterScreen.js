@@ -11,20 +11,19 @@ const RegisterScreen = ({ history }) => {
   const [passwordRegister, setPasswordRegister] = useState('')
 
   //PULL FROM LOCALSTORAGE INSTEAD
-  const userLogin = useSelector((state) => state.userLogin)
+  const loggedInUser = useSelector((state) => state.loggedInUser)
 
-  const { userInfo } = userLogin
-
-  useEffect(() => {
-    if (userInfo) {
-      history.push('/login')
-    }
-  }, [userInfo, history])
+  // useEffect(() => {
+  //   if (loggedInUser) {
+  //     history.push('/login')
+  //   }
+  // }, [loggedInUser, history])
+  //WHY PUSHING TO LOGIN IF USER IS LOGGED IN???
 
   const submitRegisterHandler = (e) => {
     e.preventDefault()
     dispatch(register(usernameRegister, passwordRegister))
-    console.log(userInfo)
+    console.log(loggedInUser)
   }
 
   return (
