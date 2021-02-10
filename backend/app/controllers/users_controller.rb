@@ -22,13 +22,14 @@ class UsersController < ApplicationController
             wristband = encode_token({user_id: @user_id})
             render json: { user: UserSerializer.new(@user), token: wristband }
         else
-            render json: {error: "oh fuck"}, status: 500
+            render :json => { :message => 'oh fuck' }, :status => 500
         end
     end
 
     def create
         @user = User.create(user_params)
         if @user.valid?
+            byebug
             wristband = encode_token({user_id: @user_id})
             render json:  { user: UserSerializer.new(@user), token: wristband }
         else
@@ -39,13 +40,16 @@ class UsersController < ApplicationController
     def update_location
         @user = User.find(params[:id])
         @location = Location.find_by(country: params[:country])
-        if @user && @location
-            @location.user_id = @user.id 
-            @user.update(locations: [@location])
-        render json: @user
+
+        if @user.valid? && @location 
+
+            @user.update(location: @location)
+            render json: @user
+        else
+            render json: {error: "Something went wrong"}, status: 500
         end
-        
     end
+
 
     def update
         @user = User.find(params[:id])
@@ -53,6 +57,7 @@ class UsersController < ApplicationController
         render json: @user
     end
 
+    
     def destroy
         user = User.find(params[:id])
         user.destroy
@@ -68,7 +73,7 @@ class UsersController < ApplicationController
     private 
 
     def user_params 
-        params.permit(:username, :password, :id, :locations)
+        params.permit(:username, :password, :id, locations_attributes: [:country, :flag, :ISO, :confirmed, :deaths, :active, :recovered, :lat, :lon, :date])
     end
 
 end

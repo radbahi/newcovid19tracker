@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :show, :create, :update, :destroy]
   
   post "/login", to: "users#login"
-  patch "/update_location", to: "users#update_location"
+  put "/update_location", to: "users#update_location"
   # get "/persist", to: "users#persist"
 
 end
