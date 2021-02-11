@@ -89,10 +89,12 @@ export const register = (username, password) => async (dispatch) => {
     }) //the payload here checks for our custom message. if it exists, send the custom message, if not, send generic message}
   }
 }
-// if were expecting to pass the whole user object every time, its extra. 
-// eventually it will have to sort through too many endpoints. 
+// if were expecting to pass the whole user object every time, its extra.
+// eventually it will have to sort through too many endpoints.
 // Config is reusable
 // other functions w/switch statement
+// EXPAND UPDATEUSER TO HAVE MULTIPLE ROUTES TO UPDATE INFO ACCORDINGLY
+// DONT NEED ANOTHER ROUTE LIKE UPDATE_LOCATION. ALREADY HAVE UPDATE METHOD IN USER CONTROLLER.
 export const updateUser = (user) => async (dispatch) => {
   try {
     dispatch({
@@ -107,7 +109,7 @@ export const updateUser = (user) => async (dispatch) => {
     } //we want to send this as a header. POSSIBLY NOT HOW TOKEN GETS SENT.
     const newPayload = {
       id: user.id,
-      country: user.location[0].country
+      country: user.location[0].country,
     }
     const { data } = await axios.put(
       `http://localhost:3000/update_location`,

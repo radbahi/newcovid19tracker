@@ -6,6 +6,7 @@ import { updateUser } from '../actions/userActions.js'
 import axios from 'axios'
 
 import DiseaseGraph from './DiseaseGraph'
+import WorldMap from './WorldMap'
 
 const GraphAndMap = () => {
   const dispatch = useDispatch()
@@ -28,7 +29,7 @@ const GraphAndMap = () => {
     addDiseaseData()
 
     setSelectedLocation(userInfo.data.user.location)
-    console.log("i am here")
+    console.log('i am here')
   }, [userInfo.data.user.location])
 
   const selectLocationHandler = (location) => {
@@ -64,6 +65,7 @@ const GraphAndMap = () => {
         </Dropdown.Menu>
       </Dropdown>
       {selectedLocation && <DiseaseGraph selectedLocation={selectedLocation} />}
+      <WorldMap />
     </div>
   )
 }
