@@ -13094,3 +13094,800 @@ Processing by UsersController#index as HTML
 Completed 200 OK in 6ms (Views: 5.0ms | ActiveRecord: 0.6ms | Allocations: 2599)
 
 
+Started POST "/login" for ::1 at 2021-02-11 15:46:47 -0500
+  [1m[35m (2.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#login as HTML
+  Parameters: {"username"=>"apple", "password"=>"[FILTERED]", "user"=>{"username"=>"apple"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "apple"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `login'
+[active_model_serializers]   [1m[36mLocation Load (1.1ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:23:in `login'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (46.16ms)
+Completed 200 OK in 342ms (Views: 42.9ms | ActiveRecord: 12.3ms | Allocations: 20407)
+
+
+Started GET "/locations" for ::1 at 2021-02-11 15:46:47 -0500
+Started GET "/stories" for ::1 at 2021-02-11 15:46:47 -0500
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (1.6ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (71.64ms)
+Completed 200 OK in 100ms (Views: 98.4ms | ActiveRecord: 1.6ms | Allocations: 44916)
+
+
+Processing by StoriesController#index as HTML
+  [1m[36mStory Load (1.3ms)[0m  [1m[34mSELECT "stories".* FROM "stories"[0m
+  ↳ app/controllers/stories_controller.rb:5:in `index'
+No serializer found for resource: #<Story id: 1, description: "The leader of the WHO mission said the initial fin...", title: "WHO experts say it’s ‘extremely unlikely’ coronavi...", author: "Emily Wang Fujiyama", url: "https://www.theglobeandmail.com/world/article-who-...", urlToImage: "https://www.theglobeandmail.com/resizer/WYXR5cFtAS...", publishedAt: "2021-02-09T19:21:41Z", content: "Peter Ben Embarek speaks during a news conference ...", created_at: "2021-02-09 19:49:43", updated_at: "2021-02-09 19:49:43">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Story::ActiveRecord_Relation (6.73ms)
+Completed 200 OK in 41ms (Views: 22.6ms | ActiveRecord: 16.0ms | Allocations: 12402)
+
+
+Started PUT "/update_location" for ::1 at 2021-02-11 15:46:57 -0500
+Processing by UsersController#update_location as HTML
+  Parameters: {"id"=>1, "country"=>"Angola", "user"=>{"id"=>1}}
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:41:in `update_location'
+  [1m[36mLocation Load (1.9ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."country" = $1 LIMIT $2[0m  [["country", "Angola"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:42:in `update_location'
+  [1m[36mUser Exists? (3.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "apple"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:44:in `update_location'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:46:in `update_location'
+  [1m[36mLocation Load (0.9ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:46:in `update_location'
+  [1m[36mLocation Update (0.7ms)[0m  [1m[33mUPDATE "locations" SET "user_id" = $1, "updated_at" = $2 WHERE "locations"."id" = $3[0m  [["user_id", nil], ["updated_at", "2021-02-11 20:46:57.292014"], ["id", 171]]
+  ↳ app/controllers/users_controller.rb:46:in `update_location'
+  [1m[36mLocation Update (0.8ms)[0m  [1m[33mUPDATE "locations" SET "user_id" = $1, "updated_at" = $2 WHERE "locations"."id" = $3[0m  [["user_id", 1], ["updated_at", "2021-02-11 20:46:57.295977"], ["id", 5]]
+  ↳ app/controllers/users_controller.rb:46:in `update_location'
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "apple"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:46:in `update_location'
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:46:in `update_location'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.96ms)
+Completed 200 OK in 76ms (Views: 1.8ms | ActiveRecord: 12.6ms | Allocations: 8998)
+
+
+Started POST "/login" for ::1 at 2021-02-11 15:47:51 -0500
+Processing by UsersController#login as HTML
+  Parameters: {"username"=>"apple", "password"=>"[FILTERED]", "user"=>{"username"=>"apple"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "apple"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `login'
+[active_model_serializers]   [1m[36mLocation Load (0.6ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:23:in `login'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (3.1ms)
+Completed 200 OK in 293ms (Views: 3.0ms | ActiveRecord: 1.1ms | Allocations: 2396)
+
+
+Started GET "/locations" for ::1 at 2021-02-11 15:47:52 -0500
+Started GET "/stories" for ::1 at 2021-02-11 15:47:52 -0500
+Processing by StoriesController#index as HTML
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (1.7ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (95.56ms)
+Completed 200 OK in 120ms (Views: 117.1ms | ActiveRecord: 1.7ms | Allocations: 44837)
+
+
+  [1m[36mStory Load (116.8ms)[0m  [1m[34mSELECT "stories".* FROM "stories"[0m
+  ↳ app/controllers/stories_controller.rb:5:in `index'
+No serializer found for resource: #<Story id: 1, description: "The leader of the WHO mission said the initial fin...", title: "WHO experts say it’s ‘extremely unlikely’ coronavi...", author: "Emily Wang Fujiyama", url: "https://www.theglobeandmail.com/world/article-who-...", urlToImage: "https://www.theglobeandmail.com/resizer/WYXR5cFtAS...", publishedAt: "2021-02-09T19:21:41Z", content: "Peter Ben Embarek speaks during a news conference ...", created_at: "2021-02-09 19:49:43", updated_at: "2021-02-09 19:49:43">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Story::ActiveRecord_Relation (5.87ms)
+Completed 200 OK in 132ms (Views: 14.5ms | ActiveRecord: 116.8ms | Allocations: 50340)
+
+
+Started PUT "/update_location" for ::1 at 2021-02-11 15:48:01 -0500
+Processing by UsersController#update_location as HTML
+  Parameters: {"id"=>1, "country"=>"Albania", "user"=>{"id"=>1}}
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:41:in `update_location'
+  [1m[36mLocation Load (0.5ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."country" = $1 LIMIT $2[0m  [["country", "Albania"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:42:in `update_location'
+  [1m[36mUser Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "apple"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:44:in `update_location'
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:46:in `update_location'
+  [1m[36mLocation Load (0.6ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:46:in `update_location'
+  [1m[36mLocation Update (1.2ms)[0m  [1m[33mUPDATE "locations" SET "user_id" = $1, "updated_at" = $2 WHERE "locations"."id" = $3[0m  [["user_id", nil], ["updated_at", "2021-02-11 20:48:01.449275"], ["id", 5]]
+  ↳ app/controllers/users_controller.rb:46:in `update_location'
+  [1m[36mLocation Update (0.6ms)[0m  [1m[33mUPDATE "locations" SET "user_id" = $1, "updated_at" = $2 WHERE "locations"."id" = $3[0m  [["user_id", 1], ["updated_at", "2021-02-11 20:48:01.453690"], ["id", 2]]
+  ↳ app/controllers/users_controller.rb:46:in `update_location'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "apple"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:46:in `update_location'
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:46:in `update_location'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.59ms)
+Completed 200 OK in 26ms (Views: 1.1ms | ActiveRecord: 6.6ms | Allocations: 8182)
+
+
+Started GET "/locations" for ::1 at 2021-02-11 15:48:04 -0500
+Started GET "/stories" for ::1 at 2021-02-11 15:48:04 -0500
+Processing by StoriesController#index as HTML
+Processing by LocationsController#index as HTML
+  [1m[36mStory Load (1.1ms)[0m  [1m[34mSELECT "stories".* FROM "stories"[0m
+  ↳ app/controllers/stories_controller.rb:5:in `index'
+No serializer found for resource: #<Story id: 1, description: "The leader of the WHO mission said the initial fin...", title: "WHO experts say it’s ‘extremely unlikely’ coronavi...", author: "Emily Wang Fujiyama", url: "https://www.theglobeandmail.com/world/article-who-...", urlToImage: "https://www.theglobeandmail.com/resizer/WYXR5cFtAS...", publishedAt: "2021-02-09T19:21:41Z", content: "Peter Ben Embarek speaks during a news conference ...", created_at: "2021-02-09 19:49:43", updated_at: "2021-02-09 19:49:43">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Story::ActiveRecord_Relation (7.81ms)
+Completed 200 OK in 13ms (Views: 11.4ms | ActiveRecord: 1.1ms | Allocations: 5294)
+
+
+  [1m[36mLocation Load (23.4ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (65.91ms)
+Completed 200 OK in 106ms (Views: 82.3ms | ActiveRecord: 23.4ms | Allocations: 50079)
+
+
+Started GET "/stories" for ::1 at 2021-02-11 15:48:11 -0500
+Started GET "/locations" for ::1 at 2021-02-11 15:48:11 -0500
+Processing by LocationsController#index as HTML
+Processing by StoriesController#index as HTML
+  [1m[36mStory Load (0.5ms)[0m  [1m[34mSELECT "stories".* FROM "stories"[0m
+  ↳ app/controllers/stories_controller.rb:5:in `index'
+No serializer found for resource: #<Story id: 1, description: "The leader of the WHO mission said the initial fin...", title: "WHO experts say it’s ‘extremely unlikely’ coronavi...", author: "Emily Wang Fujiyama", url: "https://www.theglobeandmail.com/world/article-who-...", urlToImage: "https://www.theglobeandmail.com/resizer/WYXR5cFtAS...", publishedAt: "2021-02-09T19:21:41Z", content: "Peter Ben Embarek speaks during a news conference ...", created_at: "2021-02-09 19:49:43", updated_at: "2021-02-09 19:49:43">
+  [1m[36mLocation Load (5.5ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Story::ActiveRecord_Relation (6.65ms)
+Completed 200 OK in 118ms (Views: 116.6ms | ActiveRecord: 0.5ms | Allocations: 38516)
+
+
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (96.52ms)
+Completed 200 OK in 129ms (Views: 122.9ms | ActiveRecord: 5.5ms | Allocations: 50514)
+
+
+Started GET "/locations" for ::1 at 2021-02-11 15:49:37 -0500
+Started GET "/stories" for ::1 at 2021-02-11 15:49:37 -0500
+Processing by StoriesController#index as HTML
+Processing by LocationsController#index as HTML
+  [1m[36mStory Load (1.4ms)[0m  [1m[34mSELECT "stories".* FROM "stories"[0m
+  ↳ app/controllers/stories_controller.rb:5:in `index'
+No serializer found for resource: #<Story id: 1, description: "The leader of the WHO mission said the initial fin...", title: "WHO experts say it’s ‘extremely unlikely’ coronavi...", author: "Emily Wang Fujiyama", url: "https://www.theglobeandmail.com/world/article-who-...", urlToImage: "https://www.theglobeandmail.com/resizer/WYXR5cFtAS...", publishedAt: "2021-02-09T19:21:41Z", content: "Peter Ben Embarek speaks during a news conference ...", created_at: "2021-02-09 19:49:43", updated_at: "2021-02-09 19:49:43">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Story::ActiveRecord_Relation (5.95ms)
+Completed 200 OK in 12ms (Views: 10.6ms | ActiveRecord: 1.4ms | Allocations: 5283)
+
+
+  [1m[36mLocation Load (36.0ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (52.7ms)
+Completed 200 OK in 104ms (Views: 67.5ms | ActiveRecord: 36.0ms | Allocations: 50064)
+
+
+Started GET "/locations" for ::1 at 2021-02-11 15:50:24 -0500
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (1.6ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (66.02ms)
+Completed 200 OK in 85ms (Views: 83.4ms | ActiveRecord: 1.6ms | Allocations: 44813)
+
+
+Started GET "/locations" for ::1 at 2021-02-11 15:50:53 -0500
+Started GET "/stories" for ::1 at 2021-02-11 15:50:53 -0500
+Processing by LocationsController#index as HTML
+Processing by StoriesController#index as HTML
+  [1m[36mStory Load (0.9ms)[0m  [1m[34mSELECT "stories".* FROM "stories"[0m
+  ↳ app/controllers/stories_controller.rb:5:in `index'
+  [1m[36mLocation Load (2.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (81.04ms)
+No serializer found for resource: #<Story id: 1, description: "The leader of the WHO mission said the initial fin...", title: "WHO experts say it’s ‘extremely unlikely’ coronavi...", author: "Emily Wang Fujiyama", url: "https://www.theglobeandmail.com/world/article-who-...", urlToImage: "https://www.theglobeandmail.com/resizer/WYXR5cFtAS...", publishedAt: "2021-02-09T19:21:41Z", content: "Peter Ben Embarek speaks during a news conference ...", created_at: "2021-02-09 19:49:43", updated_at: "2021-02-09 19:49:43">
+Completed 200 OK in 103ms (Views: 99.9ms | ActiveRecord: 2.3ms | Allocations: 46130)
+
+
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Story::ActiveRecord_Relation (5.21ms)
+Completed 200 OK in 116ms (Views: 114.7ms | ActiveRecord: 0.9ms | Allocations: 50032)
+
+
+Started PUT "/update_location" for ::1 at 2021-02-11 15:50:58 -0500
+Processing by UsersController#update_location as HTML
+  Parameters: {"id"=>1, "country"=>"Argentina", "user"=>{"id"=>1}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:41:in `update_location'
+  [1m[36mLocation Load (0.4ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."country" = $1 LIMIT $2[0m  [["country", "Argentina"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:42:in `update_location'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "apple"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:44:in `update_location'
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:46:in `update_location'
+  [1m[36mLocation Load (0.7ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:46:in `update_location'
+  [1m[36mLocation Update (1.5ms)[0m  [1m[33mUPDATE "locations" SET "user_id" = $1, "updated_at" = $2 WHERE "locations"."id" = $3[0m  [["user_id", nil], ["updated_at", "2021-02-11 20:50:58.537101"], ["id", 2]]
+  ↳ app/controllers/users_controller.rb:46:in `update_location'
+  [1m[36mLocation Update (0.9ms)[0m  [1m[33mUPDATE "locations" SET "user_id" = $1, "updated_at" = $2 WHERE "locations"."id" = $3[0m  [["user_id", 1], ["updated_at", "2021-02-11 20:50:58.542707"], ["id", 8]]
+  ↳ app/controllers/users_controller.rb:46:in `update_location'
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "apple"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:46:in `update_location'
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:46:in `update_location'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.73ms)
+Completed 200 OK in 25ms (Views: 1.4ms | ActiveRecord: 5.9ms | Allocations: 8182)
+
+
+Started PUT "/update_location" for ::1 at 2021-02-11 15:51:06 -0500
+Processing by UsersController#update_location as HTML
+  Parameters: {"id"=>1, "country"=>"Eritrea", "user"=>{"id"=>1}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:41:in `update_location'
+  [1m[36mLocation Load (0.4ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."country" = $1 LIMIT $2[0m  [["country", "Eritrea"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:42:in `update_location'
+  [1m[36mUser Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "apple"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:44:in `update_location'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:46:in `update_location'
+  [1m[36mLocation Load (0.5ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:46:in `update_location'
+  [1m[36mLocation Update (0.6ms)[0m  [1m[33mUPDATE "locations" SET "user_id" = $1, "updated_at" = $2 WHERE "locations"."id" = $3[0m  [["user_id", nil], ["updated_at", "2021-02-11 20:51:06.161823"], ["id", 8]]
+  ↳ app/controllers/users_controller.rb:46:in `update_location'
+  [1m[36mLocation Update (0.7ms)[0m  [1m[33mUPDATE "locations" SET "user_id" = $1, "updated_at" = $2 WHERE "locations"."id" = $3[0m  [["user_id", 1], ["updated_at", "2021-02-11 20:51:06.164181"], ["id", 63]]
+  ↳ app/controllers/users_controller.rb:46:in `update_location'
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "apple"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:46:in `update_location'
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:46:in `update_location'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (1.46ms)
+Completed 200 OK in 22ms (Views: 2.4ms | ActiveRecord: 4.9ms | Allocations: 8178)
+
+
+Started GET "/locations" for ::1 at 2021-02-11 15:53:43 -0500
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (0.9ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (39.68ms)
+Completed 200 OK in 50ms (Views: 48.7ms | ActiveRecord: 0.9ms | Allocations: 44813)
+
+
+Started GET "/locations" for ::1 at 2021-02-11 15:53:55 -0500
+Started GET "/stories" for ::1 at 2021-02-11 15:53:55 -0500
+Processing by LocationsController#index as HTML
+Processing by StoriesController#index as HTML
+  [1m[36mStory Load (0.5ms)[0m  [1m[34mSELECT "stories".* FROM "stories"[0m
+  ↳ app/controllers/stories_controller.rb:5:in `index'
+No serializer found for resource: #<Story id: 1, description: "The leader of the WHO mission said the initial fin...", title: "WHO experts say it’s ‘extremely unlikely’ coronavi...", author: "Emily Wang Fujiyama", url: "https://www.theglobeandmail.com/world/article-who-...", urlToImage: "https://www.theglobeandmail.com/resizer/WYXR5cFtAS...", publishedAt: "2021-02-09T19:21:41Z", content: "Peter Ben Embarek speaks during a news conference ...", created_at: "2021-02-09 19:49:43", updated_at: "2021-02-09 19:49:43">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Story::ActiveRecord_Relation (5.13ms)
+Completed 200 OK in 10ms (Views: 9.5ms | ActiveRecord: 0.5ms | Allocations: 5147)
+
+
+  [1m[36mLocation Load (12.9ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (61.6ms)
+Completed 200 OK in 93ms (Views: 79.3ms | ActiveRecord: 12.9ms | Allocations: 50196)
+
+
+Started PUT "/update_location" for ::1 at 2021-02-11 15:53:59 -0500
+Processing by UsersController#update_location as HTML
+  Parameters: {"id"=>1, "country"=>"Andorra", "user"=>{"id"=>1}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:41:in `update_location'
+  [1m[36mLocation Load (0.8ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."country" = $1 LIMIT $2[0m  [["country", "Andorra"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:42:in `update_location'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "apple"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:44:in `update_location'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:46:in `update_location'
+  [1m[36mLocation Load (0.5ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:46:in `update_location'
+  [1m[36mLocation Update (0.6ms)[0m  [1m[33mUPDATE "locations" SET "user_id" = $1, "updated_at" = $2 WHERE "locations"."id" = $3[0m  [["user_id", nil], ["updated_at", "2021-02-11 20:53:59.391451"], ["id", 63]]
+  ↳ app/controllers/users_controller.rb:46:in `update_location'
+  [1m[36mLocation Update (0.5ms)[0m  [1m[33mUPDATE "locations" SET "user_id" = $1, "updated_at" = $2 WHERE "locations"."id" = $3[0m  [["user_id", 1], ["updated_at", "2021-02-11 20:53:59.393853"], ["id", 4]]
+  ↳ app/controllers/users_controller.rb:46:in `update_location'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "apple"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:46:in `update_location'
+  [1m[35m (2.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:46:in `update_location'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (1.69ms)
+Completed 200 OK in 26ms (Views: 2.6ms | ActiveRecord: 6.7ms | Allocations: 8179)
+
+
+Started GET "/locations" for ::1 at 2021-02-11 15:54:06 -0500
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (5.4ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (42.1ms)
+Completed 200 OK in 70ms (Views: 64.6ms | ActiveRecord: 5.4ms | Allocations: 44813)
+
+
+Started GET "/locations" for ::1 at 2021-02-11 15:56:38 -0500
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (0.9ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (33.74ms)
+Completed 200 OK in 45ms (Views: 43.6ms | ActiveRecord: 0.9ms | Allocations: 44810)
+
+
+Started GET "/locations" for ::1 at 2021-02-11 15:57:10 -0500
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (1.5ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (45.79ms)
+Completed 200 OK in 71ms (Views: 69.4ms | ActiveRecord: 1.5ms | Allocations: 44813)
+
+
+Started GET "/locations" for ::1 at 2021-02-11 15:57:19 -0500
+Started GET "/stories" for ::1 at 2021-02-11 15:57:19 -0500
+Processing by StoriesController#index as HTML
+Processing by LocationsController#index as HTML
+  [1m[36mStory Load (2.2ms)[0m  [1m[34mSELECT "stories".* FROM "stories"[0m
+  ↳ app/controllers/stories_controller.rb:5:in `index'
+No serializer found for resource: #<Story id: 1, description: "The leader of the WHO mission said the initial fin...", title: "WHO experts say it’s ‘extremely unlikely’ coronavi...", author: "Emily Wang Fujiyama", url: "https://www.theglobeandmail.com/world/article-who-...", urlToImage: "https://www.theglobeandmail.com/resizer/WYXR5cFtAS...", publishedAt: "2021-02-09T19:21:41Z", content: "Peter Ben Embarek speaks during a news conference ...", created_at: "2021-02-09 19:49:43", updated_at: "2021-02-09 19:49:43">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Story::ActiveRecord_Relation (18.73ms)
+Completed 200 OK in 30ms (Views: 27.0ms | ActiveRecord: 2.2ms | Allocations: 5283)
+
+
+  [1m[36mLocation Load (28.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (198.59ms)
+Completed 200 OK in 282ms (Views: 253.3ms | ActiveRecord: 28.2ms | Allocations: 50076)
+
+
+Started GET "/locations" for ::1 at 2021-02-11 15:59:29 -0500
+Started GET "/stories" for ::1 at 2021-02-11 15:59:29 -0500
+Processing by LocationsController#index as HTML
+Processing by StoriesController#index as HTML
+  [1m[36mStory Load (7.0ms)[0m  [1m[34mSELECT "stories".* FROM "stories"[0m
+  [1m[36mLocation Load (9.6ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/stories_controller.rb:5:in `index'
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+No serializer found for resource: #<Story id: 1, description: "The leader of the WHO mission said the initial fin...", title: "WHO experts say it’s ‘extremely unlikely’ coronavi...", author: "Emily Wang Fujiyama", url: "https://www.theglobeandmail.com/world/article-who-...", urlToImage: "https://www.theglobeandmail.com/resizer/WYXR5cFtAS...", publishedAt: "2021-02-09T19:21:41Z", content: "Peter Ben Embarek speaks during a news conference ...", created_at: "2021-02-09 19:49:43", updated_at: "2021-02-09 19:49:43">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (60.47ms)
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Story::ActiveRecord_Relation (5.1ms)
+Completed 200 OK in 100ms (Views: 88.6ms | ActiveRecord: 9.6ms | Allocations: 50229)
+
+
+Completed 200 OK in 96ms (Views: 88.7ms | ActiveRecord: 7.0ms | Allocations: 49869)
+
+
+Started GET "/locations" for ::1 at 2021-02-11 16:00:01 -0500
+Started GET "/stories" for ::1 at 2021-02-11 16:00:01 -0500
+Processing by LocationsController#index as HTML
+Processing by StoriesController#index as HTML
+  [1m[36mStory Load (0.6ms)[0m  [1m[34mSELECT "stories".* FROM "stories"[0m
+  [1m[36mLocation Load (1.6ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/stories_controller.rb:5:in `index'
+No serializer found for resource: #<Story id: 1, description: "The leader of the WHO mission said the initial fin...", title: "WHO experts say it’s ‘extremely unlikely’ coronavi...", author: "Emily Wang Fujiyama", url: "https://www.theglobeandmail.com/world/article-who-...", urlToImage: "https://www.theglobeandmail.com/resizer/WYXR5cFtAS...", publishedAt: "2021-02-09T19:21:41Z", content: "Peter Ben Embarek speaks during a news conference ...", created_at: "2021-02-09 19:49:43", updated_at: "2021-02-09 19:49:43">
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Story::ActiveRecord_Relation (7.76ms)
+Completed 200 OK in 119ms (Views: 117.6ms | ActiveRecord: 0.6ms | Allocations: 44178)
+
+
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (106.01ms)
+Completed 200 OK in 128ms (Views: 126.5ms | ActiveRecord: 1.6ms | Allocations: 50200)
+
+
+Started GET "/locations" for ::1 at 2021-02-11 16:01:20 -0500
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (1.1ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (36.65ms)
+Completed 200 OK in 50ms (Views: 48.5ms | ActiveRecord: 1.1ms | Allocations: 44810)
+
+
+Started GET "/stories" for ::1 at 2021-02-11 16:01:21 -0500
+Started GET "/locations" for ::1 at 2021-02-11 16:01:21 -0500
+Processing by StoriesController#index as HTML
+Processing by LocationsController#index as HTML
+  [1m[36mStory Load (2.6ms)[0m  [1m[34mSELECT "stories".* FROM "stories"[0m
+  ↳ app/controllers/stories_controller.rb:5:in `index'
+No serializer found for resource: #<Story id: 1, description: "The leader of the WHO mission said the initial fin...", title: "WHO experts say it’s ‘extremely unlikely’ coronavi...", author: "Emily Wang Fujiyama", url: "https://www.theglobeandmail.com/world/article-who-...", urlToImage: "https://www.theglobeandmail.com/resizer/WYXR5cFtAS...", publishedAt: "2021-02-09T19:21:41Z", content: "Peter Ben Embarek speaks during a news conference ...", created_at: "2021-02-09 19:49:43", updated_at: "2021-02-09 19:49:43">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Story::ActiveRecord_Relation (5.16ms)
+Completed 200 OK in 13ms (Views: 9.6ms | ActiveRecord: 2.6ms | Allocations: 5565)
+
+
+  [1m[36mLocation Load (16.9ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (102.39ms)
+Completed 200 OK in 137ms (Views: 120.0ms | ActiveRecord: 16.9ms | Allocations: 50067)
+
+
+Started GET "/locations" for ::1 at 2021-02-11 16:01:44 -0500
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (0.8ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (36.69ms)
+Completed 200 OK in 49ms (Views: 47.7ms | ActiveRecord: 0.8ms | Allocations: 44810)
+
+
+Started GET "/locations" for ::1 at 2021-02-11 16:02:27 -0500
+Started GET "/stories" for ::1 at 2021-02-11 16:02:27 -0500
+Processing by StoriesController#index as HTML
+Processing by LocationsController#index as HTML
+  [1m[36mStory Load (1.9ms)[0m  [1m[34mSELECT "stories".* FROM "stories"[0m
+  ↳ app/controllers/stories_controller.rb:5:in `index'
+No serializer found for resource: #<Story id: 1, description: "The leader of the WHO mission said the initial fin...", title: "WHO experts say it’s ‘extremely unlikely’ coronavi...", author: "Emily Wang Fujiyama", url: "https://www.theglobeandmail.com/world/article-who-...", urlToImage: "https://www.theglobeandmail.com/resizer/WYXR5cFtAS...", publishedAt: "2021-02-09T19:21:41Z", content: "Peter Ben Embarek speaks during a news conference ...", created_at: "2021-02-09 19:49:43", updated_at: "2021-02-09 19:49:43">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Story::ActiveRecord_Relation (3.66ms)
+Completed 200 OK in 9ms (Views: 7.2ms | ActiveRecord: 1.9ms | Allocations: 5279)
+
+
+  [1m[36mLocation Load (8.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (67.98ms)
+Completed 200 OK in 92ms (Views: 83.7ms | ActiveRecord: 8.2ms | Allocations: 50067)
+
+
+Started GET "/locations" for ::1 at 2021-02-11 16:02:46 -0500
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (1.1ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (31.92ms)
+Completed 200 OK in 43ms (Views: 41.6ms | ActiveRecord: 1.1ms | Allocations: 44810)
+
+
+Started GET "/locations" for ::1 at 2021-02-11 16:04:17 -0500
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (3.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (41.96ms)
+Completed 200 OK in 54ms (Views: 50.6ms | ActiveRecord: 3.3ms | Allocations: 44813)
+
+
+Started GET "/locations" for ::1 at 2021-02-11 16:05:17 -0500
+Started GET "/stories" for ::1 at 2021-02-11 16:05:17 -0500
+Processing by LocationsController#index as HTML
+Processing by StoriesController#index as HTML
+  [1m[36mStory Load (4.8ms)[0m  [1m[34mSELECT "stories".* FROM "stories"[0m
+  ↳ app/controllers/stories_controller.rb:5:in `index'
+No serializer found for resource: #<Story id: 1, description: "The leader of the WHO mission said the initial fin...", title: "WHO experts say it’s ‘extremely unlikely’ coronavi...", author: "Emily Wang Fujiyama", url: "https://www.theglobeandmail.com/world/article-who-...", urlToImage: "https://www.theglobeandmail.com/resizer/WYXR5cFtAS...", publishedAt: "2021-02-09T19:21:41Z", content: "Peter Ben Embarek speaks during a news conference ...", created_at: "2021-02-09 19:49:43", updated_at: "2021-02-09 19:49:43">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Story::ActiveRecord_Relation (6.12ms)
+Completed 200 OK in 25ms (Views: 19.4ms | ActiveRecord: 4.8ms | Allocations: 5147)
+
+
+  [1m[36mLocation Load (30.0ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (54.83ms)
+Completed 200 OK in 102ms (Views: 71.6ms | ActiveRecord: 30.0ms | Allocations: 50482)
+
+
+Started GET "/locations" for ::1 at 2021-02-11 16:05:34 -0500
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (0.9ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (32.55ms)
+Completed 200 OK in 44ms (Views: 42.7ms | ActiveRecord: 0.9ms | Allocations: 44811)
+
+
+Started GET "/locations" for ::1 at 2021-02-11 16:05:43 -0500
+Started GET "/stories" for ::1 at 2021-02-11 16:05:43 -0500
+Processing by StoriesController#index as HTML
+Processing by LocationsController#index as HTML
+  [1m[36mStory Load (1.5ms)[0m  [1m[34mSELECT "stories".* FROM "stories"[0m
+  ↳ app/controllers/stories_controller.rb:5:in `index'
+No serializer found for resource: #<Story id: 1, description: "The leader of the WHO mission said the initial fin...", title: "WHO experts say it’s ‘extremely unlikely’ coronavi...", author: "Emily Wang Fujiyama", url: "https://www.theglobeandmail.com/world/article-who-...", urlToImage: "https://www.theglobeandmail.com/resizer/WYXR5cFtAS...", publishedAt: "2021-02-09T19:21:41Z", content: "Peter Ben Embarek speaks during a news conference ...", created_at: "2021-02-09 19:49:43", updated_at: "2021-02-09 19:49:43">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Story::ActiveRecord_Relation (5.25ms)
+Completed 200 OK in 11ms (Views: 9.1ms | ActiveRecord: 1.5ms | Allocations: 5279)
+
+
+  [1m[36mLocation Load (11.4ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (106.55ms)
+Completed 200 OK in 133ms (Views: 121.1ms | ActiveRecord: 11.4ms | Allocations: 50067)
+
+
+Started GET "/stories" for ::1 at 2021-02-11 16:05:53 -0500
+Started GET "/locations" for ::1 at 2021-02-11 16:05:53 -0500
+Processing by StoriesController#index as HTML
+Processing by LocationsController#index as HTML
+  [1m[36mStory Load (1.9ms)[0m  [1m[34mSELECT "stories".* FROM "stories"[0m
+  ↳ app/controllers/stories_controller.rb:5:in `index'
+No serializer found for resource: #<Story id: 1, description: "The leader of the WHO mission said the initial fin...", title: "WHO experts say it’s ‘extremely unlikely’ coronavi...", author: "Emily Wang Fujiyama", url: "https://www.theglobeandmail.com/world/article-who-...", urlToImage: "https://www.theglobeandmail.com/resizer/WYXR5cFtAS...", publishedAt: "2021-02-09T19:21:41Z", content: "Peter Ben Embarek speaks during a news conference ...", created_at: "2021-02-09 19:49:43", updated_at: "2021-02-09 19:49:43">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Story::ActiveRecord_Relation (5.06ms)
+Completed 200 OK in 11ms (Views: 8.6ms | ActiveRecord: 1.9ms | Allocations: 5467)
+
+
+  [1m[36mLocation Load (9.4ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (213.03ms)
+Completed 200 OK in 285ms (Views: 275.1ms | ActiveRecord: 9.4ms | Allocations: 50076)
+
+
+Started GET "/stories" for ::1 at 2021-02-11 16:05:56 -0500
+Started GET "/locations" for ::1 at 2021-02-11 16:05:56 -0500
+Processing by StoriesController#index as HTML
+Processing by LocationsController#index as HTML
+  [1m[36mStory Load (1.4ms)[0m  [1m[34mSELECT "stories".* FROM "stories"[0m
+  ↳ app/controllers/stories_controller.rb:5:in `index'
+No serializer found for resource: #<Story id: 1, description: "The leader of the WHO mission said the initial fin...", title: "WHO experts say it’s ‘extremely unlikely’ coronavi...", author: "Emily Wang Fujiyama", url: "https://www.theglobeandmail.com/world/article-who-...", urlToImage: "https://www.theglobeandmail.com/resizer/WYXR5cFtAS...", publishedAt: "2021-02-09T19:21:41Z", content: "Peter Ben Embarek speaks during a news conference ...", created_at: "2021-02-09 19:49:43", updated_at: "2021-02-09 19:49:43">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Story::ActiveRecord_Relation (4.86ms)
+Completed 200 OK in 11ms (Views: 9.6ms | ActiveRecord: 1.4ms | Allocations: 5279)
+
+
+  [1m[36mLocation Load (10.4ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (56.53ms)
+Completed 200 OK in 84ms (Views: 72.8ms | ActiveRecord: 10.4ms | Allocations: 50064)
+
+
+Started PUT "/update_location" for ::1 at 2021-02-11 16:05:59 -0500
+Processing by UsersController#update_location as HTML
+  Parameters: {"id"=>1, "country"=>"Antigua and Barbuda", "user"=>{"id"=>1}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:41:in `update_location'
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."country" = $1 LIMIT $2[0m  [["country", "Antigua and Barbuda"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:42:in `update_location'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "apple"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:44:in `update_location'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:46:in `update_location'
+  [1m[36mLocation Load (1.4ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:46:in `update_location'
+  [1m[36mLocation Update (1.8ms)[0m  [1m[33mUPDATE "locations" SET "user_id" = $1, "updated_at" = $2 WHERE "locations"."id" = $3[0m  [["user_id", nil], ["updated_at", "2021-02-11 21:05:59.129505"], ["id", 4]]
+  ↳ app/controllers/users_controller.rb:46:in `update_location'
+  [1m[36mLocation Update (0.8ms)[0m  [1m[33mUPDATE "locations" SET "user_id" = $1, "updated_at" = $2 WHERE "locations"."id" = $3[0m  [["user_id", 1], ["updated_at", "2021-02-11 21:05:59.133711"], ["id", 7]]
+  ↳ app/controllers/users_controller.rb:46:in `update_location'
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "apple"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:46:in `update_location'
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:46:in `update_location'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.79ms)
+Completed 200 OK in 26ms (Views: 1.5ms | ActiveRecord: 6.7ms | Allocations: 8177)
+
+
+Started GET "/locations" for ::1 at 2021-02-11 16:06:11 -0500
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (1.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (32.22ms)
+Completed 200 OK in 44ms (Views: 42.1ms | ActiveRecord: 1.2ms | Allocations: 44810)
+
+
+Started GET "/locations" for ::1 at 2021-02-11 16:07:38 -0500
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (1.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (32.43ms)
+Completed 200 OK in 44ms (Views: 42.0ms | ActiveRecord: 1.3ms | Allocations: 44811)
+
+
+Started GET "/locations" for ::1 at 2021-02-11 16:07:49 -0500
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (2.6ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+Started GET "/stories" for ::1 at 2021-02-11 16:07:49 -0500
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (116.07ms)
+Completed 200 OK in 141ms (Views: 137.7ms | ActiveRecord: 2.6ms | Allocations: 45161)
+
+
+Processing by StoriesController#index as HTML
+  [1m[36mStory Load (0.7ms)[0m  [1m[34mSELECT "stories".* FROM "stories"[0m
+  ↳ app/controllers/stories_controller.rb:5:in `index'
+No serializer found for resource: #<Story id: 1, description: "The leader of the WHO mission said the initial fin...", title: "WHO experts say it’s ‘extremely unlikely’ coronavi...", author: "Emily Wang Fujiyama", url: "https://www.theglobeandmail.com/world/article-who-...", urlToImage: "https://www.theglobeandmail.com/resizer/WYXR5cFtAS...", publishedAt: "2021-02-09T19:21:41Z", content: "Peter Ben Embarek speaks during a news conference ...", created_at: "2021-02-09 19:49:43", updated_at: "2021-02-09 19:49:43">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Story::ActiveRecord_Relation (6.23ms)
+Completed 200 OK in 12ms (Views: 10.6ms | ActiveRecord: 0.7ms | Allocations: 5199)
+
+
+Started GET "/locations" for ::1 at 2021-02-11 16:07:59 -0500
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (0.9ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (41.23ms)
+Completed 200 OK in 54ms (Views: 52.5ms | ActiveRecord: 0.9ms | Allocations: 44813)
+
+
+Started PUT "/update_location" for ::1 at 2021-02-11 16:08:19 -0500
+Processing by UsersController#update_location as HTML
+  Parameters: {"id"=>1, "country"=>"Aruba", "user"=>{"id"=>1}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:41:in `update_location'
+  [1m[36mLocation Load (0.5ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."country" = $1 LIMIT $2[0m  [["country", "Aruba"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:42:in `update_location'
+  [1m[36mUser Exists? (1.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "apple"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:44:in `update_location'
+  [1m[35m (4.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:46:in `update_location'
+  [1m[36mLocation Load (0.6ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:46:in `update_location'
+  [1m[36mLocation Update (1.6ms)[0m  [1m[33mUPDATE "locations" SET "user_id" = $1, "updated_at" = $2 WHERE "locations"."id" = $3[0m  [["user_id", nil], ["updated_at", "2021-02-11 21:08:19.263192"], ["id", 7]]
+  ↳ app/controllers/users_controller.rb:46:in `update_location'
+  [1m[36mLocation Update (0.9ms)[0m  [1m[33mUPDATE "locations" SET "user_id" = $1, "updated_at" = $2 WHERE "locations"."id" = $3[0m  [["user_id", 1], ["updated_at", "2021-02-11 21:08:19.267464"], ["id", 10]]
+  ↳ app/controllers/users_controller.rb:46:in `update_location'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "apple"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:46:in `update_location'
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:46:in `update_location'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (1.24ms)
+Completed 200 OK in 38ms (Views: 2.1ms | ActiveRecord: 11.7ms | Allocations: 8184)
+
+
+Started GET "/locations" for ::1 at 2021-02-11 16:08:23 -0500
+Started GET "/stories" for ::1 at 2021-02-11 16:08:23 -0500
+Processing by LocationsController#index as HTML
+Processing by StoriesController#index as HTML
+  [1m[36mLocation Load (10.7ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+  [1m[36mStory Load (8.2ms)[0m  [1m[34mSELECT "stories".* FROM "stories"[0m
+  ↳ app/controllers/stories_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (65.93ms)
+No serializer found for resource: #<Story id: 1, description: "The leader of the WHO mission said the initial fin...", title: "WHO experts say it’s ‘extremely unlikely’ coronavi...", author: "Emily Wang Fujiyama", url: "https://www.theglobeandmail.com/world/article-who-...", urlToImage: "https://www.theglobeandmail.com/resizer/WYXR5cFtAS...", publishedAt: "2021-02-09T19:21:41Z", content: "Peter Ben Embarek speaks during a news conference ...", created_at: "2021-02-09 19:49:43", updated_at: "2021-02-09 19:49:43">
+Completed 200 OK in 106ms (Views: 94.6ms | ActiveRecord: 10.7ms | Allocations: 46440)
+
+
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Story::ActiveRecord_Relation (5.01ms)
+Completed 200 OK in 110ms (Views: 100.7ms | ActiveRecord: 8.2ms | Allocations: 50016)
+
+
+Started GET "/locations" for ::1 at 2021-02-11 16:10:32 -0500
+Started GET "/stories" for ::1 at 2021-02-11 16:10:32 -0500
+Processing by LocationsController#index as HTML
+Processing by StoriesController#index as HTML
+  [1m[36mLocation Load (1.9ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  [1m[36mStory Load (1.3ms)[0m  [1m[34mSELECT "stories".* FROM "stories"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+  ↳ app/controllers/stories_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (81.41ms)
+No serializer found for resource: #<Story id: 1, description: "The leader of the WHO mission said the initial fin...", title: "WHO experts say it’s ‘extremely unlikely’ coronavi...", author: "Emily Wang Fujiyama", url: "https://www.theglobeandmail.com/world/article-who-...", urlToImage: "https://www.theglobeandmail.com/resizer/WYXR5cFtAS...", publishedAt: "2021-02-09T19:21:41Z", content: "Peter Ben Embarek speaks during a news conference ...", created_at: "2021-02-09 19:49:43", updated_at: "2021-02-09 19:49:43">
+Completed 200 OK in 102ms (Views: 99.7ms | ActiveRecord: 1.9ms | Allocations: 46137)
+
+
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Story::ActiveRecord_Relation (5.83ms)
+Completed 200 OK in 109ms (Views: 107.4ms | ActiveRecord: 1.3ms | Allocations: 50067)
+
+
+Started GET "/locations" for ::1 at 2021-02-11 16:10:32 -0500
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (2.0ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (115.9ms)
+Completed 200 OK in 138ms (Views: 135.8ms | ActiveRecord: 2.0ms | Allocations: 44810)
+
+
+Started GET "/locations" for ::1 at 2021-02-11 16:10:49 -0500
+Processing by LocationsController#index as HTML
+Started GET "/stories" for ::1 at 2021-02-11 16:10:49 -0500
+Processing by StoriesController#index as HTML
+  [1m[36mLocation Load (4.8ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  [1m[36mStory Load (0.6ms)[0m  [1m[34mSELECT "stories".* FROM "stories"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+  ↳ app/controllers/stories_controller.rb:5:in `index'
+No serializer found for resource: #<Story id: 1, description: "The leader of the WHO mission said the initial fin...", title: "WHO experts say it’s ‘extremely unlikely’ coronavi...", author: "Emily Wang Fujiyama", url: "https://www.theglobeandmail.com/world/article-who-...", urlToImage: "https://www.theglobeandmail.com/resizer/WYXR5cFtAS...", publishedAt: "2021-02-09T19:21:41Z", content: "Peter Ben Embarek speaks during a news conference ...", created_at: "2021-02-09 19:49:43", updated_at: "2021-02-09 19:49:43">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (91.99ms)
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Story::ActiveRecord_Relation (5.41ms)
+Completed 200 OK in 123ms (Views: 118.1ms | ActiveRecord: 4.8ms | Allocations: 50464)
+
+
+Completed 200 OK in 119ms (Views: 118.2ms | ActiveRecord: 0.6ms | Allocations: 49872)
+
+
+Started GET "/locations" for ::1 at 2021-02-11 16:10:49 -0500
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (3.5ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (45.86ms)
+Completed 200 OK in 63ms (Views: 59.0ms | ActiveRecord: 3.5ms | Allocations: 44810)
+
+
+Started GET "/stories" for ::1 at 2021-02-11 16:14:29 -0500
+Started GET "/locations" for ::1 at 2021-02-11 16:14:29 -0500
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (2.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by LocationsController#index as HTML
+Processing by StoriesController#index as HTML
+  [1m[36mLocation Load (3.8ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+  [1m[36mStory Load (5.9ms)[0m  [1m[34mSELECT "stories".* FROM "stories"[0m
+  ↳ app/controllers/stories_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (44.56ms)
+No serializer found for resource: #<Story id: 1, description: "The leader of the WHO mission said the initial fin...", title: "WHO experts say it’s ‘extremely unlikely’ coronavi...", author: "Emily Wang Fujiyama", url: "https://www.theglobeandmail.com/world/article-who-...", urlToImage: "https://www.theglobeandmail.com/resizer/WYXR5cFtAS...", publishedAt: "2021-02-09T19:21:41Z", content: "Peter Ben Embarek speaks during a news conference ...", created_at: "2021-02-09 19:49:43", updated_at: "2021-02-09 19:49:43">
+Completed 200 OK in 133ms (Views: 111.6ms | ActiveRecord: 11.2ms | Allocations: 65518)
+
+
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Story::ActiveRecord_Relation (3.04ms)
+Completed 200 OK in 137ms (Views: 21.9ms | ActiveRecord: 88.9ms | Allocations: 69613)
+
+
+Started GET "/locations" for ::1 at 2021-02-11 16:14:29 -0500
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (1.0ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (59.03ms)
+Completed 200 OK in 73ms (Views: 71.8ms | ActiveRecord: 1.0ms | Allocations: 44849)
+
+
+Started GET "/locations" for ::1 at 2021-02-11 16:39:30 -0500
+Started GET "/stories" for ::1 at 2021-02-11 16:39:30 -0500
+Processing by StoriesController#index as HTML
+Processing by LocationsController#index as HTML
+  [1m[36mStory Load (1.8ms)[0m  [1m[34mSELECT "stories".* FROM "stories"[0m
+  ↳ app/controllers/stories_controller.rb:5:in `index'
+No serializer found for resource: #<Story id: 1, description: "The leader of the WHO mission said the initial fin...", title: "WHO experts say it’s ‘extremely unlikely’ coronavi...", author: "Emily Wang Fujiyama", url: "https://www.theglobeandmail.com/world/article-who-...", urlToImage: "https://www.theglobeandmail.com/resizer/WYXR5cFtAS...", publishedAt: "2021-02-09T19:21:41Z", content: "Peter Ben Embarek speaks during a news conference ...", created_at: "2021-02-09 19:49:43", updated_at: "2021-02-09 19:49:43">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Story::ActiveRecord_Relation (8.18ms)
+Completed 200 OK in 22ms (Views: 19.2ms | ActiveRecord: 1.8ms | Allocations: 5379)
+
+
+  [1m[36mLocation Load (18.0ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (81.21ms)
+Completed 200 OK in 193ms (Views: 174.5ms | ActiveRecord: 18.0ms | Allocations: 50253)
+
+
+Started GET "/locations" for ::1 at 2021-02-11 16:39:30 -0500
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (1.7ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (71.2ms)
+Completed 200 OK in 93ms (Views: 90.6ms | ActiveRecord: 1.7ms | Allocations: 44819)
+
+
+Started GET "/locations" for ::1 at 2021-02-11 16:39:33 -0500
+Started GET "/stories" for ::1 at 2021-02-11 16:39:33 -0500
+Processing by StoriesController#index as HTML
+Processing by LocationsController#index as HTML
+  [1m[36mStory Load (1.0ms)[0m  [1m[34mSELECT "stories".* FROM "stories"[0m
+  ↳ app/controllers/stories_controller.rb:5:in `index'
+No serializer found for resource: #<Story id: 1, description: "The leader of the WHO mission said the initial fin...", title: "WHO experts say it’s ‘extremely unlikely’ coronavi...", author: "Emily Wang Fujiyama", url: "https://www.theglobeandmail.com/world/article-who-...", urlToImage: "https://www.theglobeandmail.com/resizer/WYXR5cFtAS...", publishedAt: "2021-02-09T19:21:41Z", content: "Peter Ben Embarek speaks during a news conference ...", created_at: "2021-02-09 19:49:43", updated_at: "2021-02-09 19:49:43">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Story::ActiveRecord_Relation (4.93ms)
+Completed 200 OK in 9ms (Views: 7.9ms | ActiveRecord: 1.0ms | Allocations: 5293)
+
+
+  [1m[36mLocation Load (8.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (70.82ms)
+Completed 200 OK in 103ms (Views: 94.3ms | ActiveRecord: 8.2ms | Allocations: 50087)
+
+
+Started GET "/locations" for ::1 at 2021-02-11 16:39:33 -0500
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (0.9ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (59.22ms)
+Completed 200 OK in 79ms (Views: 77.6ms | ActiveRecord: 0.9ms | Allocations: 44810)
+
+
+Started GET "/locations" for ::1 at 2021-02-11 17:46:44 -0500
+Started GET "/stories" for ::1 at 2021-02-11 17:46:44 -0500
+Processing by StoriesController#index as HTML
+Processing by LocationsController#index as HTML
+  [1m[36mStory Load (4.2ms)[0m  [1m[34mSELECT "stories".* FROM "stories"[0m
+  ↳ app/controllers/stories_controller.rb:5:in `index'
+No serializer found for resource: #<Story id: 1, description: "The leader of the WHO mission said the initial fin...", title: "WHO experts say it’s ‘extremely unlikely’ coronavi...", author: "Emily Wang Fujiyama", url: "https://www.theglobeandmail.com/world/article-who-...", urlToImage: "https://www.theglobeandmail.com/resizer/WYXR5cFtAS...", publishedAt: "2021-02-09T19:21:41Z", content: "Peter Ben Embarek speaks during a news conference ...", created_at: "2021-02-09 19:49:43", updated_at: "2021-02-09 19:49:43">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Story::ActiveRecord_Relation (30.54ms)
+Completed 200 OK in 63ms (Views: 54.2ms | ActiveRecord: 4.2ms | Allocations: 12589)
+
+
+  [1m[36mLocation Load (54.5ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (37.79ms)
+Completed 200 OK in 126ms (Views: 68.2ms | ActiveRecord: 54.5ms | Allocations: 66144)
+
+
+Started GET "/locations" for ::1 at 2021-02-11 17:46:45 -0500
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (1.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (37.33ms)
+Completed 200 OK in 49ms (Views: 47.1ms | ActiveRecord: 1.3ms | Allocations: 44810)
+
+
+Started POST "/login" for ::1 at 2021-02-11 17:47:56 -0500
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#login as HTML
+  Parameters: {"username"=>"apple", "password"=>"[FILTERED]", "user"=>{"username"=>"apple"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "apple"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `login'
+[active_model_serializers]   [1m[36mLocation Load (0.4ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:23:in `login'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (31.28ms)
+Completed 200 OK in 300ms (Views: 30.7ms | ActiveRecord: 6.7ms | Allocations: 20381)
+
+
+Started GET "/locations" for ::1 at 2021-02-11 17:47:56 -0500
+Started GET "/stories" for ::1 at 2021-02-11 17:47:56 -0500
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (0.7ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (29.55ms)
+Completed 200 OK in 39ms (Views: 38.3ms | ActiveRecord: 0.7ms | Allocations: 44917)
+
+
+Started GET "/locations" for ::1 at 2021-02-11 17:47:56 -0500
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (0.4ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (29.74ms)
+Processing by StoriesController#index as HTML
+Completed 200 OK in 51ms (Views: 49.7ms | ActiveRecord: 0.4ms | Allocations: 47097)
+
+
+  [1m[36mStory Load (0.7ms)[0m  [1m[34mSELECT "stories".* FROM "stories"[0m
+  ↳ app/controllers/stories_controller.rb:5:in `index'
+No serializer found for resource: #<Story id: 1, description: "The leader of the WHO mission said the initial fin...", title: "WHO experts say it’s ‘extremely unlikely’ coronavi...", author: "Emily Wang Fujiyama", url: "https://www.theglobeandmail.com/world/article-who-...", urlToImage: "https://www.theglobeandmail.com/resizer/WYXR5cFtAS...", publishedAt: "2021-02-09T19:21:41Z", content: "Peter Ben Embarek speaks during a news conference ...", created_at: "2021-02-09 19:49:43", updated_at: "2021-02-09 19:49:43">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Story::ActiveRecord_Relation (3.65ms)
+Completed 200 OK in 20ms (Views: 14.0ms | ActiveRecord: 5.1ms | Allocations: 12596)
+
+
