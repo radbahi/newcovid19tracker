@@ -9,6 +9,9 @@ import {
 } from 'recharts'
 
 const DiseaseGraph = ({ selectedLocation }) => {
+  console.log(selectedLocation)
+  console.log(selectedLocation.active)
+
   const data = [
     {
       name: 'Active',
@@ -41,7 +44,6 @@ const DiseaseGraph = ({ selectedLocation }) => {
 
   return (
     <div>
-      {selectedLocation.country}
       <BarChart width={600} height={300} data={data}>
         <XAxis dataKey='name' stroke='#8884d8' />
         <YAxis />

@@ -9,7 +9,7 @@ export const login = (username, password) => async (dispatch) => {
     const config = {
       headers: {
         'Content-Type': 'application/json',
-        Authorization: `Bearer <token>`,
+        Authorization: `Bearer ${localStorage.token}`,
       },
     } //we want to send this as a header.
 
@@ -32,6 +32,8 @@ export const login = (username, password) => async (dispatch) => {
     // localStorage.setItem('userInfo', JSON.stringify(data)) //save the userinfo to localstorage. we stringify it cuz localstorage only saves strings. we later parse it back to JSON to use with javascript.
     // //we take the localstorage userinfo data in the initial state in store.js
   } catch (error) {
+    console.log(JSON.stringify(error))
+    console.log(error.response.data.message)
     dispatch({
       type: 'USER_LOGIN_FAIL',
       payload:
@@ -87,7 +89,10 @@ export const register = (username, password) => async (dispatch) => {
     }) //the payload here checks for our custom message. if it exists, send the custom message, if not, send generic message}
   }
 }
-
+// if were expecting to pass the whole user object every time, its extra. 
+// eventually it will have to sort through too many endpoints. 
+// Config is reusable
+// other functions w/switch statement
 export const updateUser = (user) => async (dispatch) => {
   try {
     dispatch({
@@ -97,13 +102,16 @@ export const updateUser = (user) => async (dispatch) => {
     const config = {
       headers: {
         'Content-Type': 'application/json',
-        Authorization: `Bearer <token>`,
+        Authorization: `Bearer ${localStorage.token}`,
       },
     } //we want to send this as a header. POSSIBLY NOT HOW TOKEN GETS SENT.
-
+    const newPayload = {
+      id: user.id,
+      country: user.location[0].country
+    }
     const { data } = await axios.put(
-      `http://localhost:3000/users/${user.id}`,
-      user,
+      `http://localhost:3000/update_location`,
+      newPayload,
       config
     ) //pass the id into this route as well as the config and extract data
 
