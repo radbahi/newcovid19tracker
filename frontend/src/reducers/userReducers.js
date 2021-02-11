@@ -13,6 +13,7 @@ export const userLoginReducer = (state = {}, action) => {
       return { loading: false, userInfo: action.payload } //we send this once the data is fetched. remember that payload = data.
     case 'USER_LOGIN_FAIL':
       return { loading: false, error: action.payload }
+      // what happens here depends on us! lol 
     case 'USER_LOGOUT':
       return {} //clears everything
     default:

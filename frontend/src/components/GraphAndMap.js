@@ -24,14 +24,17 @@ const GraphAndMap = () => {
       const { data } = await axios.get('http://localhost:3000/locations')
       setDiseaseData(data)
     }
+
     addDiseaseData()
-    setSelectedLocation(userInfo.data.user.locations)
-  }, [userInfo.data.user.locations])
+
+    setSelectedLocation(userInfo.data.user.location)
+    console.log("i am here")
+  }, [userInfo.data.user.location])
 
   const selectLocationHandler = (location) => {
-    console.log(location)
-    dispatch(updateUser({ id: userInfo.data.user.id, locations: location }))
+    dispatch(updateUser({ id: userInfo.data.user.id, location: [location] }))
     setSelectedLocation(location)
+    console.log(userInfo.data.user.id, location)
     //USEDISPATCH HOOK TO UPDATE USER LOCATION HERE
   }
 
@@ -60,7 +63,7 @@ const GraphAndMap = () => {
           })}
         </Dropdown.Menu>
       </Dropdown>
-      <DiseaseGraph selectedLocation={selectedLocation} />
+      {selectedLocation && <DiseaseGraph selectedLocation={selectedLocation} />}
     </div>
   )
 }
