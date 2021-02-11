@@ -74,7 +74,7 @@ const WorldMap = () => {
   useEffect(() => {
     const fetchInfected = async () => {
       try {
-        const { data } = await axios.get('https://localhost:3000/locations')
+        const { data } = await axios.get('http://localhost:3000/locations')
         setInfected(data)
       } catch (error) {
         console.log(`There was a problem: ${error}`)
