@@ -33,8 +33,6 @@ const WorldMap = () => {
 
   const [position, setPosition] = useState({ coordinates: [0, 0], zoom: 0.65 })
 
-  const user = useSelector((state) => state.user)
-
   const [tooltipContent, setTooltipContent] = useState('')
 
   const onMouseEnter = (
@@ -74,8 +72,9 @@ const WorldMap = () => {
   useEffect(() => {
     const fetchInfected = async () => {
       try {
-        const { data } = await axios.get('https://localhost:3000/locations')
+        const { data } = await axios.get('http://localhost:3000/locations')
         setInfected(data)
+        console.log(data)
       } catch (error) {
         console.log(`There was a problem: ${error}`)
         return
@@ -97,33 +96,19 @@ const WorldMap = () => {
             <Geographies geography={geoUrl}>
               {({ geographies }) =>
                 geographies.map((geo) => {
+                  console.log(geo)
                   const current = infectedAreas.find(
                     (location) => location.ISO === geo.properties.ISO_A3
                   )
-                  if (
-                    current &&
-                    parseInt(user.locations_id) === parseInt(current.id)
-                  ) {
-                    return (
-                      <Geography
-                        key={geo.rsmKey}
-                        geography={geo}
-                        onMouseEnter={onMouseEnter(current)}
-                        onMouseLeave={onMouseLeave}
-                        fill={current ? colorScale(current.active) : '#EEE'}
-                      />
-                    )
-                  } else if (user.status === 500 || !user.locations_id) {
-                    return (
-                      <Geography
-                        key={geo.rsmKey}
-                        geography={geo}
-                        onMouseEnter={onMouseEnter(current)}
-                        onMouseLeave={onMouseLeave}
-                        fill={current ? colorScale(current.active) : '#EEE'}
-                      />
-                    )
-                  }
+                  return (
+                    <Geography
+                      key={geo.rsmKey}
+                      geography={geo}
+                      onMouseEnter={onMouseEnter(current)}
+                      onMouseLeave={onMouseLeave}
+                      fill={current ? colorScale(current.active) : '#EEE'}
+                    />
+                  )
                 })
               }
             </Geographies>

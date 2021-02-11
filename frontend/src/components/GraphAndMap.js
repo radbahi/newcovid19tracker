@@ -29,7 +29,6 @@ const GraphAndMap = () => {
     addDiseaseData()
 
     setSelectedLocation(userInfo.data.user.location)
-    console.log('i am here')
   }, [userInfo.data.user.location])
 
   const selectLocationHandler = (location) => {
