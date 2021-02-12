@@ -25,8 +25,6 @@ export const login = (username, password) => async (dispatch) => {
       (data.token = localStorage.token)
     )
 
-    console.log(data) //pass all these arguments in and then extract data from the response
-
     dispatch({ type: 'USER_LOGIN_SUCCESS', payload: data })
 
     // localStorage.setItem('userInfo', JSON.stringify(data)) //save the userinfo to localstorage. we stringify it cuz localstorage only saves strings. we later parse it back to JSON to use with javascript.
@@ -57,17 +55,17 @@ export const register = (username, password) => async (dispatch) => {
     const config = {
       headers: {
         'Content-Type': 'application/json',
-        Authorization: `Bearer <token>`,
+        // Authorization: `Bearer <token>`,
       },
     } //we want to send this as a header
 
-    const { data } = await axios.post(
+    const data = await axios.post(
       'http://localhost:3000/users',
       { username, password },
       config
     ) //pass all these arguments in and then extract data from the response
 
-    dispatch({ type: 'USER_REGISTER_SUCCESS', payload: data })
+    dispatch({ type: 'USER_REGISTER_SUCCESS' })
 
     dispatch({ type: 'USER_LOGIN_SUCCESS', payload: data }) //we want the user to be immediately logged in if registration is successful
 

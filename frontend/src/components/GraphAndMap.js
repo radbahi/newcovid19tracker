@@ -16,9 +16,9 @@ const GraphAndMap = () => {
   // HIGHLIGHT SELECTEDLOCATION ON MAP
   //MAYBE JUST DISPATCH TO USER'S LOCATION BACKEND?
 
-  const userLogin = useSelector((state) => state.userLogin)
+  const userState = useSelector((state) => state.userState)
 
-  const { userInfo } = userLogin
+  const { userInfo } = userState
 
   useEffect(() => {
     const addDiseaseData = async () => {
@@ -27,14 +27,13 @@ const GraphAndMap = () => {
     }
 
     addDiseaseData()
-    setSelectedLocation(userInfo.data.user.location)
-  }, [userInfo.data.user.location])
+
+    userInfo && setSelectedLocation(userInfo.data.user.location)
+  }, [userInfo])
 
   const selectLocationHandler = (location) => {
     dispatch(updateUser({ id: userInfo.data.user.id, location: [location] }))
     setSelectedLocation(location)
-    console.log(userInfo.data.user.id, location)
-    //USEDISPATCH HOOK TO UPDATE USER LOCATION HERE
   }
 
   // PASS SELECTED LOCATION AS PROP INTO DISEASEGRAPH AND JUST PASS ALL DATA INTO WORLD MAP
@@ -62,7 +61,14 @@ const GraphAndMap = () => {
           })}
         </Dropdown.Menu>
       </Dropdown>
+<<<<<<< HEAD
       {selectedLocation && <DiseaseGraph selectedLocation={selectedLocation} />}
+=======
+      {selectedLocation
+        ? `${selectedLocation.country}`
+        : 'Please select a country'}
+      <DiseaseGraph selectedLocation={selectedLocation} />
+>>>>>>> refs/remotes/origin/main
       <WorldMap selectedLocation={selectedLocation} />
     </div>
   )

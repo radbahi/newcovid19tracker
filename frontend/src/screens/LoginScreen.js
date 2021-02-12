@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { login } from '../actions/userActions.js'
 import { Button } from 'react-bootstrap'
 
@@ -14,13 +14,12 @@ const LoginScreen = () => {
   const submitLoginHandler = (e) => {
     e.preventDefault()
     dispatch(login(username, password))
-    console.log(userInfo)
   }
 
   //PULL FROM LOCALSTORAGE INSTEAD for persistence?
-  const userLogin = useSelector((state) => state.userLogin)
+  // const userState = useSelector((state) => state.userState)
 
-  const { userInfo } = userLogin
+  // const { userInfo } = userState
 
   return (
     <div>

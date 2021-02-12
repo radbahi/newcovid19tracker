@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import { scaleQuantile } from 'd3-scale'
-import { useSelector } from 'react-redux'
 import axios from 'axios'
 import ReactTooltip from 'react-tooltip'
 import {
@@ -24,8 +23,9 @@ const COLOR_RANGE = [
   '#782618',
 ]
 
-const WorldMap = ({ selectedLocation }) => {
+// USE SELECTEDLOCATION TO HIGHLIGHT THAT COUNTRY ON MAP
 
+const WorldMap = ({ selectedLocation }) => {
   const [infectedAreas, setInfected] = useState([])
 
   const colorScale = scaleQuantile()
@@ -75,7 +75,6 @@ const WorldMap = ({ selectedLocation }) => {
       try {
         const { data } = await axios.get('http://localhost:3000/locations')
         setInfected(data)
-        console.log(data)
       } catch (error) {
         console.log(`There was a problem: ${error}`)
         return
@@ -94,13 +93,23 @@ const WorldMap = ({ selectedLocation }) => {
             center={position.coordinates}
             onMoveEnd={handleMoveEnd}
           >
+            {console.log(selectedLocation)}
             <Geographies geography={geoUrl}>
               {({ geographies }) =>
                 geographies.map((geo) => {
                   const current = infectedAreas.find(
                     (location) => location.ISO === geo.properties.ISO_A3
                   )
-                  return (
+                  console.log(current)
+                  selectedLocation === current ? (
+                    <Geography
+                      key={geo.rsmKey}
+                      geography={geo}
+                      onMouseEnter={onMouseEnter(current)}
+                      onMouseLeave={onMouseLeave}
+                      fill={current ? colorScale(current.active) : '#EEE'}
+                    />
+                  ) : (
                     <Geography
                       key={geo.rsmKey}
                       geography={geo}
