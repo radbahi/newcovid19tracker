@@ -100,7 +100,6 @@ const WorldMap = ({ selectedLocation }) => {
                   const current = infectedAreas.find(
                     (location) => location.ISO === geo.properties.ISO_A3
                   )
-                  console.log(current)
                   selectedLocation === current ? (
                     <Geography
                       key={geo.rsmKey}

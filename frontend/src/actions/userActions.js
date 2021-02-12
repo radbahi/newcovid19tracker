@@ -21,6 +21,7 @@ export const login = (username, password) => async (dispatch) => {
 
     localStorage.setItem(
       'userInfo',
+      console.log(data),
       JSON.stringify(data),
       (data.token = localStorage.token)
     )
