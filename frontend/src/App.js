@@ -7,20 +7,20 @@ import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
 import './App.css'
 
 function App() {
-  const userLogin = useSelector((state) => state.userLogin)
-  const { userInfo } = userLogin
+  const userState = useSelector((state) => state.userState)
+  // const { userInfo } = userState
   return (
     <Router>
       <Route exact path='/'>
-        {!userInfo ? <Redirect to='/login' /> : <HomeScreen />}
+        {!userState ? <Redirect to='/login' /> : <HomeScreen />}
       </Route>
-      {/* {!userInfo || error === 'oh fuck' ? (
+      {/* {!userState || error === 'oh fuck' ? (
           <Redirect to='/login' />
         ) : (
           <HomeScreen />
         )} */}
       <Route exact path='/login'>
-        {userInfo ? <Redirect to='/' /> : <LoginScreen />}
+        {userState ? <Redirect to='/' /> : <LoginScreen />}
       </Route>
       <Route exact path='/register' component={RegisterScreen} />
     </Router>

@@ -12,27 +12,51 @@ const DiseaseGraph = ({ selectedLocation }) => {
   const data = [
     {
       name: 'Active',
-      uv: Math.round(selectedLocation.active / 6),
-      pv: selectedLocation.active,
-      amt: selectedLocation.active,
+      uv: selectedLocation
+        ? Math.round(selectedLocation.active / 6)
+        : 'Please select a country above',
+      pv: selectedLocation
+        ? selectedLocation.active
+        : 'Please select a country above',
+      amt: selectedLocation
+        ? selectedLocation.active
+        : 'Please select a country above',
     },
     {
       name: 'Confirmed',
-      uv: Math.round(selectedLocation.confirmed / 6),
-      pv: selectedLocation.confirmed,
-      amt: selectedLocation.confirmed,
+      uv: selectedLocation
+        ? Math.round(selectedLocation.confirmed / 6)
+        : 'Please select a country above',
+      pv: selectedLocation
+        ? selectedLocation.confirmed
+        : 'Please select a country above',
+      amt: selectedLocation
+        ? selectedLocation.confirmed
+        : 'Please select a country above',
     },
     {
       name: 'Deaths',
-      uv: Math.round(selectedLocation.deaths / 6),
-      pv: selectedLocation.deaths,
-      amt: selectedLocation.deaths,
+      uv: selectedLocation
+        ? Math.round(selectedLocation.deaths / 6)
+        : 'Please select a country above',
+      pv: selectedLocation
+        ? selectedLocation.deaths
+        : 'Please select a country above',
+      amt: selectedLocation
+        ? selectedLocation.deaths
+        : 'Please select a country above',
     },
     {
       name: 'Recovered',
-      uv: Math.round(selectedLocation.recovered / 6),
-      pv: selectedLocation.recovered,
-      amt: selectedLocation.recovered,
+      uv: selectedLocation
+        ? Math.round(selectedLocation.recovered / 6)
+        : 'Please select a country above',
+      pv: selectedLocation
+        ? selectedLocation.recovered
+        : 'Please select a country above',
+      amt: selectedLocation
+        ? selectedLocation.recovered
+        : 'Please select a country above',
     },
   ]
 

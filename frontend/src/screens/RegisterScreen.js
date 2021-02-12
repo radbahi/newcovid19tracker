@@ -11,20 +11,19 @@ const RegisterScreen = ({ history }) => {
   const [passwordRegister, setPasswordRegister] = useState('')
 
   //PULL FROM LOCALSTORAGE INSTEAD
-  const userLogin = useSelector((state) => state.userLogin)
+  const userState = useSelector((state) => state.userState)
 
-  const { userInfo } = userLogin
+  // const { userInfo } = userState
 
   useEffect(() => {
-    if (userInfo) {
+    if (userState) {
       history.push('/login')
     }
-  }, [userInfo, history])
+  }, [userState, history])
 
   const submitRegisterHandler = (e) => {
     e.preventDefault()
     dispatch(register(usernameRegister, passwordRegister))
-    console.log(userInfo)
   }
 
   return (

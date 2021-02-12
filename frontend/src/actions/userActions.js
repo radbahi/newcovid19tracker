@@ -25,8 +25,6 @@ export const login = (username, password) => async (dispatch) => {
       (data.token = localStorage.token)
     )
 
-    console.log(data) //pass all these arguments in and then extract data from the response
-
     dispatch({ type: 'USER_LOGIN_SUCCESS', payload: data })
 
     // localStorage.setItem('userInfo', JSON.stringify(data)) //save the userinfo to localstorage. we stringify it cuz localstorage only saves strings. we later parse it back to JSON to use with javascript.

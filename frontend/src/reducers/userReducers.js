@@ -13,15 +13,16 @@ export const userLoginReducer = (state = {}, action) => {
       return { loading: false, userInfo: action.payload } //we send this once the data is fetched. remember that payload = data.
     case 'USER_LOGIN_FAIL':
       return { loading: false, error: action.payload }
-      // what happens here depends on us! lol 
+    // what happens here depends on us! lol
     case 'USER_LOGOUT':
-      return {} //clears everything
+      return null //clears everything
     default:
       //always have a default
       return state
   }
 }
 
+//MIGHT NOT EVEN NEED THIS REDUCER. IF USERNAME/PASSWORD IS WRONG, WE CAN TELL USER IN OTHER WAYS
 export const userRegisterReducer = (state = {}, action) => {
   switch (
     action.type // this is where the reducer does things according to each type.
@@ -29,7 +30,7 @@ export const userRegisterReducer = (state = {}, action) => {
     case 'USER_REGISTER_REQUEST':
       return { loading: true } //we send loading: true to let the component know it's fetching the data
     case 'USER_REGISTER_SUCCESS':
-      return { loading: false, userInfo: action.payload } //we send this once the data is fetched. remember that payload = data.
+      return { loading: false } //we send this once the data is fetched. remember that payload = data.
     case 'USER_REGISTER_FAIL':
       return { loading: false, error: action.payload }
     default:
@@ -38,7 +39,7 @@ export const userRegisterReducer = (state = {}, action) => {
   }
 }
 
-export const userUpdateReducer = (state = { user: {} }, action) => {
+export const userUpdateReducer = (state = { userState: {} }, action) => {
   switch (
     action.type // this is where the reducer does things according to each type.
   ) {
