@@ -24,7 +24,8 @@ const COLOR_RANGE = [
   '#782618',
 ]
 
-const WorldMap = () => {
+const WorldMap = ({ selectedLocation }) => {
+
   const [infectedAreas, setInfected] = useState([])
 
   const colorScale = scaleQuantile()
@@ -32,8 +33,6 @@ const WorldMap = () => {
     .range(COLOR_RANGE)
 
   const [position, setPosition] = useState({ coordinates: [0, 0], zoom: 0.65 })
-
-  const user = useSelector((state) => state.user)
 
   const [tooltipContent, setTooltipContent] = useState('')
 
@@ -76,6 +75,7 @@ const WorldMap = () => {
       try {
         const { data } = await axios.get('http://localhost:3000/locations')
         setInfected(data)
+        console.log(data)
       } catch (error) {
         console.log(`There was a problem: ${error}`)
         return
@@ -100,30 +100,15 @@ const WorldMap = () => {
                   const current = infectedAreas.find(
                     (location) => location.ISO === geo.properties.ISO_A3
                   )
-                  if (
-                    current &&
-                    parseInt(user.locations_id) === parseInt(current.id)
-                  ) {
-                    return (
-                      <Geography
-                        key={geo.rsmKey}
-                        geography={geo}
-                        onMouseEnter={onMouseEnter(current)}
-                        onMouseLeave={onMouseLeave}
-                        fill={current ? colorScale(current.active) : '#EEE'}
-                      />
-                    )
-                  } else if (user.status === 500 || !user.locations_id) {
-                    return (
-                      <Geography
-                        key={geo.rsmKey}
-                        geography={geo}
-                        onMouseEnter={onMouseEnter(current)}
-                        onMouseLeave={onMouseLeave}
-                        fill={current ? colorScale(current.active) : '#EEE'}
-                      />
-                    )
-                  }
+                  return (
+                    <Geography
+                      key={geo.rsmKey}
+                      geography={geo}
+                      onMouseEnter={onMouseEnter(current)}
+                      onMouseLeave={onMouseLeave}
+                      fill={current ? colorScale(current.active) : '#EEE'}
+                    />
+                  )
                 })
               }
             </Geographies>
