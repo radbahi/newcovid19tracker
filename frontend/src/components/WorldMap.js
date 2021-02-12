@@ -93,13 +93,23 @@ const WorldMap = ({ selectedLocation }) => {
             center={position.coordinates}
             onMoveEnd={handleMoveEnd}
           >
+            {console.log(selectedLocation)}
             <Geographies geography={geoUrl}>
               {({ geographies }) =>
                 geographies.map((geo) => {
                   const current = infectedAreas.find(
                     (location) => location.ISO === geo.properties.ISO_A3
                   )
-                  return (
+                  console.log(current)
+                  selectedLocation === current ? (
+                    <Geography
+                      key={geo.rsmKey}
+                      geography={geo}
+                      onMouseEnter={onMouseEnter(current)}
+                      onMouseLeave={onMouseLeave}
+                      fill={current ? colorScale(current.active) : '#EEE'}
+                    />
+                  ) : (
                     <Geography
                       key={geo.rsmKey}
                       geography={geo}
