@@ -30,8 +30,6 @@ export const login = (username, password) => async (dispatch) => {
     // localStorage.setItem('userInfo', JSON.stringify({userInfo: data})) //save the userinfo to localstorage. we stringify it cuz localstorage only saves strings. we later parse it back to JSON to use with javascript.
     // //we take the localstorage userinfo data in the initial state in store.js
   } catch (error) {
-    console.log(JSON.stringify(error))
-    console.log(error.response.data.message)
     dispatch({
       type: 'USER_LOGIN_FAIL',
       payload:

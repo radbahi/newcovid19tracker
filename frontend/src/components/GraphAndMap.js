@@ -61,10 +61,14 @@ const GraphAndMap = () => {
           })}
         </Dropdown.Menu>
       </Dropdown>
+<<<<<<< HEAD
+      {selectedLocation && <DiseaseGraph selectedLocation={selectedLocation} />}
+=======
       {selectedLocation
         ? `${selectedLocation.country}`
         : 'Please select a country'}
       <DiseaseGraph selectedLocation={selectedLocation} />
+>>>>>>> refs/remotes/origin/main
       <WorldMap selectedLocation={selectedLocation} />
     </div>
   )

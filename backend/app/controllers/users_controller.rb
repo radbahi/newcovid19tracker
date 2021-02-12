@@ -28,8 +28,12 @@ class UsersController < ApplicationController
 
     def create
         @user = User.create(user_params)
+<<<<<<< HEAD
+        if @user.valid? 
+=======
         if @user.valid?
             
+>>>>>>> refs/remotes/origin/main
             wristband = encode_token({user_id: @user_id})
             render json:  { user: UserSerializer.new(@user), token: wristband }
         else
