@@ -37,6 +37,10 @@ class UsersController < ApplicationController
         end
     end
 
+    # bug noticed on 2/12
+    # on refresh the selected location doesn't stay updated unless a user logs out? ? 
+    # this route isn't hitting everytime, might need to change some front end stuff in actions
+
     def update_location
         @user = User.find(params[:id])
         @location = Location.find_by(country: params[:country])

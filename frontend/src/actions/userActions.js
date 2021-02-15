@@ -21,8 +21,6 @@ export const login = (username, password) => async (dispatch) => {
 
     localStorage.setItem(
       'userInfo',
-      console.log(data),
-      JSON.stringify(data),
       JSON.stringify({ userInfo: data }),
       (data.token = localStorage.token)
     )
@@ -42,11 +40,15 @@ export const login = (username, password) => async (dispatch) => {
   }
 }
 
+// LOGOUT USER
+
 export const logout = () => (dispatch) => {
   localStorage.removeItem('userInfo')
   dispatch({ type: 'USER_LOGOUT' })
   dispatch({ type: 'USER_DETAILS_RESET' })
 }
+
+// REGISTER USER 
 
 export const register = (username, password) => async (dispatch) => {
   try {
@@ -57,25 +59,39 @@ export const register = (username, password) => async (dispatch) => {
     const config = {
       headers: {
         'Content-Type': 'application/json',
-        // Authorization: `Bearer <token>`,
+        Authorization: `Bearer ${localStorage.token}`
       },
     } //we want to send this as a header
 
     const data = await axios.post(
       'http://localhost:3000/users',
       { username, password },
-      config
+      config.headers
     ) //pass all these arguments in and then extract data from the response
 
     dispatch({ type: 'USER_REGISTER_SUCCESS' })
 
     dispatch({ type: 'USER_LOGIN_SUCCESS', payload: data }) //we want the user to be immediately logged in if registration is successful
 
+    // data is coming through like this on the frontend line 82 here.
+    // because this information is already in the backend, we should try to shape userInfo even more deeply to filter out username/password from here???
+// data:
+// token: "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjpudWxsfQ.AnfIo2M-9-zbtQEtX64n6miHeAdxXWLo8zyT9K16i0Q"
+// user:
+// id: 10
+// location: null
+// password: "twin"
+// username: "evil"
+
     localStorage.setItem(
       'userInfo',
-      JSON.stringify({ userInfo: data }),
+      console.log(data),
+      JSON.stringify({ userInfo: data.data }),
       (data.token = localStorage.token)
-    ) //save the userinfo to localstorage. we stringify it cuz localstorage only saves strings. we later parse it back to JSON to use with javascript.
+    )
+    
+    // when commented out, user can still register
+    //save the userinfo to localstorage. we stringify it cuz localstorage only saves strings. we later parse it back to JSON to use with javascript.
     //we take the localstorage userinfo data in the initial state in store.js
   } catch (error) {
     dispatch({
