@@ -28,11 +28,11 @@ const GraphAndMap = () => {
 
     addDiseaseData()
 
-    userInfo && setSelectedLocation(userInfo.data.user.location)
+    userInfo && setSelectedLocation(userInfo.user.location)
   }, [userInfo])
 
   const selectLocationHandler = (location) => {
-    dispatch(updateUser({ id: userInfo.data.user.id, location: [location] }))
+    dispatch(updateUser({ id: userInfo.user.id, location: [location] }))
     setSelectedLocation(location)
   }
 

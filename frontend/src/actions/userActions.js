@@ -21,13 +21,13 @@ export const login = (username, password) => async (dispatch) => {
 
     localStorage.setItem(
       'userInfo',
-      JSON.stringify({ userInfo: data }),
+      JSON.stringify({ userInfo: data.data }),
       (data.token = localStorage.token)
     )
 
-    dispatch({ type: 'USER_LOGIN_SUCCESS', payload: data })
+    dispatch({ type: 'USER_LOGIN_SUCCESS', payload: data.data })
 
-    // localStorage.setItem('userInfo', JSON.stringify({userInfo: data})) //save the userinfo to localstorage. we stringify it cuz localstorage only saves strings. we later parse it back to JSON to use with javascript.
+    // localStorage.setItem('userInfo', JSON.stringify({userInfo: data.data})) //save the userinfo to localstorage. we stringify it cuz localstorage only saves strings. we later parse it back to JSON to use with javascript.
     // //we take the localstorage userinfo data in the initial state in store.js
   } catch (error) {
     dispatch({
@@ -71,7 +71,7 @@ export const register = (username, password) => async (dispatch) => {
 
     dispatch({ type: 'USER_REGISTER_SUCCESS' })
 
-    dispatch({ type: 'USER_LOGIN_SUCCESS', payload: data }) //we want the user to be immediately logged in if registration is successful
+    dispatch({ type: 'USER_LOGIN_SUCCESS', payload: data.data }) //we want the user to be immediately logged in if registration is successful
 
     // data is coming through like this on the frontend line 82 here.
     // because this information is already in the backend, we should try to shape userInfo even more deeply to filter out username/password from here???
@@ -85,7 +85,6 @@ export const register = (username, password) => async (dispatch) => {
 
     localStorage.setItem(
       'userInfo',
-      console.log(data),
       JSON.stringify({ userInfo: data.data }),
       (data.token = localStorage.token)
     )
@@ -123,15 +122,15 @@ export const updateUser = (user) => async (dispatch) => {
     } //we want to send this as a header. POSSIBLY NOT HOW TOKEN GETS SENT.
     const newPayload = {
       id: user.id,
-      country: user.location[0].country,
+      country: user.location.country,
     }
-    const { data } = await axios.put(
+    const data = await axios.put(
       `http://localhost:3000/update_location`,
       newPayload,
       config
     ) //pass the id into this route as well as the config and extract data
 
-    dispatch({ type: 'USER_UPDATE_SUCCESS', payload: data })
+    dispatch({ type: 'USER_UPDATE_SUCCESS', payload: data.data })
   } catch (error) {
     dispatch({
       type: 'USER_UPDATE_FAIL',
