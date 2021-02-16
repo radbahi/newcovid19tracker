@@ -2,10 +2,6 @@ import axios from 'axios'
 
 export const login = (username, password) => async (dispatch) => {
   try {
-    dispatch({
-      type: 'USER_LOGIN_REQUEST',
-    })
-
     const config = {
       headers: {
         'Content-Type': 'application/json',
@@ -43,15 +39,10 @@ export const login = (username, password) => async (dispatch) => {
 export const logout = () => (dispatch) => {
   localStorage.removeItem('userInfo')
   dispatch({ type: 'USER_LOGOUT' })
-  dispatch({ type: 'USER_DETAILS_RESET' })
 }
 
 export const register = (username, password) => async (dispatch) => {
   try {
-    dispatch({
-      type: 'USER_REGISTER_REQUEST',
-    })
-
     const config = {
       headers: {
         'Content-Type': 'application/json',
@@ -64,8 +55,6 @@ export const register = (username, password) => async (dispatch) => {
       { username, password },
       config
     ) //pass all these arguments in and then extract data from the response
-
-    dispatch({ type: 'USER_REGISTER_SUCCESS' })
 
     dispatch({ type: 'USER_LOGIN_SUCCESS', payload: data.data.user }) //we want the user to be immediately logged in if registration is successful
 
@@ -93,10 +82,6 @@ export const register = (username, password) => async (dispatch) => {
 // DONT NEED ANOTHER ROUTE LIKE UPDATE_LOCATION. ALREADY HAVE UPDATE METHOD IN USER CONTROLLER.
 export const updateUser = (user) => async (dispatch) => {
   try {
-    dispatch({
-      type: 'USER_UPDATE_REQUEST',
-    })
-
     const config = {
       headers: {
         'Content-Type': 'application/json',
@@ -112,9 +97,8 @@ export const updateUser = (user) => async (dispatch) => {
       newPayload,
       config
     ) //pass the id into this route as well as the config and extract data
-    console.log(data)
 
-    dispatch({ type: 'USER_UPDATE_SUCCESS', payload: data })
+    dispatch({ type: 'USER_UPDATE_SUCCESS', payload: data.location })
   } catch (error) {
     dispatch({
       type: 'USER_UPDATE_FAIL',

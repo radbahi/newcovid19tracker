@@ -7,8 +7,6 @@ export const userReducer = (state = {}, action) => {
   switch (
     action.type // this is where the reducer does things according to each type.
   ) {
-    case 'USER_LOGIN_REQUEST':
-      return { loading: true } //we send loading: true to let the component know it's fetching the data
     case 'USER_LOGIN_SUCCESS':
       return { loading: false, ...action.payload } //we send this once the data is fetched. remember that payload = data.
     case 'USER_LOGIN_FAIL':
@@ -16,18 +14,12 @@ export const userReducer = (state = {}, action) => {
     // what happens here depends on us! lol
     case 'USER_LOGOUT':
       return null //clears everything
-    case 'USER_REGISTER_REQUEST':
-      return { loading: true } //we send loading: true to let the component know it's fetching the data
-    case 'USER_REGISTER_SUCCESS':
-      return { loading: false } //we send this once the data is fetched. remember that payload = data.
+
     case 'USER_REGISTER_FAIL':
       return { loading: false, error: action.payload }
-    case 'USER_UPDATE_REQUEST':
-      return { ...state, loading: true } //we send loading: true to let the component know it's fetching the data. not sure why passing in whole state here is necessary
+    // REDEFINE BELOW UPDATE TO REFLECT ONLY LOCATION OR MAKE IT DYNAMIC TO ENTIRE USER UPDATE
     case 'USER_UPDATE_SUCCESS':
-      return {
-        loading: false,
-      } //we send this once the data is fetched. remember that payload = data.
+      return { ...state, loading: false, location: action.payload } //we send this once the data is fetched. remember that payload = data.
     case 'USER_UPDATE_FAIL':
       return { loading: false, error: action.payload }
     default:
