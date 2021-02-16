@@ -99,6 +99,14 @@ export const updateUser = (user) => async (dispatch) => {
     ) //pass the id into this route as well as the config and extract data
 
     dispatch({ type: 'USER_UPDATE_SUCCESS', payload: data.location })
+
+    console.log(data)
+
+    localStorage.setItem(
+      'userInfo',
+      JSON.stringify({ ...data }),
+      (data.token = localStorage.token)
+    )
   } catch (error) {
     dispatch({
       type: 'USER_UPDATE_FAIL',
