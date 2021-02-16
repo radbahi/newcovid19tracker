@@ -10,10 +10,7 @@ const RegisterScreen = ({ history }) => {
 
   const [passwordRegister, setPasswordRegister] = useState('')
 
-  //PULL FROM LOCALSTORAGE INSTEAD
   const userState = useSelector((state) => state.userState)
-
-  // const { userInfo } = userState
 
   useEffect(() => {
     if (userState) {
