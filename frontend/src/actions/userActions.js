@@ -105,15 +105,16 @@ export const updateUser = (user) => async (dispatch) => {
     } //we want to send this as a header. POSSIBLY NOT HOW TOKEN GETS SENT.
     const newPayload = {
       id: user.id,
-      country: user.location.country,
+      country: user.location[0].country,
     }
-    const data = await axios.put(
+    const { data } = await axios.put(
       `http://localhost:3000/update_location`,
       newPayload,
       config
     ) //pass the id into this route as well as the config and extract data
+    console.log(data)
 
-    dispatch({ type: 'USER_UPDATE_SUCCESS', payload: data.data })
+    dispatch({ type: 'USER_UPDATE_SUCCESS', payload: data })
   } catch (error) {
     dispatch({
       type: 'USER_UPDATE_FAIL',

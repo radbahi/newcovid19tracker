@@ -10,7 +10,7 @@ export const userLoginReducer = (state = {}, action) => {
     case 'USER_LOGIN_REQUEST':
       return { loading: true } //we send loading: true to let the component know it's fetching the data
     case 'USER_LOGIN_SUCCESS':
-      return { loading: false, userInfo: action.payload } //we send this once the data is fetched. remember that payload = data.
+      return { loading: false, ...action.payload } //we send this once the data is fetched. remember that payload = data.
     case 'USER_LOGIN_FAIL':
       return { loading: false, error: action.payload }
     // what happens here depends on us! lol
@@ -39,18 +39,21 @@ export const userRegisterReducer = (state = {}, action) => {
   }
 }
 
-export const userUpdateReducer = (state = { userState: {} }, action) => {
+// BUG WITH TRYING TO UPDATE NESTED DATA FOR USER LOCATION. CAN'T SEEM TO ACCESS.
+export const userUpdateReducer = (state = {}, action) => {
   switch (
     action.type // this is where the reducer does things according to each type.
   ) {
     case 'USER_UPDATE_REQUEST':
       return { ...state, loading: true } //we send loading: true to let the component know it's fetching the data. not sure why passing in whole state here is necessary
     case 'USER_UPDATE_SUCCESS':
-      return { loading: false, user: action.payload } //we send this once the data is fetched. remember that payload = data.
+      return {
+        loading: false,
+      } //we send this once the data is fetched. remember that payload = data.
     case 'USER_UPDATE_FAIL':
       return { loading: false, error: action.payload }
-    case 'USER_UPDATE_RESET':
-      return { user: {} }
+    // case 'USER_UPDATE_RESET':
+    //   return {}
     default:
       //always have a default
       return state
