@@ -1,10 +1,6 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux'
 import { composeWithDevTools } from 'redux-devtools-extension'
-import {
-  userLoginReducer,
-  userRegisterReducer,
-  userUpdateReducer,
-} from './reducers/userReducers'
+import { userReducer } from './reducers/userReducers'
 import thunk from 'redux-thunk'
 
 const userInfoFromStorage = localStorage.getItem('userInfo')
@@ -18,12 +14,20 @@ const initialState = {
 
 const middleware = [thunk]
 
-// how to pass in multiple reducers into one state?
-const reducer = combineReducers({
-  userState: [userLoginReducer, userRegisterReducer, userUpdateReducer],
+// combine all the user reducers to be able to pass in as one into rootReducer...
+// const userReducers = combineReducers({
+//   userLoginReducer,
+//   userRegisterReducer,
+//   userUpdateReducer,
+// })
+
+// ...obviously all userState related things should point to all the user reducers
+const rootReducer = combineReducers({
+  userState: userReducer,
 })
+
 const store = createStore(
-  reducer,
+  rootReducer,
   initialState,
   composeWithDevTools(applyMiddleware(...middleware))
 )

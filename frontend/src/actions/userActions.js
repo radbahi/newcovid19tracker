@@ -21,7 +21,7 @@ export const login = (username, password) => async (dispatch) => {
 
     localStorage.setItem(
       'userInfo',
-      JSON.stringify({ userInfo: data.data }),
+      JSON.stringify({ ...data.data }),
       (data.token = localStorage.token)
     )
 
@@ -71,7 +71,7 @@ export const register = (username, password) => async (dispatch) => {
 
     localStorage.setItem(
       'userInfo',
-      JSON.stringify({ userInfo: data.data }),
+      JSON.stringify({ ...data.data }),
       (data.token = localStorage.token)
     ) //save the userinfo to localstorage. we stringify it cuz localstorage only saves strings. we later parse it back to JSON to use with javascript.
     //we take the localstorage userinfo data in the initial state in store.js
