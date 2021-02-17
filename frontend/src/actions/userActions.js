@@ -36,7 +36,7 @@ export const login = (username, password) => async (dispatch) => {
 }
 
 export const logout = () => (dispatch) => {
-  localStorage.removeItem('userInfo')
+  localStorage.removeItem('token')
   dispatch({ type: 'USER_LOGOUT' })
 }
 
@@ -49,20 +49,15 @@ export const register = (username, password) => async (dispatch) => {
       },
     } //we want to send this as a header
 
-    const data = await axios.post(
+    const response = await axios.post(
       'http://localhost:3000/users',
       { username, password },
       config
     ) //pass all these arguments in and then extract data from the response
 
-    dispatch({ type: 'USER_LOGIN_SUCCESS', payload: data.data.user }) //we want the user to be immediately logged in if registration is successful
+    dispatch({ type: 'USER_LOGIN_SUCCESS', payload: response.data.user }) //we want the user to be immediately logged in if registration is successful
 
-    localStorage.setItem(
-      'userInfo',
-      JSON.stringify({ ...data.data.user }),
-      (data.token = localStorage.token)
-    ) //save the userinfo to localstorage. we stringify it cuz localstorage only saves strings. we later parse it back to JSON to use with javascript.
-    //we take the localstorage userinfo data in the initial state in store.js
+    localStorage.setItem('token', response.data.token)
   } catch (error) {
     dispatch({
       type: 'USER_REGISTER_FAIL',
@@ -101,11 +96,12 @@ export const updateUser = (user) => async (dispatch) => {
 
     console.log(data)
 
-    localStorage.setItem(
-      'userInfo',
-      JSON.stringify({ ...data }),
-      (data.token = localStorage.token)
-    )
+    // USER LOCATION BEING CHANGED MIGHT BE PROBLEMATIC IF TOKEN DOESN'T REFLECT THE CHANGE. MIGHT IS THE KEY WORD HERE.
+    // localStorage.setItem(
+    //   'userInfo',
+    //   JSON.stringify({ ...data }),
+    //   (data.token = localStorage.token)
+    // )
   } catch (error) {
     dispatch({
       type: 'USER_UPDATE_FAIL',
