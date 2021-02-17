@@ -115,8 +115,8 @@ const WorldMap = ({ selectedLocation }) => {
                       onMouseLeave={onMouseLeave}
                       fill={current ? colorScale(current.active) : '#EEE'}
                     />
-                  )
-                )})
+                  ) // REMOVE EXTRA PARENTHESES BELOW
+                })
               }
             </Geographies>
           </ZoomableGroup>

@@ -1,23 +1,33 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux'
 import { composeWithDevTools } from 'redux-devtools-extension'
-import { userLoginReducer } from './reducers/userReducers'
+import { userReducer } from './reducers/userReducers'
 import thunk from 'redux-thunk'
 
 const userInfoFromStorage = localStorage.getItem('userInfo')
   ? JSON.parse(localStorage.getItem('userInfo'))
   : null
 
+// REVISIT IF LOCALSTORAGE ADDS A KEY OF USERINFO TO STATE. WE DO NOT WANT THIS.
 const initialState = {
   userState: userInfoFromStorage,
 }
 
 const middleware = [thunk]
 
-const reducer = combineReducers({
-  userState: userLoginReducer,
+// combine all the user reducers to be able to pass in as one into rootReducer...
+// const userReducers = combineReducers({
+//   userLoginReducer,
+//   userRegisterReducer,
+//   userUpdateReducer,
+// })
+
+// ...obviously all userState related things should point to all the user reducers
+const rootReducer = combineReducers({
+  userState: userReducer,
 })
+
 const store = createStore(
-  reducer,
+  rootReducer,
   initialState,
   composeWithDevTools(applyMiddleware(...middleware))
 )

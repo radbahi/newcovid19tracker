@@ -18,8 +18,6 @@ const GraphAndMap = () => {
 
   const userState = useSelector((state) => state.userState)
 
-  const { userInfo } = userState
-
   useEffect(() => {
     const addDiseaseData = async () => {
       const { data } = await axios.get('http://localhost:3000/locations')
@@ -28,11 +26,11 @@ const GraphAndMap = () => {
 
     addDiseaseData()
 
-    userInfo && setSelectedLocation(userInfo.user.location)
-  }, [userInfo])
+    userState && setSelectedLocation(userState.location)
+  }, [userState])
 
   const selectLocationHandler = (location) => {
-    dispatch(updateUser({ id: userInfo.user.id, location: [location] }))
+    dispatch(updateUser({ id: userState.id, location: [location] }))
     setSelectedLocation(location)
   }
 
