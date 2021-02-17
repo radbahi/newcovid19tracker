@@ -115,7 +115,7 @@ const WorldMap = ({ selectedLocation }) => {
                       onMouseLeave={onMouseLeave}
                       fill={current ? colorScale(current.active) : '#EEE'}
                     />
-                  )
+                  ) 
                 })
               }
             </Geographies>
