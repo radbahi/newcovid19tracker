@@ -3,8 +3,9 @@ import { composeWithDevTools } from 'redux-devtools-extension'
 import { userReducer } from './reducers/userReducers'
 import thunk from 'redux-thunk'
 
-const userInfoFromStorage = localStorage.getItem('userInfo')
-  ? JSON.parse(localStorage.getItem('userInfo'))
+//GOING TO HAVE TO SET UP GET PERSIST HERE WITH TOKEN TO GET USER INFO AND THEN SET THAT USER INFO TO STATE
+const userInfoFromStorage = localStorage.getItem('token')
+  ? JSON.parse(localStorage.getItem('token'))
   : null
 
 // REVISIT IF LOCALSTORAGE ADDS A KEY OF USERINFO TO STATE. WE DO NOT WANT THIS.
