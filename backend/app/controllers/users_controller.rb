@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    # before_action :authorized, only: [:persist]
+    before_action :authorized, only: [:persist]
 
     def index 
         users = User.all 
@@ -66,10 +66,10 @@ class UsersController < ApplicationController
         user.destroy
     end
 
-    # def persist 
-    #     wristband = encode_token({user_id: @user.id})
-    #     render json: { user: UserSerializer.new(@user), token: wristband }
-    # end 
+    def persist 
+        wristband = encode_token({user_id: @user.id})
+        render json: { user: UserSerializer.new(@user), token: wristband }
+    end 
 
     # user create is getting an invalid param of user, won't create new users. 
 

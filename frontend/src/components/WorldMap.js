@@ -116,7 +116,7 @@ const WorldMap = ({ selectedLocation }) => {
                       fill={current ? colorScale(current.active) : '#EEE'}
                     />
                   )
-                )})
+                })
               }
             </Geographies>
           </ZoomableGroup>

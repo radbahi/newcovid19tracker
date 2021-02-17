@@ -16,6 +16,7 @@ const middleware = [thunk]
 const reducer = combineReducers({
   userState: userLoginReducer,
 })
+
 const store = createStore(
   reducer,
   initialState,

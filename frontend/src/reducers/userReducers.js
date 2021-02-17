@@ -39,7 +39,7 @@ export const userRegisterReducer = (state = {}, action) => {
   }
 }
 
-export const userUpdateReducer = (state = { userState: {} }, action) => {
+export const userUpdateReducer = (state = { userState: { } }, action) => {
   switch (
     action.type // this is where the reducer does things according to each type.
   ) {

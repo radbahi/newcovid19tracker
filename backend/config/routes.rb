@@ -6,6 +6,6 @@ Rails.application.routes.draw do
   
   post "/login", to: "users#login"
   put "/update_location", to: "users#update_location"
-  # get "/persist", to: "users#persist"
+  get "/persist", to: "users#persist"
 
 end

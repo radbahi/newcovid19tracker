@@ -66,7 +66,7 @@ export const register = (username, password) => async (dispatch) => {
     const data = await axios.post(
       'http://localhost:3000/users',
       { username, password },
-      config.headers
+      config
     ) //pass all these arguments in and then extract data from the response
 
     dispatch({ type: 'USER_REGISTER_SUCCESS' })
@@ -122,7 +122,7 @@ export const updateUser = (user) => async (dispatch) => {
     } //we want to send this as a header. POSSIBLY NOT HOW TOKEN GETS SENT.
     const newPayload = {
       id: user.id,
-      country: user.location.country,
+      country: user.location[0].country,
     }
     const data = await axios.put(
       `http://localhost:3000/update_location`,

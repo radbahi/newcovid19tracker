@@ -22534,3 +22534,1727 @@ Completed 200 OK in 192ms (Views: 189.3ms | ActiveRecord: 2.5ms | Allocations: 4
 >>>>>>> refs/remotes/origin/main
 
 
+Started POST "/login" for ::1 at 2021-02-17 13:49:46 -0500
+Started GET "/locations" for ::1 at 2021-02-17 13:49:46 -0500
+Started GET "/stories" for ::1 at 2021-02-17 13:49:46 -0500
+  [1m[35m (9.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (8.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (10.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by StoriesController#index as HTML
+Processing by LocationsController#index as HTML
+  [1m[36mStory Load (3.6ms)[0m  [1m[34mSELECT "stories".* FROM "stories"[0m
+  ↳ app/controllers/stories_controller.rb:5:in `index'
+  [1m[36mLocation Load (2.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+Processing by UsersController#login as HTML
+  Parameters: {"username"=>"apple", "password"=>"[FILTERED]", "user"=>{"username"=>"apple"}}
+No serializer found for resource: #<Story id: 1, description: "Nearly a year after the coronavirus pandemic began...", title: "UK starts Australian-style hotel quarantine to fig...", author: "Jack Hawke", url: "http://www.abc.net.au/news/2021-02-16/uk-covid-hot...", urlToImage: "https://www.abc.net.au/cm/rimage/13158062-16x9-lar...", publishedAt: "2021-02-15T19:28:45Z", content: "Nearly a year after the coronavirus pandemic began...", created_at: "2021-02-15 20:07:30", updated_at: "2021-02-15 20:07:30">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Story::ActiveRecord_Relation (2.62ms)
+  [1m[36mUser Load (65.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "apple"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (31.32ms)
+Completed 200 OK in 98ms (Views: 71.2ms | ActiveRecord: 25.1ms | Allocations: 69996)
+
+
+  ↳ app/controllers/users_controller.rb:18:in `login'
+Completed 200 OK in 94ms (Views: 75.4ms | ActiveRecord: 16.0ms | Allocations: 69773)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 13:49:46 -0500
+Processing by LocationsController#index as HTML
+[active_model_serializers]   [1m[36mLocation Load (1.9ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."user_id" = $1 LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:23:in `login'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (13.31ms)
+Completed 200 OK in 373ms (Views: 13.2ms | ActiveRecord: 103.8ms | Allocations: 73637)
+
+
+  [1m[36mLocation Load (4.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (35.35ms)
+Completed 200 OK in 49ms (Views: 44.9ms | ActiveRecord: 4.2ms | Allocations: 46765)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 13:49:46 -0500
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (0.7ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (43.39ms)
+Completed 200 OK in 55ms (Views: 54.3ms | ActiveRecord: 0.7ms | Allocations: 44813)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 13:49:47 -0500
+Started GET "/stories" for ::1 at 2021-02-17 13:49:47 -0500
+Processing by LocationsController#index as HTML
+Processing by StoriesController#index as HTML
+  [1m[36mLocation Load (1.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+  [1m[36mStory Load (1.2ms)[0m  [1m[34mSELECT "stories".* FROM "stories"[0m
+  ↳ app/controllers/stories_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (42.11ms)
+No serializer found for resource: #<Story id: 1, description: "Nearly a year after the coronavirus pandemic began...", title: "UK starts Australian-style hotel quarantine to fig...", author: "Jack Hawke", url: "http://www.abc.net.au/news/2021-02-16/uk-covid-hot...", urlToImage: "https://www.abc.net.au/cm/rimage/13158062-16x9-lar...", publishedAt: "2021-02-15T19:28:45Z", content: "Nearly a year after the coronavirus pandemic began...", created_at: "2021-02-15 20:07:30", updated_at: "2021-02-15 20:07:30">
+Completed 200 OK in 54ms (Views: 52.8ms | ActiveRecord: 1.2ms | Allocations: 46186)
+
+
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Story::ActiveRecord_Relation (4.77ms)
+Completed 200 OK in 60ms (Views: 58.1ms | ActiveRecord: 1.2ms | Allocations: 50015)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 13:49:47 -0500
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (0.8ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (51.8ms)
+Completed 200 OK in 65ms (Views: 63.5ms | ActiveRecord: 0.8ms | Allocations: 44814)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 13:50:45 -0500
+Started GET "/stories" for ::1 at 2021-02-17 13:50:45 -0500
+Processing by StoriesController#index as HTML
+Processing by LocationsController#index as HTML
+  [1m[36mStory Load (1.1ms)[0m  [1m[34mSELECT "stories".* FROM "stories"[0m
+  ↳ app/controllers/stories_controller.rb:5:in `index'
+No serializer found for resource: #<Story id: 1, description: "Nearly a year after the coronavirus pandemic began...", title: "UK starts Australian-style hotel quarantine to fig...", author: "Jack Hawke", url: "http://www.abc.net.au/news/2021-02-16/uk-covid-hot...", urlToImage: "https://www.abc.net.au/cm/rimage/13158062-16x9-lar...", publishedAt: "2021-02-15T19:28:45Z", content: "Nearly a year after the coronavirus pandemic began...", created_at: "2021-02-15 20:07:30", updated_at: "2021-02-15 20:07:30">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Story::ActiveRecord_Relation (3.32ms)
+Completed 200 OK in 7ms (Views: 5.7ms | ActiveRecord: 1.1ms | Allocations: 5443)
+
+
+  [1m[36mLocation Load (6.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (46.05ms)
+Completed 200 OK in 62ms (Views: 55.8ms | ActiveRecord: 6.3ms | Allocations: 50041)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 13:50:45 -0500
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (1.0ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (41.2ms)
+Completed 200 OK in 53ms (Views: 51.7ms | ActiveRecord: 1.0ms | Allocations: 44810)
+
+
+Started PUT "/update_location" for ::1 at 2021-02-17 13:50:52 -0500
+Processing by UsersController#update_location as HTML
+  Parameters: {"id"=>2, "country"=>"Aruba", "user"=>{"id"=>2}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:44:in `update_location'
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."country" = $1 LIMIT $2[0m  [["country", "Aruba"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:45:in `update_location'
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "apple"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:47:in `update_location'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:49:in `update_location'
+  [1m[36mLocation Load (0.4ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."user_id" = $1 LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:49:in `update_location'
+  [1m[36mLocation Update (1.8ms)[0m  [1m[33mUPDATE "locations" SET "user_id" = $1, "updated_at" = $2 WHERE "locations"."id" = $3[0m  [["user_id", nil], ["updated_at", "2021-02-17 18:50:52.725874"], ["id", 180]]
+  ↳ app/controllers/users_controller.rb:49:in `update_location'
+  [1m[36mLocation Update (0.5ms)[0m  [1m[33mUPDATE "locations" SET "user_id" = $1, "updated_at" = $2 WHERE "locations"."id" = $3[0m  [["user_id", 2], ["updated_at", "2021-02-17 18:50:52.739705"], ["id", 10]]
+  ↳ app/controllers/users_controller.rb:49:in `update_location'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "apple"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:49:in `update_location'
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:49:in `update_location'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.71ms)
+Completed 200 OK in 30ms (Views: 1.2ms | ActiveRecord: 5.5ms | Allocations: 8908)
+
+
+Started PUT "/update_location" for ::1 at 2021-02-17 14:20:58 -0500
+Processing by UsersController#update_location as HTML
+  Parameters: {"id"=>2, "country"=>"Aruba", "user"=>{"id"=>2}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:44:in `update_location'
+  [1m[36mLocation Load (1.5ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."country" = $1 LIMIT $2[0m  [["country", "Aruba"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:45:in `update_location'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "apple"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:47:in `update_location'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:49:in `update_location'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."user_id" = $1 LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:49:in `update_location'
+  [1m[36mCACHE User Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "apple"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:49:in `update_location'
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:49:in `update_location'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.42ms)
+Completed 200 OK in 13ms (Views: 0.8ms | ActiveRecord: 3.2ms | Allocations: 6067)
+
+
+Started PUT "/update_location" for ::1 at 2021-02-17 14:21:27 -0500
+Processing by UsersController#update_location as HTML
+  Parameters: {"id"=>2, "country"=>"Zambia", "user"=>{"id"=>2}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:44:in `update_location'
+  [1m[36mLocation Load (0.4ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."country" = $1 LIMIT $2[0m  [["country", "Zambia"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:45:in `update_location'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "apple"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:47:in `update_location'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:49:in `update_location'
+  [1m[36mLocation Load (0.5ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."user_id" = $1 LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:49:in `update_location'
+  [1m[36mLocation Update (0.6ms)[0m  [1m[33mUPDATE "locations" SET "user_id" = $1, "updated_at" = $2 WHERE "locations"."id" = $3[0m  [["user_id", nil], ["updated_at", "2021-02-17 19:21:27.344385"], ["id", 10]]
+  ↳ app/controllers/users_controller.rb:49:in `update_location'
+  [1m[36mLocation Update (0.5ms)[0m  [1m[33mUPDATE "locations" SET "user_id" = $1, "updated_at" = $2 WHERE "locations"."id" = $3[0m  [["user_id", 2], ["updated_at", "2021-02-17 19:21:27.347081"], ["id", 218]]
+  ↳ app/controllers/users_controller.rb:49:in `update_location'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "apple"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:49:in `update_location'
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:49:in `update_location'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.4ms)
+Completed 200 OK in 18ms (Views: 0.9ms | ActiveRecord: 4.1ms | Allocations: 8172)
+
+
+Started PUT "/update_location" for ::1 at 2021-02-17 14:21:29 -0500
+Processing by UsersController#update_location as HTML
+  Parameters: {"id"=>2, "country"=>"Uganda", "user"=>{"id"=>2}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:44:in `update_location'
+  [1m[36mLocation Load (0.4ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."country" = $1 LIMIT $2[0m  [["country", "Uganda"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:45:in `update_location'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "apple"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:47:in `update_location'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:49:in `update_location'
+  [1m[36mLocation Load (0.4ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."user_id" = $1 LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:49:in `update_location'
+  [1m[36mLocation Update (0.7ms)[0m  [1m[33mUPDATE "locations" SET "user_id" = $1, "updated_at" = $2 WHERE "locations"."id" = $3[0m  [["user_id", nil], ["updated_at", "2021-02-17 19:21:29.625332"], ["id", 218]]
+  ↳ app/controllers/users_controller.rb:49:in `update_location'
+  [1m[36mLocation Update (0.7ms)[0m  [1m[33mUPDATE "locations" SET "user_id" = $1, "updated_at" = $2 WHERE "locations"."id" = $3[0m  [["user_id", 2], ["updated_at", "2021-02-17 19:21:29.628656"], ["id", 208]]
+  ↳ app/controllers/users_controller.rb:49:in `update_location'
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "apple"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:49:in `update_location'
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:49:in `update_location'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.49ms)
+Completed 200 OK in 19ms (Views: 0.9ms | ActiveRecord: 4.2ms | Allocations: 8170)
+
+
+Started PUT "/update_location" for ::1 at 2021-02-17 14:21:31 -0500
+Processing by UsersController#update_location as HTML
+  Parameters: {"id"=>2, "country"=>"Uganda", "user"=>{"id"=>2}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:44:in `update_location'
+  [1m[36mLocation Load (0.7ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."country" = $1 LIMIT $2[0m  [["country", "Uganda"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:45:in `update_location'
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "apple"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:47:in `update_location'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:49:in `update_location'
+  [1m[36mLocation Load (0.4ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."user_id" = $1 LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:49:in `update_location'
+  [1m[36mCACHE User Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "apple"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:49:in `update_location'
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:49:in `update_location'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.54ms)
+Completed 200 OK in 12ms (Views: 1.0ms | ActiveRecord: 2.4ms | Allocations: 5930)
+
+
+Started PUT "/update_location" for ::1 at 2021-02-17 14:21:33 -0500
+Processing by UsersController#update_location as HTML
+  Parameters: {"id"=>2, "country"=>"USA", "user"=>{"id"=>2}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:44:in `update_location'
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."country" = $1 LIMIT $2[0m  [["country", "USA"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:45:in `update_location'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "apple"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:47:in `update_location'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:49:in `update_location'
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."user_id" = $1 LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:49:in `update_location'
+  [1m[36mLocation Update (0.5ms)[0m  [1m[33mUPDATE "locations" SET "user_id" = $1, "updated_at" = $2 WHERE "locations"."id" = $3[0m  [["user_id", nil], ["updated_at", "2021-02-17 19:21:33.889252"], ["id", 208]]
+  ↳ app/controllers/users_controller.rb:49:in `update_location'
+  [1m[36mLocation Update (0.8ms)[0m  [1m[33mUPDATE "locations" SET "user_id" = $1, "updated_at" = $2 WHERE "locations"."id" = $3[0m  [["user_id", 2], ["updated_at", "2021-02-17 19:21:33.892782"], ["id", 207]]
+  ↳ app/controllers/users_controller.rb:49:in `update_location'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "apple"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:49:in `update_location'
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:49:in `update_location'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.43ms)
+Completed 200 OK in 18ms (Views: 0.9ms | ActiveRecord: 3.3ms | Allocations: 8170)
+
+
+Started PUT "/update_location" for ::1 at 2021-02-17 14:21:35 -0500
+Processing by UsersController#update_location as HTML
+  Parameters: {"id"=>2, "country"=>"Uganda", "user"=>{"id"=>2}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:44:in `update_location'
+  [1m[36mLocation Load (0.4ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."country" = $1 LIMIT $2[0m  [["country", "Uganda"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:45:in `update_location'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "apple"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:47:in `update_location'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:49:in `update_location'
+  [1m[36mLocation Load (0.4ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."user_id" = $1 LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:49:in `update_location'
+  [1m[36mLocation Update (0.6ms)[0m  [1m[33mUPDATE "locations" SET "user_id" = $1, "updated_at" = $2 WHERE "locations"."id" = $3[0m  [["user_id", nil], ["updated_at", "2021-02-17 19:21:35.625276"], ["id", 207]]
+  ↳ app/controllers/users_controller.rb:49:in `update_location'
+  [1m[36mLocation Update (0.5ms)[0m  [1m[33mUPDATE "locations" SET "user_id" = $1, "updated_at" = $2 WHERE "locations"."id" = $3[0m  [["user_id", 2], ["updated_at", "2021-02-17 19:21:35.627897"], ["id", 208]]
+  ↳ app/controllers/users_controller.rb:49:in `update_location'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "apple"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:49:in `update_location'
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:49:in `update_location'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.5ms)
+Completed 200 OK in 17ms (Views: 0.9ms | ActiveRecord: 3.7ms | Allocations: 8167)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 14:21:38 -0500
+Processing by LocationsController#index as HTML
+Started GET "/stories" for ::1 at 2021-02-17 14:21:38 -0500
+  [1m[36mLocation Load (1.5ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (36.8ms)
+Completed 200 OK in 49ms (Views: 47.2ms | ActiveRecord: 1.5ms | Allocations: 45352)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 14:21:38 -0500
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (1.1ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (55.06ms)
+Completed 200 OK in 85ms (Views: 84.1ms | ActiveRecord: 1.1ms | Allocations: 45220)
+
+
+Processing by StoriesController#index as HTML
+  [1m[36mStory Load (1.0ms)[0m  [1m[34mSELECT "stories".* FROM "stories"[0m
+  ↳ app/controllers/stories_controller.rb:5:in `index'
+No serializer found for resource: #<Story id: 1, description: "Nearly a year after the coronavirus pandemic began...", title: "UK starts Australian-style hotel quarantine to fig...", author: "Jack Hawke", url: "http://www.abc.net.au/news/2021-02-16/uk-covid-hot...", urlToImage: "https://www.abc.net.au/cm/rimage/13158062-16x9-lar...", publishedAt: "2021-02-15T19:28:45Z", content: "Nearly a year after the coronavirus pandemic began...", created_at: "2021-02-15 20:07:30", updated_at: "2021-02-15 20:07:30">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Story::ActiveRecord_Relation (4.99ms)
+Completed 200 OK in 9ms (Views: 7.9ms | ActiveRecord: 1.0ms | Allocations: 5182)
+
+
+Started PUT "/update_location" for ::1 at 2021-02-17 14:21:40 -0500
+Processing by UsersController#update_location as HTML
+  Parameters: {"id"=>2, "country"=>"Bahrain", "user"=>{"id"=>2}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:44:in `update_location'
+  [1m[36mLocation Load (0.5ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."country" = $1 LIMIT $2[0m  [["country", "Bahrain"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:45:in `update_location'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "apple"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:47:in `update_location'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:49:in `update_location'
+  [1m[36mLocation Load (0.5ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."user_id" = $1 LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:49:in `update_location'
+  [1m[36mLocation Update (0.6ms)[0m  [1m[33mUPDATE "locations" SET "user_id" = $1, "updated_at" = $2 WHERE "locations"."id" = $3[0m  [["user_id", nil], ["updated_at", "2021-02-17 19:21:40.358547"], ["id", 208]]
+  ↳ app/controllers/users_controller.rb:49:in `update_location'
+  [1m[36mLocation Update (0.3ms)[0m  [1m[33mUPDATE "locations" SET "user_id" = $1, "updated_at" = $2 WHERE "locations"."id" = $3[0m  [["user_id", 2], ["updated_at", "2021-02-17 19:21:40.360869"], ["id", 15]]
+  ↳ app/controllers/users_controller.rb:49:in `update_location'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "apple"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:49:in `update_location'
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:49:in `update_location'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.58ms)
+Completed 200 OK in 18ms (Views: 1.1ms | ActiveRecord: 4.3ms | Allocations: 8243)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 14:22:56 -0500
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (2.5ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (39.65ms)
+Completed 200 OK in 57ms (Views: 54.3ms | ActiveRecord: 2.5ms | Allocations: 44810)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 14:22:59 -0500
+Processing by LocationsController#index as HTML
+Started GET "/stories" for ::1 at 2021-02-17 14:22:59 -0500
+  [1m[36mLocation Load (1.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+Processing by StoriesController#index as HTML
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (34.76ms)
+Completed 200 OK in 61ms (Views: 59.7ms | ActiveRecord: 1.3ms | Allocations: 45542)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 14:22:59 -0500
+  [1m[36mStory Load (4.8ms)[0m  [1m[34mSELECT "stories".* FROM "stories"[0m
+  ↳ app/controllers/stories_controller.rb:5:in `index'
+No serializer found for resource: #<Story id: 1, description: "Nearly a year after the coronavirus pandemic began...", title: "UK starts Australian-style hotel quarantine to fig...", author: "Jack Hawke", url: "http://www.abc.net.au/news/2021-02-16/uk-covid-hot...", urlToImage: "https://www.abc.net.au/cm/rimage/13158062-16x9-lar...", publishedAt: "2021-02-15T19:28:45Z", content: "Nearly a year after the coronavirus pandemic began...", created_at: "2021-02-15 20:07:30", updated_at: "2021-02-15 20:07:30">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Story::ActiveRecord_Relation (4.33ms)
+Completed 200 OK in 13ms (Views: 7.8ms | ActiveRecord: 4.8ms | Allocations: 5828)
+
+
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (1.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (34.3ms)
+Completed 200 OK in 49ms (Views: 47.5ms | ActiveRecord: 1.3ms | Allocations: 44810)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 14:23:03 -0500
+Processing by LocationsController#index as HTML
+Started GET "/stories" for ::1 at 2021-02-17 14:23:03 -0500
+  [1m[36mLocation Load (1.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+Processing by StoriesController#index as HTML
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (56.23ms)
+Completed 200 OK in 68ms (Views: 66.6ms | ActiveRecord: 1.2ms | Allocations: 45545)
+
+
+  [1m[36mStory Load (1.0ms)[0m  [1m[34mSELECT "stories".* FROM "stories"[0m
+  ↳ app/controllers/stories_controller.rb:5:in `index'
+No serializer found for resource: #<Story id: 1, description: "Nearly a year after the coronavirus pandemic began...", title: "UK starts Australian-style hotel quarantine to fig...", author: "Jack Hawke", url: "http://www.abc.net.au/news/2021-02-16/uk-covid-hot...", urlToImage: "https://www.abc.net.au/cm/rimage/13158062-16x9-lar...", publishedAt: "2021-02-15T19:28:45Z", content: "Nearly a year after the coronavirus pandemic began...", created_at: "2021-02-15 20:07:30", updated_at: "2021-02-15 20:07:30">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Story::ActiveRecord_Relation (5.31ms)
+Completed 200 OK in 11ms (Views: 10.0ms | ActiveRecord: 1.0ms | Allocations: 5410)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 14:23:03 -0500
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (1.7ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (70.21ms)
+Completed 200 OK in 87ms (Views: 84.9ms | ActiveRecord: 1.7ms | Allocations: 44810)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 14:23:21 -0500
+Started GET "/stories" for ::1 at 2021-02-17 14:23:21 -0500
+Processing by LocationsController#index as HTML
+Processing by StoriesController#index as HTML
+  [1m[36mLocation Load (2.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (48.67ms)
+  [1m[36mStory Load (63.1ms)[0m  [1m[34mSELECT "stories".* FROM "stories"[0m
+  ↳ app/controllers/stories_controller.rb:5:in `index'
+Completed 200 OK in 66ms (Views: 63.3ms | ActiveRecord: 2.3ms | Allocations: 45275)
+
+
+No serializer found for resource: #<Story id: 1, description: "Nearly a year after the coronavirus pandemic began...", title: "UK starts Australian-style hotel quarantine to fig...", author: "Jack Hawke", url: "http://www.abc.net.au/news/2021-02-16/uk-covid-hot...", urlToImage: "https://www.abc.net.au/cm/rimage/13158062-16x9-lar...", publishedAt: "2021-02-15T19:28:45Z", content: "Nearly a year after the coronavirus pandemic began...", created_at: "2021-02-15 20:07:30", updated_at: "2021-02-15 20:07:30">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Story::ActiveRecord_Relation (3.14ms)
+Completed 200 OK in 70ms (Views: 6.2ms | ActiveRecord: 63.1ms | Allocations: 50058)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 14:23:21 -0500
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (0.6ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (27.58ms)
+Completed 200 OK in 37ms (Views: 36.0ms | ActiveRecord: 0.6ms | Allocations: 44810)
+
+
+Started PUT "/update_location" for ::1 at 2021-02-17 14:23:27 -0500
+Processing by UsersController#update_location as HTML
+  Parameters: {"id"=>2, "country"=>"Bahamas", "user"=>{"id"=>2}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:44:in `update_location'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."country" = $1 LIMIT $2[0m  [["country", "Bahamas"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:45:in `update_location'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "apple"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:47:in `update_location'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:49:in `update_location'
+  [1m[36mLocation Load (0.4ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."user_id" = $1 LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:49:in `update_location'
+  [1m[36mLocation Update (0.4ms)[0m  [1m[33mUPDATE "locations" SET "user_id" = $1, "updated_at" = $2 WHERE "locations"."id" = $3[0m  [["user_id", nil], ["updated_at", "2021-02-17 19:23:27.026270"], ["id", 15]]
+  ↳ app/controllers/users_controller.rb:49:in `update_location'
+  [1m[36mLocation Update (0.6ms)[0m  [1m[33mUPDATE "locations" SET "user_id" = $1, "updated_at" = $2 WHERE "locations"."id" = $3[0m  [["user_id", 2], ["updated_at", "2021-02-17 19:23:27.028276"], ["id", 14]]
+  ↳ app/controllers/users_controller.rb:49:in `update_location'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "apple"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:49:in `update_location'
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:49:in `update_location'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.44ms)
+Completed 200 OK in 17ms (Views: 1.0ms | ActiveRecord: 3.3ms | Allocations: 8170)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 14:48:28 -0500
+Started GET "/stories" for ::1 at 2021-02-17 14:48:28 -0500
+Processing by StoriesController#index as HTML
+Processing by LocationsController#index as HTML
+  [1m[36mStory Load (3.8ms)[0m  [1m[34mSELECT "stories".* FROM "stories"[0m
+  ↳ app/controllers/stories_controller.rb:5:in `index'
+No serializer found for resource: #<Story id: 1, description: "Nearly a year after the coronavirus pandemic began...", title: "UK starts Australian-style hotel quarantine to fig...", author: "Jack Hawke", url: "http://www.abc.net.au/news/2021-02-16/uk-covid-hot...", urlToImage: "https://www.abc.net.au/cm/rimage/13158062-16x9-lar...", publishedAt: "2021-02-15T19:28:45Z", content: "Nearly a year after the coronavirus pandemic began...", created_at: "2021-02-15 20:07:30", updated_at: "2021-02-15 20:07:30">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Story::ActiveRecord_Relation (6.44ms)
+Completed 200 OK in 28ms (Views: 19.5ms | ActiveRecord: 3.8ms | Allocations: 12566)
+
+
+  [1m[36mLocation Load (26.5ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (57.88ms)
+Completed 200 OK in 118ms (Views: 89.2ms | ActiveRecord: 26.5ms | Allocations: 66094)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 14:48:29 -0500
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (1.1ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (87.2ms)
+Completed 200 OK in 106ms (Views: 104.4ms | ActiveRecord: 1.1ms | Allocations: 44817)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 14:51:39 -0500
+Processing by LocationsController#index as HTML
+Started GET "/stories" for ::1 at 2021-02-17 14:51:39 -0500
+  [1m[36mLocation Load (1.9ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (48.74ms)
+Processing by StoriesController#index as HTML
+Completed 200 OK in 68ms (Views: 65.3ms | ActiveRecord: 1.9ms | Allocations: 45451)
+
+
+  [1m[36mStory Load (0.6ms)[0m  [1m[34mSELECT "stories".* FROM "stories"[0m
+  ↳ app/controllers/stories_controller.rb:5:in `index'
+No serializer found for resource: #<Story id: 1, description: "Nearly a year after the coronavirus pandemic began...", title: "UK starts Australian-style hotel quarantine to fig...", author: "Jack Hawke", url: "http://www.abc.net.au/news/2021-02-16/uk-covid-hot...", urlToImage: "https://www.abc.net.au/cm/rimage/13158062-16x9-lar...", publishedAt: "2021-02-15T19:28:45Z", content: "Nearly a year after the coronavirus pandemic began...", created_at: "2021-02-15 20:07:30", updated_at: "2021-02-15 20:07:30">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Story::ActiveRecord_Relation (4.96ms)
+Started GET "/locations" for ::1 at 2021-02-17 14:51:39 -0500
+Completed 200 OK in 10ms (Views: 9.5ms | ActiveRecord: 0.6ms | Allocations: 5602)
+
+
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (1.4ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (63.05ms)
+Completed 200 OK in 76ms (Views: 74.4ms | ActiveRecord: 1.4ms | Allocations: 44852)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 14:51:40 -0500
+Started GET "/stories" for ::1 at 2021-02-17 14:51:40 -0500
+Processing by LocationsController#index as HTML
+Processing by StoriesController#index as HTML
+  [1m[36mLocation Load (2.9ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (31.31ms)
+  [1m[36mStory Load (40.4ms)[0m  [1m[34mSELECT "stories".* FROM "stories"[0m
+Completed 200 OK in 44ms (Views: 40.8ms | ActiveRecord: 2.9ms | Allocations: 45274)
+
+
+  ↳ app/controllers/stories_controller.rb:5:in `index'
+No serializer found for resource: #<Story id: 1, description: "Nearly a year after the coronavirus pandemic began...", title: "UK starts Australian-style hotel quarantine to fig...", author: "Jack Hawke", url: "http://www.abc.net.au/news/2021-02-16/uk-covid-hot...", urlToImage: "https://www.abc.net.au/cm/rimage/13158062-16x9-lar...", publishedAt: "2021-02-15T19:28:45Z", content: "Nearly a year after the coronavirus pandemic began...", created_at: "2021-02-15 20:07:30", updated_at: "2021-02-15 20:07:30">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Story::ActiveRecord_Relation (2.77ms)
+Completed 200 OK in 47ms (Views: 6.8ms | ActiveRecord: 40.4ms | Allocations: 50168)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 14:51:40 -0500
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (0.9ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (39.67ms)
+Completed 200 OK in 51ms (Views: 49.7ms | ActiveRecord: 0.9ms | Allocations: 44813)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 14:51:41 -0500
+Processing by LocationsController#index as HTML
+Started GET "/stories" for ::1 at 2021-02-17 14:51:41 -0500
+Processing by StoriesController#index as HTML
+  [1m[36mStory Load (0.8ms)[0m  [1m[34mSELECT "stories".* FROM "stories"[0m
+  [1m[36mLocation Load (6.5ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/stories_controller.rb:5:in `index'
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (38.9ms)
+No serializer found for resource: #<Story id: 1, description: "Nearly a year after the coronavirus pandemic began...", title: "UK starts Australian-style hotel quarantine to fig...", author: "Jack Hawke", url: "http://www.abc.net.au/news/2021-02-16/uk-covid-hot...", urlToImage: "https://www.abc.net.au/cm/rimage/13158062-16x9-lar...", publishedAt: "2021-02-15T19:28:45Z", content: "Nearly a year after the coronavirus pandemic began...", created_at: "2021-02-15 20:07:30", updated_at: "2021-02-15 20:07:30">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Story::ActiveRecord_Relation (3.02ms)
+Completed 200 OK in 62ms (Views: 55.3ms | ActiveRecord: 6.5ms | Allocations: 46641)
+
+
+Completed 200 OK in 60ms (Views: 59.0ms | ActiveRecord: 0.8ms | Allocations: 49831)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 14:51:41 -0500
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (0.9ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (39.69ms)
+Completed 200 OK in 63ms (Views: 61.6ms | ActiveRecord: 0.9ms | Allocations: 44813)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 14:51:42 -0500
+Processing by LocationsController#index as HTML
+Started GET "/stories" for ::1 at 2021-02-17 14:51:42 -0500
+  [1m[36mLocation Load (2.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (37.74ms)
+Completed 200 OK in 50ms (Views: 47.3ms | ActiveRecord: 2.2ms | Allocations: 45133)
+
+
+Processing by StoriesController#index as HTML
+Started GET "/locations" for ::1 at 2021-02-17 14:51:42 -0500
+  [1m[36mStory Load (1.0ms)[0m  [1m[34mSELECT "stories".* FROM "stories"[0m
+  ↳ app/controllers/stories_controller.rb:5:in `index'
+No serializer found for resource: #<Story id: 1, description: "Nearly a year after the coronavirus pandemic began...", title: "UK starts Australian-style hotel quarantine to fig...", author: "Jack Hawke", url: "http://www.abc.net.au/news/2021-02-16/uk-covid-hot...", urlToImage: "https://www.abc.net.au/cm/rimage/13158062-16x9-lar...", publishedAt: "2021-02-15T19:28:45Z", content: "Nearly a year after the coronavirus pandemic began...", created_at: "2021-02-15 20:07:30", updated_at: "2021-02-15 20:07:30">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Story::ActiveRecord_Relation (3.05ms)
+Completed 200 OK in 7ms (Views: 5.4ms | ActiveRecord: 1.0ms | Allocations: 5434)
+
+
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (1.1ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (72.95ms)
+Completed 200 OK in 83ms (Views: 82.0ms | ActiveRecord: 1.1ms | Allocations: 44810)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 14:51:46 -0500
+Processing by LocationsController#index as HTML
+Started GET "/stories" for ::1 at 2021-02-17 14:51:46 -0500
+Processing by StoriesController#index as HTML
+  [1m[36mLocation Load (64.4ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+  [1m[36mStory Load (65.4ms)[0m  [1m[34mSELECT "stories".* FROM "stories"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (66.66ms)
+  ↳ app/controllers/stories_controller.rb:5:in `index'
+Completed 200 OK in 228ms (Views: 160.8ms | ActiveRecord: 64.4ms | Allocations: 46080)
+
+
+No serializer found for resource: #<Story id: 1, description: "Nearly a year after the coronavirus pandemic began...", title: "UK starts Australian-style hotel quarantine to fig...", author: "Jack Hawke", url: "http://www.abc.net.au/news/2021-02-16/uk-covid-hot...", urlToImage: "https://www.abc.net.au/cm/rimage/13158062-16x9-lar...", publishedAt: "2021-02-15T19:28:45Z", content: "Nearly a year after the coronavirus pandemic began...", created_at: "2021-02-15 20:07:30", updated_at: "2021-02-15 20:07:30">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Story::ActiveRecord_Relation (4.76ms)
+Completed 200 OK in 229ms (Views: 161.7ms | ActiveRecord: 65.4ms | Allocations: 50067)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 14:51:46 -0500
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (1.1ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (29.78ms)
+Completed 200 OK in 39ms (Views: 38.0ms | ActiveRecord: 1.1ms | Allocations: 44810)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 14:51:47 -0500
+Started GET "/stories" for ::1 at 2021-02-17 14:51:47 -0500
+Processing by LocationsController#index as HTML
+Processing by StoriesController#index as HTML
+  [1m[36mLocation Load (2.6ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (40.9ms)
+  [1m[36mStory Load (51.6ms)[0m  [1m[34mSELECT "stories".* FROM "stories"[0m
+  ↳ app/controllers/stories_controller.rb:5:in `index'
+Completed 200 OK in 55ms (Views: 52.2ms | ActiveRecord: 2.6ms | Allocations: 45279)
+
+
+No serializer found for resource: #<Story id: 1, description: "Nearly a year after the coronavirus pandemic began...", title: "UK starts Australian-style hotel quarantine to fig...", author: "Jack Hawke", url: "http://www.abc.net.au/news/2021-02-16/uk-covid-hot...", urlToImage: "https://www.abc.net.au/cm/rimage/13158062-16x9-lar...", publishedAt: "2021-02-15T19:28:45Z", content: "Nearly a year after the coronavirus pandemic began...", created_at: "2021-02-15 20:07:30", updated_at: "2021-02-15 20:07:30">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Story::ActiveRecord_Relation (3.4ms)
+Completed 200 OK in 58ms (Views: 6.5ms | ActiveRecord: 51.6ms | Allocations: 50034)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 14:51:47 -0500
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (1.1ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (26.73ms)
+Completed 200 OK in 38ms (Views: 36.3ms | ActiveRecord: 1.1ms | Allocations: 44810)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 15:00:31 -0500
+Started GET "/stories" for ::1 at 2021-02-17 15:00:31 -0500
+Processing by StoriesController#index as HTML
+Processing by LocationsController#index as HTML
+  [1m[36mStory Load (2.7ms)[0m  [1m[34mSELECT "stories".* FROM "stories"[0m
+  ↳ app/controllers/stories_controller.rb:5:in `index'
+No serializer found for resource: #<Story id: 1, description: "Nearly a year after the coronavirus pandemic began...", title: "UK starts Australian-style hotel quarantine to fig...", author: "Jack Hawke", url: "http://www.abc.net.au/news/2021-02-16/uk-covid-hot...", urlToImage: "https://www.abc.net.au/cm/rimage/13158062-16x9-lar...", publishedAt: "2021-02-15T19:28:45Z", content: "Nearly a year after the coronavirus pandemic began...", created_at: "2021-02-15 20:07:30", updated_at: "2021-02-15 20:07:30">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Story::ActiveRecord_Relation (4.64ms)
+Completed 200 OK in 11ms (Views: 8.3ms | ActiveRecord: 2.7ms | Allocations: 5603)
+
+
+  [1m[36mLocation Load (8.0ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (51.77ms)
+Completed 200 OK in 169ms (Views: 160.4ms | ActiveRecord: 8.0ms | Allocations: 50196)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 15:00:31 -0500
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (1.4ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (37.82ms)
+Completed 200 OK in 50ms (Views: 48.0ms | ActiveRecord: 1.4ms | Allocations: 44810)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 15:03:23 -0500
+Started GET "/stories" for ::1 at 2021-02-17 15:03:23 -0500
+Processing by LocationsController#index as HTML
+Processing by StoriesController#index as HTML
+  [1m[36mLocation Load (1.9ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  [1m[36mStory Load (0.7ms)[0m  [1m[34mSELECT "stories".* FROM "stories"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+  ↳ app/controllers/stories_controller.rb:5:in `index'
+No serializer found for resource: #<Story id: 1, description: "Nearly a year after the coronavirus pandemic began...", title: "UK starts Australian-style hotel quarantine to fig...", author: "Jack Hawke", url: "http://www.abc.net.au/news/2021-02-16/uk-covid-hot...", urlToImage: "https://www.abc.net.au/cm/rimage/13158062-16x9-lar...", publishedAt: "2021-02-15T19:28:45Z", content: "Nearly a year after the coronavirus pandemic began...", created_at: "2021-02-15 20:07:30", updated_at: "2021-02-15 20:07:30">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (42.36ms)
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Story::ActiveRecord_Relation (3.48ms)
+Completed 200 OK in 59ms (Views: 56.7ms | ActiveRecord: 1.9ms | Allocations: 50197)
+
+
+Completed 200 OK in 57ms (Views: 56.4ms | ActiveRecord: 0.7ms | Allocations: 49837)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 15:03:23 -0500
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (1.8ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (31.99ms)
+Completed 200 OK in 43ms (Views: 41.1ms | ActiveRecord: 1.8ms | Allocations: 44849)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 15:04:13 -0500
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (0.9ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (43.81ms)
+Completed 200 OK in 60ms (Views: 58.5ms | ActiveRecord: 0.9ms | Allocations: 44853)
+
+
+Started GET "/stories" for ::1 at 2021-02-17 15:04:13 -0500
+Processing by StoriesController#index as HTML
+Started GET "/locations" for ::1 at 2021-02-17 15:04:13 -0500
+  [1m[36mStory Load (1.2ms)[0m  [1m[34mSELECT "stories".* FROM "stories"[0m
+  ↳ app/controllers/stories_controller.rb:5:in `index'
+Processing by LocationsController#index as HTML
+No serializer found for resource: #<Story id: 1, description: "Nearly a year after the coronavirus pandemic began...", title: "UK starts Australian-style hotel quarantine to fig...", author: "Jack Hawke", url: "http://www.abc.net.au/news/2021-02-16/uk-covid-hot...", urlToImage: "https://www.abc.net.au/cm/rimage/13158062-16x9-lar...", publishedAt: "2021-02-15T19:28:45Z", content: "Nearly a year after the coronavirus pandemic began...", created_at: "2021-02-15 20:07:30", updated_at: "2021-02-15 20:07:30">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Story::ActiveRecord_Relation (4.79ms)
+Completed 200 OK in 11ms (Views: 9.7ms | ActiveRecord: 1.2ms | Allocations: 5569)
+
+
+  [1m[36mLocation Load (6.7ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (40.1ms)
+Completed 200 OK in 59ms (Views: 51.8ms | ActiveRecord: 6.7ms | Allocations: 48837)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 15:04:20 -0500
+Processing by LocationsController#index as HTML
+Started GET "/stories" for ::1 at 2021-02-17 15:04:20 -0500
+  [1m[36mLocation Load (1.6ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+Processing by StoriesController#index as HTML
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (34.22ms)
+Completed 200 OK in 56ms (Views: 54.6ms | ActiveRecord: 1.6ms | Allocations: 45545)
+
+
+  [1m[36mStory Load (1.0ms)[0m  [1m[34mSELECT "stories".* FROM "stories"[0m
+  ↳ app/controllers/stories_controller.rb:5:in `index'
+No serializer found for resource: #<Story id: 1, description: "Nearly a year after the coronavirus pandemic began...", title: "UK starts Australian-style hotel quarantine to fig...", author: "Jack Hawke", url: "http://www.abc.net.au/news/2021-02-16/uk-covid-hot...", urlToImage: "https://www.abc.net.au/cm/rimage/13158062-16x9-lar...", publishedAt: "2021-02-15T19:28:45Z", content: "Nearly a year after the coronavirus pandemic began...", created_at: "2021-02-15 20:07:30", updated_at: "2021-02-15 20:07:30">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Story::ActiveRecord_Relation (3.28ms)
+Started GET "/locations" for ::1 at 2021-02-17 15:04:20 -0500
+Completed 200 OK in 10ms (Views: 9.0ms | ActiveRecord: 1.0ms | Allocations: 5673)
+
+
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (0.8ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (52.11ms)
+Completed 200 OK in 65ms (Views: 64.4ms | ActiveRecord: 0.8ms | Allocations: 44813)
+
+
+Started POST "/login" for ::1 at 2021-02-17 15:05:38 -0500
+Started GET "/stories" for ::1 at 2021-02-17 15:05:38 -0500
+Started GET "/locations" for ::1 at 2021-02-17 15:05:38 -0500
+  [1m[35m (2.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by StoriesController#index as HTML
+Processing by LocationsController#index as HTML
+  [1m[35m (17.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mStory Load (10.0ms)[0m  [1m[34mSELECT "stories".* FROM "stories"[0m
+  ↳ app/controllers/stories_controller.rb:5:in `index'
+  [1m[36mLocation Load (16.9ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+Processing by UsersController#login as HTML
+  Parameters: {"username"=>"apple", "password"=>"[FILTERED]", "user"=>{"username"=>"apple"}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "apple"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `login'
+No serializer found for resource: #<Story id: 1, description: "Nearly a year after the coronavirus pandemic began...", title: "UK starts Australian-style hotel quarantine to fig...", author: "Jack Hawke", url: "http://www.abc.net.au/news/2021-02-16/uk-covid-hot...", urlToImage: "https://www.abc.net.au/cm/rimage/13158062-16x9-lar...", publishedAt: "2021-02-15T19:28:45Z", content: "Nearly a year after the coronavirus pandemic began...", created_at: "2021-02-15 20:07:30", updated_at: "2021-02-15 20:07:30">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Story::ActiveRecord_Relation (3.41ms)
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (31.49ms)
+Completed 200 OK in 414ms (Views: 373.6ms | ActiveRecord: 36.9ms | Allocations: 79125)
+
+
+Completed 200 OK in 407ms (Views: 65.7ms | ActiveRecord: 334.9ms | Allocations: 78326)
+
+
+[active_model_serializers]   [1m[36mLocation Load (1.8ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."user_id" = $1 LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:23:in `login'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (66.01ms)
+Started GET "/locations" for ::1 at 2021-02-17 15:05:39 -0500
+Completed 200 OK in 369ms (Views: 66.7ms | ActiveRecord: 33.2ms | Allocations: 73672)
+
+
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (1.0ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (41.26ms)
+Completed 200 OK in 53ms (Views: 52.1ms | ActiveRecord: 1.0ms | Allocations: 44810)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 15:05:39 -0500
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (0.9ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (57.99ms)
+Completed 200 OK in 70ms (Views: 68.8ms | ActiveRecord: 0.9ms | Allocations: 44813)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 15:06:29 -0500
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (1.6ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (86.52ms)
+Started GET "/stories" for ::1 at 2021-02-17 15:06:29 -0500
+Completed 200 OK in 111ms (Views: 108.1ms | ActiveRecord: 1.6ms | Allocations: 45161)
+
+
+Processing by StoriesController#index as HTML
+Started GET "/locations" for ::1 at 2021-02-17 15:06:29 -0500
+Processing by LocationsController#index as HTML
+  [1m[36mStory Load (6.1ms)[0m  [1m[34mSELECT "stories".* FROM "stories"[0m
+  ↳ app/controllers/stories_controller.rb:5:in `index'
+No serializer found for resource: #<Story id: 1, description: "Nearly a year after the coronavirus pandemic began...", title: "UK starts Australian-style hotel quarantine to fig...", author: "Jack Hawke", url: "http://www.abc.net.au/news/2021-02-16/uk-covid-hot...", urlToImage: "https://www.abc.net.au/cm/rimage/13158062-16x9-lar...", publishedAt: "2021-02-15T19:28:45Z", content: "Nearly a year after the coronavirus pandemic began...", created_at: "2021-02-15 20:07:30", updated_at: "2021-02-15 20:07:30">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Story::ActiveRecord_Relation (6.79ms)
+Completed 200 OK in 20ms (Views: 13.0ms | ActiveRecord: 6.1ms | Allocations: 5902)
+
+
+  [1m[36mLocation Load (11.9ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (95.87ms)
+Completed 200 OK in 130ms (Views: 117.2ms | ActiveRecord: 11.9ms | Allocations: 50032)
+
+
+Started PUT "/update_location" for ::1 at 2021-02-17 15:06:36 -0500
+Processing by UsersController#update_location as HTML
+  Parameters: {"id"=>2, "country"=>"Armenia", "user"=>{"id"=>2}}
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:44:in `update_location'
+  [1m[36mLocation Load (0.4ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."country" = $1 LIMIT $2[0m  [["country", "Armenia"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:45:in `update_location'
+  [1m[36mUser Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "apple"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:47:in `update_location'
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:49:in `update_location'
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."user_id" = $1 LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:49:in `update_location'
+  [1m[36mLocation Update (1.9ms)[0m  [1m[33mUPDATE "locations" SET "user_id" = $1, "updated_at" = $2 WHERE "locations"."id" = $3[0m  [["user_id", nil], ["updated_at", "2021-02-17 20:06:36.333650"], ["id", 14]]
+  ↳ app/controllers/users_controller.rb:49:in `update_location'
+  [1m[36mLocation Update (0.5ms)[0m  [1m[33mUPDATE "locations" SET "user_id" = $1, "updated_at" = $2 WHERE "locations"."id" = $3[0m  [["user_id", 2], ["updated_at", "2021-02-17 20:06:36.337376"], ["id", 9]]
+  ↳ app/controllers/users_controller.rb:49:in `update_location'
+  [1m[36mUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "apple"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:49:in `update_location'
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:49:in `update_location'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.97ms)
+Completed 200 OK in 31ms (Views: 1.6ms | ActiveRecord: 8.9ms | Allocations: 8940)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 15:06:37 -0500
+Started GET "/stories" for ::1 at 2021-02-17 15:06:37 -0500
+Processing by LocationsController#index as HTML
+Processing by StoriesController#index as HTML
+  [1m[36mStory Load (0.5ms)[0m  [1m[34mSELECT "stories".* FROM "stories"[0m
+  [1m[36mLocation Load (1.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/stories_controller.rb:5:in `index'
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+No serializer found for resource: #<Story id: 1, description: "Nearly a year after the coronavirus pandemic began...", title: "UK starts Australian-style hotel quarantine to fig...", author: "Jack Hawke", url: "http://www.abc.net.au/news/2021-02-16/uk-covid-hot...", urlToImage: "https://www.abc.net.au/cm/rimage/13158062-16x9-lar...", publishedAt: "2021-02-15T19:28:45Z", content: "Nearly a year after the coronavirus pandemic began...", created_at: "2021-02-15 20:07:30", updated_at: "2021-02-15 20:07:30">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (52.37ms)
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Story::ActiveRecord_Relation (3.59ms)
+Completed 200 OK in 71ms (Views: 69.5ms | ActiveRecord: 1.2ms | Allocations: 49896)
+
+
+Completed 200 OK in 71ms (Views: 70.1ms | ActiveRecord: 0.5ms | Allocations: 49831)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 15:06:37 -0500
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (1.1ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (72.86ms)
+Completed 200 OK in 90ms (Views: 88.2ms | ActiveRecord: 1.1ms | Allocations: 44813)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 15:07:09 -0500
+Processing by LocationsController#index as HTML
+Started GET "/stories" for ::1 at 2021-02-17 15:07:09 -0500
+  [1m[36mLocation Load (3.0ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (62.38ms)
+Completed 200 OK in 84ms (Views: 80.2ms | ActiveRecord: 3.0ms | Allocations: 45447)
+
+
+Processing by StoriesController#index as HTML
+Started GET "/locations" for ::1 at 2021-02-17 15:07:09 -0500
+Processing by LocationsController#index as HTML
+  [1m[36mStory Load (14.9ms)[0m  [1m[34mSELECT "stories".* FROM "stories"[0m
+  ↳ app/controllers/stories_controller.rb:5:in `index'
+No serializer found for resource: #<Story id: 1, description: "Nearly a year after the coronavirus pandemic began...", title: "UK starts Australian-style hotel quarantine to fig...", author: "Jack Hawke", url: "http://www.abc.net.au/news/2021-02-16/uk-covid-hot...", urlToImage: "https://www.abc.net.au/cm/rimage/13158062-16x9-lar...", publishedAt: "2021-02-15T19:28:45Z", content: "Nearly a year after the coronavirus pandemic began...", created_at: "2021-02-15 20:07:30", updated_at: "2021-02-15 20:07:30">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Story::ActiveRecord_Relation (7.05ms)
+Completed 200 OK in 26ms (Views: 10.8ms | ActiveRecord: 14.9ms | Allocations: 5882)
+
+
+  [1m[36mLocation Load (29.9ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (182.61ms)
+Completed 200 OK in 235ms (Views: 204.3ms | ActiveRecord: 29.9ms | Allocations: 50054)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 15:07:13 -0500
+Processing by LocationsController#index as HTML
+Started GET "/stories" for ::1 at 2021-02-17 15:07:13 -0500
+  [1m[36mLocation Load (5.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (50.71ms)
+Completed 200 OK in 69ms (Views: 63.7ms | ActiveRecord: 5.2ms | Allocations: 45138)
+
+
+Processing by StoriesController#index as HTML
+Started GET "/locations" for ::1 at 2021-02-17 15:07:13 -0500
+  [1m[36mStory Load (0.9ms)[0m  [1m[34mSELECT "stories".* FROM "stories"[0m
+  ↳ app/controllers/stories_controller.rb:5:in `index'
+No serializer found for resource: #<Story id: 1, description: "Nearly a year after the coronavirus pandemic began...", title: "UK starts Australian-style hotel quarantine to fig...", author: "Jack Hawke", url: "http://www.abc.net.au/news/2021-02-16/uk-covid-hot...", urlToImage: "https://www.abc.net.au/cm/rimage/13158062-16x9-lar...", publishedAt: "2021-02-15T19:28:45Z", content: "Nearly a year after the coronavirus pandemic began...", created_at: "2021-02-15 20:07:30", updated_at: "2021-02-15 20:07:30">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Story::ActiveRecord_Relation (4.61ms)
+Completed 200 OK in 10ms (Views: 8.5ms | ActiveRecord: 0.9ms | Allocations: 5547)
+
+
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (3.4ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (62.39ms)
+Completed 200 OK in 81ms (Views: 77.4ms | ActiveRecord: 3.4ms | Allocations: 44813)
+
+
+Started GET "/persist" for ::1 at 2021-02-17 15:07:33 -0500
+Processing by UsersController#persist as HTML
+Completed 500 Internal Server Error in 101ms (ActiveRecord: 0.0ms | Allocations: 35909)
+
+
+  
+NoMethodError (undefined method `authorized' for #<UsersController:0x00007f960649b0a8>):
+  
+activesupport (6.0.3.4) lib/active_support/callbacks.rb:428:in `block in make_lambda'
+activesupport (6.0.3.4) lib/active_support/callbacks.rb:181:in `block (2 levels) in halting_and_conditional'
+actionpack (6.0.3.4) lib/abstract_controller/callbacks.rb:34:in `block (2 levels) in <module:Callbacks>'
+activesupport (6.0.3.4) lib/active_support/callbacks.rb:182:in `block in halting_and_conditional'
+activesupport (6.0.3.4) lib/active_support/callbacks.rb:513:in `block in invoke_before'
+activesupport (6.0.3.4) lib/active_support/callbacks.rb:513:in `each'
+activesupport (6.0.3.4) lib/active_support/callbacks.rb:513:in `invoke_before'
+activesupport (6.0.3.4) lib/active_support/callbacks.rb:134:in `run_callbacks'
+actionpack (6.0.3.4) lib/abstract_controller/callbacks.rb:41:in `process_action'
+actionpack (6.0.3.4) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (6.0.3.4) lib/action_controller/metal/instrumentation.rb:33:in `block in process_action'
+activesupport (6.0.3.4) lib/active_support/notifications.rb:180:in `block in instrument'
+activesupport (6.0.3.4) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (6.0.3.4) lib/active_support/notifications.rb:180:in `instrument'
+actionpack (6.0.3.4) lib/action_controller/metal/instrumentation.rb:32:in `process_action'
+actionpack (6.0.3.4) lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+activerecord (6.0.3.4) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (6.0.3.4) lib/abstract_controller/base.rb:136:in `process'
+actionpack (6.0.3.4) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (6.0.3.4) lib/action_controller/metal.rb:254:in `dispatch'
+actionpack (6.0.3.4) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (6.0.3.4) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.3.4) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.3.4) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.3.4) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.3.4) lib/action_dispatch/routing/route_set.rb:834:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+activerecord (6.0.3.4) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.3.4) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.3.4) lib/rails/engine.rb:527:in `call'
+puma (4.3.7) lib/puma/configuration.rb:228:in `call'
+puma (4.3.7) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.7) lib/puma/server.rb:472:in `process_client'
+puma (4.3.7) lib/puma/server.rb:328:in `block in run'
+puma (4.3.7) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/" for ::1 at 2021-02-17 15:09:50 -0500
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/kevingleeson/.rvm/gems/ruby-2.6.1/gems/railties-6.0.3.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/kevingleeson/.rvm/gems/ruby-2.6.1/gems/railties-6.0.3.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 9.8ms | Allocations: 317)
+Completed 200 OK in 18ms (Views: 14.2ms | ActiveRecord: 0.0ms | Allocations: 1597)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 15:09:54 -0500
+Started GET "/stories" for ::1 at 2021-02-17 15:09:54 -0500
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (2.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (60.32ms)
+Completed 200 OK in 167ms (Views: 112.2ms | ActiveRecord: 45.4ms | Allocations: 58547)
+
+
+Processing by StoriesController#index as HTML
+Started GET "/locations" for ::1 at 2021-02-17 15:09:54 -0500
+  [1m[36mStory Load (6.3ms)[0m  [1m[34mSELECT "stories".* FROM "stories"[0m
+  ↳ app/controllers/stories_controller.rb:5:in `index'
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (1.0ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (193.33ms)
+Completed 200 OK in 213ms (Views: 211.7ms | ActiveRecord: 1.0ms | Allocations: 45415)
+
+
+No serializer found for resource: #<Story id: 1, description: "Nearly a year after the coronavirus pandemic began...", title: "UK starts Australian-style hotel quarantine to fig...", author: "Jack Hawke", url: "http://www.abc.net.au/news/2021-02-16/uk-covid-hot...", urlToImage: "https://www.abc.net.au/cm/rimage/13158062-16x9-lar...", publishedAt: "2021-02-15T19:28:45Z", content: "Nearly a year after the coronavirus pandemic began...", created_at: "2021-02-15 20:07:30", updated_at: "2021-02-15 20:07:30">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Story::ActiveRecord_Relation (5.18ms)
+Completed 200 OK in 249ms (Views: 24.4ms | ActiveRecord: 222.5ms | Allocations: 58105)
+
+
+Started PUT "/update_location" for ::1 at 2021-02-17 15:09:59 -0500
+Processing by UsersController#update_location as HTML
+  Parameters: {"id"=>2, "country"=>"Belize", "user"=>{"id"=>2}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:44:in `update_location'
+  [1m[36mLocation Load (0.7ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."country" = $1 LIMIT $2[0m  [["country", "Belize"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:45:in `update_location'
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "apple"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:47:in `update_location'
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:49:in `update_location'
+  [1m[36mLocation Load (0.4ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."user_id" = $1 LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:49:in `update_location'
+  [1m[36mLocation Update (0.7ms)[0m  [1m[33mUPDATE "locations" SET "user_id" = $1, "updated_at" = $2 WHERE "locations"."id" = $3[0m  [["user_id", nil], ["updated_at", "2021-02-17 20:09:59.409862"], ["id", 9]]
+  ↳ app/controllers/users_controller.rb:49:in `update_location'
+  [1m[36mLocation Update (0.5ms)[0m  [1m[33mUPDATE "locations" SET "user_id" = $1, "updated_at" = $2 WHERE "locations"."id" = $3[0m  [["user_id", 2], ["updated_at", "2021-02-17 20:09:59.412814"], ["id", 20]]
+  ↳ app/controllers/users_controller.rb:49:in `update_location'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "apple"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:49:in `update_location'
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:49:in `update_location'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.74ms)
+Completed 200 OK in 76ms (Views: 16.8ms | ActiveRecord: 9.6ms | Allocations: 15029)
+
+
+Started PUT "/update_location" for ::1 at 2021-02-17 15:10:01 -0500
+Processing by UsersController#update_location as HTML
+  Parameters: {"id"=>2, "country"=>"Bermuda", "user"=>{"id"=>2}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:44:in `update_location'
+  [1m[36mLocation Load (0.4ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."country" = $1 LIMIT $2[0m  [["country", "Bermuda"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:45:in `update_location'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "apple"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:47:in `update_location'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:49:in `update_location'
+  [1m[36mLocation Load (0.5ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."user_id" = $1 LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:49:in `update_location'
+  [1m[36mLocation Update (0.7ms)[0m  [1m[33mUPDATE "locations" SET "user_id" = $1, "updated_at" = $2 WHERE "locations"."id" = $3[0m  [["user_id", nil], ["updated_at", "2021-02-17 20:10:01.086274"], ["id", 20]]
+  ↳ app/controllers/users_controller.rb:49:in `update_location'
+  [1m[36mLocation Update (0.5ms)[0m  [1m[33mUPDATE "locations" SET "user_id" = $1, "updated_at" = $2 WHERE "locations"."id" = $3[0m  [["user_id", 2], ["updated_at", "2021-02-17 20:10:01.089729"], ["id", 22]]
+  ↳ app/controllers/users_controller.rb:49:in `update_location'
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "apple"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:49:in `update_location'
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:49:in `update_location'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.49ms)
+Completed 200 OK in 21ms (Views: 1.0ms | ActiveRecord: 4.1ms | Allocations: 8180)
+
+
+Started GET "/persist" for ::1 at 2021-02-17 15:10:05 -0500
+Processing by UsersController#persist as HTML
+Completed 500 Internal Server Error in 97ms (ActiveRecord: 0.0ms | Allocations: 35987)
+
+
+  
+NoMethodError (undefined method `logged_in?' for #<UsersController:0x00007fbdf334c6b0>
+Did you mean?  logger):
+  
+app/controllers/users_controller.rb:83:in `authorized'
+Started GET "/stories" for ::1 at 2021-02-17 15:16:53 -0500
+Started GET "/locations" for ::1 at 2021-02-17 15:16:53 -0500
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by LocationsController#index as HTML
+  [1m[35m (12.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by StoriesController#index as HTML
+  [1m[36mLocation Load (7.6ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+  [1m[36mStory Load (16.3ms)[0m  [1m[34mSELECT "stories".* FROM "stories"[0m
+  ↳ app/controllers/stories_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (38.43ms)
+No serializer found for resource: #<Story id: 1, description: "Nearly a year after the coronavirus pandemic began...", title: "UK starts Australian-style hotel quarantine to fig...", author: "Jack Hawke", url: "http://www.abc.net.au/news/2021-02-16/uk-covid-hot...", urlToImage: "https://www.abc.net.au/cm/rimage/13158062-16x9-lar...", publishedAt: "2021-02-15T19:28:45Z", content: "Nearly a year after the coronavirus pandemic began...", created_at: "2021-02-15 20:07:30", updated_at: "2021-02-15 20:07:30">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Story::ActiveRecord_Relation (3.25ms)
+Completed 200 OK in 116ms (Views: 95.1ms | ActiveRecord: 13.9ms | Allocations: 66761)
+
+
+Completed 200 OK in 104ms (Views: 17.0ms | ActiveRecord: 85.1ms | Allocations: 68013)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 15:16:53 -0500
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (0.8ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (54.68ms)
+Completed 200 OK in 69ms (Views: 67.6ms | ActiveRecord: 0.8ms | Allocations: 44810)
+
+
+Started POST "/login" for ::1 at 2021-02-17 15:17:20 -0500
+Started GET "/locations" for ::1 at 2021-02-17 15:17:20 -0500
+Started GET "/stories" for ::1 at 2021-02-17 15:17:20 -0500
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (2.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (52.3ms)
+Completed 200 OK in 67ms (Views: 63.9ms | ActiveRecord: 2.3ms | Allocations: 45290)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 15:17:20 -0500
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (1.6ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (38.73ms)
+Completed 200 OK in 56ms (Views: 53.9ms | ActiveRecord: 1.6ms | Allocations: 45383)
+
+
+Processing by StoriesController#index as HTML
+  [1m[36mStory Load (1.8ms)[0m  [1m[34mSELECT "stories".* FROM "stories"[0m
+  ↳ app/controllers/stories_controller.rb:5:in `index'
+No serializer found for resource: #<Story id: 1, description: "Nearly a year after the coronavirus pandemic began...", title: "UK starts Australian-style hotel quarantine to fig...", author: "Jack Hawke", url: "http://www.abc.net.au/news/2021-02-16/uk-covid-hot...", urlToImage: "https://www.abc.net.au/cm/rimage/13158062-16x9-lar...", publishedAt: "2021-02-15T19:28:45Z", content: "Nearly a year after the coronavirus pandemic began...", created_at: "2021-02-15 20:07:30", updated_at: "2021-02-15 20:07:30">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Story::ActiveRecord_Relation (3.57ms)
+Completed 200 OK in 14ms (Views: 12.0ms | ActiveRecord: 1.8ms | Allocations: 5638)
+
+
+Processing by UsersController#login as HTML
+  Parameters: {"username"=>"apple", "password"=>"[FILTERED]", "user"=>{"username"=>"apple"}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "apple"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `login'
+[active_model_serializers]   [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."user_id" = $1 LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:23:in `login'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (17.27ms)
+Completed 200 OK in 331ms (Views: 19.1ms | ActiveRecord: 5.4ms | Allocations: 8814)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 15:17:20 -0500
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (1.0ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (53.05ms)
+Completed 200 OK in 63ms (Views: 61.8ms | ActiveRecord: 1.0ms | Allocations: 44813)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 15:18:35 -0500
+Started GET "/stories" for ::1 at 2021-02-17 15:18:35 -0500
+Processing by LocationsController#index as HTML
+Processing by StoriesController#index as HTML
+  [1m[36mStory Load (0.5ms)[0m  [1m[34mSELECT "stories".* FROM "stories"[0m
+  ↳ app/controllers/stories_controller.rb:5:in `index'
+  [1m[36mLocation Load (1.4ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (60.63ms)
+No serializer found for resource: #<Story id: 1, description: "Nearly a year after the coronavirus pandemic began...", title: "UK starts Australian-style hotel quarantine to fig...", author: "Jack Hawke", url: "http://www.abc.net.au/news/2021-02-16/uk-covid-hot...", urlToImage: "https://www.abc.net.au/cm/rimage/13158062-16x9-lar...", publishedAt: "2021-02-15T19:28:45Z", content: "Nearly a year after the coronavirus pandemic began...", created_at: "2021-02-15 20:07:30", updated_at: "2021-02-15 20:07:30">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Story::ActiveRecord_Relation (5.15ms)
+Completed 200 OK in 84ms (Views: 82.6ms | ActiveRecord: 1.4ms | Allocations: 49907)
+
+
+Completed 200 OK in 84ms (Views: 83.3ms | ActiveRecord: 0.5ms | Allocations: 49851)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 15:18:35 -0500
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (2.1ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (75.39ms)
+Completed 200 OK in 93ms (Views: 90.7ms | ActiveRecord: 2.1ms | Allocations: 44852)
+
+
+Started PUT "/update_location" for ::1 at 2021-02-17 15:18:38 -0500
+Processing by UsersController#update_location as HTML
+  Parameters: {"id"=>2, "country"=>"Benin", "user"=>{"id"=>2}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:44:in `update_location'
+  [1m[36mLocation Load (0.6ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."country" = $1 LIMIT $2[0m  [["country", "Benin"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:45:in `update_location'
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "apple"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:47:in `update_location'
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:49:in `update_location'
+  [1m[36mLocation Load (0.5ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."user_id" = $1 LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:49:in `update_location'
+  [1m[36mLocation Update (1.0ms)[0m  [1m[33mUPDATE "locations" SET "user_id" = $1, "updated_at" = $2 WHERE "locations"."id" = $3[0m  [["user_id", nil], ["updated_at", "2021-02-17 20:18:38.686776"], ["id", 22]]
+  ↳ app/controllers/users_controller.rb:49:in `update_location'
+  [1m[36mLocation Update (0.8ms)[0m  [1m[33mUPDATE "locations" SET "user_id" = $1, "updated_at" = $2 WHERE "locations"."id" = $3[0m  [["user_id", 2], ["updated_at", "2021-02-17 20:18:38.691029"], ["id", 21]]
+  ↳ app/controllers/users_controller.rb:49:in `update_location'
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "apple"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:49:in `update_location'
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:49:in `update_location'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.74ms)
+Completed 200 OK in 29ms (Views: 1.3ms | ActiveRecord: 6.0ms | Allocations: 8941)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 15:18:42 -0500
+Started GET "/stories" for ::1 at 2021-02-17 15:18:42 -0500
+Processing by LocationsController#index as HTML
+Processing by StoriesController#index as HTML
+  [1m[36mStory Load (3.5ms)[0m  [1m[34mSELECT "stories".* FROM "stories"[0m
+  ↳ app/controllers/stories_controller.rb:5:in `index'
+No serializer found for resource: #<Story id: 1, description: "Nearly a year after the coronavirus pandemic began...", title: "UK starts Australian-style hotel quarantine to fig...", author: "Jack Hawke", url: "http://www.abc.net.au/news/2021-02-16/uk-covid-hot...", urlToImage: "https://www.abc.net.au/cm/rimage/13158062-16x9-lar...", publishedAt: "2021-02-15T19:28:45Z", content: "Nearly a year after the coronavirus pandemic began...", created_at: "2021-02-15 20:07:30", updated_at: "2021-02-15 20:07:30">
+  [1m[36mLocation Load (11.9ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Story::ActiveRecord_Relation (6.1ms)
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+Completed 200 OK in 15ms (Views: 10.9ms | ActiveRecord: 3.5ms | Allocations: 5262)
+
+
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (68.06ms)
+Completed 200 OK in 102ms (Views: 89.6ms | ActiveRecord: 11.9ms | Allocations: 50359)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 15:18:42 -0500
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (9.6ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (91.29ms)
+Completed 200 OK in 115ms (Views: 105.0ms | ActiveRecord: 9.6ms | Allocations: 44813)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 15:19:01 -0500
+Processing by LocationsController#index as HTML
+Started GET "/stories" for ::1 at 2021-02-17 15:19:01 -0500
+Processing by StoriesController#index as HTML
+  [1m[36mLocation Load (12.1ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+  [1m[36mStory Load (5.1ms)[0m  [1m[34mSELECT "stories".* FROM "stories"[0m
+  ↳ app/controllers/stories_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (137.11ms)
+No serializer found for resource: #<Story id: 1, description: "Nearly a year after the coronavirus pandemic began...", title: "UK starts Australian-style hotel quarantine to fig...", author: "Jack Hawke", url: "http://www.abc.net.au/news/2021-02-16/uk-covid-hot...", urlToImage: "https://www.abc.net.au/cm/rimage/13158062-16x9-lar...", publishedAt: "2021-02-15T19:28:45Z", content: "Nearly a year after the coronavirus pandemic began...", created_at: "2021-02-15 20:07:30", updated_at: "2021-02-15 20:07:30">
+Completed 200 OK in 169ms (Views: 156.2ms | ActiveRecord: 12.1ms | Allocations: 46755)
+
+
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Story::ActiveRecord_Relation (9.38ms)
+Completed 200 OK in 172ms (Views: 166.2ms | ActiveRecord: 5.1ms | Allocations: 50026)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 15:19:01 -0500
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (4.4ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (126.64ms)
+Completed 200 OK in 165ms (Views: 160.5ms | ActiveRecord: 4.4ms | Allocations: 44813)
+
+
+Started PUT "/update_location" for ::1 at 2021-02-17 15:19:03 -0500
+Processing by UsersController#update_location as HTML
+  Parameters: {"id"=>2, "country"=>"Belgium", "user"=>{"id"=>2}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:44:in `update_location'
+  [1m[36mLocation Load (0.7ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."country" = $1 LIMIT $2[0m  [["country", "Belgium"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:45:in `update_location'
+  [1m[36mUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "apple"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:47:in `update_location'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:49:in `update_location'
+  [1m[36mLocation Load (0.5ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."user_id" = $1 LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:49:in `update_location'
+  [1m[36mLocation Update (2.4ms)[0m  [1m[33mUPDATE "locations" SET "user_id" = $1, "updated_at" = $2 WHERE "locations"."id" = $3[0m  [["user_id", nil], ["updated_at", "2021-02-17 20:19:03.024273"], ["id", 21]]
+  ↳ app/controllers/users_controller.rb:49:in `update_location'
+  [1m[36mLocation Update (0.7ms)[0m  [1m[33mUPDATE "locations" SET "user_id" = $1, "updated_at" = $2 WHERE "locations"."id" = $3[0m  [["user_id", 2], ["updated_at", "2021-02-17 20:19:03.029650"], ["id", 19]]
+  ↳ app/controllers/users_controller.rb:49:in `update_location'
+  [1m[36mUser Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "apple"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:49:in `update_location'
+  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:49:in `update_location'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (1.16ms)
+Completed 200 OK in 29ms (Views: 2.0ms | ActiveRecord: 8.7ms | Allocations: 8185)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 15:23:31 -0500
+Started GET "/stories" for ::1 at 2021-02-17 15:23:31 -0500
+Processing by LocationsController#index as HTML
+Processing by StoriesController#index as HTML
+  [1m[36mStory Load (1.1ms)[0m  [1m[34mSELECT "stories".* FROM "stories"[0m
+  ↳ app/controllers/stories_controller.rb:5:in `index'
+No serializer found for resource: #<Story id: 1, description: "Nearly a year after the coronavirus pandemic began...", title: "UK starts Australian-style hotel quarantine to fig...", author: "Jack Hawke", url: "http://www.abc.net.au/news/2021-02-16/uk-covid-hot...", urlToImage: "https://www.abc.net.au/cm/rimage/13158062-16x9-lar...", publishedAt: "2021-02-15T19:28:45Z", content: "Nearly a year after the coronavirus pandemic began...", created_at: "2021-02-15 20:07:30", updated_at: "2021-02-15 20:07:30">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Story::ActiveRecord_Relation (7.14ms)
+Completed 200 OK in 13ms (Views: 10.9ms | ActiveRecord: 1.1ms | Allocations: 5109)
+
+
+  [1m[36mLocation Load (14.7ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (63.54ms)
+Completed 200 OK in 95ms (Views: 79.9ms | ActiveRecord: 14.7ms | Allocations: 50158)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 15:23:31 -0500
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (1.0ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (62.31ms)
+Completed 200 OK in 81ms (Views: 79.6ms | ActiveRecord: 1.0ms | Allocations: 44813)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 15:24:13 -0500
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (0.8ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (63.18ms)
+Completed 200 OK in 76ms (Views: 74.6ms | ActiveRecord: 0.8ms | Allocations: 44826)
+
+
+Started GET "/stories" for ::1 at 2021-02-17 15:24:13 -0500
+Started GET "/locations" for ::1 at 2021-02-17 15:24:13 -0500
+Processing by StoriesController#index as HTML
+  [1m[36mStory Load (0.5ms)[0m  [1m[34mSELECT "stories".* FROM "stories"[0m
+Processing by LocationsController#index as HTML
+  ↳ app/controllers/stories_controller.rb:5:in `index'
+No serializer found for resource: #<Story id: 1, description: "Nearly a year after the coronavirus pandemic began...", title: "UK starts Australian-style hotel quarantine to fig...", author: "Jack Hawke", url: "http://www.abc.net.au/news/2021-02-16/uk-covid-hot...", urlToImage: "https://www.abc.net.au/cm/rimage/13158062-16x9-lar...", publishedAt: "2021-02-15T19:28:45Z", content: "Nearly a year after the coronavirus pandemic began...", created_at: "2021-02-15 20:07:30", updated_at: "2021-02-15 20:07:30">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Story::ActiveRecord_Relation (5.43ms)
+Completed 200 OK in 11ms (Views: 10.2ms | ActiveRecord: 0.5ms | Allocations: 5545)
+
+
+  [1m[36mLocation Load (16.0ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (53.87ms)
+Completed 200 OK in 86ms (Views: 69.9ms | ActiveRecord: 16.0ms | Allocations: 49312)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 15:24:31 -0500
+Processing by LocationsController#index as HTML
+Started GET "/stories" for ::1 at 2021-02-17 15:24:31 -0500
+Processing by StoriesController#index as HTML
+  [1m[36mLocation Load (18.8ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  [1m[36mStory Load (0.5ms)[0m  [1m[34mSELECT "stories".* FROM "stories"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+  ↳ app/controllers/stories_controller.rb:5:in `index'
+No serializer found for resource: #<Story id: 1, description: "Nearly a year after the coronavirus pandemic began...", title: "UK starts Australian-style hotel quarantine to fig...", author: "Jack Hawke", url: "http://www.abc.net.au/news/2021-02-16/uk-covid-hot...", urlToImage: "https://www.abc.net.au/cm/rimage/13158062-16x9-lar...", publishedAt: "2021-02-15T19:28:45Z", content: "Nearly a year after the coronavirus pandemic began...", created_at: "2021-02-15 20:07:30", updated_at: "2021-02-15 20:07:30">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (63.77ms)
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Story::ActiveRecord_Relation (4.57ms)
+Completed 200 OK in 110ms (Views: 90.6ms | ActiveRecord: 18.8ms | Allocations: 50519)
+
+
+Completed 200 OK in 92ms (Views: 90.7ms | ActiveRecord: 0.5ms | Allocations: 49831)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 15:24:31 -0500
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (1.1ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (82.24ms)
+Completed 200 OK in 98ms (Views: 96.9ms | ActiveRecord: 1.1ms | Allocations: 44813)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 15:25:07 -0500
+Started GET "/stories" for ::1 at 2021-02-17 15:25:07 -0500
+Processing by LocationsController#index as HTML
+Processing by StoriesController#index as HTML
+  [1m[36mStory Load (0.3ms)[0m  [1m[34mSELECT "stories".* FROM "stories"[0m
+  ↳ app/controllers/stories_controller.rb:5:in `index'
+No serializer found for resource: #<Story id: 1, description: "Nearly a year after the coronavirus pandemic began...", title: "UK starts Australian-style hotel quarantine to fig...", author: "Jack Hawke", url: "http://www.abc.net.au/news/2021-02-16/uk-covid-hot...", urlToImage: "https://www.abc.net.au/cm/rimage/13158062-16x9-lar...", publishedAt: "2021-02-15T19:28:45Z", content: "Nearly a year after the coronavirus pandemic began...", created_at: "2021-02-15 20:07:30", updated_at: "2021-02-15 20:07:30">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Story::ActiveRecord_Relation (3.91ms)
+  [1m[36mLocation Load (8.1ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+Completed 200 OK in 8ms (Views: 7.6ms | ActiveRecord: 0.3ms | Allocations: 5131)
+
+
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (73.99ms)
+Completed 200 OK in 98ms (Views: 89.6ms | ActiveRecord: 8.1ms | Allocations: 50162)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 15:25:07 -0500
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (0.9ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (61.24ms)
+Completed 200 OK in 88ms (Views: 87.2ms | ActiveRecord: 0.9ms | Allocations: 44814)
+
+
+Started PUT "/update_location" for ::1 at 2021-02-17 15:25:09 -0500
+Processing by UsersController#update_location as HTML
+  Parameters: {"id"=>2, "country"=>"Antigua and Barbuda", "user"=>{"id"=>2}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:44:in `update_location'
+  [1m[36mLocation Load (0.5ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."country" = $1 LIMIT $2[0m  [["country", "Antigua and Barbuda"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:45:in `update_location'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "apple"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:47:in `update_location'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:49:in `update_location'
+  [1m[36mLocation Load (0.5ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."user_id" = $1 LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:49:in `update_location'
+  [1m[36mLocation Update (1.9ms)[0m  [1m[33mUPDATE "locations" SET "user_id" = $1, "updated_at" = $2 WHERE "locations"."id" = $3[0m  [["user_id", nil], ["updated_at", "2021-02-17 20:25:09.698476"], ["id", 19]]
+  ↳ app/controllers/users_controller.rb:49:in `update_location'
+  [1m[36mLocation Update (1.5ms)[0m  [1m[33mUPDATE "locations" SET "user_id" = $1, "updated_at" = $2 WHERE "locations"."id" = $3[0m  [["user_id", 2], ["updated_at", "2021-02-17 20:25:09.703358"], ["id", 7]]
+  ↳ app/controllers/users_controller.rb:49:in `update_location'
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "apple"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:49:in `update_location'
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:49:in `update_location'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.64ms)
+Completed 200 OK in 24ms (Views: 1.3ms | ActiveRecord: 6.6ms | Allocations: 8183)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 15:25:30 -0500
+Started GET "/stories" for ::1 at 2021-02-17 15:25:30 -0500
+Processing by LocationsController#index as HTML
+Processing by StoriesController#index as HTML
+  [1m[36mStory Load (8.1ms)[0m  [1m[34mSELECT "stories".* FROM "stories"[0m
+  ↳ app/controllers/stories_controller.rb:5:in `index'
+No serializer found for resource: #<Story id: 1, description: "Nearly a year after the coronavirus pandemic began...", title: "UK starts Australian-style hotel quarantine to fig...", author: "Jack Hawke", url: "http://www.abc.net.au/news/2021-02-16/uk-covid-hot...", urlToImage: "https://www.abc.net.au/cm/rimage/13158062-16x9-lar...", publishedAt: "2021-02-15T19:28:45Z", content: "Nearly a year after the coronavirus pandemic began...", created_at: "2021-02-15 20:07:30", updated_at: "2021-02-15 20:07:30">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Story::ActiveRecord_Relation (5.64ms)
+Completed 200 OK in 18ms (Views: 9.5ms | ActiveRecord: 8.1ms | Allocations: 5229)
+
+
+  [1m[36mLocation Load (16.9ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (72.98ms)
+Completed 200 OK in 104ms (Views: 85.3ms | ActiveRecord: 16.9ms | Allocations: 50349)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 15:25:31 -0500
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (1.5ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (127.0ms)
+Completed 200 OK in 149ms (Views: 147.6ms | ActiveRecord: 1.5ms | Allocations: 44810)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 15:26:08 -0500
+Started GET "/stories" for ::1 at 2021-02-17 15:26:08 -0500
+Processing by LocationsController#index as HTML
+Processing by StoriesController#index as HTML
+  [1m[36mLocation Load (7.9ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+  [1m[36mStory Load (20.6ms)[0m  [1m[34mSELECT "stories".* FROM "stories"[0m
+  ↳ app/controllers/stories_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (79.17ms)
+No serializer found for resource: #<Story id: 1, description: "Nearly a year after the coronavirus pandemic began...", title: "UK starts Australian-style hotel quarantine to fig...", author: "Jack Hawke", url: "http://www.abc.net.au/news/2021-02-16/uk-covid-hot...", urlToImage: "https://www.abc.net.au/cm/rimage/13158062-16x9-lar...", publishedAt: "2021-02-15T19:28:45Z", content: "Nearly a year after the coronavirus pandemic began...", created_at: "2021-02-15 20:07:30", updated_at: "2021-02-15 20:07:30">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Story::ActiveRecord_Relation (5.34ms)
+Completed 200 OK in 205ms (Views: 196.7ms | ActiveRecord: 7.9ms | Allocations: 46430)
+
+
+Completed 200 OK in 206ms (Views: 185.1ms | ActiveRecord: 20.6ms | Allocations: 49834)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 15:26:08 -0500
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (0.9ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (59.43ms)
+Completed 200 OK in 74ms (Views: 73.0ms | ActiveRecord: 0.9ms | Allocations: 44810)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 15:26:20 -0500
+Started GET "/stories" for ::1 at 2021-02-17 15:26:20 -0500
+Processing by LocationsController#index as HTML
+Processing by StoriesController#index as HTML
+  [1m[36mLocation Load (3.4ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  [1m[36mStory Load (2.8ms)[0m  [1m[34mSELECT "stories".* FROM "stories"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+  ↳ app/controllers/stories_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (49.34ms)
+No serializer found for resource: #<Story id: 1, description: "Nearly a year after the coronavirus pandemic began...", title: "UK starts Australian-style hotel quarantine to fig...", author: "Jack Hawke", url: "http://www.abc.net.au/news/2021-02-16/uk-covid-hot...", urlToImage: "https://www.abc.net.au/cm/rimage/13158062-16x9-lar...", publishedAt: "2021-02-15T19:28:45Z", content: "Nearly a year after the coronavirus pandemic began...", created_at: "2021-02-15 20:07:30", updated_at: "2021-02-15 20:07:30">
+Completed 200 OK in 69ms (Views: 64.8ms | ActiveRecord: 3.4ms | Allocations: 46135)
+
+
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Story::ActiveRecord_Relation (4.88ms)
+Completed 200 OK in 74ms (Views: 70.6ms | ActiveRecord: 2.8ms | Allocations: 50029)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 15:26:20 -0500
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (1.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (29.76ms)
+Completed 200 OK in 41ms (Views: 40.0ms | ActiveRecord: 1.2ms | Allocations: 44810)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 15:26:24 -0500
+Started GET "/stories" for ::1 at 2021-02-17 15:26:24 -0500
+Processing by LocationsController#index as HTML
+Processing by StoriesController#index as HTML
+  [1m[36mLocation Load (4.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+  [1m[36mStory Load (107.3ms)[0m  [1m[34mSELECT "stories".* FROM "stories"[0m
+  ↳ app/controllers/stories_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (108.85ms)
+No serializer found for resource: #<Story id: 1, description: "Nearly a year after the coronavirus pandemic began...", title: "UK starts Australian-style hotel quarantine to fig...", author: "Jack Hawke", url: "http://www.abc.net.au/news/2021-02-16/uk-covid-hot...", urlToImage: "https://www.abc.net.au/cm/rimage/13158062-16x9-lar...", publishedAt: "2021-02-15T19:28:45Z", content: "Nearly a year after the coronavirus pandemic began...", created_at: "2021-02-15 20:07:30", updated_at: "2021-02-15 20:07:30">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Story::ActiveRecord_Relation (3.78ms)
+Completed 200 OK in 130ms (Views: 125.3ms | ActiveRecord: 4.3ms | Allocations: 46430)
+
+
+Completed 200 OK in 131ms (Views: 23.1ms | ActiveRecord: 107.3ms | Allocations: 49834)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 15:26:24 -0500
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (1.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (74.37ms)
+Completed 200 OK in 92ms (Views: 90.3ms | ActiveRecord: 1.2ms | Allocations: 44810)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 15:26:33 -0500
+Started GET "/stories" for ::1 at 2021-02-17 15:26:33 -0500
+Processing by StoriesController#index as HTML
+Processing by LocationsController#index as HTML
+  [1m[36mStory Load (2.9ms)[0m  [1m[34mSELECT "stories".* FROM "stories"[0m
+  ↳ app/controllers/stories_controller.rb:5:in `index'
+No serializer found for resource: #<Story id: 1, description: "Nearly a year after the coronavirus pandemic began...", title: "UK starts Australian-style hotel quarantine to fig...", author: "Jack Hawke", url: "http://www.abc.net.au/news/2021-02-16/uk-covid-hot...", urlToImage: "https://www.abc.net.au/cm/rimage/13158062-16x9-lar...", publishedAt: "2021-02-15T19:28:45Z", content: "Nearly a year after the coronavirus pandemic began...", created_at: "2021-02-15 20:07:30", updated_at: "2021-02-15 20:07:30">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Story::ActiveRecord_Relation (6.72ms)
+Completed 200 OK in 15ms (Views: 12.1ms | ActiveRecord: 2.9ms | Allocations: 5241)
+
+
+  [1m[36mLocation Load (31.5ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (100.39ms)
+Completed 200 OK in 152ms (Views: 120.1ms | ActiveRecord: 31.5ms | Allocations: 50033)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 15:26:33 -0500
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (1.0ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (87.14ms)
+Completed 200 OK in 103ms (Views: 101.4ms | ActiveRecord: 1.0ms | Allocations: 44819)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 15:26:41 -0500
+Started GET "/stories" for ::1 at 2021-02-17 15:26:41 -0500
+Processing by LocationsController#index as HTML
+Processing by StoriesController#index as HTML
+  [1m[36mLocation Load (2.1ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+  [1m[36mStory Load (1.3ms)[0m  [1m[34mSELECT "stories".* FROM "stories"[0m
+  ↳ app/controllers/stories_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (49.42ms)
+No serializer found for resource: #<Story id: 1, description: "Nearly a year after the coronavirus pandemic began...", title: "UK starts Australian-style hotel quarantine to fig...", author: "Jack Hawke", url: "http://www.abc.net.au/news/2021-02-16/uk-covid-hot...", urlToImage: "https://www.abc.net.au/cm/rimage/13158062-16x9-lar...", publishedAt: "2021-02-15T19:28:45Z", content: "Nearly a year after the coronavirus pandemic began...", created_at: "2021-02-15 20:07:30", updated_at: "2021-02-15 20:07:30">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Story::ActiveRecord_Relation (2.68ms)
+Completed 200 OK in 63ms (Views: 60.7ms | ActiveRecord: 2.1ms | Allocations: 46441)
+
+
+Completed 200 OK in 65ms (Views: 63.0ms | ActiveRecord: 1.3ms | Allocations: 49834)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 15:26:41 -0500
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (1.4ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (36.86ms)
+Completed 200 OK in 51ms (Views: 49.2ms | ActiveRecord: 1.4ms | Allocations: 44810)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 15:26:52 -0500
+Started GET "/stories" for ::1 at 2021-02-17 15:26:52 -0500
+Processing by LocationsController#index as HTML
+Processing by StoriesController#index as HTML
+  [1m[36mLocation Load (7.0ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (67.97ms)
+Completed 200 OK in 108ms (Views: 101.1ms | ActiveRecord: 7.0ms | Allocations: 45240)
+
+
+  [1m[36mStory Load (101.8ms)[0m  [1m[34mSELECT "stories".* FROM "stories"[0m
+  ↳ app/controllers/stories_controller.rb:5:in `index'
+No serializer found for resource: #<Story id: 1, description: "Nearly a year after the coronavirus pandemic began...", title: "UK starts Australian-style hotel quarantine to fig...", author: "Jack Hawke", url: "http://www.abc.net.au/news/2021-02-16/uk-covid-hot...", urlToImage: "https://www.abc.net.au/cm/rimage/13158062-16x9-lar...", publishedAt: "2021-02-15T19:28:45Z", content: "Nearly a year after the coronavirus pandemic began...", created_at: "2021-02-15 20:07:30", updated_at: "2021-02-15 20:07:30">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Story::ActiveRecord_Relation (6.65ms)
+Completed 200 OK in 116ms (Views: 13.7ms | ActiveRecord: 101.8ms | Allocations: 50029)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 15:26:52 -0500
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (2.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (77.26ms)
+Completed 200 OK in 99ms (Views: 96.1ms | ActiveRecord: 2.2ms | Allocations: 44813)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 15:27:37 -0500
+Started GET "/stories" for ::1 at 2021-02-17 15:27:37 -0500
+Processing by StoriesController#index as HTML
+Processing by LocationsController#index as HTML
+  [1m[36mStory Load (2.1ms)[0m  [1m[34mSELECT "stories".* FROM "stories"[0m
+  ↳ app/controllers/stories_controller.rb:5:in `index'
+No serializer found for resource: #<Story id: 1, description: "Nearly a year after the coronavirus pandemic began...", title: "UK starts Australian-style hotel quarantine to fig...", author: "Jack Hawke", url: "http://www.abc.net.au/news/2021-02-16/uk-covid-hot...", urlToImage: "https://www.abc.net.au/cm/rimage/13158062-16x9-lar...", publishedAt: "2021-02-15T19:28:45Z", content: "Nearly a year after the coronavirus pandemic began...", created_at: "2021-02-15 20:07:30", updated_at: "2021-02-15 20:07:30">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Story::ActiveRecord_Relation (4.24ms)
+Completed 200 OK in 13ms (Views: 9.0ms | ActiveRecord: 2.1ms | Allocations: 5245)
+
+
+  [1m[36mLocation Load (12.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (112.89ms)
+Completed 200 OK in 141ms (Views: 128.6ms | ActiveRecord: 12.3ms | Allocations: 50137)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 15:27:37 -0500
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (0.9ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (37.1ms)
+Completed 200 OK in 75ms (Views: 74.0ms | ActiveRecord: 0.9ms | Allocations: 44817)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 15:27:38 -0500
+Started GET "/stories" for ::1 at 2021-02-17 15:27:38 -0500
+Processing by LocationsController#index as HTML
+Processing by StoriesController#index as HTML
+  [1m[36mStory Load (0.4ms)[0m  [1m[34mSELECT "stories".* FROM "stories"[0m
+  ↳ app/controllers/stories_controller.rb:5:in `index'
+  [1m[36mLocation Load (1.8ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+No serializer found for resource: #<Story id: 1, description: "Nearly a year after the coronavirus pandemic began...", title: "UK starts Australian-style hotel quarantine to fig...", author: "Jack Hawke", url: "http://www.abc.net.au/news/2021-02-16/uk-covid-hot...", urlToImage: "https://www.abc.net.au/cm/rimage/13158062-16x9-lar...", publishedAt: "2021-02-15T19:28:45Z", content: "Nearly a year after the coronavirus pandemic began...", created_at: "2021-02-15 20:07:30", updated_at: "2021-02-15 20:07:30">
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Story::ActiveRecord_Relation (2.7ms)
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (58.62ms)
+Completed 200 OK in 78ms (Views: 77.5ms | ActiveRecord: 0.4ms | Allocations: 49764)
+
+
+Completed 200 OK in 80ms (Views: 77.5ms | ActiveRecord: 1.8ms | Allocations: 49963)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 15:27:38 -0500
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (1.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (74.59ms)
+Completed 200 OK in 97ms (Views: 94.8ms | ActiveRecord: 1.2ms | Allocations: 44813)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 15:27:48 -0500
+Started GET "/stories" for ::1 at 2021-02-17 15:27:48 -0500
+Processing by LocationsController#index as HTML
+Processing by StoriesController#index as HTML
+  [1m[36mLocation Load (4.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  [1m[36mStory Load (0.7ms)[0m  [1m[34mSELECT "stories".* FROM "stories"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (60.79ms)
+Completed 200 OK in 81ms (Views: 76.0ms | ActiveRecord: 4.2ms | Allocations: 45954)
+
+
+  ↳ app/controllers/stories_controller.rb:5:in `index'
+No serializer found for resource: #<Story id: 1, description: "Nearly a year after the coronavirus pandemic began...", title: "UK starts Australian-style hotel quarantine to fig...", author: "Jack Hawke", url: "http://www.abc.net.au/news/2021-02-16/uk-covid-hot...", urlToImage: "https://www.abc.net.au/cm/rimage/13158062-16x9-lar...", publishedAt: "2021-02-15T19:28:45Z", content: "Nearly a year after the coronavirus pandemic began...", created_at: "2021-02-15 20:07:30", updated_at: "2021-02-15 20:07:30">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Story::ActiveRecord_Relation (6.41ms)
+Completed 200 OK in 87ms (Views: 86.1ms | ActiveRecord: 0.7ms | Allocations: 50055)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 15:27:48 -0500
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (1.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (75.89ms)
+Completed 200 OK in 94ms (Views: 92.5ms | ActiveRecord: 1.2ms | Allocations: 44813)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 15:28:24 -0500
+Started GET "/stories" for ::1 at 2021-02-17 15:28:24 -0500
+Processing by LocationsController#index as HTML
+Processing by StoriesController#index as HTML
+  [1m[36mLocation Load (2.1ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  [1m[36mStory Load (1.2ms)[0m  [1m[34mSELECT "stories".* FROM "stories"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+  ↳ app/controllers/stories_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (37.17ms)
+No serializer found for resource: #<Story id: 1, description: "Nearly a year after the coronavirus pandemic began...", title: "UK starts Australian-style hotel quarantine to fig...", author: "Jack Hawke", url: "http://www.abc.net.au/news/2021-02-16/uk-covid-hot...", urlToImage: "https://www.abc.net.au/cm/rimage/13158062-16x9-lar...", publishedAt: "2021-02-15T19:28:45Z", content: "Nearly a year after the coronavirus pandemic began...", created_at: "2021-02-15 20:07:30", updated_at: "2021-02-15 20:07:30">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Story::ActiveRecord_Relation (3.36ms)
+Completed 200 OK in 57ms (Views: 55.8ms | ActiveRecord: 1.2ms | Allocations: 49831)
+
+
+Completed 200 OK in 55ms (Views: 52.2ms | ActiveRecord: 2.1ms | Allocations: 46418)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 15:28:24 -0500
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (2.0ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (47.11ms)
+Completed 200 OK in 65ms (Views: 63.1ms | ActiveRecord: 2.0ms | Allocations: 44813)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 15:28:28 -0500
+Processing by LocationsController#index as HTML
+Started GET "/stories" for ::1 at 2021-02-17 15:28:28 -0500
+Processing by StoriesController#index as HTML
+  [1m[36mLocation Load (8.8ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+  [1m[36mStory Load (2.5ms)[0m  [1m[34mSELECT "stories".* FROM "stories"[0m
+  ↳ app/controllers/stories_controller.rb:5:in `index'
+No serializer found for resource: #<Story id: 1, description: "Nearly a year after the coronavirus pandemic began...", title: "UK starts Australian-style hotel quarantine to fig...", author: "Jack Hawke", url: "http://www.abc.net.au/news/2021-02-16/uk-covid-hot...", urlToImage: "https://www.abc.net.au/cm/rimage/13158062-16x9-lar...", publishedAt: "2021-02-15T19:28:45Z", content: "Nearly a year after the coronavirus pandemic began...", created_at: "2021-02-15 20:07:30", updated_at: "2021-02-15 20:07:30">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (71.66ms)
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Story::ActiveRecord_Relation (4.22ms)
+Completed 200 OK in 103ms (Views: 93.9ms | ActiveRecord: 8.8ms | Allocations: 50546)
+
+
+Completed 200 OK in 96ms (Views: 92.9ms | ActiveRecord: 2.5ms | Allocations: 49831)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 15:28:28 -0500
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (1.7ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (62.74ms)
+Completed 200 OK in 81ms (Views: 78.9ms | ActiveRecord: 1.7ms | Allocations: 44813)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 15:28:30 -0500
+Processing by LocationsController#index as HTML
+Started GET "/stories" for ::1 at 2021-02-17 15:28:30 -0500
+Processing by StoriesController#index as HTML
+  [1m[36mLocation Load (4.5ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  [1m[36mStory Load (0.7ms)[0m  [1m[34mSELECT "stories".* FROM "stories"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+  ↳ app/controllers/stories_controller.rb:5:in `index'
+No serializer found for resource: #<Story id: 1, description: "Nearly a year after the coronavirus pandemic began...", title: "UK starts Australian-style hotel quarantine to fig...", author: "Jack Hawke", url: "http://www.abc.net.au/news/2021-02-16/uk-covid-hot...", urlToImage: "https://www.abc.net.au/cm/rimage/13158062-16x9-lar...", publishedAt: "2021-02-15T19:28:45Z", content: "Nearly a year after the coronavirus pandemic began...", created_at: "2021-02-15 20:07:30", updated_at: "2021-02-15 20:07:30">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (70.43ms)
+Completed 200 OK in 96ms (Views: 91.1ms | ActiveRecord: 4.5ms | Allocations: 46489)
+
+
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Story::ActiveRecord_Relation (6.17ms)
+Completed 200 OK in 101ms (Views: 99.3ms | ActiveRecord: 0.7ms | Allocations: 49974)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 15:28:30 -0500
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (3.8ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (72.34ms)
+Completed 200 OK in 108ms (Views: 103.6ms | ActiveRecord: 3.8ms | Allocations: 44813)
+
+
+Started PUT "/update_location" for ::1 at 2021-02-17 15:28:32 -0500
+Processing by UsersController#update_location as HTML
+  Parameters: {"id"=>2, "country"=>"Bolivia", "user"=>{"id"=>2}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:44:in `update_location'
+  [1m[36mLocation Load (0.5ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."country" = $1 LIMIT $2[0m  [["country", "Bolivia"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:45:in `update_location'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "apple"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:47:in `update_location'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:49:in `update_location'
+  [1m[36mLocation Load (0.4ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."user_id" = $1 LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:49:in `update_location'
+  [1m[36mLocation Update (0.7ms)[0m  [1m[33mUPDATE "locations" SET "user_id" = $1, "updated_at" = $2 WHERE "locations"."id" = $3[0m  [["user_id", nil], ["updated_at", "2021-02-17 20:28:32.895512"], ["id", 7]]
+  ↳ app/controllers/users_controller.rb:49:in `update_location'
+  [1m[36mLocation Update (0.7ms)[0m  [1m[33mUPDATE "locations" SET "user_id" = $1, "updated_at" = $2 WHERE "locations"."id" = $3[0m  [["user_id", 2], ["updated_at", "2021-02-17 20:28:32.898359"], ["id", 24]]
+  ↳ app/controllers/users_controller.rb:49:in `update_location'
+  [1m[36mUser Exists? (1.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "apple"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:49:in `update_location'
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:49:in `update_location'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.49ms)
+Completed 200 OK in 24ms (Views: 0.9ms | ActiveRecord: 6.2ms | Allocations: 8182)
+
+
+Started GET "/stories" for ::1 at 2021-02-17 16:10:08 -0500
+Started GET "/locations" for ::1 at 2021-02-17 16:10:08 -0500
+Processing by LocationsController#index as HTML
+Processing by StoriesController#index as HTML
+  [1m[36mStory Load (1.1ms)[0m  [1m[34mSELECT "stories".* FROM "stories"[0m
+  ↳ app/controllers/stories_controller.rb:5:in `index'
+No serializer found for resource: #<Story id: 1, description: "Nearly a year after the coronavirus pandemic began...", title: "UK starts Australian-style hotel quarantine to fig...", author: "Jack Hawke", url: "http://www.abc.net.au/news/2021-02-16/uk-covid-hot...", urlToImage: "https://www.abc.net.au/cm/rimage/13158062-16x9-lar...", publishedAt: "2021-02-15T19:28:45Z", content: "Nearly a year after the coronavirus pandemic began...", created_at: "2021-02-15 20:07:30", updated_at: "2021-02-15 20:07:30">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Story::ActiveRecord_Relation (7.8ms)
+Completed 200 OK in 18ms (Views: 16.1ms | ActiveRecord: 1.1ms | Allocations: 5182)
+
+
+  [1m[36mLocation Load (20.7ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (108.1ms)
+Completed 200 OK in 156ms (Views: 133.2ms | ActiveRecord: 20.7ms | Allocations: 50331)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 16:10:08 -0500
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (0.9ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (227.95ms)
+Completed 200 OK in 266ms (Views: 264.5ms | ActiveRecord: 0.9ms | Allocations: 44822)
+
+
