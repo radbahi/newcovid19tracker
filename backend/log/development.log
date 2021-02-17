@@ -21791,3 +21791,1033 @@ Processing by LocationsController#index as HTML
 Completed 200 OK in 216ms (Views: 213.2ms | ActiveRecord: 1.8ms | Allocations: 44810)
 
 
+Started POST "/login" for ::1 at 2021-02-17 15:31:19 -0500
+  [1m[35m (2.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#login as HTML
+  Parameters: {"username"=>"tom", "password"=>"[FILTERED]", "user"=>{"username"=>"tom"}}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "tom"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `login'
+[active_model_serializers]   [1m[36mLocation Load (0.7ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."user_id" = $1 LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:23:in `login'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (51.52ms)
+Completed 200 OK in 455ms (Views: 42.1ms | ActiveRecord: 68.6ms | Allocations: 20376)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 15:31:20 -0500
+Processing by LocationsController#index as HTML
+Started GET "/stories" for ::1 at 2021-02-17 15:31:20 -0500
+  [1m[36mLocation Load (27.7ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (222.24ms)
+Completed 200 OK in 293ms (Views: 264.9ms | ActiveRecord: 27.7ms | Allocations: 45604)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 15:31:20 -0500
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (101.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (113.32ms)
+Completed 200 OK in 248ms (Views: 146.2ms | ActiveRecord: 101.2ms | Allocations: 46540)
+
+
+Processing by StoriesController#index as HTML
+  [1m[36mStory Load (1.4ms)[0m  [1m[34mSELECT "stories".* FROM "stories"[0m
+  ↳ app/controllers/stories_controller.rb:5:in `index'
+No serializer found for resource: #<Story id: 1, description: "Scientists visiting Chinese city of Wuhan conclude...", title: "WHO dismisses coronavirus lab leak theory as ‘extr...", author: nil, url: "https://www.ft.com/content/6aa92356-4422-49c5-a7ab...", urlToImage: "https://www.ft.com/__origami/service/image/v2/imag...", publishedAt: "2021-02-09T20:22:20.710767Z", content: "The World Health Organization has ruled out a labo...", created_at: "2021-02-09 20:33:42", updated_at: "2021-02-09 20:33:42">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Story::ActiveRecord_Relation (10.16ms)
+Completed 200 OK in 85ms (Views: 39.4ms | ActiveRecord: 43.2ms | Allocations: 12455)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 15:32:23 -0500
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (3.1ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (258.69ms)
+Completed 200 OK in 289ms (Views: 285.2ms | ActiveRecord: 3.1ms | Allocations: 44850)
+
+
+Started POST "/login" for ::1 at 2021-02-17 15:32:27 -0500
+Processing by UsersController#login as HTML
+  Parameters: {"username"=>"tom", "password"=>"[FILTERED]", "user"=>{"username"=>"tom"}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "tom"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `login'
+[active_model_serializers]   [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."user_id" = $1 LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:23:in `login'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (3.54ms)
+Completed 200 OK in 324ms (Views: 3.7ms | ActiveRecord: 1.9ms | Allocations: 2427)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 15:32:28 -0500
+Started GET "/stories" for ::1 at 2021-02-17 15:32:28 -0500
+Processing by LocationsController#index as HTML
+Processing by StoriesController#index as HTML
+  [1m[36mLocation Load (37.8ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (89.95ms)
+Completed 200 OK in 157ms (Views: 119.1ms | ActiveRecord: 37.8ms | Allocations: 45237)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 15:32:28 -0500
+  [1m[36mStory Load (140.0ms)[0m  [1m[34mSELECT "stories".* FROM "stories"[0m
+  ↳ app/controllers/stories_controller.rb:5:in `index'
+No serializer found for resource: #<Story id: 1, description: "Scientists visiting Chinese city of Wuhan conclude...", title: "WHO dismisses coronavirus lab leak theory as ‘extr...", author: nil, url: "https://www.ft.com/content/6aa92356-4422-49c5-a7ab...", urlToImage: "https://www.ft.com/__origami/service/image/v2/imag...", publishedAt: "2021-02-09T20:22:20.710767Z", content: "The World Health Organization has ruled out a labo...", created_at: "2021-02-09 20:33:42", updated_at: "2021-02-09 20:33:42">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Story::ActiveRecord_Relation (6.7ms)
+Completed 200 OK in 153ms (Views: 12.8ms | ActiveRecord: 140.0ms | Allocations: 50543)
+
+
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (1.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (137.21ms)
+Completed 200 OK in 272ms (Views: 269.1ms | ActiveRecord: 1.3ms | Allocations: 44825)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 15:32:41 -0500
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (10.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (78.26ms)
+Completed 200 OK in 108ms (Views: 97.3ms | ActiveRecord: 10.3ms | Allocations: 44830)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 15:32:49 -0500
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (3.1ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (109.24ms)
+Completed 200 OK in 138ms (Views: 134.9ms | ActiveRecord: 3.1ms | Allocations: 44810)
+
+
+Started POST "/login" for ::1 at 2021-02-17 15:33:08 -0500
+Processing by UsersController#login as HTML
+  Parameters: {"username"=>"tom", "password"=>"[FILTERED]", "user"=>{"username"=>"tom"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "tom"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `login'
+[active_model_serializers]   [1m[36mLocation Load (21.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."user_id" = $1 LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:23:in `login'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (25.32ms)
+Completed 200 OK in 352ms (Views: 5.4ms | ActiveRecord: 21.7ms | Allocations: 2375)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 15:33:09 -0500
+Started GET "/stories" for ::1 at 2021-02-17 15:33:09 -0500
+Processing by LocationsController#index as HTML
+Processing by StoriesController#index as HTML
+  [1m[36mLocation Load (7.6ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+  [1m[36mStory Load (188.9ms)[0m  [1m[34mSELECT "stories".* FROM "stories"[0m
+  ↳ app/controllers/stories_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (223.7ms)
+No serializer found for resource: #<Story id: 1, description: "Scientists visiting Chinese city of Wuhan conclude...", title: "WHO dismisses coronavirus lab leak theory as ‘extr...", author: nil, url: "https://www.ft.com/content/6aa92356-4422-49c5-a7ab...", urlToImage: "https://www.ft.com/__origami/service/image/v2/imag...", publishedAt: "2021-02-09T20:22:20.710767Z", content: "The World Health Organization has ruled out a labo...", created_at: "2021-02-09 20:33:42", updated_at: "2021-02-09 20:33:42">
+Completed 200 OK in 266ms (Views: 258.2ms | ActiveRecord: 7.6ms | Allocations: 46143)
+
+
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Story::ActiveRecord_Relation (9.97ms)
+Completed 200 OK in 276ms (Views: 86.3ms | ActiveRecord: 188.9ms | Allocations: 50035)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 15:33:09 -0500
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (1.7ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (180.12ms)
+Completed 200 OK in 231ms (Views: 226.8ms | ActiveRecord: 1.7ms | Allocations: 44813)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 15:33:43 -0500
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (3.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (92.26ms)
+Completed 200 OK in 124ms (Views: 120.4ms | ActiveRecord: 3.3ms | Allocations: 44810)
+
+
+Started POST "/login" for ::1 at 2021-02-17 15:33:51 -0500
+Processing by UsersController#login as HTML
+  Parameters: {"username"=>"tom", "password"=>"[FILTERED]", "user"=>{"username"=>"tom"}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "tom"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `login'
+[active_model_serializers]   [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."user_id" = $1 LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:23:in `login'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (3.18ms)
+Completed 200 OK in 302ms (Views: 3.3ms | ActiveRecord: 1.0ms | Allocations: 2375)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 15:33:51 -0500
+Started GET "/stories" for ::1 at 2021-02-17 15:33:51 -0500
+Processing by LocationsController#index as HTML
+Processing by StoriesController#index as HTML
+  [1m[36mStory Load (0.5ms)[0m  [1m[34mSELECT "stories".* FROM "stories"[0m
+  ↳ app/controllers/stories_controller.rb:5:in `index'
+No serializer found for resource: #<Story id: 1, description: "Scientists visiting Chinese city of Wuhan conclude...", title: "WHO dismisses coronavirus lab leak theory as ‘extr...", author: nil, url: "https://www.ft.com/content/6aa92356-4422-49c5-a7ab...", urlToImage: "https://www.ft.com/__origami/service/image/v2/imag...", publishedAt: "2021-02-09T20:22:20.710767Z", content: "The World Health Organization has ruled out a labo...", created_at: "2021-02-09 20:33:42", updated_at: "2021-02-09 20:33:42">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Story::ActiveRecord_Relation (7.23ms)
+Completed 200 OK in 16ms (Views: 14.8ms | ActiveRecord: 0.5ms | Allocations: 5167)
+
+
+  [1m[36mLocation Load (19.1ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (277.88ms)
+Completed 200 OK in 324ms (Views: 304.3ms | ActiveRecord: 19.1ms | Allocations: 50232)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 15:33:52 -0500
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (1.9ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (224.66ms)
+Completed 200 OK in 307ms (Views: 304.1ms | ActiveRecord: 1.9ms | Allocations: 44811)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 15:34:09 -0500
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (4.9ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (157.17ms)
+Completed 200 OK in 181ms (Views: 175.8ms | ActiveRecord: 4.9ms | Allocations: 44810)
+
+
+Started POST "/login" for ::1 at 2021-02-17 15:34:22 -0500
+Processing by UsersController#login as HTML
+  Parameters: {"username"=>"tom", "password"=>"[FILTERED]", "user"=>{"username"=>"tom"}}
+  [1m[36mUser Load (3.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "tom"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `login'
+[active_model_serializers]   [1m[36mLocation Load (8.4ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."user_id" = $1 LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:23:in `login'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (12.24ms)
+Completed 200 OK in 341ms (Views: 4.5ms | ActiveRecord: 11.4ms | Allocations: 2376)
+
+
+Started GET "/stories" for ::1 at 2021-02-17 15:34:22 -0500
+Started GET "/locations" for ::1 at 2021-02-17 15:34:22 -0500
+Processing by StoriesController#index as HTML
+Processing by LocationsController#index as HTML
+  [1m[36mStory Load (2.5ms)[0m  [1m[34mSELECT "stories".* FROM "stories"[0m
+  ↳ app/controllers/stories_controller.rb:5:in `index'
+No serializer found for resource: #<Story id: 1, description: "Scientists visiting Chinese city of Wuhan conclude...", title: "WHO dismisses coronavirus lab leak theory as ‘extr...", author: nil, url: "https://www.ft.com/content/6aa92356-4422-49c5-a7ab...", urlToImage: "https://www.ft.com/__origami/service/image/v2/imag...", publishedAt: "2021-02-09T20:22:20.710767Z", content: "The World Health Organization has ruled out a labo...", created_at: "2021-02-09 20:33:42", updated_at: "2021-02-09 20:33:42">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Story::ActiveRecord_Relation (11.06ms)
+Completed 200 OK in 21ms (Views: 18.1ms | ActiveRecord: 2.5ms | Allocations: 5594)
+
+
+  [1m[36mLocation Load (41.5ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (229.36ms)
+Completed 200 OK in 300ms (Views: 258.2ms | ActiveRecord: 41.5ms | Allocations: 50097)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 15:34:22 -0500
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (2.6ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (213.29ms)
+Completed 200 OK in 238ms (Views: 234.7ms | ActiveRecord: 2.6ms | Allocations: 44813)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 15:34:38 -0500
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (1.5ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (118.73ms)
+Started GET "/stories" for ::1 at 2021-02-17 15:34:38 -0500
+Completed 200 OK in 148ms (Views: 146.4ms | ActiveRecord: 1.5ms | Allocations: 45120)
+
+
+Processing by StoriesController#index as HTML
+  [1m[36mStory Load (0.8ms)[0m  [1m[34mSELECT "stories".* FROM "stories"[0m
+  ↳ app/controllers/stories_controller.rb:5:in `index'
+No serializer found for resource: #<Story id: 1, description: "Scientists visiting Chinese city of Wuhan conclude...", title: "WHO dismisses coronavirus lab leak theory as ‘extr...", author: nil, url: "https://www.ft.com/content/6aa92356-4422-49c5-a7ab...", urlToImage: "https://www.ft.com/__origami/service/image/v2/imag...", publishedAt: "2021-02-09T20:22:20.710767Z", content: "The World Health Organization has ruled out a labo...", created_at: "2021-02-09 20:33:42", updated_at: "2021-02-09 20:33:42">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Story::ActiveRecord_Relation (8.01ms)
+Completed 200 OK in 16ms (Views: 14.6ms | ActiveRecord: 0.8ms | Allocations: 5207)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 15:34:38 -0500
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (2.7ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (249.22ms)
+Completed 200 OK in 318ms (Views: 314.7ms | ActiveRecord: 2.7ms | Allocations: 44822)
+
+
+Started POST "/login" for ::1 at 2021-02-17 15:35:21 -0500
+Processing by UsersController#login as HTML
+  Parameters: {"username"=>"tom", "password"=>"[FILTERED]", "user"=>{"username"=>"tom"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "tom"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `login'
+[active_model_serializers]   [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."user_id" = $1 LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:23:in `login'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (2.53ms)
+Completed 200 OK in 302ms (Views: 2.6ms | ActiveRecord: 0.6ms | Allocations: 2376)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 15:35:21 -0500
+Started GET "/stories" for ::1 at 2021-02-17 15:35:21 -0500
+Processing by StoriesController#index as HTML
+  [1m[36mStory Load (1.1ms)[0m  [1m[34mSELECT "stories".* FROM "stories"[0m
+Processing by LocationsController#index as HTML
+  ↳ app/controllers/stories_controller.rb:5:in `index'
+No serializer found for resource: #<Story id: 1, description: "Scientists visiting Chinese city of Wuhan conclude...", title: "WHO dismisses coronavirus lab leak theory as ‘extr...", author: nil, url: "https://www.ft.com/content/6aa92356-4422-49c5-a7ab...", urlToImage: "https://www.ft.com/__origami/service/image/v2/imag...", publishedAt: "2021-02-09T20:22:20.710767Z", content: "The World Health Organization has ruled out a labo...", created_at: "2021-02-09 20:33:42", updated_at: "2021-02-09 20:33:42">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Story::ActiveRecord_Relation (7.58ms)
+Completed 200 OK in 19ms (Views: 16.5ms | ActiveRecord: 1.1ms | Allocations: 5593)
+
+
+  [1m[36mLocation Load (88.6ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (124.89ms)
+Completed 200 OK in 242ms (Views: 153.0ms | ActiveRecord: 88.6ms | Allocations: 49376)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 15:35:22 -0500
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (28.5ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (180.03ms)
+Completed 200 OK in 244ms (Views: 215.5ms | ActiveRecord: 28.5ms | Allocations: 44810)
+
+
+Started POST "/login" for ::1 at 2021-02-17 15:35:47 -0500
+Processing by UsersController#login as HTML
+  Parameters: {"username"=>"tom", "password"=>"[FILTERED]", "user"=>{"username"=>"tom"}}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "tom"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `login'
+[active_model_serializers]   [1m[36mLocation Load (21.9ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."user_id" = $1 LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:23:in `login'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (27.77ms)
+Completed 200 OK in 356ms (Views: 6.9ms | ActiveRecord: 22.8ms | Allocations: 2375)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 15:35:48 -0500
+Started GET "/stories" for ::1 at 2021-02-17 15:35:48 -0500
+Processing by StoriesController#index as HTML
+  [1m[36mStory Load (11.3ms)[0m  [1m[34mSELECT "stories".* FROM "stories"[0m
+  ↳ app/controllers/stories_controller.rb:5:in `index'
+No serializer found for resource: #<Story id: 1, description: "Scientists visiting Chinese city of Wuhan conclude...", title: "WHO dismisses coronavirus lab leak theory as ‘extr...", author: nil, url: "https://www.ft.com/content/6aa92356-4422-49c5-a7ab...", urlToImage: "https://www.ft.com/__origami/service/image/v2/imag...", publishedAt: "2021-02-09T20:22:20.710767Z", content: "The World Health Organization has ruled out a labo...", created_at: "2021-02-09 20:33:42", updated_at: "2021-02-09 20:33:42">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Story::ActiveRecord_Relation (6.52ms)
+Completed 200 OK in 23ms (Views: 11.1ms | ActiveRecord: 11.3ms | Allocations: 5167)
+
+
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (23.7ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (197.27ms)
+Completed 200 OK in 276ms (Views: 251.4ms | ActiveRecord: 23.7ms | Allocations: 44822)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 15:35:48 -0500
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (1.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (311.45ms)
+Completed 200 OK in 396ms (Views: 394.6ms | ActiveRecord: 1.2ms | Allocations: 44810)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 15:36:04 -0500
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (1.4ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (110.88ms)
+Completed 200 OK in 147ms (Views: 144.6ms | ActiveRecord: 1.4ms | Allocations: 44810)
+
+
+Started POST "/login" for ::1 at 2021-02-17 15:36:22 -0500
+Processing by UsersController#login as HTML
+  Parameters: {"username"=>"tom", "password"=>"[FILTERED]", "user"=>{"username"=>"tom"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "tom"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `login'
+[active_model_serializers]   [1m[36mLocation Load (0.4ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."user_id" = $1 LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:23:in `login'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (7.64ms)
+Completed 200 OK in 336ms (Views: 8.2ms | ActiveRecord: 0.7ms | Allocations: 2375)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 15:36:23 -0500
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (2.6ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+Started GET "/stories" for ::1 at 2021-02-17 15:36:23 -0500
+Processing by StoriesController#index as HTML
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (106.87ms)
+Completed 200 OK in 228ms (Views: 225.2ms | ActiveRecord: 2.6ms | Allocations: 45596)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 15:36:23 -0500
+  [1m[36mStory Load (18.5ms)[0m  [1m[34mSELECT "stories".* FROM "stories"[0m
+  ↳ app/controllers/stories_controller.rb:5:in `index'
+No serializer found for resource: #<Story id: 1, description: "Scientists visiting Chinese city of Wuhan conclude...", title: "WHO dismisses coronavirus lab leak theory as ‘extr...", author: nil, url: "https://www.ft.com/content/6aa92356-4422-49c5-a7ab...", urlToImage: "https://www.ft.com/__origami/service/image/v2/imag...", publishedAt: "2021-02-09T20:22:20.710767Z", content: "The World Health Organization has ruled out a labo...", created_at: "2021-02-09 20:33:42", updated_at: "2021-02-09 20:33:42">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Story::ActiveRecord_Relation (9.7ms)
+Completed 200 OK in 42ms (Views: 22.7ms | ActiveRecord: 18.5ms | Allocations: 6825)
+
+
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (22.7ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (157.15ms)
+Completed 200 OK in 283ms (Views: 259.8ms | ActiveRecord: 22.7ms | Allocations: 44822)
+
+
+Started POST "/login" for ::1 at 2021-02-17 15:36:53 -0500
+Processing by UsersController#login as HTML
+  Parameters: {"username"=>"tom", "password"=>"[FILTERED]", "user"=>{"username"=>"tom"}}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "tom"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `login'
+[active_model_serializers]   [1m[36mLocation Load (0.4ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."user_id" = $1 LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:23:in `login'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (3.09ms)
+Completed 200 OK in 305ms (Views: 3.3ms | ActiveRecord: 1.4ms | Allocations: 2377)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 15:36:53 -0500
+Processing by LocationsController#index as HTML
+Started GET "/stories" for ::1 at 2021-02-17 15:36:53 -0500
+  [1m[36mLocation Load (37.8ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+Processing by StoriesController#index as HTML
+  [1m[36mStory Load (1.2ms)[0m  [1m[34mSELECT "stories".* FROM "stories"[0m
+  ↳ app/controllers/stories_controller.rb:5:in `index'
+No serializer found for resource: #<Story id: 1, description: "Scientists visiting Chinese city of Wuhan conclude...", title: "WHO dismisses coronavirus lab leak theory as ‘extr...", author: nil, url: "https://www.ft.com/content/6aa92356-4422-49c5-a7ab...", urlToImage: "https://www.ft.com/__origami/service/image/v2/imag...", publishedAt: "2021-02-09T20:22:20.710767Z", content: "The World Health Organization has ruled out a labo...", created_at: "2021-02-09 20:33:42", updated_at: "2021-02-09 20:33:42">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Story::ActiveRecord_Relation (5.83ms)
+Completed 200 OK in 13ms (Views: 10.8ms | ActiveRecord: 1.2ms | Allocations: 5167)
+
+
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (188.85ms)
+Completed 200 OK in 254ms (Views: 215.2ms | ActiveRecord: 37.8ms | Allocations: 50860)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 15:36:53 -0500
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (1.4ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (157.82ms)
+Completed 200 OK in 188ms (Views: 185.9ms | ActiveRecord: 1.4ms | Allocations: 44822)
+
+
+Started POST "/login" for ::1 at 2021-02-17 15:37:18 -0500
+Processing by UsersController#login as HTML
+  Parameters: {"username"=>"tom", "password"=>"[FILTERED]", "user"=>{"username"=>"tom"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "tom"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `login'
+[active_model_serializers]   [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."user_id" = $1 LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:23:in `login'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (2.5ms)
+Completed 200 OK in 293ms (Views: 2.6ms | ActiveRecord: 0.6ms | Allocations: 2375)
+
+
+Started GET "/stories" for ::1 at 2021-02-17 15:37:19 -0500
+Started GET "/locations" for ::1 at 2021-02-17 15:37:19 -0500
+Processing by StoriesController#index as HTML
+Processing by LocationsController#index as HTML
+  [1m[36mStory Load (19.8ms)[0m  [1m[34mSELECT "stories".* FROM "stories"[0m
+  ↳ app/controllers/stories_controller.rb:5:in `index'
+No serializer found for resource: #<Story id: 1, description: "Scientists visiting Chinese city of Wuhan conclude...", title: "WHO dismisses coronavirus lab leak theory as ‘extr...", author: nil, url: "https://www.ft.com/content/6aa92356-4422-49c5-a7ab...", urlToImage: "https://www.ft.com/__origami/service/image/v2/imag...", publishedAt: "2021-02-09T20:22:20.710767Z", content: "The World Health Organization has ruled out a labo...", created_at: "2021-02-09 20:33:42", updated_at: "2021-02-09 20:33:42">
+  [1m[36mLocation Load (26.5ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Story::ActiveRecord_Relation (6.84ms)
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (83.24ms)
+Completed 200 OK in 71ms (Views: 50.2ms | ActiveRecord: 19.8ms | Allocations: 6012)
+
+
+Completed 200 OK in 173ms (Views: 143.4ms | ActiveRecord: 26.5ms | Allocations: 50084)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 15:37:19 -0500
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (82.8ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (171.82ms)
+Completed 200 OK in 299ms (Views: 215.8ms | ActiveRecord: 82.8ms | Allocations: 44827)
+
+
+Started POST "/login" for ::1 at 2021-02-17 15:37:32 -0500
+Processing by UsersController#login as HTML
+  Parameters: {"username"=>"tom", "password"=>"[FILTERED]", "user"=>{"username"=>"tom"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "tom"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `login'
+[active_model_serializers]   [1m[36mLocation Load (7.0ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."user_id" = $1 LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:23:in `login'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (9.73ms)
+Completed 200 OK in 301ms (Views: 3.3ms | ActiveRecord: 7.3ms | Allocations: 2375)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 15:37:32 -0500
+Started GET "/stories" for ::1 at 2021-02-17 15:37:32 -0500
+Processing by LocationsController#index as HTML
+Processing by StoriesController#index as HTML
+  [1m[36mStory Load (0.6ms)[0m  [1m[34mSELECT "stories".* FROM "stories"[0m
+  ↳ app/controllers/stories_controller.rb:5:in `index'
+No serializer found for resource: #<Story id: 1, description: "Scientists visiting Chinese city of Wuhan conclude...", title: "WHO dismisses coronavirus lab leak theory as ‘extr...", author: nil, url: "https://www.ft.com/content/6aa92356-4422-49c5-a7ab...", urlToImage: "https://www.ft.com/__origami/service/image/v2/imag...", publishedAt: "2021-02-09T20:22:20.710767Z", content: "The World Health Organization has ruled out a labo...", created_at: "2021-02-09 20:33:42", updated_at: "2021-02-09 20:33:42">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Story::ActiveRecord_Relation (5.7ms)
+Completed 200 OK in 11ms (Views: 10.3ms | ActiveRecord: 0.6ms | Allocations: 5167)
+
+
+  [1m[36mLocation Load (42.6ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (241.61ms)
+Completed 200 OK in 313ms (Views: 268.8ms | ActiveRecord: 42.6ms | Allocations: 50412)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 15:37:32 -0500
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (1.8ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (214.43ms)
+Completed 200 OK in 251ms (Views: 249.1ms | ActiveRecord: 1.8ms | Allocations: 44810)
+
+
+Started POST "/login" for ::1 at 2021-02-17 15:44:20 -0500
+  [1m[35m (26.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#login as HTML
+  Parameters: {"username"=>"tom", "password"=>"[FILTERED]", "user"=>{"username"=>"tom"}}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "tom"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `login'
+[active_model_serializers]   [1m[36mLocation Load (0.6ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."user_id" = $1 LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:23:in `login'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (76.23ms)
+Completed 200 OK in 471ms (Views: 50.6ms | ActiveRecord: 59.9ms | Allocations: 20360)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 15:44:21 -0500
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (1.5ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+Started GET "/stories" for ::1 at 2021-02-17 15:44:21 -0500
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (363.57ms)
+Completed 200 OK in 425ms (Views: 421.2ms | ActiveRecord: 1.5ms | Allocations: 45556)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 15:44:21 -0500
+Processing by LocationsController#index as HTML
+Processing by StoriesController#index as HTML
+  [1m[36mLocation Load (58.4ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (185.12ms)
+  [1m[36mStory Load (288.7ms)[0m  [1m[34mSELECT "stories".* FROM "stories"[0m
+Completed 200 OK in 317ms (Views: 258.3ms | ActiveRecord: 58.4ms | Allocations: 47584)
+
+
+  ↳ app/controllers/stories_controller.rb:5:in `index'
+No serializer found for resource: #<Story id: 1, description: "Scientists visiting Chinese city of Wuhan conclude...", title: "WHO dismisses coronavirus lab leak theory as ‘extr...", author: nil, url: "https://www.ft.com/content/6aa92356-4422-49c5-a7ab...", urlToImage: "https://www.ft.com/__origami/service/image/v2/imag...", publishedAt: "2021-02-09T20:22:20.710767Z", content: "The World Health Organization has ruled out a labo...", created_at: "2021-02-09 20:33:42", updated_at: "2021-02-09 20:33:42">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Story::ActiveRecord_Relation (10.9ms)
+Completed 200 OK in 416ms (Views: 59.9ms | ActiveRecord: 353.5ms | Allocations: 57373)
+
+
+Started POST "/login" for ::1 at 2021-02-17 15:46:17 -0500
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#login as HTML
+  Parameters: {"username"=>"tom", "password"=>"[FILTERED]", "user"=>{"username"=>"tom"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "tom"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `login'
+[active_model_serializers]   [1m[36mLocation Load (1.4ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."user_id" = $1 LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:23:in `login'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (117.69ms)
+Completed 200 OK in 511ms (Views: 95.1ms | ActiveRecord: 68.2ms | Allocations: 20376)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 15:46:18 -0500
+Started GET "/stories" for ::1 at 2021-02-17 15:46:18 -0500
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (1.8ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (441.22ms)
+Completed 200 OK in 481ms (Views: 478.7ms | ActiveRecord: 1.8ms | Allocations: 45079)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 15:46:19 -0500
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (2.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (249.07ms)
+Completed 200 OK in 359ms (Views: 356.2ms | ActiveRecord: 2.3ms | Allocations: 46544)
+
+
+Processing by StoriesController#index as HTML
+  [1m[36mStory Load (1.6ms)[0m  [1m[34mSELECT "stories".* FROM "stories"[0m
+  ↳ app/controllers/stories_controller.rb:5:in `index'
+No serializer found for resource: #<Story id: 1, description: "Scientists visiting Chinese city of Wuhan conclude...", title: "WHO dismisses coronavirus lab leak theory as ‘extr...", author: nil, url: "https://www.ft.com/content/6aa92356-4422-49c5-a7ab...", urlToImage: "https://www.ft.com/__origami/service/image/v2/imag...", publishedAt: "2021-02-09T20:22:20.710767Z", content: "The World Health Organization has ruled out a labo...", created_at: "2021-02-09 20:33:42", updated_at: "2021-02-09 20:33:42">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Story::ActiveRecord_Relation (13.61ms)
+Completed 200 OK in 88ms (Views: 43.8ms | ActiveRecord: 42.2ms | Allocations: 12455)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 15:47:28 -0500
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (24.8ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (181.94ms)
+Completed 200 OK in 236ms (Views: 211.1ms | ActiveRecord: 24.8ms | Allocations: 44850)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 15:47:29 -0500
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (10.8ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (152.67ms)
+Completed 200 OK in 197ms (Views: 185.9ms | ActiveRecord: 10.8ms | Allocations: 44833)
+
+
+Started POST "/login" for ::1 at 2021-02-17 15:47:34 -0500
+Processing by UsersController#login as HTML
+  Parameters: {"username"=>"tom", "password"=>"[FILTERED]", "user"=>{"username"=>"tom"}}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "tom"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `login'
+[active_model_serializers]   [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."user_id" = $1 LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:23:in `login'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (3.72ms)
+Completed 200 OK in 324ms (Views: 3.9ms | ActiveRecord: 1.9ms | Allocations: 2408)
+
+
+Started GET "/stories" for ::1 at 2021-02-17 15:47:35 -0500
+Started GET "/locations" for ::1 at 2021-02-17 15:47:35 -0500
+Processing by StoriesController#index as HTML
+  [1m[36mStory Load (1.3ms)[0m  [1m[34mSELECT "stories".* FROM "stories"[0m
+  ↳ app/controllers/stories_controller.rb:5:in `index'
+No serializer found for resource: #<Story id: 1, description: "Scientists visiting Chinese city of Wuhan conclude...", title: "WHO dismisses coronavirus lab leak theory as ‘extr...", author: nil, url: "https://www.ft.com/content/6aa92356-4422-49c5-a7ab...", urlToImage: "https://www.ft.com/__origami/service/image/v2/imag...", publishedAt: "2021-02-09T20:22:20.710767Z", content: "The World Health Organization has ruled out a labo...", created_at: "2021-02-09 20:33:42", updated_at: "2021-02-09 20:33:42">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Story::ActiveRecord_Relation (9.76ms)
+Completed 200 OK in 23ms (Views: 21.5ms | ActiveRecord: 1.3ms | Allocations: 5294)
+
+
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (25.1ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (235.27ms)
+Completed 200 OK in 406ms (Views: 380.7ms | ActiveRecord: 25.1ms | Allocations: 44825)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 15:47:35 -0500
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (3.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (355.79ms)
+Completed 200 OK in 436ms (Views: 432.6ms | ActiveRecord: 3.3ms | Allocations: 44811)
+
+
+Started POST "/login" for ::1 at 2021-02-17 15:47:53 -0500
+Processing by UsersController#login as HTML
+  Parameters: {"username"=>"tom", "password"=>"[FILTERED]", "user"=>{"username"=>"tom"}}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "tom"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `login'
+[active_model_serializers]   [1m[36mLocation Load (6.8ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."user_id" = $1 LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:23:in `login'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (11.52ms)
+Completed 200 OK in 303ms (Views: 5.5ms | ActiveRecord: 8.0ms | Allocations: 2378)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 15:47:54 -0500
+Processing by LocationsController#index as HTML
+Started GET "/stories" for ::1 at 2021-02-17 15:47:54 -0500
+Processing by StoriesController#index as HTML
+  [1m[36mStory Load (1.3ms)[0m  [1m[34mSELECT "stories".* FROM "stories"[0m
+  ↳ app/controllers/stories_controller.rb:5:in `index'
+No serializer found for resource: #<Story id: 1, description: "Scientists visiting Chinese city of Wuhan conclude...", title: "WHO dismisses coronavirus lab leak theory as ‘extr...", author: nil, url: "https://www.ft.com/content/6aa92356-4422-49c5-a7ab...", urlToImage: "https://www.ft.com/__origami/service/image/v2/imag...", publishedAt: "2021-02-09T20:22:20.710767Z", content: "The World Health Organization has ruled out a labo...", created_at: "2021-02-09 20:33:42", updated_at: "2021-02-09 20:33:42">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Story::ActiveRecord_Relation (9.68ms)
+Completed 200 OK in 19ms (Views: 17.7ms | ActiveRecord: 1.3ms | Allocations: 5167)
+
+
+  [1m[36mLocation Load (38.1ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (117.88ms)
+Completed 200 OK in 188ms (Views: 150.0ms | ActiveRecord: 38.1ms | Allocations: 50845)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 15:47:54 -0500
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (1.9ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (217.43ms)
+Completed 200 OK in 274ms (Views: 271.2ms | ActiveRecord: 1.9ms | Allocations: 44823)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 15:48:15 -0500
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (1.0ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (126.92ms)
+Completed 200 OK in 157ms (Views: 156.0ms | ActiveRecord: 1.0ms | Allocations: 44811)
+
+
+Started POST "/login" for ::1 at 2021-02-17 15:48:29 -0500
+Processing by UsersController#login as HTML
+  Parameters: {"username"=>"tom", "password"=>"[FILTERED]", "user"=>{"username"=>"tom"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "tom"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `login'
+[active_model_serializers]   [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."user_id" = $1 LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:23:in `login'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (2.64ms)
+Completed 200 OK in 295ms (Views: 2.9ms | ActiveRecord: 0.6ms | Allocations: 2375)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 15:48:29 -0500
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (1.9ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (112.18ms)
+Completed 200 OK in 143ms (Views: 141.3ms | ActiveRecord: 1.9ms | Allocations: 44821)
+
+
+Started GET "/stories" for ::1 at 2021-02-17 15:48:29 -0500
+Started GET "/locations" for ::1 at 2021-02-17 15:48:29 -0500
+Processing by StoriesController#index as HTML
+  [1m[36mStory Load (29.9ms)[0m  [1m[34mSELECT "stories".* FROM "stories"[0m
+  ↳ app/controllers/stories_controller.rb:5:in `index'
+No serializer found for resource: #<Story id: 1, description: "Scientists visiting Chinese city of Wuhan conclude...", title: "WHO dismisses coronavirus lab leak theory as ‘extr...", author: nil, url: "https://www.ft.com/content/6aa92356-4422-49c5-a7ab...", urlToImage: "https://www.ft.com/__origami/service/image/v2/imag...", publishedAt: "2021-02-09T20:22:20.710767Z", content: "The World Health Organization has ruled out a labo...", created_at: "2021-02-09 20:33:42", updated_at: "2021-02-09 20:33:42">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Story::ActiveRecord_Relation (7.78ms)
+Completed 200 OK in 43ms (Views: 11.7ms | ActiveRecord: 29.9ms | Allocations: 5183)
+
+
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (1.1ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (194.82ms)
+Completed 200 OK in 231ms (Views: 228.4ms | ActiveRecord: 1.1ms | Allocations: 44825)
+
+
+Started POST "/login" for ::1 at 2021-02-17 15:50:20 -0500
+Processing by UsersController#login as HTML
+  Parameters: {"username"=>"tom", "password"=>"[FILTERED]", "user"=>{"username"=>"tom"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "tom"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `login'
+[active_model_serializers]   [1m[36mLocation Load (25.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."user_id" = $1 LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:23:in `login'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (29.22ms)
+Completed 200 OK in 351ms (Views: 4.6ms | ActiveRecord: 25.5ms | Allocations: 2379)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 15:50:20 -0500
+Processing by LocationsController#index as HTML
+Started GET "/stories" for ::1 at 2021-02-17 15:50:20 -0500
+Processing by StoriesController#index as HTML
+  [1m[36mStory Load (2.8ms)[0m  [1m[34mSELECT "stories".* FROM "stories"[0m
+  [1m[36mLocation Load (31.4ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/stories_controller.rb:5:in `index'
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+No serializer found for resource: #<Story id: 1, description: "Scientists visiting Chinese city of Wuhan conclude...", title: "WHO dismisses coronavirus lab leak theory as ‘extr...", author: nil, url: "https://www.ft.com/content/6aa92356-4422-49c5-a7ab...", urlToImage: "https://www.ft.com/__origami/service/image/v2/imag...", publishedAt: "2021-02-09T20:22:20.710767Z", content: "The World Health Organization has ruled out a labo...", created_at: "2021-02-09 20:33:42", updated_at: "2021-02-09 20:33:42">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Story::ActiveRecord_Relation (9.38ms)
+Completed 200 OK in 118ms (Views: 115.2ms | ActiveRecord: 2.8ms | Allocations: 20984)
+
+
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (176.42ms)
+Completed 200 OK in 247ms (Views: 215.5ms | ActiveRecord: 31.4ms | Allocations: 50725)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 15:50:21 -0500
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (1.4ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (161.45ms)
+Completed 200 OK in 310ms (Views: 307.8ms | ActiveRecord: 1.4ms | Allocations: 44820)
+
+
+Started POST "/login" for ::1 at 2021-02-17 15:50:34 -0500
+Processing by UsersController#login as HTML
+  Parameters: {"username"=>"tom", "password"=>"[FILTERED]", "user"=>{"username"=>"tom"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "tom"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `login'
+[active_model_serializers]   [1m[36mLocation Load (11.1ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."user_id" = $1 LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:23:in `login'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (14.08ms)
+Completed 200 OK in 351ms (Views: 3.4ms | ActiveRecord: 11.7ms | Allocations: 2377)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 15:50:35 -0500
+Processing by LocationsController#index as HTML
+Started GET "/stories" for ::1 at 2021-02-17 15:50:35 -0500
+  [1m[36mLocation Load (7.8ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+Processing by StoriesController#index as HTML
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (166.1ms)
+Completed 200 OK in 202ms (Views: 194.0ms | ActiveRecord: 7.8ms | Allocations: 45575)
+
+
+  [1m[36mStory Load (81.4ms)[0m  [1m[34mSELECT "stories".* FROM "stories"[0m
+  ↳ app/controllers/stories_controller.rb:5:in `index'
+No serializer found for resource: #<Story id: 1, description: "Scientists visiting Chinese city of Wuhan conclude...", title: "WHO dismisses coronavirus lab leak theory as ‘extr...", author: nil, url: "https://www.ft.com/content/6aa92356-4422-49c5-a7ab...", urlToImage: "https://www.ft.com/__origami/service/image/v2/imag...", publishedAt: "2021-02-09T20:22:20.710767Z", content: "The World Health Organization has ruled out a labo...", created_at: "2021-02-09 20:33:42", updated_at: "2021-02-09 20:33:42">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Story::ActiveRecord_Relation (8.1ms)
+Completed 200 OK in 97ms (Views: 14.9ms | ActiveRecord: 81.4ms | Allocations: 30204)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 15:50:35 -0500
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (25.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (186.51ms)
+Completed 200 OK in 249ms (Views: 223.7ms | ActiveRecord: 25.2ms | Allocations: 44819)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 15:50:50 -0500
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (26.6ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (392.38ms)
+Completed 200 OK in 451ms (Views: 424.1ms | ActiveRecord: 26.6ms | Allocations: 44810)
+
+
+Started POST "/login" for ::1 at 2021-02-17 15:50:56 -0500
+Processing by UsersController#login as HTML
+  Parameters: {"username"=>"tom", "password"=>"[FILTERED]", "user"=>{"username"=>"tom"}}
+  [1m[36mUser Load (24.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "tom"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `login'
+[active_model_serializers]   [1m[36mLocation Load (24.0ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."user_id" = $1 LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:23:in `login'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (35.06ms)
+Completed 200 OK in 385ms (Views: 13.3ms | ActiveRecord: 48.4ms | Allocations: 2376)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 15:50:56 -0500
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (3.1ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (125.81ms)
+Started GET "/stories" for ::1 at 2021-02-17 15:50:57 -0500
+Completed 200 OK in 161ms (Views: 154.0ms | ActiveRecord: 3.1ms | Allocations: 45165)
+
+
+Processing by StoriesController#index as HTML
+Started GET "/locations" for ::1 at 2021-02-17 15:50:57 -0500
+Processing by LocationsController#index as HTML
+  [1m[36mStory Load (29.6ms)[0m  [1m[34mSELECT "stories".* FROM "stories"[0m
+  ↳ app/controllers/stories_controller.rb:5:in `index'
+No serializer found for resource: #<Story id: 1, description: "Scientists visiting Chinese city of Wuhan conclude...", title: "WHO dismisses coronavirus lab leak theory as ‘extr...", author: nil, url: "https://www.ft.com/content/6aa92356-4422-49c5-a7ab...", urlToImage: "https://www.ft.com/__origami/service/image/v2/imag...", publishedAt: "2021-02-09T20:22:20.710767Z", content: "The World Health Organization has ruled out a labo...", created_at: "2021-02-09 20:33:42", updated_at: "2021-02-09 20:33:42">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Story::ActiveRecord_Relation (9.6ms)
+Completed 200 OK in 47ms (Views: 16.0ms | ActiveRecord: 29.6ms | Allocations: 5983)
+
+
+  [1m[36mLocation Load (44.1ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (251.21ms)
+Completed 200 OK in 336ms (Views: 290.9ms | ActiveRecord: 44.1ms | Allocations: 50071)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 15:51:26 -0500
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (2.0ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (150.88ms)
+Completed 200 OK in 181ms (Views: 178.5ms | ActiveRecord: 2.0ms | Allocations: 44810)
+
+
+Started POST "/login" for ::1 at 2021-02-17 15:51:31 -0500
+Processing by UsersController#login as HTML
+  Parameters: {"username"=>"tom", "password"=>"[FILTERED]", "user"=>{"username"=>"tom"}}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "tom"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `login'
+[active_model_serializers]   [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."user_id" = $1 LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:23:in `login'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (2.66ms)
+Completed 200 OK in 307ms (Views: 2.7ms | ActiveRecord: 1.3ms | Allocations: 2375)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 15:51:31 -0500
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (3.8ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+Started GET "/stories" for ::1 at 2021-02-17 15:51:32 -0500
+Processing by StoriesController#index as HTML
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (348.72ms)
+Completed 200 OK in 381ms (Views: 376.7ms | ActiveRecord: 3.8ms | Allocations: 45589)
+
+
+  [1m[36mStory Load (1.3ms)[0m  [1m[34mSELECT "stories".* FROM "stories"[0m
+  ↳ app/controllers/stories_controller.rb:5:in `index'
+No serializer found for resource: #<Story id: 1, description: "Scientists visiting Chinese city of Wuhan conclude...", title: "WHO dismisses coronavirus lab leak theory as ‘extr...", author: nil, url: "https://www.ft.com/content/6aa92356-4422-49c5-a7ab...", urlToImage: "https://www.ft.com/__origami/service/image/v2/imag...", publishedAt: "2021-02-09T20:22:20.710767Z", content: "The World Health Organization has ruled out a labo...", created_at: "2021-02-09 20:33:42", updated_at: "2021-02-09 20:33:42">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Story::ActiveRecord_Relation (7.82ms)
+Completed 200 OK in 40ms (Views: 38.2ms | ActiveRecord: 1.3ms | Allocations: 5439)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 15:51:32 -0500
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (3.8ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (171.88ms)
+Completed 200 OK in 207ms (Views: 203.0ms | ActiveRecord: 3.8ms | Allocations: 44819)
+
+
+Started POST "/login" for ::1 at 2021-02-17 15:52:19 -0500
+Processing by UsersController#login as HTML
+  Parameters: {"username"=>"tom", "password"=>"[FILTERED]", "user"=>{"username"=>"tom"}}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "tom"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `login'
+[active_model_serializers]   [1m[36mLocation Load (1.5ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."user_id" = $1 LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:23:in `login'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (5.59ms)
+Completed 200 OK in 371ms (Views: 4.9ms | ActiveRecord: 2.4ms | Allocations: 2375)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 15:52:20 -0500
+Started GET "/stories" for ::1 at 2021-02-17 15:52:20 -0500
+Processing by LocationsController#index as HTML
+Processing by StoriesController#index as HTML
+  [1m[36mStory Load (0.7ms)[0m  [1m[34mSELECT "stories".* FROM "stories"[0m
+  [1m[36mLocation Load (2.8ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/stories_controller.rb:5:in `index'
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+No serializer found for resource: #<Story id: 1, description: "Scientists visiting Chinese city of Wuhan conclude...", title: "WHO dismisses coronavirus lab leak theory as ‘extr...", author: nil, url: "https://www.ft.com/content/6aa92356-4422-49c5-a7ab...", urlToImage: "https://www.ft.com/__origami/service/image/v2/imag...", publishedAt: "2021-02-09T20:22:20.710767Z", content: "The World Health Organization has ruled out a labo...", created_at: "2021-02-09 20:33:42", updated_at: "2021-02-09 20:33:42">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Story::ActiveRecord_Relation (17.96ms)
+Completed 200 OK in 219ms (Views: 217.8ms | ActiveRecord: 0.7ms | Allocations: 28129)
+
+
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (301.92ms)
+Completed 200 OK in 362ms (Views: 358.2ms | ActiveRecord: 2.8ms | Allocations: 50217)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 15:52:21 -0500
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (20.9ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (281.13ms)
+Completed 200 OK in 473ms (Views: 451.6ms | ActiveRecord: 20.9ms | Allocations: 44825)
+
+
+Started POST "/login" for ::1 at 2021-02-17 15:53:01 -0500
+Processing by UsersController#login as HTML
+  Parameters: {"username"=>"tom", "password"=>"[FILTERED]", "user"=>{"username"=>"tom"}}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "tom"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `login'
+[active_model_serializers]   [1m[36mLocation Load (32.9ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."user_id" = $1 LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:23:in `login'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (42.78ms)
+Completed 200 OK in 423ms (Views: 10.8ms | ActiveRecord: 33.8ms | Allocations: 2380)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 15:53:02 -0500
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (1.8ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (147.8ms)
+Started GET "/stories" for ::1 at 2021-02-17 15:53:02 -0500
+Completed 200 OK in 176ms (Views: 173.4ms | ActiveRecord: 1.8ms | Allocations: 45135)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 15:53:02 -0500
+Processing by StoriesController#index as HTML
+  [1m[36mStory Load (0.5ms)[0m  [1m[34mSELECT "stories".* FROM "stories"[0m
+  ↳ app/controllers/stories_controller.rb:5:in `index'
+No serializer found for resource: #<Story id: 1, description: "Scientists visiting Chinese city of Wuhan conclude...", title: "WHO dismisses coronavirus lab leak theory as ‘extr...", author: nil, url: "https://www.ft.com/content/6aa92356-4422-49c5-a7ab...", urlToImage: "https://www.ft.com/__origami/service/image/v2/imag...", publishedAt: "2021-02-09T20:22:20.710767Z", content: "The World Health Organization has ruled out a labo...", created_at: "2021-02-09 20:33:42", updated_at: "2021-02-09 20:33:42">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Story::ActiveRecord_Relation (5.5ms)
+Completed 200 OK in 10ms (Views: 9.2ms | ActiveRecord: 0.5ms | Allocations: 5176)
+
+
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (3.7ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (215.13ms)
+Completed 200 OK in 293ms (Views: 288.5ms | ActiveRecord: 3.7ms | Allocations: 44819)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 15:55:25 -0500
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (5.6ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (164.77ms)
+Completed 200 OK in 201ms (Views: 195.5ms | ActiveRecord: 5.6ms | Allocations: 44813)
+
+
+Started POST "/login" for ::1 at 2021-02-17 15:56:50 -0500
+Processing by UsersController#login as HTML
+  Parameters: {"username"=>"rom", "password"=>"[FILTERED]", "user"=>{"username"=>"rom"}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "rom"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `login'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.07ms)
+Completed 500 Internal Server Error in 3ms (Views: 0.5ms | ActiveRecord: 0.6ms | Allocations: 733)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 15:56:50 -0500
+Started GET "/stories" for ::1 at 2021-02-17 15:56:50 -0500
+Processing by StoriesController#index as HTML
+Processing by LocationsController#index as HTML
+  [1m[36mStory Load (43.6ms)[0m  [1m[34mSELECT "stories".* FROM "stories"[0m
+  ↳ app/controllers/stories_controller.rb:5:in `index'
+No serializer found for resource: #<Story id: 1, description: "Scientists visiting Chinese city of Wuhan conclude...", title: "WHO dismisses coronavirus lab leak theory as ‘extr...", author: nil, url: "https://www.ft.com/content/6aa92356-4422-49c5-a7ab...", urlToImage: "https://www.ft.com/__origami/service/image/v2/imag...", publishedAt: "2021-02-09T20:22:20.710767Z", content: "The World Health Organization has ruled out a labo...", created_at: "2021-02-09 20:33:42", updated_at: "2021-02-09 20:33:42">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Story::ActiveRecord_Relation (7.43ms)
+  [1m[36mLocation Load (50.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+Completed 200 OK in 56ms (Views: 11.9ms | ActiveRecord: 43.6ms | Allocations: 5594)
+
+
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (165.02ms)
+Completed 200 OK in 245ms (Views: 194.1ms | ActiveRecord: 50.2ms | Allocations: 50084)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 15:56:50 -0500
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (29.0ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (205.42ms)
+Completed 200 OK in 270ms (Views: 240.1ms | ActiveRecord: 29.0ms | Allocations: 44810)
+
+
+Started POST "/login" for ::1 at 2021-02-17 15:57:07 -0500
+Processing by UsersController#login as HTML
+  Parameters: {"username"=>"tom", "password"=>"[FILTERED]", "user"=>{"username"=>"tom"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "tom"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `login'
+[active_model_serializers]   [1m[36mLocation Load (0.5ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."user_id" = $1 LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:23:in `login'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (5.27ms)
+Completed 200 OK in 322ms (Views: 5.5ms | ActiveRecord: 1.0ms | Allocations: 2375)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 15:57:08 -0500
+Processing by LocationsController#index as HTML
+Started GET "/stories" for ::1 at 2021-02-17 15:57:08 -0500
+Processing by StoriesController#index as HTML
+  [1m[36mStory Load (2.4ms)[0m  [1m[34mSELECT "stories".* FROM "stories"[0m
+  ↳ app/controllers/stories_controller.rb:5:in `index'
+No serializer found for resource: #<Story id: 1, description: "Scientists visiting Chinese city of Wuhan conclude...", title: "WHO dismisses coronavirus lab leak theory as ‘extr...", author: nil, url: "https://www.ft.com/content/6aa92356-4422-49c5-a7ab...", urlToImage: "https://www.ft.com/__origami/service/image/v2/imag...", publishedAt: "2021-02-09T20:22:20.710767Z", content: "The World Health Organization has ruled out a labo...", created_at: "2021-02-09 20:33:42", updated_at: "2021-02-09 20:33:42">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Story::ActiveRecord_Relation (7.21ms)
+Completed 200 OK in 15ms (Views: 12.2ms | ActiveRecord: 2.4ms | Allocations: 5167)
+
+
+  [1m[36mLocation Load (49.5ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (166.75ms)
+Completed 200 OK in 259ms (Views: 208.3ms | ActiveRecord: 49.5ms | Allocations: 50857)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 15:57:08 -0500
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (1.8ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (222.78ms)
+Completed 200 OK in 261ms (Views: 258.6ms | ActiveRecord: 1.8ms | Allocations: 44810)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 16:03:39 -0500
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (3.0ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (183.44ms)
+Completed 200 OK in 209ms (Views: 205.5ms | ActiveRecord: 3.0ms | Allocations: 44907)
+
+
+Started POST "/login" for ::1 at 2021-02-17 16:03:55 -0500
+Processing by UsersController#login as HTML
+  Parameters: {"username"=>"tom", "password"=>"[FILTERED]", "user"=>{"username"=>"tom"}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "tom"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `login'
+[active_model_serializers]   [1m[36mLocation Load (1.4ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."user_id" = $1 LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:23:in `login'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (25.0ms)
+Completed 200 OK in 356ms (Views: 24.7ms | ActiveRecord: 2.4ms | Allocations: 2406)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 16:03:55 -0500
+Processing by LocationsController#index as HTML
+Started GET "/stories" for ::1 at 2021-02-17 16:03:55 -0500
+  [1m[36mLocation Load (26.5ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (118.61ms)
+Completed 200 OK in 171ms (Views: 143.8ms | ActiveRecord: 26.5ms | Allocations: 45373)
+
+
+Started GET "/locations" for ::1 at 2021-02-17 16:03:55 -0500
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (1.5ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (213.34ms)
+Processing by StoriesController#index as HTML
+Completed 200 OK in 258ms (Views: 256.5ms | ActiveRecord: 1.5ms | Allocations: 46728)
+
+
+  [1m[36mStory Load (5.2ms)[0m  [1m[34mSELECT "stories".* FROM "stories"[0m
+  ↳ app/controllers/stories_controller.rb:5:in `index'
+No serializer found for resource: #<Story id: 1, description: "Scientists visiting Chinese city of Wuhan conclude...", title: "WHO dismisses coronavirus lab leak theory as ‘extr...", author: nil, url: "https://www.ft.com/content/6aa92356-4422-49c5-a7ab...", urlToImage: "https://www.ft.com/__origami/service/image/v2/imag...", publishedAt: "2021-02-09T20:22:20.710767Z", content: "The World Health Organization has ruled out a labo...", created_at: "2021-02-09 20:33:42", updated_at: "2021-02-09 20:33:42">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Story::ActiveRecord_Relation (9.68ms)
+Completed 200 OK in 20ms (Views: 14.7ms | ActiveRecord: 5.2ms | Allocations: 5452)
+
+

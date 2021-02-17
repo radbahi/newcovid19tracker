@@ -9,19 +9,18 @@ export const login = (username, password) => async (dispatch) => {
       },
     } //we want to send this as a header.
 
-    const data = await axios.post(
+    const response = await axios.post(
       'http://localhost:3000/login',
       { username, password },
       config
     )
 
-    localStorage.setItem(
-      'userInfo',
-      JSON.stringify({ ...data.data.user }),
-      (data.token = localStorage.token)
-    )
+    //
+    localStorage.setItem('token', response.data.token)
 
-    dispatch({ type: 'USER_LOGIN_SUCCESS', payload: data.data.user })
+    console.log(response)
+
+    dispatch({ type: 'USER_LOGIN_SUCCESS', payload: response.data.user })
 
     // localStorage.setItem('userInfo', JSON.stringify({userInfo: data.data.user})) //save the userinfo to localstorage. we stringify it cuz localstorage only saves strings. we later parse it back to JSON to use with javascript.
     // //we take the localstorage userinfo data in the initial state in store.js
