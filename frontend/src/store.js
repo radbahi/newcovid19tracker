@@ -3,14 +3,11 @@ import { composeWithDevTools } from 'redux-devtools-extension'
 import { userReducer } from './reducers/userReducers'
 import thunk from 'redux-thunk'
 
-//GOING TO HAVE TO SET UP GET PERSIST HERE WITH TOKEN TO GET USER INFO AND THEN SET THAT USER INFO TO STATE
-
-
 // const localStorageToken = localStorage.getItem('token')
 //   ? JSON.parse(localStorage.getItem('token'))
 //   : null
 
-// Pass in localStorageToken to get userInfo from /persist route and pass that response to inital state 8) 
+// Pass in localStorageToken to get userInfo from /persist route and pass that response to inital state 8)
 // REVISIT IF LOCALSTORAGE ADDS A KEY OF USERINFO TO STATE. WE DO NOT WANT THIS.
 const initialState = {
   userState: null,

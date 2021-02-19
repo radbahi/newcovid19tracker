@@ -99,15 +99,19 @@ const WorldMap = ({ selectedLocation }) => {
                   const current = infectedAreas.find(
                     (location) => location.ISO === geo.properties.ISO_A3
                   )
-                  console.log(current)
-                  console.log(selectedLocation)
-                 return selectedLocation === current ? (
+                  if (current && selectedLocation.ISO === current.ISO)
+                    console.log(
+                      ` ${selectedLocation.ISO} ${current.ISO} WE MATCHED BABY`
+                    )
+                  return current && selectedLocation.ISO === current.ISO ? (
                     <Geography
                       key={geo.rsmKey}
                       geography={geo}
                       onMouseEnter={onMouseEnter(current)}
                       onMouseLeave={onMouseLeave}
                       fill={current ? colorScale(current.active) : '#EEE'}
+                      stroke='blue'
+                      stroke-opacity='0.8'
                     />
                   ) : (
                     <Geography
@@ -117,7 +121,7 @@ const WorldMap = ({ selectedLocation }) => {
                       onMouseLeave={onMouseLeave}
                       fill={current ? colorScale(current.active) : '#EEE'}
                     />
-                  ) 
+                  )
                 })
               }
             </Geographies>
