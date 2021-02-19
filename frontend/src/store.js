@@ -1,9 +1,7 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import { userReducer } from './reducers/userReducers'
-import { useEffect } from 'react'
 import thunk from 'redux-thunk'
-import axios from 'axios'
 
 //GOING TO HAVE TO SET UP GET PERSIST HERE WITH TOKEN TO GET USER INFO AND THEN SET THAT USER INFO TO STATE
 

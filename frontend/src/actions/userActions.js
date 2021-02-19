@@ -130,8 +130,8 @@ export const persistUser = () => async (dispatch) => {
          await axios.get('http://localhost:3000/persist', 
          config
         )
-        console.log(response)
-       }
+        dispatch({ type: 'USER_LOGIN_SUCCESS', payload: response.data.user })
+      }
       
 
 // const updateUserFromDB = (userId, provinceObj) => (dispatch) => {
