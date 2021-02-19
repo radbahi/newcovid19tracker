@@ -19,7 +19,7 @@ class UsersController < ApplicationController
         
         if @user && @user.authenticate(params[:password])
             # has_secure_password contains authenticate method
-            wristband = encode_token({user_id: @user_id})
+            wristband = encode_token({user_id: @user.id})
             render json: { user: UserSerializer.new(@user), token: wristband }
         else
             render :json => { :message => 'oh fuck' }, :status => 500
@@ -29,7 +29,7 @@ class UsersController < ApplicationController
     def create
         @user = User.create(user_params)
         if @user.valid? 
-            wristband = encode_token({user_id: @user_id})
+            wristband = encode_token({user_id: @user.id})
             render json:  { user: UserSerializer.new(@user), token: wristband }
         else
             render json: {error: 'BIG PROBLEM'}, status: 500
@@ -71,6 +71,42 @@ class UsersController < ApplicationController
         render json: { user: UserSerializer.new(@user), token: wristband }
     end 
 
+          # token decoding and AUTH methods
+    def encode_token(payload)
+     # save string as env variable later super important
+    JWT.encode(payload, 'THISISOURMOTHERFUCKINGWRISTBAND')
+    end
+    
+    def auth_header
+         request.headers['Authorization']
+    end 
+    
+    def decoded_token
+        if auth_header
+            token = auth_header.split(' ')[1]
+            begin
+                JWT.decode(token, "THISISOURMOTHERFUCKINGWRISTBAND", { complete: true }, algorithm: 'HS256') 
+            rescue JWT::DecodeError 
+            nil
+        end
+        end 
+    end
+    
+    def logged_in_user
+        if decoded_token
+             user_id = decoded_token[0]['user_id']
+             @user = User.find_by(id: user_id) 
+        end
+    end 
+
+    def logged_in?
+        !!logged_in_user
+    end 
+
+    def authorized   
+        render json: { message: "Please log in" }, status: :unauthorized unless logged_in? 
+    end 
+    
     # user create is getting an invalid param of user, won't create new users. 
 
     private 
