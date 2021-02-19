@@ -14,7 +14,7 @@ export const login = (username, password) => async (dispatch) => {
       { username, password },
       config
     )
-
+    
     //
     localStorage.setItem('token', response.data.token)
 
@@ -60,8 +60,9 @@ export const register = (username, password) => async (dispatch) => {
     ) //pass all these arguments in and then extract data from the response
 
     dispatch({ type: 'USER_LOGIN_SUCCESS', payload: response.data.user }) //we want the user to be immediately logged in if registration is successful
-
+    
     localStorage.setItem('token', response.data.token)
+
   } catch (error) {
     dispatch({
       type: 'USER_REGISTER_FAIL',
@@ -116,6 +117,22 @@ export const updateUser = (user) => async (dispatch) => {
     }) //the payload here checks for our custom message. if it exists, send the custom message, if not, send generic message}
   }
 }
+
+export const persistUser = () => async (dispatch) => {
+
+    console.log("hi")
+        const config = {
+          headers: {
+            Authorization: `Bearer ${localStorage.token}`,
+          }
+        }
+        const response = 
+         await axios.get('http://localhost:3000/persist', 
+         config
+        )
+        console.log(response)
+       }
+      
 
 // const updateUserFromDB = (userId, provinceObj) => (dispatch) => {
 //   const config = {
