@@ -99,11 +99,11 @@ const WorldMap = ({ selectedLocation }) => {
                   const current = infectedAreas.find(
                     (location) => location.ISO === geo.properties.ISO_A3
                   )
-                  if (current && selectedLocation.ISO === current.ISO)
+                  if (current && selectedLocation && selectedLocation.ISO === current.ISO)
                     console.log(
                       ` ${selectedLocation.ISO} ${current.ISO} WE MATCHED BABY`
                     )
-                  return current && selectedLocation.ISO === current.ISO ? (
+                  return current && selectedLocation && selectedLocation.ISO === current.ISO ? (
                     <Geography
                       key={geo.rsmKey}
                       geography={geo}

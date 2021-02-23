@@ -25,17 +25,18 @@ const GraphAndMap = () => {
     }
 
     addDiseaseData()
-
+    console.log('re-render this component')
     userState && setSelectedLocation(userState.location)
   }, [userState])
 
   const selectLocationHandler = (location) => {
     dispatch(updateUser({ id: userState.id, location: [location] }))
-    setSelectedLocation(location)
+    // setSelectedLocation(location)
+    console.log(location.country)
   }
 
   // PASS SELECTED LOCATION AS PROP INTO DISEASEGRAPH AND JUST PASS ALL DATA INTO WORLD MAP
-  //CREATE FUNCTION TO MAKE A SELECTED LOCATION ONCLICK TO THE DROPDOWN ITEMS
+  // CREATE FUNCTION TO MAKE A SELECTED LOCATION ONCLICK TO THE DROPDOWN ITEMS
   return (
     <div>
       <Dropdown
