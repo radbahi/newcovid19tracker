@@ -11,7 +11,7 @@ import './App.css'
 function App() {
   const userState = useSelector((state) => state.userState)
   const dispatch = useDispatch()
-  
+
   useEffect(() => {
     dispatch(persistUser())
   }, [dispatch])
@@ -20,10 +20,10 @@ function App() {
   return (
     <Router>
       <Route exact path='/'>
-        {!userState ? <Redirect to='/login' /> : <HomeScreen />}
+        {!userState || userState.error === "Request failed with status code 500" ? <Redirect to='/login' /> : <HomeScreen />}
       </Route>
       <Route exact path='/login'>
-        {userState ? <Redirect to='/' /> : <LoginScreen />}
+        {userState && !userState.error ? <Redirect to='/' /> : <LoginScreen />}
       </Route>
       <Route exact path='/register' component={RegisterScreen} />
     </Router>
