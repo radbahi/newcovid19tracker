@@ -20,10 +20,23 @@ function App() {
   return (
     <Router>
       <Route exact path='/'>
-        {!userState || userState.error === "Request failed with status code 500" ? <Redirect to='/login' /> : <HomeScreen />}
+        {!userState ||
+        userState.error === 'Request failed with status code 500' ? (
+          <Redirect to='/login' />
+        ) : (
+          <HomeScreen />
+        )}
       </Route>
       <Route exact path='/login'>
-        {userState && !userState.error ? <Redirect to='/' /> : <LoginScreen />}
+        {userState && !userState.error ? (
+          <Redirect to='/' />
+        ) : (
+          <LoginScreen
+            loginError={
+              userState && userState.error ? userState.error.message : null
+            }
+          />
+        )}
       </Route>
       <Route exact path='/register' component={RegisterScreen} />
     </Router>

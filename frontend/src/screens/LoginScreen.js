@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux'
 import { login } from '../actions/userActions.js'
 import { Button } from 'react-bootstrap'
 
-const LoginScreen = () => {
+const LoginScreen = ({ loginError }) => {
   const dispatch = useDispatch()
 
   const [username, setUsername] = useState('')
@@ -24,6 +24,7 @@ const LoginScreen = () => {
   return (
     <div>
       <h3>Please login</h3>
+      {loginError && loginError}
       <form onSubmit={submitLoginHandler}>
         <h1>Login</h1>
         <label>Username:</label>
