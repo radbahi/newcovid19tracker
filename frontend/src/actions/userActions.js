@@ -27,10 +27,7 @@ export const login = (username, password) => async (dispatch) => {
   } catch (error) {
     dispatch({
       type: 'USER_LOGIN_FAIL',
-      payload:
-        error.response && error.response.data.message
-          ? error.response.data.message
-          : error.message,
+      payload: error.response.data,
     }) //the payload here checks for our custom message. if it exists, send the custom message, if not, send generic message}
   }
 }
