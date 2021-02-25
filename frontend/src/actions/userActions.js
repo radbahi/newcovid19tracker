@@ -76,6 +76,7 @@ export const register = (username, password) => async (dispatch) => {
 // EXPAND UPDATEUSER TO HAVE MULTIPLE ROUTES TO UPDATE INFO ACCORDINGLY
 // DONT NEED ANOTHER ROUTE LIKE UPDATE_LOCATION. ALREADY HAVE UPDATE METHOD IN USER CONTROLLER.
 export const updateUser = (user) => async (dispatch) => {
+  console.log(user)
   try {
     const config = {
       headers: {
