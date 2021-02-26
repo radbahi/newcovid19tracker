@@ -12,6 +12,8 @@ class CreateLocations < ActiveRecord::Migration[6.0]
       t.float :lon
       t.string :date
       t.integer :user_id
+      t.integer :vaccinations
+      t.string :vacc_location
 
       t.timestamps
     end

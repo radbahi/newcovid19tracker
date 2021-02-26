@@ -20,6 +20,9 @@ end
 
 def covid19_dataset
     data = JSON.parse(RestClient.get("https://disease.sh/v3/covid-19/countries?yesterday=true"))
+    vaccine_data = JSON.parse(RestClient.get("https://disease.sh/v3/covid-19/vaccine/coverage/countries?lastdays=30
+    "))
+
     data.each do |response|
         puts response
         if Location.find_by(ISO: response["iso3"])
@@ -29,6 +32,19 @@ def covid19_dataset
             elsif response['countryInfo']["iso3"]
             Location.create(country: response['country'], confirmed: response['cases'], recovered: response['recovered'],
                 active: response['active'], deaths: response['deaths'], lat: response['countryInfo']['lat'], lon: response['countryInfo']['long'],  date: response['updated'], flag: response['countryInfo']['flag'], ISO: response['countryInfo']['iso3'])
+        end
+    end
+
+    vaccine_data.each do |response|
+        puts response
+        location = Location.find_by(country: response["country"])
+        if Location.find_by(country: response["country"])
+            location.update(vacc_location: response["country"], vaccinations: response["timeline"].values.last)
+        elsif Location.find_by(ISO: response["country"])
+            location.update(vacc_location: response["country"], vaccinations: response["timeline"].values.last)
+            # gotta find a way to have the countries names not get seeded twice.
+            # all else fails we'll have to make a model of vaccination
+            # elsif location.vaccinations
         end
     end
 end

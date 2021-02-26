@@ -9,6 +9,7 @@ import {
 } from 'recharts'
 
 const DiseaseGraph = ({ selectedLocation }) => {
+  console.log(selectedLocation)
   const data = [
     {
       name: 'Active',
