@@ -20,12 +20,7 @@ function App() {
   return (
     <Router>
       <Route exact path='/'>
-        {!userState ||
-        userState.error === 'Request failed with status code 500' ? (
-          <Redirect to='/login' />
-        ) : (
-          <HomeScreen />
-        )}
+        {!userState ? <Redirect to='/login' /> : <HomeScreen />}
       </Route>
       <Route exact path='/login'>
         {userState && !userState.error ? (

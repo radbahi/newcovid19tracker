@@ -1,21 +1,21 @@
 import axios from 'axios'
 
 export const login = (username, password) => async (dispatch) => {
+  
+  const config = {
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${localStorage.token}`,
+    },
+  } //we want to send this as a header.
+
+  const response = await axios.post(
+    'http://localhost:3000/login',
+    { username, password },
+    config
+  )
+  
   try {
-    const config = {
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${localStorage.token}`,
-      },
-    } //we want to send this as a header.
-
-    const response = await axios.post(
-      'http://localhost:3000/login',
-      { username, password },
-      config
-    )
-
-    //
     localStorage.setItem('token', response.data.token)
 
     console.log(response)
@@ -27,7 +27,8 @@ export const login = (username, password) => async (dispatch) => {
   } catch (error) {
     dispatch({
       type: 'USER_LOGIN_FAIL',
-      payload: error.response.data,
+      payload: 
+      response.data.error.message
     }) //the payload here checks for our custom message. if it exists, send the custom message, if not, send generic message}
   }
 }
@@ -76,7 +77,6 @@ export const register = (username, password) => async (dispatch) => {
 // EXPAND UPDATEUSER TO HAVE MULTIPLE ROUTES TO UPDATE INFO ACCORDINGLY
 // DONT NEED ANOTHER ROUTE LIKE UPDATE_LOCATION. ALREADY HAVE UPDATE METHOD IN USER CONTROLLER.
 export const updateUser = (user) => async (dispatch) => {
-  console.log(user)
   try {
     const config = {
       headers: {

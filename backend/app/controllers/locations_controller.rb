@@ -2,7 +2,9 @@ class LocationsController < ApplicationController
 
     def index
         locations = Location.all
-        render json: locations
+        @locations = locations.order(:country)
+        # postgres doesn't order tables, so we do it ourselves right here ^
+        render json: @locations
     end
 
     def show

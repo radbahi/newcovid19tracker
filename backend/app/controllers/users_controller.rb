@@ -17,7 +17,7 @@ class UsersController < ApplicationController
     def login 
         @user = User.find_by(username: params[:username])
         
-        if @user && @user.authenticate(params[:password])
+        if @user.valid? && @user.authenticate(params[:password])
             # has_secure_password contains authenticate method
             wristband = encode_token({user_id: @user.id})
             render json: { user: UserSerializer.new(@user), token: wristband }
