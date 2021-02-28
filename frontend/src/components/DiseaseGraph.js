@@ -9,7 +9,6 @@ import {
 } from 'recharts'
 
 const DiseaseGraph = ({ selectedLocation }) => {
-  console.log(selectedLocation)
   const data = [
     {
       name: 'Active',
@@ -59,6 +58,18 @@ const DiseaseGraph = ({ selectedLocation }) => {
         ? selectedLocation.recovered
         : 'Please select a country above',
     },
+    {
+     name: 'Vaccinations',
+      uv: selectedLocation
+        ? Math.round(selectedLocation.vaccinations / 6)
+        : 'Please select a country above',
+      pv: selectedLocation
+        ? selectedLocation.vaccinations
+        : 'Please select a country above',
+      amt: selectedLocation
+        ? selectedLocation.vaccinations
+        : 'Please select a country above',
+    }
   ]
 
   //CHART SCALES WITH EACH COUNTRY DUE TO LARGE DIFFERENCES BETWEEN COUNTRY DATA

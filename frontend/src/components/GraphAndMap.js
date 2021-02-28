@@ -10,11 +10,11 @@ import WorldMap from './WorldMap'
 
 const GraphAndMap = () => {
   const dispatch = useDispatch()
-  const [diseaseData, setDiseaseData] = useState([])
 
+  const [diseaseData, setDiseaseData] = useState([])
   const [selectedLocation, setSelectedLocation] = useState({})
-  // HIGHLIGHT SELECTEDLOCATION ON MAP
-  //MAYBE JUST DISPATCH TO USER'S LOCATION BACKEND?
+
+  const [worldData, setWorldData] = useState({})
 
   const userState = useSelector((state) => state.userState)
 
@@ -22,9 +22,10 @@ const GraphAndMap = () => {
     const addDiseaseData = async () => {
       const { data } = await axios.get('http://localhost:3000/locations')
       setDiseaseData(data)
+      setWorldData(data[58])
     }
-
     addDiseaseData()
+
     console.log('re-render this component')
     userState && setSelectedLocation(userState.location)
   }, [userState])
@@ -39,6 +40,12 @@ const GraphAndMap = () => {
   // CREATE FUNCTION TO MAKE A SELECTED LOCATION ONCLICK TO THE DROPDOWN ITEMS
   return (
     <div>
+      <h1> 
+      Global Active: {worldData.active}, 
+      Global Deaths: {worldData.deaths}, 
+      Global Confirmed Recovered: {worldData.recovered}, 
+      Global Vaccinations: {worldData.vaccinations} 
+      </h1>
       <Dropdown
         menualign='right'
         title='Select a location'

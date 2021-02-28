@@ -43,11 +43,12 @@ const WorldMap = ({ selectedLocation }) => {
       confirmed: 'Cannot find data',
       deaths: 'Cannot find data',
       recovered: 'Cannot find data',
+      vaccinations: 'Cannont find data'
     }
   ) => {
     return () => {
       setTooltipContent(
-        `${current.country}: Active: ${current.active}. Confirmed: ${current.confirmed}. Deaths: ${current.deaths}. Recovered: ${current.recovered}.`
+        `${current.country}: Active: ${current.active}. Confirmed: ${current.confirmed}. Deaths: ${current.deaths}. Recovered: ${current.recovered}. Vaccinations: ${current.vaccinations}`
       )
     }
   }
@@ -111,7 +112,7 @@ const WorldMap = ({ selectedLocation }) => {
                       onMouseLeave={onMouseLeave}
                       fill={current ? colorScale(current.active) : '#EEE'}
                       stroke='blue'
-                      stroke-opacity='0.8'
+                      strokeOpacity='0.8'
                     />
                   ) : (
                     <Geography
