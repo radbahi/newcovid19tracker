@@ -16,7 +16,7 @@ const LoginScreen = ({ loginError }) => {
     e.preventDefault()
     dispatch(login(username, password))
   }
-
+  
   //PULL FROM LOCALSTORAGE INSTEAD for persistence?
   // const userState = useSelector((state) => state.userState)
 
@@ -52,11 +52,11 @@ const LoginScreen = ({ loginError }) => {
   color: palevioletred;
   background-color: purple;
   `
-
+  
   return (
     <LoginDiv>
       {loginError && loginError}
-      <Form onSubmit={submitLoginHandler}>
+      <form onSubmit={submitLoginHandler}>
         <Title>Login</Title>
         <label>Username:</label>
         <input
@@ -73,7 +73,7 @@ const LoginScreen = ({ loginError }) => {
           onChange={(e) => setPassword(e.target.value)}
         />
         <input type='submit' value='Submit' />
-      </Form>
+      </form>
       <RegLink>Don't have an account? Click below</RegLink>
       <Button href='/register'>Register a new account</Button>
     </LoginDiv>
