@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { login } from '../actions/userActions.js'
 import { Button } from 'react-bootstrap'
+import styled from 'styled-components'
 
 const LoginScreen = ({ loginError }) => {
   const dispatch = useDispatch()
@@ -20,10 +21,15 @@ const LoginScreen = ({ loginError }) => {
   // const userState = useSelector((state) => state.userState)
 
   // const { userInfo } = userState
+  const Title = styled.h1`
+    font-size: 1.5em;
+    text-align: center;
+    color: palevioletred;`
+  
 
   return (
     <div>
-      <h3>Please login</h3>
+      <Title>Please login</Title>
       {loginError && loginError}
       <form onSubmit={submitLoginHandler}>
         <h1>Login</h1>
