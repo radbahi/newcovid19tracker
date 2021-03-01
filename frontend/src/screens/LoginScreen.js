@@ -25,31 +25,33 @@ const LoginScreen = ({ loginError }) => {
     font-size: 1.5em;
     text-align: center;
     color: palevioletred;
-    background-color: purple`
+    background-color: purple;
+  `
 
   const Form = styled.form`
     font-size: 1em;
     text-align: center;
     color: palevioletred;
-    background-color: purple`
-  
+    background-color: purple;
+  `
+
   const RegLink = styled.h3`
-  font-size: 1.5em;
-  text-align: center;
-  color: palevioletred;
-  background-color: purple`
+    font-size: 1.5em;
+    text-align: center;
+    color: palevioletred;
+    background-color: purple;
+  `
 
   // button currently uses bootstrap
   const RegButton = styled.button`
-  color: palevioletred;
-  background-color: purple;
+    color: palevioletred;
+    background-color: purple;
   `
 
   return (
     <div>
       {loginError && loginError}
-      <Form>
-      <form onSubmit={submitLoginHandler}>
+      <Form onSubmit={submitLoginHandler}>
         <Title>Login</Title>
         <label>Username:</label>
         <input
@@ -66,7 +68,6 @@ const LoginScreen = ({ loginError }) => {
           onChange={(e) => setPassword(e.target.value)}
         />
         <input type='submit' value='Submit' />
-      </form>
       </Form>
       <RegLink>Don't have an account? Click below</RegLink>
       <Button href='/register'>Register a new account</Button>
