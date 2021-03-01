@@ -42,6 +42,14 @@ const LoginScreen = ({ loginError }) => {
     background-color: purple;
   `
 
+  const LoginDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  width: 300px;
+  position: center;
+  `
+
   // button currently uses bootstrap
   const RegButton = styled.button`
     color: palevioletred;
@@ -49,7 +57,7 @@ const LoginScreen = ({ loginError }) => {
   `
 
   return (
-    <div>
+    <LoginDiv>
       {loginError && loginError}
       <Form onSubmit={submitLoginHandler}>
         <Title>Login</Title>
@@ -71,7 +79,7 @@ const LoginScreen = ({ loginError }) => {
       </Form>
       <RegLink>Don't have an account? Click below</RegLink>
       <Button href='/register'>Register a new account</Button>
-    </div>
+    </LoginDiv>
   )
 }
 
