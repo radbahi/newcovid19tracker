@@ -4,6 +4,40 @@ import { login } from '../actions/userActions.js'
 import { Button } from 'react-bootstrap'
 import styled from 'styled-components'
 
+const Title = styled.h1`
+  font-size: 1.5em;
+  text-align: center;
+  color: palevioletred;
+  background-color: purple;
+`
+
+const Form = styled.form`
+  font-size: 1em;
+  text-align: center;
+  color: palevioletred;
+  background-color: purple;
+`
+
+const RegLink = styled.h3`
+  font-size: 1.5em;
+  text-align: center;
+  color: palevioletred;
+  background-color: purple;
+`
+
+const LoginDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  width: 300px;
+  position: center;
+`
+
+// button currently uses bootstrap
+const RegButton = styled.button`
+  color: palevioletred;
+  background-color: purple;
+`
 const LoginScreen = ({ loginError }) => {
   const dispatch = useDispatch()
 
@@ -16,46 +50,12 @@ const LoginScreen = ({ loginError }) => {
     e.preventDefault()
     dispatch(login(username, password))
   }
-  
+
   //PULL FROM LOCALSTORAGE INSTEAD for persistence?
   // const userState = useSelector((state) => state.userState)
 
   // const { userInfo } = userState
-  const Title = styled.h1`
-    font-size: 1.5em;
-    text-align: center;
-    color: palevioletred;
-    background-color: purple;
-  `
 
-  const Form = styled.form`
-    font-size: 1em;
-    text-align: center;
-    color: palevioletred;
-    background-color: purple;
-  `
-
-  const RegLink = styled.h3`
-    font-size: 1.5em;
-    text-align: center;
-    color: palevioletred;
-    background-color: purple;
-  `
-
-  const LoginDiv = styled.div`
-  display: flex;
-  flex-direction: column;
-  padding: 20px;
-  width: 300px;
-  position: center;
-  `
-
-  // button currently uses bootstrap
-  const RegButton = styled.button`
-    color: palevioletred;
-    background-color: purple;
-  `
-  
   return (
     <LoginDiv>
       {loginError && loginError}

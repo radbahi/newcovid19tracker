@@ -9,6 +9,14 @@ import {
   ZoomableGroup,
 } from 'react-simple-maps'
 
+import styled from 'styled-components'
+
+const StyledMap = styled.div`
+  margin-right: 35rem;
+  margin-left: 1rem;
+  margin-top: -19rem;
+`
+
 const geoUrl = require('./world-110m.json')
 
 const COLOR_RANGE = [
@@ -43,7 +51,7 @@ const WorldMap = ({ selectedLocation }) => {
       confirmed: 'Cannot find data',
       deaths: 'Cannot find data',
       recovered: 'Cannot find data',
-      vaccinations: 'Cannont find data'
+      vaccinations: 'Cannont find data',
     }
   ) => {
     return () => {
@@ -86,9 +94,9 @@ const WorldMap = ({ selectedLocation }) => {
 
   if (infectedAreas.length > 0) {
     return (
-      <div>
+      <StyledMap>
         <ReactTooltip>{tooltipContent}</ReactTooltip>
-        <ComposableMap widith={400} height={300} data-tip=''>
+        <ComposableMap widith={550} height={500} data-tip=''>
           <ZoomableGroup
             zoom={position.zoom}
             center={position.coordinates}
@@ -100,11 +108,17 @@ const WorldMap = ({ selectedLocation }) => {
                   const current = infectedAreas.find(
                     (location) => location.ISO === geo.properties.ISO_A3
                   )
-                  if (current && selectedLocation && selectedLocation.ISO === current.ISO)
+                  if (
+                    current &&
+                    selectedLocation &&
+                    selectedLocation.ISO === current.ISO
+                  )
                     console.log(
                       ` ${selectedLocation.ISO} ${current.ISO} WE MATCHED BABY`
                     )
-                  return current && selectedLocation && selectedLocation.ISO === current.ISO ? (
+                  return current &&
+                    selectedLocation &&
+                    selectedLocation.ISO === current.ISO ? (
                     <Geography
                       key={geo.rsmKey}
                       geography={geo}
@@ -155,7 +169,7 @@ const WorldMap = ({ selectedLocation }) => {
             </svg>
           </button>
         </div>
-      </div>
+      </StyledMap>
     )
   } else {
     return <h1>Loading...</h1>
