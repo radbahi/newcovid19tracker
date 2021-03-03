@@ -15,19 +15,11 @@ font-weight: bold;
 const Form = styled.form`
 font-size: 1em;
 text-align: center;
-color: white;
-background-color: #317cf7;
-`
-
-const RegLink = styled.h3`
-font-size: 1.5em;
-text-align: center;
-color: white;
-background-color: #317cf7;
-font-weight: bold;
+color: black;
 `
 
 const LoginDiv = styled.div`
+font-family: 'Poppins', sans-serif;
 border-radius: 25px;
 border: 2px solid;
 width: 300px;
@@ -75,7 +67,7 @@ const LoginScreen = ({ loginError }) => {
     <LoginWrapper>
     <LoginDiv>
       {loginError && loginError}
-      <form onSubmit={submitLoginHandler}>
+      <Form onSubmit={submitLoginHandler}>
         <Title>Login</Title>
         <label>Username:</label>
         <input
@@ -92,9 +84,11 @@ const LoginScreen = ({ loginError }) => {
           onChange={(e) => setPassword(e.target.value)}
         />
         <input type='submit' value='Submit' />
-      </form>
-      <RegLink>Don't have an account? Click below</RegLink>
-      <Button href='/register'>Register a new account</Button>
+      </Form>
+      <Title>-OR-</Title>
+      <div class="text-center">
+      <Button class='button' href='/register'>Register a new account</Button>
+      </div>
     </LoginDiv>
     </LoginWrapper>
   )
