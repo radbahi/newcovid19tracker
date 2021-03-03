@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { Dropdown } from 'react-bootstrap'
 import { updateUser } from '../actions/userActions.js'
+import './marquee.css'
 
 import axios from 'axios'
 
@@ -40,11 +41,10 @@ const GraphAndMap = () => {
   // CREATE FUNCTION TO MAKE A SELECTED LOCATION ONCLICK TO THE DROPDOWN ITEMS
   return (
     <div>
-      <h1> 
-      Global Active: {worldData.active}, 
-      Global Deaths: {worldData.deaths}, 
-      Global Confirmed Recovered: {worldData.recovered}, 
-      Global Vaccinations: {worldData.vaccinations} 
+      <h1 class='marquee'>
+        Global Active: {worldData.active}, Global Deaths: {worldData.deaths},
+        Global Confirmed Recovered: {worldData.recovered}, Global Vaccinations:{' '}
+        {worldData.vaccinations}
       </h1>
       <Dropdown
         menualign='right'

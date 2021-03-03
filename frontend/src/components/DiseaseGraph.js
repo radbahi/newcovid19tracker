@@ -7,6 +7,12 @@ import {
   Legend,
   CartesianGrid,
 } from 'recharts'
+import styled from 'styled-components'
+
+const StyledGraph = styled.div`
+  align: center;
+  margin-left: 63rem;
+`
 
 const DiseaseGraph = ({ selectedLocation }) => {
   const data = [
@@ -59,7 +65,7 @@ const DiseaseGraph = ({ selectedLocation }) => {
         : 'Please select a country above',
     },
     {
-     name: 'Vaccinations',
+      name: 'Vaccinations',
       uv: selectedLocation
         ? Math.round(selectedLocation.vaccinations / 6)
         : 'Please select a country above',
@@ -69,15 +75,15 @@ const DiseaseGraph = ({ selectedLocation }) => {
       amt: selectedLocation
         ? selectedLocation.vaccinations
         : 'Please select a country above',
-    }
+    },
   ]
 
   //CHART SCALES WITH EACH COUNTRY DUE TO LARGE DIFFERENCES BETWEEN COUNTRY DATA
   // MAKE USER KNOWN TO THIS FACT
 
   return (
-    <div>
-      <BarChart width={600} height={300} data={data}>
+    <StyledGraph>
+      <BarChart width={512} height={300} data={data}>
         <XAxis dataKey='name' stroke='#8884d8' />
         <YAxis />
         <Tooltip wrapperStyle={{ width: 100, backgroundColor: '#ccc' }} />
@@ -95,7 +101,7 @@ const DiseaseGraph = ({ selectedLocation }) => {
         <CartesianGrid stroke='#ccc' strokeDasharray='5 5' />
         <Bar dataKey='uv' fill='#8884d8' barSize={30} />
       </BarChart>
-    </div>
+    </StyledGraph>
   )
 }
 
