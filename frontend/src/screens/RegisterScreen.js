@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { register } from '../actions/userActions.js'
 import { Button } from 'react-bootstrap'
+import { Title } from './LoginScreen.js'
 
 const RegisterScreen = ({ history }) => {
   const dispatch = useDispatch()
