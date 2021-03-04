@@ -13,7 +13,9 @@ import WorldMap from './WorldMap'
 
 const StyledGraphAndMap = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 10px;
 `
 
 const GraphAndMap = () => {
@@ -56,6 +58,8 @@ const GraphAndMap = () => {
         </h1>
       </div>
       <StyledGraphAndMap>
+      <WorldMap selectedLocation={selectedLocation} />
+      <div className="graph-dropdown">
         <Dropdown
           menualign='right'
           title='Select a location'
@@ -80,8 +84,8 @@ const GraphAndMap = () => {
         {selectedLocation
           ? `${selectedLocation.country}`
           : 'Please select a country'}
-        <WorldMap selectedLocation={selectedLocation} />
         <DiseaseGraph selectedLocation={selectedLocation} />
+        </div>
       </StyledGraphAndMap>
     </div>
   )
