@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
 import { useEffect } from 'react'
 import { persistUser } from './actions/userActions'
+import NavBar from './screens/NavBar.js'
 
 import './App.css'
 
@@ -19,6 +20,7 @@ function App() {
   // const { userInfo } = userState
   return (
     <Router>
+      <NavBar/>
       <Route exact path='/'>
         {!userState ? <Redirect to='/login' /> : <HomeScreen />}
       </Route>

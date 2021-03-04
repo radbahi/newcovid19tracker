@@ -84,8 +84,8 @@ const LoginScreen = ({ loginError }) => {
         <input type='submit' value='Submit' />
       </Form>
       <Title>-OR-</Title>
-      <div class="text-center">
-      <Button class='button' href='/register'>Register a new account</Button>
+      <div className="text-center">
+      <Button href='/register'>Register a new account</Button>
       </div>
     </LoginDiv>
     </LoginWrapper>
