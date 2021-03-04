@@ -1,24 +1,15 @@
-import {
-  BarChart,
-  Bar,
-  XAxis,
-  YAxis,
-  Tooltip,
-  Legend,
-  CartesianGrid,
-} from 'recharts'
+import { BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid } from 'recharts'
 import styled from 'styled-components'
 
 const StyledGraph = styled.div`
-  align: center;
-  margin-left: 63rem;
+  margin-left: 115vh;
 `
 
 const DiseaseGraph = ({ selectedLocation }) => {
   const data = [
     {
       name: 'Active',
-      uv: selectedLocation
+      Amount: selectedLocation
         ? Math.round(selectedLocation.active / 6)
         : 'Please select a country above',
       pv: selectedLocation
@@ -30,7 +21,7 @@ const DiseaseGraph = ({ selectedLocation }) => {
     },
     {
       name: 'Confirmed',
-      uv: selectedLocation
+      Amount: selectedLocation
         ? Math.round(selectedLocation.confirmed / 6)
         : 'Please select a country above',
       pv: selectedLocation
@@ -42,7 +33,7 @@ const DiseaseGraph = ({ selectedLocation }) => {
     },
     {
       name: 'Deaths',
-      uv: selectedLocation
+      Amount: selectedLocation
         ? Math.round(selectedLocation.deaths / 6)
         : 'Please select a country above',
       pv: selectedLocation
@@ -54,7 +45,7 @@ const DiseaseGraph = ({ selectedLocation }) => {
     },
     {
       name: 'Recovered',
-      uv: selectedLocation
+      Amount: selectedLocation
         ? Math.round(selectedLocation.recovered / 6)
         : 'Please select a country above',
       pv: selectedLocation
@@ -66,7 +57,7 @@ const DiseaseGraph = ({ selectedLocation }) => {
     },
     {
       name: 'Vaccinations',
-      uv: selectedLocation
+      Amount: selectedLocation
         ? Math.round(selectedLocation.vaccinations / 6)
         : 'Please select a country above',
       pv: selectedLocation
@@ -83,23 +74,12 @@ const DiseaseGraph = ({ selectedLocation }) => {
 
   return (
     <StyledGraph>
-      <BarChart width={512} height={300} data={data}>
+      <BarChart width={540} height={300} data={data} margin={{ left: 30 }}>
         <XAxis dataKey='name' stroke='#8884d8' />
         <YAxis />
-        <Tooltip wrapperStyle={{ width: 100, backgroundColor: '#ccc' }} />
-        <Legend
-          width={100}
-          wrapperStyle={{
-            top: 40,
-            right: 20,
-            backgroundColor: '#f5f5f5',
-            border: '1px solid #d5d5d5',
-            borderRadius: 3,
-            lineHeight: '40px',
-          }}
-        />
+        <Tooltip wrapperStyle={{ width: 165, backgroundColor: '#ccc' }} />
         <CartesianGrid stroke='#ccc' strokeDasharray='5 5' />
-        <Bar dataKey='uv' fill='#8884d8' barSize={30} />
+        <Bar dataKey='Amount' fill='#8884d8' barSize={30} />
       </BarChart>
     </StyledGraph>
   )

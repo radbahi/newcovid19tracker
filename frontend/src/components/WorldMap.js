@@ -12,9 +12,9 @@ import {
 import styled from 'styled-components'
 
 const StyledMap = styled.div`
-  margin-right: 35rem;
-  margin-left: 1rem;
-  margin-top: -19rem;
+  margin-right: 60vh;
+  margin-left: 1vh;
+  margin-top: -35vh;
 `
 
 const geoUrl = require('./world-110m.json')
