@@ -41,11 +41,14 @@ const GraphAndMap = () => {
   // CREATE FUNCTION TO MAKE A SELECTED LOCATION ONCLICK TO THE DROPDOWN ITEMS
   return (
     <div>
+      <div className="bizmarquee">
       <h1 className='marquee'>
         Global Active: {worldData.active}, Global Deaths: {worldData.deaths},
         Global Confirmed Recovered: {worldData.recovered}, Global Vaccinations:{' '}
         {worldData.vaccinations}
       </h1>
+      </div>
+      <div className="graph-and-map">
       <Dropdown
         menualign='right'
         title='Select a location'
@@ -72,6 +75,7 @@ const GraphAndMap = () => {
         : 'Please select a country'}
       <DiseaseGraph selectedLocation={selectedLocation} />
       <WorldMap selectedLocation={selectedLocation} />
+      </div>
     </div>
   )
 }
