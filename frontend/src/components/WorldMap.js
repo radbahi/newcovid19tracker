@@ -9,13 +9,13 @@ import {
   ZoomableGroup,
 } from 'react-simple-maps'
 
-import styled from 'styled-components'
+// import styled from 'styled-components'
 
-const StyledMap = styled.div`
-  margin-right: 60vh;
-  margin-left: 1vh;
-  margin-top: -35vh;
-`
+// const StyledMap = styled.div`
+//   margin-right: 60vh;
+//   margin-left: 1vh;
+//   margin-top: -35vh;
+// `
 
 const geoUrl = require('./world-110m.json')
 
@@ -94,9 +94,9 @@ const WorldMap = ({ selectedLocation }) => {
 
   if (infectedAreas.length > 0) {
     return (
-      <StyledMap>
+      <div>
         <ReactTooltip>{tooltipContent}</ReactTooltip>
-        <ComposableMap widith={550} height={500} data-tip=''>
+        <ComposableMap widith={-30} height={380} data-tip=''>
           <ZoomableGroup
             zoom={position.zoom}
             center={position.coordinates}
@@ -169,7 +169,7 @@ const WorldMap = ({ selectedLocation }) => {
             </svg>
           </button>
         </div>
-      </StyledMap>
+      </div>
     )
   } else {
     return <h1>Loading...</h1>

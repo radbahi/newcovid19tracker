@@ -2,12 +2,19 @@ import { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { Dropdown } from 'react-bootstrap'
 import { updateUser } from '../actions/userActions.js'
+import styled from 'styled-components'
+
 import './marquee.css'
 
 import axios from 'axios'
 
 import DiseaseGraph from './DiseaseGraph'
 import WorldMap from './WorldMap'
+
+const StyledGraphAndMap = styled.div`
+  display: flex;
+  flex-direction: column;
+`
 
 const GraphAndMap = () => {
   const dispatch = useDispatch()
@@ -41,41 +48,41 @@ const GraphAndMap = () => {
   // CREATE FUNCTION TO MAKE A SELECTED LOCATION ONCLICK TO THE DROPDOWN ITEMS
   return (
     <div>
-      <div className="bizmarquee">
-      <h1 className='marquee'>
-        Global Active: {worldData.active}, Global Deaths: {worldData.deaths},
-        Global Confirmed Recovered: {worldData.recovered}, Global Vaccinations:{' '}
-        {worldData.vaccinations}
-      </h1>
+      <div className='bizmarquee'>
+        <h1 className='marquee'>
+          Global Active: {worldData.active}, Global Deaths: {worldData.deaths},
+          Global Confirmed Recovered: {worldData.recovered}, Global
+          Vaccinations: {worldData.vaccinations}
+        </h1>
       </div>
-      <div className="graph-and-map">
-      <Dropdown
-        menualign='right'
-        title='Select a location'
-        id='dropdown-menu-align-right'
-      >
-        <Dropdown.Toggle variant='success' id='dropdown-basic'>
-          Select a location
-        </Dropdown.Toggle>
-        <Dropdown.Menu>
-          {diseaseData.map((location) => {
-            return (
-              <Dropdown.Item
-                onClick={() => selectLocationHandler(location)}
-                key={location.country}
-              >
-                {location.country}
-              </Dropdown.Item>
-            )
-          })}
-        </Dropdown.Menu>
-      </Dropdown>
-      {selectedLocation
-        ? `${selectedLocation.country}`
-        : 'Please select a country'}
-      <DiseaseGraph selectedLocation={selectedLocation} />
-      <WorldMap selectedLocation={selectedLocation} />
-      </div>
+      <StyledGraphAndMap>
+        <Dropdown
+          menualign='right'
+          title='Select a location'
+          id='dropdown-menu-align-right'
+        >
+          <Dropdown.Toggle variant='success' id='dropdown-basic'>
+            Select a location
+          </Dropdown.Toggle>
+          <Dropdown.Menu>
+            {diseaseData.map((location) => {
+              return (
+                <Dropdown.Item
+                  onClick={() => selectLocationHandler(location)}
+                  key={location.country}
+                >
+                  {location.country}
+                </Dropdown.Item>
+              )
+            })}
+          </Dropdown.Menu>
+        </Dropdown>
+        {selectedLocation
+          ? `${selectedLocation.country}`
+          : 'Please select a country'}
+        <WorldMap selectedLocation={selectedLocation} />
+        <DiseaseGraph selectedLocation={selectedLocation} />
+      </StyledGraphAndMap>
     </div>
   )
 }

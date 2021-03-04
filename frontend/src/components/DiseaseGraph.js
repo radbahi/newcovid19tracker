@@ -1,9 +1,9 @@
 import { BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid } from 'recharts'
 import styled from 'styled-components'
 
-const StyledGraph = styled.div`
-  margin-left: 115vh;
-`
+// const StyledGraph = styled.div`
+//   margin-left: 115vh;
+// `
 
 const DiseaseGraph = ({ selectedLocation }) => {
   const data = [
@@ -73,15 +73,20 @@ const DiseaseGraph = ({ selectedLocation }) => {
   // MAKE USER KNOWN TO THIS FACT
 
   return (
-    <StyledGraph>
-      <BarChart width={540} height={300} data={data} margin={{ left: 30 }}>
+    <div>
+      <BarChart
+        width={540}
+        height={300}
+        data={data}
+        // margin={{ left: 200, right: -200 }}
+      >
         <XAxis dataKey='name' stroke='#8884d8' />
         <YAxis />
         <Tooltip wrapperStyle={{ width: 165, backgroundColor: '#ccc' }} />
         <CartesianGrid stroke='#ccc' strokeDasharray='5 5' />
         <Bar dataKey='Amount' fill='#8884d8' barSize={30} />
       </BarChart>
-    </StyledGraph>
+    </div>
   )
 }
 
