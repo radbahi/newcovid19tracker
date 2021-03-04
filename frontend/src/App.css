@@ -10,3 +10,25 @@
 .text-center{
   padding-bottom: 2.5px;
 }
+
+.navbar{
+  border-radius: 25px;
+  margin: 20px;
+  margin-top: 5px;
+  box-shadow: 0px 0px 5px 7px #CED1DB;
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+  background-color: #317cf7;
+  }
+
+.nav-link{
+  background-color: #317cf7;
+  color: white !important
+}
+
+.navbar-brand{
+  background-color: #317cf7;
+  color: white !important;
+  display: flex;
+  align-items: center;
+}

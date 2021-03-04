@@ -4,6 +4,7 @@ import { login } from '../actions/userActions.js'
 import { Button } from 'react-bootstrap'
 import styled from 'styled-components'
 
+
 const Title = styled.h1`
   font-size: 1.5em;
   text-align: center;
@@ -12,19 +13,19 @@ const Title = styled.h1`
 `
 
 const Form = styled.form`
-font-size: 1em;
-text-align: center;
-color: black;
+  font-size: 1em;
+  text-align: center;
+  color: black;
 `
 
 const LoginDiv = styled.div`
-font-family: 'Poppins', sans-serif;
-border-radius: 25px;
-border: 2px solid;
-width: 300px;
-position: center;
-justify-content: center;
-box-shadow: 0px 0px 5px 7px #CED1DB;
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+  border-radius: 25px;
+  width: 300px;
+  position: center;
+  justify-content: center;
+  box-shadow: 0px 0px 5px 7px #CED1DB;
 `
 
 const LoginWrapper = styled.div`
