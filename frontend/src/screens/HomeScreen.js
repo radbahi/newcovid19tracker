@@ -1,4 +1,3 @@
-import StoryBox from '../components/StoryBox'
 import GraphAndMap from '../components/GraphAndMap'
 import { Button } from 'react-bootstrap'
 import { useDispatch } from 'react-redux'
@@ -23,7 +22,6 @@ const HomeScreen = () => {
     <StyledWrapper>
       <Button onClick={logoutHandler}>LOGOUT</Button>
       <GraphAndMap />
-      <StoryBox />
     </StyledWrapper>
   )
 }

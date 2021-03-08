@@ -1,25 +1,20 @@
 import { Button, Card } from 'react-bootstrap'
-import { useState, useEffect } from 'react'
-import axios from 'axios'
+import styled from 'styled-components'
 
-const StoryBox = () => {
-  const [stories, setStories] = useState([])
+const StyledStories = styled.div`
+  overflow: scroll;
+  margin-bottom: 100px;
+  padding-bottom: 100px;
+`
 
-  useEffect(() => {
-    const addStories = async () => {
-      const { data } = await axios.get('http://localhost:3000/stories')
-      setStories(data)
-    }
-    addStories()
-  }, [])
-
+const StoryBox = ({ stories }) => {
   return (
-    <div>
+    <StyledStories>
       <h1>International News about COVID-19</h1>
       <div>
         {stories.map((stories) => {
           return (
-            <Card key={stories.id}>
+            <Card key={stories.id} style={{ width: '44.65vw' }}>
               <Card.Img
                 variant='top'
                 alt={stories.title}
@@ -37,7 +32,7 @@ const StoryBox = () => {
           )
         })}
       </div>
-    </div>
+    </StyledStories>
   )
 }
 
