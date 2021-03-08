@@ -2,6 +2,51 @@ import { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { register } from '../actions/userActions.js'
 import { Button } from 'react-bootstrap'
+import styled from 'styled-components'
+
+
+const Title = styled.h1`
+  padding: 10px;
+  font-size: 1.5em;
+  text-align: center;
+  color: black;
+  font-weight: bold;
+`
+
+const Form = styled.form`
+  padding: 10px;
+  font-size: 1em;
+  text-align: left;
+  color: black;
+`
+
+const RegDiv = styled.div`
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+  border-radius: 25px;
+  width: 300px;
+  position: center;
+  justify-content: center;
+  box-shadow: 0px 0px 5px 7px #CED1DB;
+  padding: 10px;
+`
+
+const RegWrapper = styled.div`
+  margin: 200px;
+  margin-left: 130px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-style: line;
+  border-color: black;
+`
+const SubMessage = styled.h2`
+  color: #c6d0df;
+  font-size: 22px;
+  text-align: center;
+`
+
 
 const RegisterScreen = ({ history }) => {
   const dispatch = useDispatch()
@@ -24,28 +69,38 @@ const RegisterScreen = ({ history }) => {
   }
 
   return (
-    <div>
-      <h1>New user? Register</h1>
-      <form onSubmit={submitRegisterHandler}>
-        <label>Username:</label>
+    <RegWrapper>
+    <RegDiv>
+      <Title>New user? Register</Title>
+      <Form onSubmit={submitRegisterHandler}>
+        <label>Username</label>
+        <div></div>
         <input
           type='text'
           name='usernameRegister'
           value={usernameRegister}
           onChange={(e) => setUsernameRegister(e.target.value)}
         />
-        <label>Password:</label>
+        <div></div>
+        <label>Password </label>
+        <div></div>
         <input
           type='password'
           name='passwordRegister'
           value={passwordRegister}
           onChange={(e) => setPasswordRegister(e.target.value)}
         />
-        <input type='submit' value='Submit' />
-      </form>
-      <h2>Already have an account? Click below</h2>
+        <div></div>
+        <div className="logregbutt">
+        <input className="logregbutt" type='submit' value='Submit' />
+        </div>
+      </Form>
+      <SubMessage>Already have an account? Click below</SubMessage>
+      <div className="text-center">
       <Button href='/login'>Login to your account</Button>
-    </div>
+      </div>
+    </RegDiv>
+    </RegWrapper>
   )
 }
 

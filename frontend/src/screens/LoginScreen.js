@@ -6,6 +6,7 @@ import styled from 'styled-components'
 
 
 const Title = styled.h1`
+  padding: 10px;
   font-size: 1.5em;
   text-align: center;
   color: black;
@@ -13,12 +14,14 @@ const Title = styled.h1`
 `
 
 const Form = styled.form`
+  padding: 10px;
   font-size: 1em;
-  text-align: center;
+  text-align: left;
   color: black;
 `
 
 const LoginDiv = styled.div`
+  padding: 10px;
   font-family: 'Poppins', sans-serif;
   font-weight: bold;
   border-radius: 25px;
@@ -68,21 +71,27 @@ const LoginScreen = ({ loginError }) => {
       {loginError && loginError}
       <Form onSubmit={submitLoginHandler}>
         <Title>Login</Title>
-        <label>Username:</label>
+        <label>Username</label>
+        <div></div>
         <input
           type='text'
           name='username'
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
-        <label>Password:</label>
+        <div></div>
+        <label>Password</label>
+        <div></div>
         <input
           type='password'
           name='password'
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
+        <div></div>
+        <div className="logregbutt">
         <input type='submit' value='Submit' />
+        </div>
       </Form>
       <Title>-OR-</Title>
       <div className="text-center">
