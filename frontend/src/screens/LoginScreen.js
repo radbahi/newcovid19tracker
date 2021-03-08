@@ -33,13 +33,18 @@ const LoginDiv = styled.div`
 
 const LoginWrapper = styled.div`
   margin: 200px;
-  margin-left: 130px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   border-style: line;
   border-color: black;
+`
+const SubMessage = styled.h2`
+  padding: 5px;
+  color: #c6d0df;
+  font-size: 22px;
+  text-align: center;
 `
 
 // button currently uses bootstrap
@@ -69,8 +74,8 @@ const LoginScreen = ({ loginError }) => {
     <LoginWrapper>
     <LoginDiv>
       {loginError && loginError}
+      <Title>Login</Title>
       <Form onSubmit={submitLoginHandler}>
-        <Title>Login</Title>
         <label>Username</label>
         <div></div>
         <input
@@ -93,9 +98,9 @@ const LoginScreen = ({ loginError }) => {
         <input type='submit' value='Submit' />
         </div>
       </Form>
-      <Title>-OR-</Title>
-      <div className="text-center">
-      <Button href='/register'>Register a new account</Button>
+      <SubMessage>First time here?</SubMessage>
+      <div className="screen-switch-butt">
+      <Button href='/register'>Click here to Register</Button>
       </div>
     </LoginDiv>
     </LoginWrapper>

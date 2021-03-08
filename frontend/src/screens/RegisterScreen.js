@@ -33,7 +33,6 @@ const RegDiv = styled.div`
 
 const RegWrapper = styled.div`
   margin: 200px;
-  margin-left: 130px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -42,6 +41,7 @@ const RegWrapper = styled.div`
   border-color: black;
 `
 const SubMessage = styled.h2`
+  padding: 5px;
   color: #c6d0df;
   font-size: 22px;
   text-align: center;
@@ -92,11 +92,11 @@ const RegisterScreen = ({ history }) => {
         />
         <div></div>
         <div className="logregbutt">
-        <input className="logregbutt" type='submit' value='Submit' />
+        <input type='submit' value='Submit' />
         </div>
       </Form>
-      <SubMessage>Already have an account? Click below</SubMessage>
-      <div className="text-center">
+      <SubMessage>Already a member?</SubMessage>
+      <div className="screen-switch-butt">
       <Button href='/login'>Login to your account</Button>
       </div>
     </RegDiv>

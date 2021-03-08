@@ -14,7 +14,6 @@ const StyledGraphAndMap = styled.div`
   flex-direction: row;
   justify-content: center;
 `
-
 const StyledDropdown = styled.div``
 
 const GraphAndMap = () => {
