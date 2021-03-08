@@ -4,8 +4,6 @@ import { Dropdown } from 'react-bootstrap'
 import { updateUser } from '../actions/userActions.js'
 import styled from 'styled-components'
 
-import './marquee.css'
-
 import axios from 'axios'
 
 import DiseaseGraph from './DiseaseGraph'
@@ -17,6 +15,8 @@ const StyledGraphAndMap = styled.div`
   justify-content: center;
   margin-top: 10px;
 `
+
+const StyledDropdown = styled.div``
 
 const GraphAndMap = () => {
   const dispatch = useDispatch()
@@ -58,34 +58,34 @@ const GraphAndMap = () => {
         </h1>
       </div>
       <StyledGraphAndMap>
-      <WorldMap selectedLocation={selectedLocation} />
-      <div className="graph-dropdown">
-        <Dropdown
-          menualign='right'
-          title='Select a location'
-          id='dropdown-menu-align-right'
-        >
-          <Dropdown.Toggle variant='success' id='dropdown-basic'>
-            Select a location
-          </Dropdown.Toggle>
-          <Dropdown.Menu>
-            {diseaseData.map((location) => {
-              return (
-                <Dropdown.Item
-                  onClick={() => selectLocationHandler(location)}
-                  key={location.country}
-                >
-                  {location.country}
-                </Dropdown.Item>
-              )
-            })}
-          </Dropdown.Menu>
-        </Dropdown>
-        {selectedLocation
-          ? `${selectedLocation.country}`
-          : 'Please select a country'}
-        <DiseaseGraph selectedLocation={selectedLocation} />
-        </div>
+        <WorldMap selectedLocation={selectedLocation} />
+        <StyledDropdown>
+          <Dropdown
+            menualign='right'
+            title='Select a location'
+            id='dropdown-menu-align-right'
+          >
+            <Dropdown.Toggle variant='success' id='dropdown-basic'>
+              Select a location
+            </Dropdown.Toggle>
+            <Dropdown.Menu>
+              {diseaseData.map((location) => {
+                return (
+                  <Dropdown.Item
+                    onClick={() => selectLocationHandler(location)}
+                    key={location.country}
+                  >
+                    {location.country}
+                  </Dropdown.Item>
+                )
+              })}
+            </Dropdown.Menu>
+          </Dropdown>
+          {selectedLocation
+            ? `${selectedLocation.country}`
+            : 'Please select a country'}
+          <DiseaseGraph selectedLocation={selectedLocation} />
+        </StyledDropdown>
       </StyledGraphAndMap>
     </div>
   )
