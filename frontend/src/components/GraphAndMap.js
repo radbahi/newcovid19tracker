@@ -8,11 +8,13 @@ import axios from 'axios'
 
 import DiseaseGraph from './DiseaseGraph'
 import WorldMap from './WorldMap'
+import StoryBox from './StoryBox'
 
 const StyledGraphAndMap = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
+  margin-bottom: 100px;
 `
 const StyledDropdown = styled.div``
 
@@ -21,7 +23,8 @@ const GraphAndMap = () => {
 
   const [diseaseData, setDiseaseData] = useState([])
   const [selectedLocation, setSelectedLocation] = useState({})
-
+  const [showStories, setShowStories] = useState(false)
+  const [stories, setStories] = useState([])
   const [worldData, setWorldData] = useState({})
 
   const userState = useSelector((state) => state.userState)
@@ -33,9 +36,16 @@ const GraphAndMap = () => {
       setWorldData(data[58])
     }
     addDiseaseData()
+    console.log('addDiseaseData done')
 
-    console.log('re-render this component')
     userState && setSelectedLocation(userState.location)
+
+    const addStories = async () => {
+      const { data } = await axios.get('http://localhost:3000/stories')
+      setStories(data)
+    }
+    addStories()
+    console.log('setStories done')
   }, [userState])
 
   const selectLocationHandler = (location) => {
@@ -57,33 +67,47 @@ const GraphAndMap = () => {
       </div>
       <StyledGraphAndMap>
         <WorldMap selectedLocation={selectedLocation} />
-        <StyledDropdown>
-          <Dropdown
-            menualign='right'
-            title='Select a location'
-            id='dropdown-menu-align-right'
-          >
-            <Dropdown.Toggle variant='success' id='dropdown-basic'>
-              Select a location
-            </Dropdown.Toggle>
-            <Dropdown.Menu>
-              {diseaseData.map((location) => {
-                return (
-                  <Dropdown.Item
-                    onClick={() => selectLocationHandler(location)}
-                    key={location.country}
-                  >
-                    {location.country}
-                  </Dropdown.Item>
-                )
-              })}
-            </Dropdown.Menu>
-          </Dropdown>
-          {selectedLocation
-            ? `${selectedLocation.country}`
-            : 'Please select a country'}
-          <DiseaseGraph selectedLocation={selectedLocation} />
-        </StyledDropdown>
+        {showStories ? (
+          <div>
+            <button onClick={() => setShowStories(!showStories)}>
+              Switch to graph
+            </button>
+            <StoryBox stories={stories} />
+          </div>
+        ) : (
+          <div>
+            <button onClick={() => setShowStories(!showStories)}>
+              Switch to stories
+            </button>
+            <StyledDropdown>
+              <Dropdown
+                menualign='right'
+                title='Select a location'
+                id='dropdown-menu-align-right'
+              >
+                <Dropdown.Toggle variant='success' id='dropdown-basic'>
+                  Select a location
+                </Dropdown.Toggle>
+                <Dropdown.Menu>
+                  {diseaseData.map((location) => {
+                    return (
+                      <Dropdown.Item
+                        onClick={() => selectLocationHandler(location)}
+                        key={location.country}
+                      >
+                        {location.country}
+                      </Dropdown.Item>
+                    )
+                  })}
+                </Dropdown.Menu>
+              </Dropdown>
+              {selectedLocation
+                ? `${selectedLocation.country}`
+                : 'Please select a country'}
+              <DiseaseGraph selectedLocation={selectedLocation} />
+            </StyledDropdown>
+          </div>
+        )}
       </StyledGraphAndMap>
     </div>
   )

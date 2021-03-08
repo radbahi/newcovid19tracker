@@ -94,9 +94,9 @@ const WorldMap = ({ selectedLocation }) => {
 
   if (infectedAreas.length > 0) {
     return (
-      <div className='worldmap' style={{ height: '60vh', width: '850vw' }}>
+      <div className='worldmap' style={{ height: '60vh', width: '443vw' }}>
         <ReactTooltip>{tooltipContent}</ReactTooltip>
-        <ComposableMap width={1920} height={1080} data-tip=''>
+        <ComposableMap width={800} height={500} data-tip=''>
           <ZoomableGroup
             zoom={position.zoom}
             center={position.coordinates}
