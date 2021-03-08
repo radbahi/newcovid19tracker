@@ -1,9 +1,4 @@
 import { BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid } from 'recharts'
-import styled from 'styled-components'
-
-// const StyledGraph = styled.div`
-//   margin-left: 115vh;
-// `
 
 const DiseaseGraph = ({ selectedLocation }) => {
   const data = [
@@ -75,10 +70,10 @@ const DiseaseGraph = ({ selectedLocation }) => {
   return (
     <div>
       <BarChart
-        width={540}
+        width={600}
         height={300}
         data={data}
-        // margin={{ left: 200, right: -200 }}
+        margin={{ left: 30, right: -10 }}
       >
         <XAxis dataKey='name' stroke='#8884d8' />
         <YAxis />
