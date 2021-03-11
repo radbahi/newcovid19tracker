@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { Dropdown } from 'react-bootstrap'
 import { updateUser } from '../actions/userActions.js'
 import styled from 'styled-components'
+// import useScript from './Marquee.js'
 
 import axios from 'axios'
 
@@ -28,6 +29,7 @@ const GraphAndMap = () => {
   const [worldData, setWorldData] = useState({})
 
   const userState = useSelector((state) => state.userState)
+  // useScript("./Marquee.js")
 
   useEffect(() => {
     const addDiseaseData = async () => {

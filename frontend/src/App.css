@@ -35,13 +35,14 @@
   justify-content: center;
 }
 
+
 .logregbutt{
   text-align: center;
   margin-top: 10px;
 }
 
 #responsive-navbar-nav{
-  justify-content: space-evenly;
+  justify-content: center;
 }
 
 .logo{
