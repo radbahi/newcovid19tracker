@@ -1,19 +1,21 @@
 import { Navbar, Nav } from 'react-bootstrap'
 import React from 'react';
+import logo from '../covidLogo.png'
+
 
 const NavBar = () => {
     return (
         <Navbar className="navbar" >
-            <Navbar.Brand href="/">
+            <Navbar.Brand className="navbar-brand" href="/">
             <img
         alt=""
-        src="./public/covidLogo.png"
-        width="30"
-        height="30"
-        className="d-inline-block align-top"
-         />
-            COVID-19 Tracker 
-            </Navbar.Brand>   
+        src={logo}
+        width="55"
+        height="55"
+        className="logo"
+         /> 
+            </Navbar.Brand> 
+            <h1 className="navbar-title" href="/">COVID-19 Tracker</h1>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
             <Nav>

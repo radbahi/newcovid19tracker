@@ -46,6 +46,7 @@ const GraphAndMap = () => {
     }
     addStories()
     console.log('setStories done')
+
   }, [userState])
 
   const selectLocationHandler = (location) => {
@@ -56,14 +57,28 @@ const GraphAndMap = () => {
 
   // PASS SELECTED LOCATION AS PROP INTO DISEASEGRAPH AND JUST PASS ALL DATA INTO WORLD MAP
   // CREATE FUNCTION TO MAKE A SELECTED LOCATION ONCLICK TO THE DROPDOWN ITEMS
+
+
+  // CHANGES I MADE ON 3/10
+  // Changed to ul/li for marquee. 
+  // Script page is just for marquee fix. 
+  // Current issue with marquee is that there's a slight overlap.
+  // Also, the current way to create the marquee uses cloned elements for the loop.
+  // The script is made to clone elements. 
   return (
     <div>
-      <div className='bizmarquee'>
-        <h1 className='marquee'>
-          Global Active: {worldData.active}, Global Deaths: {worldData.deaths},
-          Global Confirmed Recovered: {worldData.recovered}, Global
-          Vaccinations: {worldData.vaccinations}
-        </h1>
+      <div className='marquee'>
+        <ul className='marquee-content'>
+          <li className="liOdd">Global Active: {worldData.active}</li>
+          <li className="liEven">Global Deaths: {worldData.deaths}</li>
+          <li className="liOdd">Global Confirmed Recovered: {worldData.recovered}</li>
+          <li className="liEven">Global Vaccinations: {worldData.vaccinations}</li>
+
+          {/* The below isn't needed when the script on Marquee.js works */}
+          <li className="liOdd">Global Active: {worldData.active}</li>
+          <li className="liEven">Global Deaths: {worldData.deaths}</li>
+          <li className="liOdd">Global Confirmed Recovered: {worldData.recovered}</li>
+        </ul>
       </div>
       <StyledGraphAndMap>
         <WorldMap selectedLocation={selectedLocation} />
