@@ -1,6 +1,7 @@
 import LoginScreen from './screens/LoginScreen'
 import RegisterScreen from './screens/RegisterScreen'
 import HomeScreen from './screens/HomeScreen'
+import AboutUsScreen from './screens/AboutUsScreen'
 import { useSelector, useDispatch } from 'react-redux'
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
 import { useEffect } from 'react'
@@ -20,7 +21,7 @@ function App() {
   // const { userInfo } = userState
   return (
     <Router>
-      <NavBar/>
+      <NavBar />
       <Route exact path='/'>
         {!userState ? <Redirect to='/login' /> : <HomeScreen />}
       </Route>
@@ -36,6 +37,7 @@ function App() {
         )}
       </Route>
       <Route exact path='/register' component={RegisterScreen} />
+      <Route exact path='/aboutus' component={AboutUsScreen} />
     </Router>
   )
 }
