@@ -29,7 +29,11 @@ const NavBar = () => {
               Logout{' '}
             </Button>
           ) : null}
-          <Nav.Link href='/aboutus'> About us </Nav.Link>
+          {window.location.pathname !== '/aboutus' ? (
+            <Nav.Link href='/aboutus'> About us </Nav.Link>
+          ) : (
+            <Nav.Link href='/'> Main Page </Nav.Link>
+          )}
         </Nav>
       </Navbar.Collapse>
     </Navbar>

@@ -126,7 +126,7 @@ const WorldMap = ({ selectedLocation }) => {
                       onMouseLeave={onMouseLeave}
                       fill={current ? colorScale(current.active) : '#EEE'}
                       stroke='blue'
-                      strokeOpacity='0.8'
+                      strokeOpacity='1'
                     />
                   ) : (
                     <Geography
@@ -135,6 +135,8 @@ const WorldMap = ({ selectedLocation }) => {
                       onMouseEnter={onMouseEnter(current)}
                       onMouseLeave={onMouseLeave}
                       fill={current ? colorScale(current.active) : '#EEE'}
+                      stroke='black'
+                      strokeOpacity='0.1'
                     />
                   )
                 })
