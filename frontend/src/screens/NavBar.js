@@ -1,8 +1,17 @@
-import { Navbar, Nav } from 'react-bootstrap'
+import { Navbar, Nav, Button } from 'react-bootstrap'
 import React from 'react'
 import logo from '../covidLogo.png'
+import { useSelector, useDispatch } from 'react-redux'
+import { logout } from '../actions/userActions.js'
 
 const NavBar = () => {
+  const dispatch = useDispatch()
+  const logoutHandler = () => {
+    dispatch(logout())
+  }
+
+  const userState = useSelector((state) => state.userState)
+
   return (
     <Navbar className='navbar'>
       <Navbar.Brand className='navbar-brand' href='/'>
@@ -14,8 +23,12 @@ const NavBar = () => {
       <Navbar.Toggle aria-controls='basic-navbar-nav' />
       <Navbar.Collapse id='responsive-navbar-nav'>
         <Nav>
-          <Nav.Link href='/login'> Login </Nav.Link>
-          <Nav.Link href='/register'> Register </Nav.Link>
+          {userState ? (
+            <Button className='logoutButton' onClick={logoutHandler}>
+              {' '}
+              Logout{' '}
+            </Button>
+          ) : null}
           <Nav.Link href='/aboutus'> About us </Nav.Link>
         </Nav>
       </Navbar.Collapse>
