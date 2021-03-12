@@ -10,8 +10,8 @@ const StyledStories = styled.div`
 const StoryBox = ({ stories }) => {
   return (
     <StyledStories>
-      <h1>International News about COVID-19</h1>
-      <div>
+      <h1 >International News about COVID-19</h1>
+      <div className="story-card-container">
         {stories.map((stories) => {
           return (
             <Card key={stories.id} style={{ width: '44.65vw' }}>

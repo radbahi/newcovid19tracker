@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { Dropdown } from 'react-bootstrap'
+import { Dropdown, Button } from 'react-bootstrap'
 import { updateUser } from '../actions/userActions.js'
 import styled from 'styled-components'
 // import useScript from './Marquee.js'
@@ -17,7 +17,8 @@ const StyledGraphAndMap = styled.div`
   justify-content: center;
   margin-bottom: 100px;
 `
-const StyledDropdown = styled.div``
+const StyledDropdown = styled.div`
+`
 
 const GraphAndMap = () => {
   const dispatch = useDispatch()
@@ -86,16 +87,16 @@ const GraphAndMap = () => {
         <WorldMap selectedLocation={selectedLocation} />
         {showStories ? (
           <div>
-            <button onClick={() => setShowStories(!showStories)}>
+            <Button className="story-button" onClick={() => setShowStories(!showStories)}>
               Switch to graph
-            </button>
+            </Button>
             <StoryBox stories={stories} />
           </div>
         ) : (
           <div>
-            <button onClick={() => setShowStories(!showStories)}>
+            <Button className="story-button" onClick={() => setShowStories(!showStories)}>
               Switch to stories
-            </button>
+            </Button>
             <StyledDropdown>
               <Dropdown
                 menualign='right'
