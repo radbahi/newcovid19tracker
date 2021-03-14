@@ -33,11 +33,7 @@ class UsersController < ApplicationController
             wristband = encode_token({user_id: @user.id})
             render json:  { user: UserSerializer.new(@user), token: wristband }
         else
-<<<<<<< HEAD
-            render json: {message: 'BIG PROBLEM'}, status: 500
-=======
             render json: {error: 'User creation failed'}, status: 500
->>>>>>> 7e00c978c75d30d294c9674d1930dedc60532c6a
         end
     end
 
