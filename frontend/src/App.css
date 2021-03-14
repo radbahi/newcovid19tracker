@@ -39,7 +39,7 @@
   font-weight: bold !important;
   color: white;
   border-radius: 10px !important;
-  margin: 15px;
+  margin-bottom: 15px;
   box-shadow: 0px 0px 2px 3px #CED1DB;
 }
 
@@ -60,6 +60,7 @@
   font-family: 'Poppins', sans-serif;
   font-weight: bold;
   background-color: #317cf7;
+  white-space: nowrap;
   }
 
 .nav-link{
@@ -96,15 +97,15 @@
 /* css variables */
 :root{
   --marquee-width: 100vw;
-  --marquee-height: 10vh;
+  --marquee-height: 20vh;
   /* marquee elements not needed when script works */
   --marquee-elements: 4;
-  --marquee-elements-displayed: 3;
+  --marquee-elements-displayed: 2.5;
   /* we REALLY need a standard width. Math gets funky when things are flexed.*/
-  --marquee-element-width: 51vw;
+  /* --marquee-element-width: 51vw; */
   /* this below is what works with our script */
-  /* --marquee-element-width: calc(var(--marquee-width)/var(--marquee-elements-displayed)); */
-  --marquee-animation-duration: calc(var(--marquee-elements)*3s)
+  --marquee-element-width: calc(var(--marquee-width)/var(--marquee-elements-displayed));
+  --marquee-animation-duration: calc(var(--marquee-elements)*2s)
 }
 
 .marquee{
@@ -115,6 +116,11 @@
   height: var(--marquee-height); 
   overflow: hidden;
   position: relative;
+}
+
+.marquee-title{
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
 }
 
 .marquee:before, .marquee:after{
@@ -154,6 +160,7 @@
 }
 
 .marquee-content li {
+  padding: 10px;
   white-space: nowrap;
   flex-basis: 0;
   display: flex;

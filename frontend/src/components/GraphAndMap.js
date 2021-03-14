@@ -71,16 +71,17 @@ const GraphAndMap = () => {
   return (
     <div>
       <div className='marquee'>
+        <h2 className='marquee-title'>Global Statistics</h2>
         <ul className='marquee-content'>
-          <li className="liOdd">Global Active: {worldData.active}</li>
-          <li className="liEven">Global Deaths: {worldData.deaths}</li>
-          <li className="liOdd">Global Confirmed Recovered: {worldData.recovered}</li>
-          <li className="liEven">Global Vaccinations: {worldData.vaccinations}</li>
+          <li className="liOdd">Active: {worldData.active}</li>
+          <li className="liEven">Deaths: {worldData.deaths}</li>
+          <li className="liOdd">Recovered: {worldData.recovered}</li>
+          <li className="liEven">Vaccinations: {worldData.vaccinations}</li>
 
           {/* The below isn't needed when the script on Marquee.js works */}
-          <li className="liOdd">Global Active: {worldData.active}</li>
-          <li className="liEven">Global Deaths: {worldData.deaths}</li>
-          <li className="liOdd">Global Confirmed Recovered: {worldData.recovered}</li>
+          <li className="liOdd">Active: {worldData.active}</li>
+          <li className="liEven">Deaths: {worldData.deaths}</li>
+          <li className="liOdd">Confirmed Recovered: {worldData.recovered}</li>
         </ul>
       </div>
       <StyledGraphAndMap>
