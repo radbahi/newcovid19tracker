@@ -102,12 +102,8 @@
   /* we REALLY need a standard width. Math gets funky when things are flexed.*/
   --marquee-element-width: 43vw;
   /* this below is what works with our script */
-<<<<<<< HEAD=======
-<<<<<<< HEAD
   /* --marquee-element-width: calc(var(--marquee-width)/var(--marquee-elements-displayed)); */
-=======
   --marquee-animation-duration: calc(var(--marquee-elements)*2s)
->>>>>>> dc101dd90849fa750355a9e92db35810ab2b9e52
 }
 
 .marquee {
@@ -120,17 +116,12 @@
   position: relative;
 }
 
-<<<<<<< HEAD
-.marquee:before,
-.marquee:after {
-=======
 .marquee-title{
   font-family: 'Poppins', sans-serif;
   font-weight: bold;
 }
 
 .marquee:before, .marquee:after{
->>>>>>> dc101dd90849fa750355a9e92db35810ab2b9e52
   position: absolute;
   top: 0;
   width: 10rem;
