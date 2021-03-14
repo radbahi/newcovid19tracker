@@ -100,11 +100,11 @@
   --marquee-height: 20vh;
   /* marquee elements not needed when script works */
   --marquee-elements: 4;
-  --marquee-elements-displayed: 2.5;
+  --marquee-elements-displayed: 2;
   /* we REALLY need a standard width. Math gets funky when things are flexed.*/
-  /* --marquee-element-width: 51vw; */
+  --marquee-element-width: 43vw;
   /* this below is what works with our script */
-  --marquee-element-width: calc(var(--marquee-width)/var(--marquee-elements-displayed));
+  /* --marquee-element-width: calc(var(--marquee-width)/var(--marquee-elements-displayed)); */
   --marquee-animation-duration: calc(var(--marquee-elements)*2s)
 }
 
