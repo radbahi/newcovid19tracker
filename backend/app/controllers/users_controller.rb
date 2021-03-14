@@ -24,7 +24,7 @@ class UsersController < ApplicationController
             puts @user
         else
             # this else statement is not being hit for whatever reason
-            render json: { message: 'Wrong username/password' }, :status => 500
+            render json: { message: 'Wrong username/password', status: 500 }, status: 500
         end
     end
 
@@ -34,11 +34,7 @@ class UsersController < ApplicationController
             wristband = encode_token({user_id: @user.id})
             render json:  { user: UserSerializer.new(@user), token: wristband }
         else
-<<<<<<< HEAD
             render json: {error: 'User creation failed'}, status: 500
-=======
-            render json: {message: 'BIG PROBLEM'}, status: 500
->>>>>>> b48f02aa202d417cf2e6979cffd5c9252c52f39b
         end
     end
 
