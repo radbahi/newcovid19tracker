@@ -15,7 +15,7 @@ export const login = (username, password) => async (dispatch) => {
     config
   )
 
-  console.log(response)
+  console.log(response) // if wrong login credentials, this doesn't get logged? how do we get the error from backend?
 
   try {
     localStorage.setItem('token', response.data.token)
