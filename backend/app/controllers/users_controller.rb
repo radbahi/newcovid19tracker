@@ -17,28 +17,26 @@ class UsersController < ApplicationController
     def login 
         @user = User.find_by(username: params[:username])
         
-        if @user.valid? && @user.authenticate(params[:password])
+        if @user && @user.authenticate(params[:password])
             # has_secure_password contains authenticate method
             wristband = encode_token({user_id: @user.id})
             render json: { user: UserSerializer.new(@user), token: wristband }
+            puts @user
         else
-            render :json => { :message => 'oh fuck' }, :status => 500
+            # this else statement is not being hit for whatever reason
+            render json: { message: 'Wrong username/password' }, :status => 500
         end
     end
 
     def create
         @user = User.create(user_params)
-        if @user.valid? 
+        if @user.valid
             wristband = encode_token({user_id: @user.id})
             render json:  { user: UserSerializer.new(@user), token: wristband }
         else
-            render json: {error: 'BIG PROBLEM'}, status: 500
+            render json: {error: 'User creation failed'}, status: 500
         end
     end
-
-    # bug noticed on 2/12
-    # on refresh the selected location doesn't stay updated unless a user logs out? ? 
-    # this route isn't hitting everytime, might need to change some front end stuff in actions
 
     def update_location
         @user = User.find(params[:id])
@@ -49,7 +47,7 @@ class UsersController < ApplicationController
             @user.update(location: @location)
             render json: @user
         else
-            render json: {error: "Something went wrong"}, status: 500
+            render json: {error: "Location update failed"}, status: 500
         end
     end
 
@@ -107,8 +105,6 @@ class UsersController < ApplicationController
         render json: { message: "Please log in" }, status: :unauthorized unless logged_in? 
     end 
     
-    # user create is getting an invalid param of user, won't create new users. 
-
     private 
 
     def user_params 

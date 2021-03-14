@@ -1,7 +1,6 @@
 import axios from 'axios'
 
 export const login = (username, password) => async (dispatch) => {
-  
   const config = {
     headers: {
       'Content-Type': 'application/json',
@@ -9,16 +8,17 @@ export const login = (username, password) => async (dispatch) => {
     },
   } //we want to send this as a header.
 
+  // response isn't being populated with an error on wrong login info submission for some reason
   const response = await axios.post(
     'http://localhost:3000/login',
     { username, password },
     config
   )
-  
+
+  console.log(response)
+
   try {
     localStorage.setItem('token', response.data.token)
-
-    console.log(response)
 
     dispatch({ type: 'USER_LOGIN_SUCCESS', payload: response.data.user })
 
@@ -27,8 +27,7 @@ export const login = (username, password) => async (dispatch) => {
   } catch (error) {
     dispatch({
       type: 'USER_LOGIN_FAIL',
-      payload: 
-      response.data.error.message
+      payload: response.data.error.message,
     }) //the payload here checks for our custom message. if it exists, send the custom message, if not, send generic message}
   }
 }
@@ -116,7 +115,6 @@ export const updateUser = (user) => async (dispatch) => {
 }
 
 export const persistUser = () => async (dispatch) => {
-  console.log('hi')
   const config = {
     headers: {
       Authorization: `Bearer ${localStorage.token}`,
