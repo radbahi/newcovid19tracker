@@ -2,19 +2,18 @@
 
 .dropdown-menu {
   height: 200px;
-  overflow-y: auto
+  overflow-y: auto;
 }
 
-#dropdown-basic{
+#dropdown-basic {
   background-color: #317cf7;
   border-color: #317cf7;
   border-radius: 10px;
   font-family: 'Poppins', sans-serif;
   font-weight: bold;
   color: white;
-  box-shadow: 0px 0px 2px 3px #CED1DB;
+  box-shadow: 0px 0px 2px 3px #ced1db;
 }
-
 
 /* Buttons */
 
@@ -22,13 +21,13 @@
   justify-content: center;
 }
 
-.screen-switch-butt{
+.screen-switch-butt {
   padding-bottom: 10px;
   text-align: center;
   text-justify: center;
 }
 
-.logregbutt{
+.logregbutt {
   text-align: center;
   margin-top: 10px;
 }
@@ -39,51 +38,50 @@
   font-weight: bold !important;
   color: white;
   border-radius: 10px !important;
-  margin: 15px;
-  box-shadow: 0px 0px 2px 3px #CED1DB;
+  margin-bottom: 15px;
+  box-shadow: 0px 0px 2px 3px #ced1db;
 }
 
-.logoutButton{
+.logoutButton {
   background-color: #317cf7;
-  font-family: 'Poppins', sans-serif; 
+  font-family: 'Poppins', sans-serif;
   font-weight: bold !important;
 }
 
-
 /* Navbar */
 
-.navbar{
+.navbar {
   border-radius: 25px;
   margin: 20px;
   margin-top: 5px;
-  box-shadow: 0px 0px 5px 7px #CED1DB;
+  box-shadow: 0px 0px 5px 7px #ced1db;
   font-family: 'Poppins', sans-serif;
   font-weight: bold;
   background-color: #317cf7;
-  }
+}
 
-.nav-link{
+.nav-link {
   background-color: #317cf7;
   color: white !important;
 }
 
-.navbar-brand{
+.navbar-brand {
   background-color: #317cf7;
   color: white !important;
   padding: 5px;
   justify-content: center;
 }
 
-#responsive-navbar-nav{
+#responsive-navbar-nav {
   justify-content: center;
 }
 
-.logo{
+.logo {
   margin: 0px;
   margin-left: 10px;
 }
 
-.navbar-title{
+.navbar-title {
   font-family: 'Poppins', sans-serif;
   font-weight: bold;
   font-size: 25px;
@@ -94,7 +92,7 @@
 /* Marquee */
 
 /* css variables */
-:root{
+:root {
   --marquee-width: 100vw;
   --marquee-height: 10vh;
   /* marquee elements not needed when script works */
@@ -104,52 +102,59 @@
   --marquee-element-width: 51vw;
   /* this below is what works with our script */
   /* --marquee-element-width: calc(var(--marquee-width)/var(--marquee-elements-displayed)); */
-  --marquee-animation-duration: calc(var(--marquee-elements)*3s)
+  --marquee-animation-duration: calc(var(--marquee-elements) * 3s);
 }
 
-.marquee{
+.marquee {
   font-family: 'Poppins', sans-serif;
   font-weight: bold;
   color: red;
   width: var(--marquee-width);
-  height: var(--marquee-height); 
+  height: var(--marquee-height);
   overflow: hidden;
   position: relative;
 }
 
-.marquee:before, .marquee:after{
+.marquee:before,
+.marquee:after {
   position: absolute;
   top: 0;
-  width:10rem;
+  width: 10rem;
   height: 100%;
-  content: "";
+  content: '';
   z-index: 1;
 }
 
-.marquee:before{
+.marquee:before {
   left: 0;
   background: linear-gradient(to right, white 0%, transparent 100%);
 }
 
-.marquee:after{
+.marquee:after {
   right: 0;
   background: linear-gradient(to left, white 0%, transparent 100%);
 }
 
-.marquee-content{
- list-style: none;
- height: 100%;
- display: flex;
- animation: scrolling var(--marquee-animation-duration) linear infinite;
+.marquee-content {
+  list-style: none;
+  height: 100%;
+  display: flex;
+  animation: scrolling var(--marquee-animation-duration) linear infinite;
 }
 
 /* animation maths */
-@keyframes scrolling{
-  0% { transform: translateX(0); }
-  100% { transform: translateX(calc(-1*var(--marquee-element-width)*var(--marquee-elements))); }
+@keyframes scrolling {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(
+      calc(-1 * var(--marquee-element-width) * var(--marquee-elements))
+    );
+  }
 }
 
-.marquee-content:hover{
+.marquee-content:hover {
   animation-play-state: paused;
 }
 
@@ -161,28 +166,32 @@
   font-size: 3rem;
 }
 
-.liOdd{
+.liOdd {
   color: black;
 }
 
-.liEven{
+.liEven {
   color: red;
 }
 
 /* for smaller screens */
 @media (max-width: 600px) {
-  html { font-size: 12px; }
+  html {
+    font-size: 12px;
+  }
   :root {
     --marquee-width: 100vw;
     --marquee-height: 16vh;
     --marquee-elements-displayed: 1;
   }
-  .marquee:before, .marquee:after { width: 5rem; }
+  .marquee:before,
+  .marquee:after {
+    width: 5rem;
+  }
 }
-
 
 /* Stories */
 
-.story-card-container{
-  height: 100px;
+.story-card-container {
+  height: 60vh;
 }
