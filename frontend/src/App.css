@@ -100,16 +100,16 @@
   --marquee-elements: 4;
   --marquee-elements-displayed: 2;
   /* we REALLY need a standard width. Math gets funky when things are flexed.*/
-  --marquee-element-width: 43vw;
+  /* --marquee-element-width: 35vw; */
   /* this below is what works with our script */
-  /* --marquee-element-width: calc(var(--marquee-width)/var(--marquee-elements-displayed)); */
-  --marquee-animation-duration: calc(var(--marquee-elements)*2s)
+  --marquee-element-width: calc(var(--marquee-width)/var(--marquee-elements-displayed));
+  --marquee-animation-duration: calc(var(--marquee-elements)*3s)
 }
 
 .marquee {
   font-family: 'Poppins', sans-serif;
   font-weight: bold;
-  color: red;
+  color: #9f0300;
   width: var(--marquee-width);
   height: var(--marquee-height);
   overflow: hidden;
@@ -119,6 +119,8 @@
 .marquee-title{
   font-family: 'Poppins', sans-serif;
   font-weight: bold;
+  padding-top: 1vh;
+  text-decoration: underline;
 }
 
 .marquee:before, .marquee:after{
@@ -177,7 +179,8 @@
 }
 
 .liEven {
-  color: red;
+  color: #9f0300
+  ;
 }
 
 /* for smaller screens */

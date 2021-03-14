@@ -81,7 +81,8 @@ const GraphAndMap = () => {
           {/* The below isn't needed when the script on Marquee.js works */}
           <li className="liOdd">Active: {worldData.active}</li>
           <li className="liEven">Deaths: {worldData.deaths}</li>
-          <li className="liOdd">Confirmed Recovered: {worldData.recovered}</li>
+          <li className="liOdd">Recovered: {worldData.recovered}</li>
+          <li className="liEven">Vaccinations: {worldData.vaccinations}</li>
         </ul>
       </div>
       <StyledGraphAndMap>
