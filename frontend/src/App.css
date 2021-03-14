@@ -103,7 +103,7 @@
   /* --marquee-element-width: 35vw; */
   /* this below is what works with our script */
   --marquee-element-width: calc(var(--marquee-width)/var(--marquee-elements-displayed));
-  --marquee-animation-duration: calc(var(--marquee-elements)*3s)
+  --marquee-animation-duration: calc(var(--marquee-elements)*4s)
 }
 
 .marquee {
