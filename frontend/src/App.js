@@ -38,7 +38,7 @@ function App() {
       </Route>
       <Route exact path='/register'>
         {userState && userState.error ? (
-          <RegisterScreen registerError={userState.error} />
+          <RegisterScreen registerError={userState.error.message} />
         ) : (
           <RegisterScreen />
         )}
