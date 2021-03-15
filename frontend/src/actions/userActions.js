@@ -17,19 +17,23 @@ export const login = (username, password) => async (dispatch) => {
 
   console.log(response) // if wrong login credentials, this doesn't get logged? how do we get the error from backend?
 
-  try {
+  // try {
+
+  if (response.data.status === 500) {
+    dispatch({ type: 'USER_LOGIN_FAIL', payload: response.data })
+  } else {
     localStorage.setItem('token', response.data.token)
-
     dispatch({ type: 'USER_LOGIN_SUCCESS', payload: response.data.user })
-
-    // localStorage.setItem('userInfo', JSON.stringify({userInfo: data.data.user})) //save the userinfo to localstorage. we stringify it cuz localstorage only saves strings. we later parse it back to JSON to use with javascript.
-    // //we take the localstorage userinfo data in the initial state in store.js
-  } catch (error) {
-    dispatch({
-      type: 'USER_LOGIN_FAIL',
-      payload: response.data.error.message,
-    }) //the payload here checks for our custom message. if it exists, send the custom message, if not, send generic message}
   }
+
+  // localStorage.setItem('userInfo', JSON.stringify({userInfo: data.data.user})) //save the userinfo to localstorage. we stringify it cuz localstorage only saves strings. we later parse it back to JSON to use with javascript.
+  // //we take the localstorage userinfo data in the initial state in store.js
+  // } catch (error) {
+  //   dispatch({
+  //     type: 'USER_LOGIN_FAIL',
+  //     payload: response.data.error.message,
+  //   }) //the payload here checks for our custom message. if it exists, send the custom message, if not, send generic message}
+  // }
 }
 
 // LOGOUT USER
@@ -42,32 +46,36 @@ export const logout = () => (dispatch) => {
 // REGISTER USER
 
 export const register = (username, password) => async (dispatch) => {
-  try {
-    const config = {
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${localStorage.token}`,
-      },
-    } //we want to send this as a header
+  // try {
+  const config = {
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${localStorage.token}`,
+    },
+  } //we want to send this as a header
 
-    const response = await axios.post(
-      'http://localhost:3000/users',
-      { username, password },
-      config
-    ) //pass all these arguments in and then extract data from the response
+  const response = await axios.post(
+    'http://localhost:3000/users',
+    { username, password },
+    config
+  ) //pass all these arguments in and then extract data from the response
 
-    dispatch({ type: 'USER_LOGIN_SUCCESS', payload: response.data.user }) //we want the user to be immediately logged in if registration is successful
+  if (response.data.status === 500) {
+    dispatch({ type: 'USER_REGISTER_FAIL', payload: response.data })
+  } else {
+    dispatch({ type: 'USER_LOGIN_SUCCESS', payload: response.data.user })
+  } //we want the user to be immediately logged in if registration is successful
 
-    localStorage.setItem('token', response.data.token)
-  } catch (error) {
-    dispatch({
-      type: 'USER_REGISTER_FAIL',
-      payload:
-        error.response && error.response.data.message
-          ? error.response.data.message
-          : error.message,
-    }) //the payload here checks for our custom message. if it exists, send the custom message, if not, send generic message}
-  }
+  localStorage.setItem('token', response.data.token)
+  // } catch (error) {
+  //   dispatch({
+  //     type: 'USER_REGISTER_FAIL',
+  //     payload:
+  //       error.response && error.response.data.message
+  //         ? error.response.data.message
+  //         : error.message,
+  //   }) //the payload here checks for our custom message. if it exists, send the custom message, if not, send generic message}
+  // }
 }
 // if were expecting to pass the whole user object every time, its extra.
 // eventually it will have to sort through too many endpoints.

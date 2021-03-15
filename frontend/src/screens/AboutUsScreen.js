@@ -19,12 +19,13 @@ const AboutUs = () => {
       <Figure>
         <Figure.Image width={171} height={180} alt='redpic' src={RedPic} />
         <br />
-        <a href='https://github.com/radbahi' target='_blank'>
+        <a href='https://github.com/radbahi' target='_blank' rel='noreferrer'>
           <Figure.Image width={32} height={32} alt='github' src={githublogo} />
         </a>
         <a
           href='https://www.linkedin.com/in/radouane-bahi-5410a1137/'
           target='_blank'
+          rel='noreferrer'
         >
           <Figure.Image
             width={32}
@@ -43,10 +44,18 @@ const AboutUs = () => {
       <Figure>
         <Figure.Image width={171} height={180} alt='kevinpic' src={KevinPic} />
         <br />
-        <a href='https://github.com/teapuddles' target='_blank'>
+        <a
+          href='https://github.com/teapuddles'
+          target='_blank'
+          rel='noreferrer'
+        >
           <Figure.Image width={32} height={32} alt='github' src={githublogo} />
         </a>
-        <a href='https://www.linkedin.com/in/teapuddles824/' target='_blank'>
+        <a
+          href='https://www.linkedin.com/in/teapuddles824/'
+          target='_blank'
+          rel='noreferrer'
+        >
           <Figure.Image
             width={32}
             height={32}

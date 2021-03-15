@@ -36,7 +36,13 @@ function App() {
           />
         )}
       </Route>
-      <Route exact path='/register' component={RegisterScreen} />
+      <Route exact path='/register'>
+        {userState && userState.error ? (
+          <RegisterScreen registerError={userState.error} />
+        ) : (
+          <RegisterScreen />
+        )}
+      </Route>
       <Route exact path='/aboutus' component={AboutUsScreen} />
     </Router>
   )

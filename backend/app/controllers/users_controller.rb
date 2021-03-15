@@ -24,17 +24,17 @@ class UsersController < ApplicationController
             puts @user
         else
             # this else statement is not being hit for whatever reason
-            render json: { message: 'Wrong username/password', status: 500 }, status: 500
+            render json: { message: 'Wrong username/password', status: 500 }
         end
     end
 
     def create
         @user = User.create(user_params)
-        if @user.valid
+        if @user.valid?
             wristband = encode_token({user_id: @user.id})
             render json:  { user: UserSerializer.new(@user), token: wristband }
         else
-            render json: {error: 'User creation failed'}, status: 500
+            render json: {message: 'Username already taken', status: 500}
         end
     end
 
