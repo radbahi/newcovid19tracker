@@ -4,7 +4,6 @@ import { login } from '../actions/userActions.js'
 import { Button } from 'react-bootstrap'
 import styled from 'styled-components'
 
-
 const Title = styled.h1`
   padding: 10px;
   font-size: 1.5em;
@@ -28,7 +27,7 @@ const LoginDiv = styled.div`
   width: 300px;
   position: center;
   justify-content: center;
-  box-shadow: 0px 0px 5px 7px #CED1DB;
+  box-shadow: 0px 0px 5px 7px #ced1db;
 `
 
 const LoginWrapper = styled.div`
@@ -72,37 +71,37 @@ const LoginScreen = ({ loginError }) => {
   // const { userInfo } = userState
   return (
     <LoginWrapper>
-    <LoginDiv>
-      {loginError && loginError}
-      <Title>Login</Title>
-      <Form onSubmit={submitLoginHandler}>
-        <label>Username</label>
-        <div></div>
-        <input
-          type='text'
-          name='username'
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-        />
-        <div></div>
-        <label>Password</label>
-        <div></div>
-        <input
-          type='password'
-          name='password'
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <div></div>
-        <div className="logregbutt">
-        <input type='submit' value='Submit' />
+      <LoginDiv>
+        {loginError && loginError}
+        <Title>Login</Title>
+        <Form onSubmit={submitLoginHandler}>
+          <label>Username</label>
+          <div></div>
+          <input
+            type='text'
+            name='username'
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
+          <div></div>
+          <label>Password</label>
+          <div></div>
+          <input
+            type='password'
+            name='password'
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <div></div>
+          <div className='logregbutt'>
+            <input type='submit' value='Submit' />
+          </div>
+        </Form>
+        <SubMessage>First time here?</SubMessage>
+        <div className='screen-switch-butt'>
+          <Button href='/register'>Click here to Register</Button>
         </div>
-      </Form>
-      <SubMessage>First time here?</SubMessage>
-      <div className="screen-switch-butt">
-      <Button href='/register'>Click here to Register</Button>
-      </div>
-    </LoginDiv>
+      </LoginDiv>
     </LoginWrapper>
   )
 }

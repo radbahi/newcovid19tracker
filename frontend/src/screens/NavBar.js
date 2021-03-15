@@ -21,7 +21,7 @@ const NavBar = () => {
       <Navbar.Toggle aria-controls='basic-navbar-nav' />
       <Navbar.Collapse id='responsive-navbar-nav'>
         <Nav>
-          {userState ? (
+          {userState && userState.username ? (
             <Button className='logoutButton' onClick={logoutHandler}>
               {' '}
               Logout{' '}
