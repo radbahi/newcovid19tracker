@@ -18,6 +18,7 @@ export const login = (username, password) => async (dispatch) => {
   console.log(response) // if wrong login credentials, this doesn't get logged? how do we get the error from backend?
 
   try {
+    console.log(response)
     localStorage.setItem('token', response.data.token)
 
     dispatch({ type: 'USER_LOGIN_SUCCESS', payload: response.data.user })
@@ -27,8 +28,9 @@ export const login = (username, password) => async (dispatch) => {
   } catch (error) {
     dispatch({
       type: 'USER_LOGIN_FAIL',
-      payload: response.data.error.message,
-    }) //the payload here checks for our custom message. if it exists, send the custom message, if not, send generic message}
+      payload: response.data.message,
+    })
+   //the payload here checks for our custom message. if it exists, send the custom message, if not, send generic message}
   }
 }
 

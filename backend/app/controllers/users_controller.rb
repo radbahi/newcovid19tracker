@@ -23,7 +23,7 @@ class UsersController < ApplicationController
             render json: { user: UserSerializer.new(@user), token: wristband }
         else
             # this else statement is not being hit for whatever reason
-            render json: { message: 'Wrong username/password', status: 500 }, status: 500
+            render json: { message: 'Wrong username/password', status: 500 }, status: 500 
         end
     end
 
