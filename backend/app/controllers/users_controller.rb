@@ -21,7 +21,6 @@ class UsersController < ApplicationController
             # has_secure_password contains authenticate method
             wristband = encode_token({user_id: @user.id})
             render json: { user: UserSerializer.new(@user), token: wristband }
-            puts @user
         else
             # this else statement is not being hit for whatever reason
             render json: { message: 'Wrong username/password', status: 500 }
