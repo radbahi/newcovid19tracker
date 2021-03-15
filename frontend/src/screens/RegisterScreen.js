@@ -4,7 +4,6 @@ import { register } from '../actions/userActions.js'
 import { Button } from 'react-bootstrap'
 import styled from 'styled-components'
 
-
 const Title = styled.h1`
   padding: 10px;
   font-size: 1.5em;
@@ -27,7 +26,7 @@ const RegDiv = styled.div`
   width: 300px;
   position: center;
   justify-content: center;
-  box-shadow: 0px 0px 5px 7px #CED1DB;
+  box-shadow: 0px 0px 5px 7px #ced1db;
   padding: 10px;
 `
 
@@ -47,8 +46,7 @@ const SubMessage = styled.h2`
   text-align: center;
 `
 
-
-const RegisterScreen = ({ history }) => {
+const RegisterScreen = ({ history, registerError }) => {
   const dispatch = useDispatch()
 
   const [usernameRegister, setUsernameRegister] = useState('')
@@ -70,36 +68,37 @@ const RegisterScreen = ({ history }) => {
 
   return (
     <RegWrapper>
-    <RegDiv>
-      <Title>New user? Register</Title>
-      <Form onSubmit={submitRegisterHandler}>
-        <label>Username</label>
-        <div></div>
-        <input
-          type='text'
-          name='usernameRegister'
-          value={usernameRegister}
-          onChange={(e) => setUsernameRegister(e.target.value)}
-        />
-        <div></div>
-        <label>Password </label>
-        <div></div>
-        <input
-          type='password'
-          name='passwordRegister'
-          value={passwordRegister}
-          onChange={(e) => setPasswordRegister(e.target.value)}
-        />
-        <div></div>
-        <div className="logregbutt">
-        <input type='submit' value='Submit' />
+      <RegDiv>
+        {registerError && registerError}
+        <Title>New user? Register</Title>
+        <Form onSubmit={submitRegisterHandler}>
+          <label>Username</label>
+          <div></div>
+          <input
+            type='text'
+            name='usernameRegister'
+            value={usernameRegister}
+            onChange={(e) => setUsernameRegister(e.target.value)}
+          />
+          <div></div>
+          <label>Password </label>
+          <div></div>
+          <input
+            type='password'
+            name='passwordRegister'
+            value={passwordRegister}
+            onChange={(e) => setPasswordRegister(e.target.value)}
+          />
+          <div></div>
+          <div className='logregbutt'>
+            <input type='submit' value='Submit' />
+          </div>
+        </Form>
+        <SubMessage>Already a member?</SubMessage>
+        <div className='screen-switch-butt'>
+          <Button href='/login'>Login to your account</Button>
         </div>
-      </Form>
-      <SubMessage>Already a member?</SubMessage>
-      <div className="screen-switch-butt">
-      <Button href='/login'>Login to your account</Button>
-      </div>
-    </RegDiv>
+      </RegDiv>
     </RegWrapper>
   )
 }

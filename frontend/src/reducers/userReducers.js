@@ -14,7 +14,6 @@ export const userReducer = (state = {}, action) => {
     // what happens here depends on us! lol
     case 'USER_LOGOUT':
       return null //clears everything
-
     case 'USER_REGISTER_FAIL':
       return { loading: false, error: action.payload }
     // REDEFINE BELOW UPDATE TO REFLECT ONLY LOCATION OR MAKE IT DYNAMIC TO ENTIRE USER UPDATE
