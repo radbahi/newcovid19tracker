@@ -205,3 +205,21 @@
 .story-card-container {
   height: 60vh;
 }
+
+
+/* Errors */
+
+.log-error-message{
+  font-size: initial;
+  color: #9f0300;
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+  padding-left: 35px;
+}
+.reg-error-message{
+  font-size: initial;
+  color: #9f0300;
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+  padding-left: 45px;
+}

@@ -21,6 +21,8 @@ const Form = styled.form`
 
 const LoginDiv = styled.div`
   padding: 10px;
+  padding-top: 50px;
+  padding-bottom: 20px;
   font-family: 'Poppins', sans-serif;
   font-weight: bold;
   border-radius: 25px;
@@ -31,7 +33,7 @@ const LoginDiv = styled.div`
 `
 
 const LoginWrapper = styled.div`
-  margin: 200px;
+  margin: 150px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -72,7 +74,7 @@ const LoginScreen = ({ loginError }) => {
   return (
     <LoginWrapper>
       <LoginDiv>
-        {loginError && loginError}
+        <div className="log-error-message">{loginError && loginError}</div>
         <Title>Login</Title>
         <Form onSubmit={submitLoginHandler}>
           <label>Username</label>

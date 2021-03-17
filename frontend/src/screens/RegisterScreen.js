@@ -21,6 +21,9 @@ const Form = styled.form`
 `
 
 const RegDiv = styled.div`
+  padding: 10px;
+  padding-top: 50px;
+  padding-bottom: 20px; 
   font-family: 'Poppins', sans-serif;
   font-weight: bold;
   border-radius: 25px;
@@ -28,11 +31,10 @@ const RegDiv = styled.div`
   position: center;
   justify-content: center;
   box-shadow: 0px 0px 5px 7px #ced1db;
-  padding: 10px;
 `
 
 const RegWrapper = styled.div`
-  margin: 200px;
+  margin: 150px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -73,7 +75,7 @@ const RegisterScreen = ({ registerError }) => {
         <Redirect to='/login' />
       ) : (
         <RegDiv>
-          {registerError && registerError}
+          <div className="reg-error-message">{registerError && registerError}</div>
           <Title>New user? Register</Title>
           <Form onSubmit={submitRegisterHandler}>
             <label>Username</label>
