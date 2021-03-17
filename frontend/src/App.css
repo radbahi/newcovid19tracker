@@ -229,8 +229,9 @@
 .about-title{
   font-family: 'Poppins', sans-serif;
   font-weight: bold;
-  margin-left: 15px;
-  margin-right: 15px;
+  margin-left: 20px;
+  margin-right: 20px;
+  font-size: 25px;
 }
 
 .about-div{
