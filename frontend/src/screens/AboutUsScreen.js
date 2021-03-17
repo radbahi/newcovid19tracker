@@ -63,7 +63,9 @@ const AboutUs = () => {
             src={linkedinlogo}
           />
         </a>
-        <Figure.Caption>and this is kevin</Figure.Caption>
+        <Figure.Caption>Kevin Gleeson. I'm a full stack developer, former music teacher,
+           and life long learner. I was thrilled to work with Red on this project. Check out
+           my socials and give me an add! </Figure.Caption>
       </Figure>
     </StyledAboutUs>
   )
