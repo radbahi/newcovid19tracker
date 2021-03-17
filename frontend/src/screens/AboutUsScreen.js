@@ -37,7 +37,17 @@ const AboutUs = () => {
         <Figure.Caption>
           Radouane 'Red' Bahi. This was originally my final project for Flatiron
           but I was still unhappy with how it turned out. I started all over and
-          the final product is much better in my opinion.{' '}
+          the final product is much better in my opinion. Contact{' '}
+          {
+            <a
+              href='mailto:alfonsolibron@gmail.com'
+              target='_blank'
+              rel='noopener noreferrer'
+            >
+              Alfonso Libron
+            </a>
+          }{' '}
+          for his design for this project.
         </Figure.Caption>
       </Figure>
       <br />
